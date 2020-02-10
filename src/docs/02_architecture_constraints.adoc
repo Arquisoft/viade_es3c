@@ -17,3 +17,11 @@ If needed you can subdivide them into
 technical constraints, organizational and political constraints and
 conventions (e.g. programming or versioning guidelines, documentation or naming conventions)
 ****
+
+=== Technical Constraints
+[width="100%",options="header"]
+|====================
+| Code | Constraint | Explanation 
+| TC01 | Implementación con React |El frontend se desarrollará con React que es una librería de JavaScript para construir interfaces de usuario. Permite componer IUs complejas de pequeñas y aisladas piezas de código llamadas “componentes”. 
+| TC02 | Uso de solid | La aplicación debe ser desarrollada siguiendo las especificaciones SOLID con un control descentralizado de los datos de los usuarios
+|====================
