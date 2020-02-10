@@ -1,14 +1,11 @@
 [[section-introduction-and-goals]]
 == Introduction and Goals
 
-[role="arc42help"]
-****
-Describes the relevant requirements and the driving forces that software architects and development team must consider. These include
+El objetivo es crear una aplicación llamada Viade, un sistema de gestión de rutas descentralizado basado en la arquitectura Solid. Consistirá en el principio de separar la información de la aplicación dando al usuario el poder de controlar sus datos.
 
-* underlying business goals, essential features and functional requirements for the system
-* quality goals for the architecture
-* relevant stakeholders and their expectations
-****
+Nuestro sistema será desarrollado por un equipo de seis estudiantes de la Universidad de Oviedo.
+
+En esta documentación seguiremos la plantilla Arc42.
 
 === Requirements Overview
 
