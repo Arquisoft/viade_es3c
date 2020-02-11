@@ -24,4 +24,6 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 | Code | Constraint | Explanation 
 | TC01 | Implementación con React |El frontend se desarrollará con React que es una librería de JavaScript para construir interfaces de usuario. Permite componer IUs complejas de pequeñas y aisladas piezas de código llamadas “componentes”. 
 | TC02 | Uso de solid | La aplicación debe ser desarrollada siguiendo las especificaciones SOLID con un control descentralizado de los datos de los usuarios
+| TC03 | No se puede usar un pod por defecto | Se tendrá que implementar un pod por cada usuario de la aplicación
+| TC04 | Los usuarios podrán visualizar las rutas en un mapa | Se utilizará una alguna api de mapas para mostrar las rutas de los usuarios 
 |====================
