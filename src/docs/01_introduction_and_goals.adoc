@@ -1,72 +1,40 @@
 [[section-introduction-and-goals]]
 == Introduction and Goals
 
-El objetivo es crear una aplicación llamada Viade, un sistema de gestión de rutas descentralizado basado en la arquitectura Solid. Consistirá en el principio de separar la información de la aplicación dando al usuario el poder de controlar sus datos.
+The goal is to create an application called Viade, a decentralized route management system based on the Solid architecture. It will consist of the principle of separating the information from the application giving the user the power to control their data.
 
-Nuestro sistema será desarrollado por un equipo de seis estudiantes de la Universidad de Oviedo.
+Our system will be developed by a team of six students from the University of Oviedo.
 
-En esta documentación seguiremos la plantilla Arc42.
+In this documentation we will follow the Arc42 template.
 
 === Requirements Overview
+The main requirement is to provide a system to store and display routes.  The system will be based on a decentralized architecture where data storage is done locally for each user. 
+An overview of the high-level requirements is shown below:
 
-[role="arc42help"]
-****
-.Contents
-Short description of the functional requirements, driving forces, extract (or abstract)
-of requirements. Link to (hopefully existing) requirements documents
-(with version number and information where to find it).
-
-.Motivation
-From the point of view of the end users a system is created or modified to
-improve support of a business activity and/or improve the quality.
-
-.Form
-Short textual description, probably in tabular use-case format.
-If requirements documents exist this overview should refer to these documents.
-
-Keep these excerpts as short as possible. Balance readability of this document with potential redundancy w.r.t to requirements documents.
-****
+* The app will allow a user to share pictures, videos or information about a route with other friends.
+* A user can get notifications when some friend shares a route with him.
+* Users can have groups of friends with whom they may want to share a route
+* It should be possible to view routes loaded by users that are using a different app, so interoperability with other route management systems should be taken into account.
 
 === Quality Goals
 
-[role="arc42help"]
-****
-.Contents
-The top three (max five) quality goals for the architecture whose fulfillment is of highest importance to the major stakeholders. We really mean quality goals for the architecture. Don't confuse them with project goals. They are not necessarily identical.
-
-.Motivation
-You should know the quality goals of your most important stakeholders, since they will influence fundamental architectural decisions. Make sure to be very concrete about these qualities, avoid buzzwords.
-If you as an architect do not know how the quality of your work will be judged …
-
-.Form
-A table with quality goals and concrete scenarios, ordered by priorities
-****
+[width="100%",options="header"]
+|===
+|Quality|Motivation
+| Decentralized | Avoid security issues, among others.
+| Usable | We want it to be able to be used and understood by any user.
+| Clean code and design | Most of our Stakeholders are developers so, it is relevant to maintain a clean product during its implementation
+|===
 
 === Stakeholders
 
-[role="arc42help"]
-****
-.Contents
-Explicit overview of stakeholders of the system, i.e. all person, roles or organizations that
+The following table shows the people interested in the application.
 
-* should know the architecture
-* have to be convinced of the architecture
-* have to work with the architecture or with code
-* need the documentation of the architecture for their work
-* have to come up with decisions about the system or its development
-
-.Motivation
-You should know all parties involved in development of the system or affected by the system.
-Otherwise, you may get nasty surprises later in the development process.
-These stakeholders determine the extent and the level of detail of your work and its results.
-
-.Form
-Table with role names, person names, and their expectations with respect to the architecture and its documentation.
-****
-
-[options="header",cols="1,2,2"]
+[width="100%",options="header",cols="1,2,2"]
 |===
 |Role/Name|Contact|Expectations
-| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
-| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+| Project sponsor | SOLID Team | They establish certain bases to be met in the development and operation of the application, also act as a help factor. 
+| Teaching Staff | Teachers | Proof that the requirements are met and follow the project evolution
+| Users | Potential users | Those possible users who use the application for the technologies used and their comfort.
+| Team | Developtment team | To develop the application that has been entrusted to us within the framework of the software architecture theme, fulfilling, at least, the basic requirements.
 |===
