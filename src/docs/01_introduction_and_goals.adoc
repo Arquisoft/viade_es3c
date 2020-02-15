@@ -1,7 +1,7 @@
 [[section-introduction-and-goals]]
 == Introduction and Goals
 
-The goal is to create an application called Viade, a decentralized route management system based on the Solid architecture. It will consist of the principle of separating the information from the application giving the user the power to control their data.
+This document describes the work carried out in the Software Architecture course project. The goal is to create an application called Viade, a decentralized route management system based on the Solid architecture. It will consist of the principle of separating the information from the application giving the user the power to control their data.
 
 Our system will be developed by a team of six students from the University of Oviedo.
 
@@ -11,6 +11,8 @@ In this documentation we will follow the Arc42 template.
 The main requirement is to provide a system to store and display routes.  The system will be based on a decentralized architecture where data storage is done locally for each user. 
 An overview of the high-level requirements is shown below:
 
+* Users can store their data related with their routes in their own storage Pods
+* Users can view the routes on a map
 * The app will allow a user to share pictures, videos or information about a route with other friends.
 * A user can get notifications when some friend shares a route with him.
 * Users can have groups of friends with whom they may want to share a route
@@ -19,10 +21,11 @@ An overview of the high-level requirements is shown below:
 === Quality Goals
 
 [width="100%",options="header"]
+Quality attributes qualify functionality of the application. This table contains the main features Viade looks for.
 |===
 |Quality|Motivation
 | Decentralized | Avoid security issues, among others.
-| Usable | We want it to be able to be used and understood by any user.
+| Usability | We want it to be able to be used and understood by any user.
 | Clean code and design | Most of our Stakeholders are developers so, it is relevant to maintain a clean product during its implementation
 |===
 
@@ -36,5 +39,5 @@ The following table shows the people interested in the application.
 | Project sponsor | SOLID Team | They establish certain bases to be met in the development and operation of the application, also act as a help factor. 
 | Teaching Staff | Teachers | Proof that the requirements are met and follow the project evolution
 | Users | Potential users | Those possible users who use the application for the technologies used and their comfort.
-| Team | Developtment team | To develop the application that has been entrusted to us within the framework of the software architecture theme, fulfilling, at least, the basic requirements.
+| Team | Development team | To develop the application that has been entrusted to us within the framework of the software architecture theme, fulfilling, at least, the basic requirements.
 |===
