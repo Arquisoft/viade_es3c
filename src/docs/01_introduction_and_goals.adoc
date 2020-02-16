@@ -11,11 +11,11 @@ In this documentation we will follow the Arc42 template.
 The main requirement is to provide a system to store and display routes.  The system will be based on a decentralized architecture where data storage is done locally for each user. 
 An overview of the high-level requirements is shown below:
 
-* Users can store their data related with their routes in their own storage Pods
-* Users can view the routes on a map
+* Users can store their data related with their routes in their own storage Pods.
+* Users can view the routes on a map.
 * The app will allow a user to share pictures, videos or information about a route with other friends.
 * A user can get notifications when some friend shares a route with him.
-* Users can have groups of friends with whom they may want to share a route
+* Users can have groups of friends with whom they may want to share a route.
 * It should be possible to view routes loaded by users that are using a different app, so interoperability with other route management systems should be taken into account.
 
 === Quality Goals
@@ -23,10 +23,11 @@ An overview of the high-level requirements is shown below:
 [width="100%",options="header"]
 Quality attributes qualify functionality of the application. This table contains the main features Viade looks for.
 |===
-|Quality|Motivation
+|*Quality*|*Motivation*
 | Decentralized | Avoid security issues, among others.
 | Usability | We want it to be able to be used and understood by any user.
-| Clean code and design | Most of our Stakeholders are developers so, it is relevant to maintain a clean product during its implementation
+| Clean code and design | Most of our Stakeholders are developers so, it is relevant to maintain a clean product during its implementation.
+| Testability | The application should be easily testing.
 |===
 
 === Stakeholders
@@ -37,7 +38,7 @@ The following table shows the people interested in the application.
 |===
 |Role/Name|Contact|Expectations
 | Project sponsor | SOLID Team | They establish certain bases to be met in the development and operation of the application, also act as a help factor. 
-| Teaching Staff | Teachers | Proof that the requirements are met and follow the project evolution
+| Teaching Staff | Teachers | Proof that the requirements are met and follow the project evolution.
 | Users | Potential users | Those possible users who use the application for the technologies used and their comfort.
 | Team | Development team | To develop the application that has been entrusted to us within the framework of the software architecture theme, fulfilling, at least, the basic requirements.
 |===
