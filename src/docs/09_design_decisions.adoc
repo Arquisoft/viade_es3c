@@ -4,25 +4,25 @@
 
 [role="arc42help"]
 ****
-.Constraints
+.*Constraints*
 * Use SOLID, a web descentralization project. Supports the librarie React.
 * Use React to desing the user interface.
 
-.Problems
+.*Problems*
 * We had to decide which libraries we would use to develop the application more easier.
 * We have had to learn new technology for develop our application.
 * We had to agree to choose a programming language to develop our application, taking into account the advantages and disadvantages of the language.
 
-.Consequences
+.*Consequences*
 * We face new technologies that most of us either ignored or simply sounded to us, but we didn't know how to use this technology, so we had to learn how to use it.
 * If we focus on using Node.js and JQuery it is more than enough to develop the application, since if we use more technologies, the project would be complicated because we would have to learn how to use it. 
-* If we do not use JavaScript and use another programming language, the project would be very complicated, since JavaScript has a lot of support and SOLID also supports JavaScript
+* If we do not use JavaScript and use another programming language, the project would be very complicated, since JavaScript has a lot of support and SOLID also supports JavaScript.
 
-.Discarded alternatives
+.*Discarded alternatives*
 * Use Angular.js.
 * Use scss.
 
-.Decisions
+.*Decisions*
 * Using JavaScript because it supports solid and is a language that is not entirely new to us since we have a small idea of ​​how to use it.
 * Using React is not only because it is a condition to develop the application, but also because it is a very powerful JavaScript library that makes our lives much easier and makes the code cleaner.
 ****
