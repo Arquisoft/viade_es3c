@@ -5,27 +5,17 @@
 
 [role="arc42help"]
 ****
-.Contents
-The most important domain and technical terms that your stakeholders use when discussing the system.
-
-You can also see the glossary as source for translations if you work in multi-language teams.
-
-.Motivation
-You should clearly define your terms, so that all stakeholders
-
-* have an identical understanding of these terms
-* do not use synonyms and homonyms
-
-.Form
-A table with columns <Term> and <Definition>.
-
-Potentially more columns in case you need translations.
-
-****
 
 [options="header"]
 |===
 | Term         | Definition
-| <Term-1>     | <definition-1>
-| <Term-2>     | <definition-2>
+| SOLID     | Solid is a new project led by Prof. Tim Berners-Lee, inventor of the World Wide Web. The project aims to radically change the way Web applications work today, resulting in true data ownership as well as improved privacy.
+| POD     | A user has a kind of box in which each of the users stores their data in these boxes, when the user connects to the Internet he can manage the data to which a website has access.
+|Bootstrap | Bootstrap is one of the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
+|Node.js | It is a JavaScript execution environment oriented to asynchronous events, Node.js is designed to build scalable network applications.
+|jQuery| jQuery is a multiplatform JavaScript library, initially created by John Resig, that simplifies the way to interact with HTML documents, manipulate the DOM tree.
 |===
+
+.arc42
+arc42 is completely process-agnostic, and especially well-suited for lean and agile development approaches.
+
