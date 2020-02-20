@@ -4,16 +4,16 @@
 
 [role="arc42help"]
 ****
-.Contents
+.*Contents*
 For build this application we choice the programing language JavaScript. JavaScript is one of the most used languges in the web, and is adequate lenguage to develop solid applications beacuse JavaScript support modulewise and is consistent  with web applications.
 
-We use a JavasCript librarie, React, to create user interfaces. With React wew can make this web application in a more orderly way and with less code than if you use pure Javascript or libraries like jQuery focused on DOM manipulation. It allows the views to be associated with the data, so if the data changes, the views also change. This is a good technology to learn.
+We use a JavasCript librarie, React, to create user interfaces. With React we can make this web application in a more orderly way and with less code than if you use pure Javascript or libraries like jQuery focused on DOM manipulation. It allows the views to be associated with the data, so if the data changes, the views also change. This is a good technology to learn.
 For the user interface also use Bootstrap to save time in the creation of css style sheets.
 
 However we want that our application communicate with the POD's, removing any unneeded middle server.
 
 We use Node.js, the main idea of ​​Node.js is to use the non-blocking and event-controlled input and output model to remain lightweight and efficient against real-time data usage applications that run on devices.
 
-.Considerations
+.*Considerations*
 * All decisions were chosen to make the project in the best possible way following the principles of SOLID.
 * There are technologies that we have had to learn practically from scratch but they seem very powerful tools for web development.
