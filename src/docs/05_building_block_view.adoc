@@ -12,16 +12,27 @@ The system will have three main elements which communicate each others:
     * PODS: they will storage information's users.
     * Viade: the app will communicate with users and pods.
 
-image::.\images\5_1.jpeg[]
+image::./images/05-builidng-block-view_1.jpeg[]
+
+=== Whitebox Overall System
+
+
+
+image::./images/05-building-block-view_2.jpg[]
 
 *Level 1*
 
+*_Contained building blocks_*
+
+
 *Level 2*
 
-*Level 3*
+*_Contained building blocks_*
+
+
 ****
 
-=== Whitebox Overall System
+
 
 [role="arc42help"]
 ****
