@@ -36,7 +36,7 @@ when your infrastructure is more complex.
 
 === Infrastructure
 
-image:deployment_07.PNG["Deployment view diagram"]
+=image:deployment_07.PNG[Deployment view diagram]
 
 [role="arc42help"]
 ****
