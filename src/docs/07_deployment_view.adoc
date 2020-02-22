@@ -36,7 +36,10 @@ when your infrastructure is more complex.
 
 === Infrastructure
 
-=image:deployment_07.PNG[Deployment view diagram]
+.Deployment view diagram
+[caption="Figure 7.1: "]
+image::deployment_07.PNG[Deployment view diagram]
+:imagesdir: ./images
 
 [role="arc42help"]
 ****
