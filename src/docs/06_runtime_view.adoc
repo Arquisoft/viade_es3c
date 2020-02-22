@@ -11,5 +11,8 @@ Users must log in with their credentials in order to access the application and 
 4. The server deny the authentication.
 5. The server approve the authentication.
 
+Once logged in correctly, the user has 2 main options: to create a new route or to view his saved routes.
+From point 6 to 8 we describe how to create a route.
+Points 9 to 13 describe the process for viewing the user's saved routes.
 
 image::images/06_runtime_view_Log_in.png[Log in diagram]
