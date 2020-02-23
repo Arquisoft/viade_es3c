@@ -1,6 +1,7 @@
 [[section-deployment-view]]
 == Deployment View
-At this section we will describe the hardware and software infrastructure used to execute our application. The overview is as follows in the next diagram. 
+At this section we will show the execution architecture of our system including the hardware and software infrastructure used to execute our application, the execution environement and the middleware connecting them. The overview is as follows in the next diagram. 
+
 == Infrastructure
 
 image::images/deployment_07.PNG[Deployment view diagram]
@@ -8,11 +9,11 @@ image::images/deployment_07.PNG[Deployment view diagram]
 [options="header"]
 |===
 | Node       | Description
-| Users device | The computer which the users are going to make use of the application.
+| Users device | The hardware which the users are going to make use of the application, in the first instance a computer, but depending on the development of the project it could be a mobile device.
 | Web browser | Web browser to access the application.
 | ViaDe_es3c | Our application wich contains the index.html that is used by the users to interact with the app and the react components wich create that artifact.
 | GitHub | Web hosting server where our applications is allocated. 
-| SOLID| The SOLID server where the users POD are and that the users have access to.
+| SOLID | The SOLID server where the users POD are contained and which the users have access to.
 |===
 
 
