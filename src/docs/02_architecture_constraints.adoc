@@ -17,3 +17,37 @@ If needed you can subdivide them into
 technical constraints, organizational and political constraints and
 conventions (e.g. programming or versioning guidelines, documentation or naming conventions)
 ****
+
+=== Technical Constraints
+[width="100%",options="header"]
+|====================
+| Code | Constraint | Explanation 
+| TC01 | Implementation with React | The front-end will be developed with React, which is a JavaScript library for building user interfaces. It allows to compose complex IUs from single small pieces of code called components
+| TC02 | Use of solid | The application must be developed following SOLID specifications with a decentralized control of user data
+| TC03 | Cannot use a default pod | A pod will have to be implemented for each user of the application
+| TC04 | Users will be able to visualize routes on a map | A geolocalization api will be used to show the users' routes 
+| TC05 | Friend list | Users can have a friends list, which will be other users to share content with
+| TC06 | Push notifications | The application should allow you to send and receive notifications when another user from an application wants to share a route
+| TC07 | Interoperability | Routes loaded by users from other SOLID applications must be visible by the application
+|====================
+
+=== Organizative Constraints
+[width="100%",options="header"]
+|====================
+| Code | Constraint | Explanation 
+| OC01 | Time limit | The project must be completed by dd/MM/yyyy 
+| OC02 | Project budget | In the absence of a budget, resources are limited
+| OC03 | Testing | The application will be tested during its development to ensure its correct operation 
+| OC04 | Team organization| The project will be developed in teams of 5-6 people
+|====================
+
+=== Conventions Constraints
+[width="100%",options="header"]
+|====================
+| Code | Constraint | Explanation 
+| CC01 | Version control source | Must be performed with Git, using the repository hosted in the GitHub service
+| CC02 | Documentation | Implemented following the Arc42 structure template and using AsciiDoctor
+| CC03 | Javascript code conventions | The code shoud follow the javascript code convections 
+| CC04 | Node code conventions | The code shoud follow the node code convections 
+| CC05 | React code conventions | The code shoud follow the react code convections 
+|====================
