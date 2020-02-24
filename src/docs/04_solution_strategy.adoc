@@ -1,8 +1,6 @@
 [[section-solution-strategy]]
 == Solution Strategy
 
-
-[role="arc42help"]
 .*Contents*
 For build this application we choice the programing language JavaScript. JavaScript is one of the most used languges in the web, and is adequate lenguage to develop solid applications beacuse JavaScript support modulewise and is consistent  with web applications.
 
