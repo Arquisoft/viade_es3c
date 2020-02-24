@@ -11,3 +11,11 @@ This project is an assignment for the [Software Architecture course](https://arq
 The app is deployed at [https://arquisoft.github.io/viade_es3c/](https://arquisoft.github.io/viade_es3c/) which also contains a [technical documentation](https://arquisoft.github.io/viade_es3c/docs).
 
 More information about how this project has been setup is available [in the wiki](https://github.com/Arquisoft/viade_es3c/wiki).
+
+## Authors:
+* Tania Mato Martínez
+* Sara García Rodríguez
+* Sonia Garía Lavandera
+* Gema Rico Pozas
+* Guillermo de Leiva Martínez
+* Javier Pontón González
