@@ -2,9 +2,9 @@
 == Deployment View
 At this section we will show the execution architecture of our system including the hardware and software infrastructure used to execute our application, the execution environement and the middleware connecting them. The overview is as follows in the next diagram. 
 
-== Infrastructure
+=== Infrastructure
 
-image::images/deployment_07.PNG[Deployment view diagram]
+image::deployment_07.PNG[Deployment view diagram]
 
 [options="header"]
 |===

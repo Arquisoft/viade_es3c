@@ -2,7 +2,7 @@
 == Runtime View
 In this section, we will develop the main runtime views of use cases of our application.
 
-== Log in
+=== Log in
 Users must log in with their credentials in order to access the application and upload their data.
 
 1. The user opens the application and accesses the page to enter their data.
@@ -15,4 +15,4 @@ Once logged in correctly, the user has 2 main options: to create a new route or 
 From point 6 to 8 we describe how to create a route.
 Points 9 to 13 describe the process for viewing the user's saved routes.
 
-image::images/06_runtime_view_Log_in.png[Log in diagram]
+image::06_runtime_view_Log_in.png[Log in diagram]
