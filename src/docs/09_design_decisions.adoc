@@ -19,10 +19,11 @@
 * If we do not use JavaScript and use another programming language, the project would be very complicated, since JavaScript has a lot of support and SOLID also supports JavaScript
 
 .Discarded alternatives
-* Use Angular.js.
-* Use scss.
+* Use Angular.js, beacuse we use React.
+* Use scss, we discard using sccs "saas" because although it is a good technology for style sheets, it is a lot of learning load in two months.
 
 .Decisions
 * Using JavaScript because it supports solid and is a language that is not entirely new to us since we have a small idea of ​​how to use it.
 * Using React is not only because it is a condition to develop the application, but also because it is a very powerful JavaScript library that makes our lives much easier and makes the code cleaner.
+* Using the api of google maps for the routes.
 ****
