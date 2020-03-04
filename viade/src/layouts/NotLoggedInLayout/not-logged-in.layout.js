@@ -3,7 +3,6 @@ import { Route, Redirect } from 'react-router-dom';
 import { withTranslation, useTranslation } from 'react-i18next';
 import { NavBar, Footer } from '@components';
 import { withWebId } from '@inrupt/solid-react-components';
-import { LanguageDropdown } from '@util-components';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -33,10 +32,6 @@ const NotLoggedInLayout = props => {
           <NavBar
             {...matchProps}
             toolbar={[
-              {
-                component: () => <LanguageDropdown {...{ t, ...props }} />,
-                id: 'language'
-              }
             ]}
           />
           <ComponentWrapper {...matchProps} />

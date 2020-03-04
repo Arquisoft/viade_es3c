@@ -19,7 +19,7 @@ export const WelcomeWrapper = styled.section`
 `;
 
 export const WelcomeCard = styled.div`
-  background-color: #fff;
+  background-color: #000000;
   margin: 30px auto;
 
   //Overriding the style guide card flexbox settings
@@ -47,6 +47,7 @@ export const WelcomeLogo = styled.div`
 
   img {
     width: 60%;
+    height: 60%;
     display: block;
     margin: 0 auto;
   }
@@ -95,7 +96,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  background-image: ${({ image }) => (image ? `url(${image})` : '#cccccc')};
+  background-image: ${({ image }) => (image ? `url(${image})` : '#ffffff')};
   background-size: cover;
   border-radius: 50%;
   width: 128px;
