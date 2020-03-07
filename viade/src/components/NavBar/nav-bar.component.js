@@ -58,7 +58,7 @@ const NavBar = (props: Props) => {
       <section className="header-wrap">
         <div className="logo-block">
           <Link to="/welcome">
-            <img src="img/logoViade.jpeg" alt="viade" />
+            <img src="img/logoViade.png" alt="viade" />
           </Link>
         </div>
 
@@ -79,7 +79,6 @@ const NavBar = (props: Props) => {
             {toolbar && <Toolbar toolbar={toolbar} />}
           </Fragment>
         )}
-        <HamburgerButton toggleMobileMenu={toggleMobileMenu} />
       </section>
     </header>
   );
