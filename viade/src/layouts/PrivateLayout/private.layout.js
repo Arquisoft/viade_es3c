@@ -62,7 +62,6 @@ const PrivateLayout = ({ routes, webId, location, history, ...rest }) => {
             </Content>
           )}
         />
-        <Footer />
       </Container>
     </React.Fragment>
   );

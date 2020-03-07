@@ -5,7 +5,9 @@ export const ProfileWrapper = styled.section`
   flex: 1 0 auto;
   align-items: center;
   justify-content: center;
-  background-image: url('/img/concentric-hex-pattern_2x.png');
+  //background-image: url('/img/concentric-hex-pattern_2x.png');
+   background: rgb(237,251,63);
+  background: linear-gradient(90deg, rgba(237,251,63,1) 0%, rgba(252,149,70,1) 100%);
   background-repeat: repeat;
   padding: 60px 0;
 `;
