@@ -62,10 +62,6 @@ const AuthNavBar = React.memo((props: Props) => {
       sticky
       toolbar={[
         {
-          component: () => <Notification {...{ webId, inbox: inboxes }} />,
-          id: 'notifications'
-        },
-        {
           component: props => <NavBarContainer {...{ t, i18n, webId, history, ...props }} />,
           id: 'profile'
         }
