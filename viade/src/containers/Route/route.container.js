@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { successToaster, errorToaster } from '@utils';
 import { Loader } from '@util-components';
+import Map from './map';
 import {
     Header,
     RouteWrapper,
@@ -10,13 +11,6 @@ import {
 } from './route.style';
 
 
-/**
- * We are using ldflex to fetch profile data from a solid pod.
- * ldflex libary is using json-LD for this reason you will see async calls
- * when we want to get a field value, why ? becuase they are expanded the data
- * this means the result will have a better format to read on Javascript.
- * for more information please go to: https://github.com/solid/query-ldflex
- */
 type Props = { webId: String };
 
 const Route = ({ webId }: Props) => {
@@ -24,7 +18,10 @@ const Route = ({ webId }: Props) => {
     return (
         <RouteWrapper data-testid="route-component">
             <RouteContainer>
-
+                <Header>
+                    <h1 className="text--white">Ruta</h1>
+                </Header>
+                <Map zoom={13}/>
             </RouteContainer>
         </RouteWrapper>
     );

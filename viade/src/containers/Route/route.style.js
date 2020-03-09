@@ -7,9 +7,9 @@ export const Header = styled.div`
   align-items: center;
   justify-content: center;
   background-image: url('/img/pattern-geo.png'),
-    linear-gradient(135deg, #7c4dff 0%, #18a9e6 50%, #01c9ea 100%);
+   linear-gradient(135deg, #7c4dff 0%, #18a9e6 50%, #01c9ea 100%);
   background-repeat: repeat, no-repeat;
-  padding: 30px 20px;
+  padding: 10px 10px;
 
   .edit-button {
     background: rgba(255, 255, 255, 0.1);
@@ -49,5 +49,6 @@ export const RouteContainer = styled.div`
   max-width: 900px;
   margin: 0 20px;
   width: 100%;
+  height: 50%;
   flex: 1 0 auto;
 `;
