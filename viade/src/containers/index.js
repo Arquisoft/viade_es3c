@@ -4,7 +4,7 @@ import PageNotFound from './PageNotFound';
 import Welcome from './Welcome';
 import Profile from './Profile';
 import TextEditor from './TextEditor';
-import Route from './NewRoute';
+import NewRoute from './NewRoute';
 import { GamePage, GameList } from './TicTacToe';
 import { FormModelConverter, FormModelRenderer } from './FormModel';
 
@@ -14,7 +14,7 @@ export {
   RegistrationSuccess,
   PageNotFound,
   Welcome,
-  Route,
+  NewRoute,
   Profile,
   GamePage,
   GameList,
