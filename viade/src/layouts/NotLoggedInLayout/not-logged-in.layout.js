@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { withTranslation, useTranslation } from 'react-i18next';
-import { NavBar, Footer } from '@components';
+import { withTranslation } from 'react-i18next';
+import { NavBar } from '@components';
 import { withWebId } from '@inrupt/solid-react-components';
 import styled from 'styled-components';
 
@@ -10,15 +10,10 @@ const Container = styled.div`
   position: relative;
 `;
 
-const FooterContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-`;
+
 
 const NotLoggedInLayout = props => {
   const { component: Component, webId, ...rest } = props;
-  const { t } = useTranslation();
   const ComponentWrapper = styled(Component)`
     padding-bottom: 60px;
     height: 100%;

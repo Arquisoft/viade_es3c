@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { withAuthorization } from '@inrupt/solid-react-components';
-import { AuthNavBar, Footer } from '@components';
+import { AuthNavBar } from '@components';
 import { permissionHelper } from '@utils';
 import styled from 'styled-components';
 

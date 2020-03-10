@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { NavBar, Notification } from '@components';
+import { NavBar } from '@components';
 import { useTranslation } from 'react-i18next';
 import { NavBarContainer } from './children';
 import { ldflexHelper, errorToaster, storageHelper } from '@utils';
