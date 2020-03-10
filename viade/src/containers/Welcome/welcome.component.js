@@ -1,12 +1,11 @@
 import React from 'react';
 import { Uploader } from '@inrupt/solid-react-components';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import {
   WelcomeWrapper,
   WelcomeCard,
   WelcomeLogo,
   WelcomeProfile,
-  WelcomeDetail,
   WelcomeName,
   ImageWrapper
 } from './welcome.style';
