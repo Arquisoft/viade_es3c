@@ -3,8 +3,7 @@ import React from 'react';
 import update from 'react-addons-update';
 
 const mapStyles = {
-    width: '73%',
-    height: '100%',
+    height: '300px',
 };
 
 export class MapContainer extends React.Component {
@@ -13,20 +12,11 @@ export class MapContainer extends React.Component {
         super(props);
     }
 
-    state = {
-        markers: [{
-            position: {
-                lat: 25.0112183,
-                lng: 121.52067570000001,
-            },
-            key: "Taiwan",
-            defaultAnimation: 2
-        }],
-        center: {
-            lat: 40.4165000,
-            lng: -3.7025600
-        }
+    sendData = () => {
+        this.props.parentCallBack(this.state.markers);
     };
+
+    state = {markers:[]};
 
     clickPoint = (event, map, clickEvent) => {
         let {markers} = this.state;
@@ -43,6 +33,7 @@ export class MapContainer extends React.Component {
             ],
         });
         this.setState({markers});
+        this.sendData();
     };
 
     getLocation() {
@@ -61,9 +52,7 @@ export class MapContainer extends React.Component {
     draw() {
         let markers = [];
         for (let i = 0; i < this.state.markers.length; i++) {
-            if (i != 0) {
-                markers.push({lat: this.state.markers[i].position.lat, lng: this.state.markers[i].position.lng})
-            }
+            markers.push({lat: this.state.markers[i].position.lat, lng: this.state.markers[i].position.lng})
         }
         return markers;
     };
@@ -87,10 +76,9 @@ export class MapContainer extends React.Component {
 
             <Polyline
                 path={this.draw()}
-                strokeColor="#0000FF"
+                strokeColor="#01C9EA"
                 strokeOpacity={0.8}
                 strokeWeight={2}/>
-
             </Map>
         );
     }

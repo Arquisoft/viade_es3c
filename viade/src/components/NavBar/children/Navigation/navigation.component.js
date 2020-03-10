@@ -19,7 +19,7 @@ const Navigation = ({ navigation }: Props) => (
                   className="nav-icon"
                   width="24px"
                   height="20px"
-                  style={{ width: '24px' }}
+                  style={{ width: '24px'}}
                 />
               </span>
               <span className="label">{item.label}</span>

@@ -11,7 +11,7 @@ export const NavigationItems = [
   {
       id: 'welcome',
       icon: '/img/icon/apps.svg',
-      label: 'navBar.map',
+      label: 'navBar.newRoute',
       to: '/route'
     },
   {

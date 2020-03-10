@@ -15,7 +15,7 @@ import {
   FormModelRenderer,
   TextEditor
 } from './containers';
-import Route from "./containers/Route";
+import NewRoute from "./containers/NewRoute";
 
 const privateRoutes = [
   {
@@ -26,7 +26,7 @@ const privateRoutes = [
   {
     id: 'route',
     path: '/route',
-    component: Route
+    component: NewRoute
   },
   {
     id: 'profile',
