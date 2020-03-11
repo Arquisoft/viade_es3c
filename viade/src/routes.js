@@ -16,6 +16,7 @@ import {
   TextEditor
 } from './containers';
 import NewRoute from "./containers/NewRoute";
+import MyRoutes from "./containers/MyRoutes";
 
 const privateRoutes = [
   {
@@ -27,6 +28,11 @@ const privateRoutes = [
     id: 'route',
     path: '/route',
     component: NewRoute
+  },
+   {
+    id: 'myRoutes',
+    path: '/myRoutes',
+    component: MyRoutes
   },
   {
     id: 'profile',
