@@ -9,11 +9,17 @@ export const NavigationItems = [
     to: '/welcome'
   },
   {
-      id: 'welcome',
+      id: 'newRoute',
       icon: '/img/icon/apps.svg',
       label: 'navBar.newRoute',
       to: '/route'
     },
+  {
+    id: 'myRoutes',
+    icon: '/img/icon/apps.svg',
+    label: 'navBar.myRoutes',
+    to: '/myRoutes'
+  },
   {
     id: 'profile',
     icon: '/img/people.svg',
