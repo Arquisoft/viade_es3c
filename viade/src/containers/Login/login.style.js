@@ -8,7 +8,8 @@ export const LoginWrapper = styled(GradientBackground)`
   margin-top: 60px;
 `;
 
-export const LoginPanel = styled(Panel)``;
+export const LoginPanel = styled(Panel)`
+`;
 
 export const PanelBody = styled.div`
   display: grid;
@@ -42,7 +43,7 @@ export const LoginTitle = styled.span`
   &::after {
     width: 32%;
     content: '';
-    background: #656e75;
+    background: #656e75;  
     height: 1px;
     box-sizing: border-box;
     top: 50%;

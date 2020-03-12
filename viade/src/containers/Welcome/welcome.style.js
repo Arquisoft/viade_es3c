@@ -44,12 +44,11 @@ export const WelcomeCard = styled.div`
 `;
 
 export const WelcomeLogo = styled.div`
-  width: 50%;
-  height: 100%;
+ 
 
   img {
-    width: 60%;
-    height: 60%;
+    width: 10%;
+    height: 10%;
     display: block;
     margin: 0 auto;
   }
