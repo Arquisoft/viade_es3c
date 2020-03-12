@@ -3,9 +3,7 @@ import {media} from '../../utils';
 
 export const WelcomeWrapper = styled.section`
   width: 100%;
-   //background: rgb(237,251,63);
-  background: linear-gradient(90deg, rgba(237,251,63,1) 0%, rgba(252,149,70,1) 100%);
-  //background-image: url('/img/concentric-hex-pattern_2x.png');
+  background: linear-gradient(90deg, #67e3c0ff 0%, #046df0f0 100%);
   background-repeat: repeat;
   padding: 50px 0;
 
