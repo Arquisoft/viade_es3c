@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import { media } from '../../utils';
+import {media} from '../../utils';
 
 export const WelcomeWrapper = styled.section`
   width: 100%;
-   background: rgb(237,251,63);
+   //background: rgb(237,251,63);
   background: linear-gradient(90deg, rgba(237,251,63,1) 0%, rgba(252,149,70,1) 100%);
   //background-image: url('/img/concentric-hex-pattern_2x.png');
   background-repeat: repeat;
   padding: 50px 0;
 
   h3 {
-    color: #666666;
+    color: #ffffff;
     span {
       font-weight: bold;
     }
@@ -22,12 +22,41 @@ export const WelcomeWrapper = styled.section`
 
 export const WelcomeCard = styled.div`
   background-color: #000000;
+  
+    //background: linear-gradient(90deg, rgba(237,251,63,1) 0%, rgba(252,149,70,1) 100%);
+
   margin: 30px auto;
 
   //Overriding the style guide card flexbox settings
   max-width: 80% !important;
   flex-direction: row !important;
   padding: 50px 0 !important; //temporary fix to a style guide bug
+
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  button {
+    margin-left: 8px;
+  }
+`;
+
+export const TitleCard = styled.div`
+  background-color: #000000;
+  
+    //background: linear-gradient(90deg, rgba(237,251,63,1) 0%, rgba(252,149,70,1) 100%);
+
+  margin: 30px auto;
+
+  //Overriding the style guide card flexbox settings
+  max-width: 80% !important;
+  flex-direction: row !important;
+  padding: 5px 0 !important; //temporary fix to a style guide bug
 
   align-items: center;
 
@@ -67,6 +96,7 @@ export const WelcomeProfile = styled.div`
 
   h1,
   img {
+  
     margin: 0 10px;
     display: inline-block;
     vertical-align: middle;
@@ -97,7 +127,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  background-image: ${({ image }) => (image ? `url(${image})` : '#ffffff')};
+  background-image: ${({image}) => (image ? `url(${image})` : '#ffffff')};
   background-size: cover;
   border-radius: 50%;
   width: 128px;
@@ -120,4 +150,24 @@ export const WelcomeDetail = styled.div`
 export const WelcomeName = styled.span`
   overflow-wrap: break-word;
   word-break: break-word;
+`;
+
+export const ListButton = styled.a`
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 300;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #ff5900;
+    border-radius: 6px;
+    border: 2px solid #ffffff;
+ 
+  &:hover{
+    text-decoration: none !important;
+    color: #ff5900;
+    background-color: #ffffff;
+  }
+
 `;
