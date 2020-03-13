@@ -22,15 +22,26 @@ class MyRoute extends React.Component{
                     <h1>Mis rutas</h1>
                 </Header>
             <RouteCard className="card">
-                <h2>Ruta de montaña</h2>
+                <h3>Ruta de montaña</h3>
+                   <p>Autor</p>
+                <div>
                 <Button id="viewRoute">Ver ruta</Button>  
- 
+                </div>
             </RouteCard>
             <RouteCard className="card">
+            <h3>Ruta del Alba</h3>
+                   <p>Autor</p>
+                <div>
+                <Button id="viewRoute">Ver ruta</Button>  
+                </div>
                                             
             </RouteCard>
             <RouteCard className="card">
-                                
+                <h3>Ruta del cares</h3>
+                   <p>Autor</p>
+                <div>
+                <Button id="viewRoute">Ver ruta</Button>  
+                </div>
             </RouteCard>
             </FormRenderContainer>
             </MyRouteContainer>

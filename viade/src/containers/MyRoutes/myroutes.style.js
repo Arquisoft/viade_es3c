@@ -2,25 +2,24 @@ import styled from 'styled-components';
 import { media } from '../../utils';
 
 export const RouteCard = styled.div`
-  background-color: #FFFFFF;
-  margin: 30px auto;
+  background:  linear-gradient(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
+  margin: 15px auto;
 
   max-width: 80% !important;
-  flex-direction: row !important;
-  padding: 50px 0 !important; //temporary fix to a style guide bug
-
-  align-items: center;
-
+  padding: 30px 0 !important; //temporary fix to a style guide bug
   a {
     text-decoration: none;
     &:hover {
       text-decoration: underline;
     }
   }
+  p{
+    font-size: 25px;
+    font-weight: bold;
+  }
+  h3{
 
-  button {
-    position: absolute;
-    bottom:480px;
+    font-size: 35px
   }
 `;
 
@@ -29,9 +28,7 @@ export const RouteWrapper = styled.section`
   flex: 1 0 auto;
   align-items: center;
   justify-content: center;
-  //background-image: url('/img/concentric-hex-pattern_2x.png');
-   background: rgb(237,251,63);
-  background: linear-gradient(90deg, rgba(237,251,63,1) 0%, rgba(252,149,70,1) 100%);
+  background: linear-gradient(90deg, #67e3c0ff 0%, #046df0f0 100%);
   background-repeat: repeat;
   padding: 60px 0;
 `;
@@ -47,8 +44,8 @@ export const FormRenderContainer = styled.div`
   border: 1px solid #dae0e6;
   min-height: 40px;
   padding: 5px;
- background-image: url('/img/pattern-geo.png'),
-    linear-gradient(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
+  background-image: url('/img/pattern-geo.png'),
+  background-color: white;
   background-repeat: repeat, no-repeat;
   padding: 30px 20px;
   .inrupt-form-group {
@@ -74,7 +71,7 @@ export const Header = styled.div`
   background-image: url('/img/pattern-geo.png'),
     linear(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
   background-repeat: repeat, no-repeat;
-  padding: 30px 20px;
+  padding: 10px 5px;
   p {
     color: white;
   }
@@ -89,6 +86,6 @@ export const Header = styled.div`
 `;
 
 export const Button = styled.button`
-  max-width: 128px;
-  display: inline-block;
+  max-width: 200px;
+  font-size: 15px;
 `;
