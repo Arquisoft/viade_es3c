@@ -25,7 +25,7 @@ export class MapContainer extends React.Component {
                 {
                     position: {
                         lat: clickEvent.latLng.lat(),
-                        lng: clickEvent.latLng.lng(),
+                        lng: clickEvent.latLng.lng()
                     },
                     defaultAnimation: 2,
                     key: Date.now(),
@@ -42,7 +42,7 @@ export class MapContainer extends React.Component {
                 this.setState({
                     center: {
                         lat: position.coords.latitude,
-                        lng: position.coords.longitude
+                        lng: position.coords.longitude,
                     }
                 })
             });
@@ -70,7 +70,7 @@ export class MapContainer extends React.Component {
 
             {this.state.markers.map((marker) => {
                 return (
-                    <Marker position={{lat: marker.position.lat, lng: marker.position.lng}}/>
+                    <Marker position={{lat: marker.position.lat, lng: marker.position.lng, alt: marker.position.alt}}/>
                 );
             })}
 

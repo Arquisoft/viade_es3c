@@ -7,7 +7,6 @@ export const RouteWrapper = styled.section`
   flex: 1 0 auto;
   flex-direction:column;
   background-image: url('/img/concentric-hex-pattern_2x.png');
-  background-repeat: repeat;
   padding: 10px 0;
 `;
 

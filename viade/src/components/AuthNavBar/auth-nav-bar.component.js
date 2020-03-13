@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { NavBarContainer } from './children';
 import { ldflexHelper, errorToaster, storageHelper } from '@utils';
 import { NavigationItems } from '@constants';
+import LanguageDropdown from "../Utils/LanguageDropdown";
 
 type Props = {
   webId: string
@@ -78,9 +79,17 @@ const AuthNavBar = React.memo((props: Props) => {
       sticky
       toolbar={[
         {
+          component: () => <LanguageDropdown {...{ t, i18n }}/>,
+          id: 'language'
+        },
+        {
+          component: () => <Notification {...{ webId, inbox: inboxes }}/>,
+          id: 'notification'
+        },
+        {
           component: props => <NavBarContainer {...{ t, i18n, webId, history, ...props }} />,
           id: 'profile'
-        }
+        },
       ]}
     />
   );
