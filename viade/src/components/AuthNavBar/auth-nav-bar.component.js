@@ -5,6 +5,7 @@ import { NavBarContainer } from './children';
 import { ldflexHelper, errorToaster, storageHelper } from '@utils';
 import { NavigationItems } from '@constants';
 import LanguageDropdown from "../Utils/LanguageDropdown";
+import Notification from "../Notifications";
 
 type Props = {
   webId: string

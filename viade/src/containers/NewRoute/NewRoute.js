@@ -9,11 +9,29 @@ import {
 } from './route.style';
 import {Input} from "../TextEditor/text-editor.style";
 
-function saveRoute() {
-
+function saveRoute(name) {
+    let routeName = name;
+    console.log(name)
 }
 
 class NewRoute extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        saveRoute(this.state.value)
+    }
 
     state = {markers: {}};
 
@@ -27,15 +45,13 @@ class NewRoute extends React.Component{
             <RouteWrapper data-testid="route-component">
                 <Header>
                     <h5 className="text--white">Nombre:</h5>
-                    <Input type="text" size="10" />
-                    <Button id="saveRoute" onClick={saveRoute}>Guardar</Button>
+                    <Input type="text" value={this.state.value} onChange={this.handleChange} />
+                    <Button id="saveRoute" type="button" onClick={this.handleSubmit} className="btn">Save</Button>
                 </Header>
                 <Map parentCallBack = {this.callBackFunction} zoom={20}/>
             </RouteWrapper>
         );
     }
-
-
 };
 
 export default NewRoute;
