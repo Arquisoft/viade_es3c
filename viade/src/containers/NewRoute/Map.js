@@ -2,8 +2,9 @@ import {Map, GoogleApiWrapper, Marker, Polyline} from 'google-maps-react';
 import React from 'react';
 import update from 'react-addons-update';
 
-const mapStyles = {
-    height: '300px',
+const mapStyle = {
+    paddingBottom: '10px',
+    height: '100%'
 };
 
 export class MapContainer extends React.Component {
@@ -17,6 +18,19 @@ export class MapContainer extends React.Component {
     };
 
     state = {markers:[]};
+
+    getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                this.setState({
+                    center: {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    }
+                })
+            });
+        }
+    }
 
     clickPoint = (event, map, clickEvent) => {
         let {markers} = this.state;
@@ -36,19 +50,6 @@ export class MapContainer extends React.Component {
         this.sendData();
     };
 
-    getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                this.setState({
-                    center: {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                    }
-                })
-            });
-        }
-    }
-
     draw() {
         let markers = [];
         for (let i = 0; i < this.state.markers.length; i++) {
@@ -62,23 +63,23 @@ export class MapContainer extends React.Component {
         return (
             <Map
                 google={this.props.google}
-                zoom={8}
-                style={mapStyles}
+                zoom={13}
+                style={mapStyle}
                 onClick={this.clickPoint}
                 center={this.state.center}
             >
 
-            {this.state.markers.map((marker) => {
-                return (
-                    <Marker position={{lat: marker.position.lat, lng: marker.position.lng, alt: marker.position.alt}}/>
-                );
-            })}
+                {this.state.markers.map((marker) => {
+                    return (
+                        <Marker position={{lat: marker.position.lat, lng: marker.position.lng}}/>
+                    );
+                })}
 
-            <Polyline
-                path={this.draw()}
-                strokeColor="#01C9EA"
-                strokeOpacity={0.8}
-                strokeWeight={2}/>
+                <Polyline
+                    path={this.draw()}
+                    strokeColor="#01C9EA"
+                    strokeOpacity={0.8}
+                    strokeWeight={2}/>
             </Map>
         );
     }

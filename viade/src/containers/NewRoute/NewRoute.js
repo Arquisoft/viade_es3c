@@ -48,7 +48,7 @@ class NewRoute extends React.Component{
                     <Input type="text" value={this.state.value} onChange={this.handleChange} />
                     <Button id="saveRoute" type="button" onClick={this.handleSubmit} className="btn">Save</Button>
                 </Header>
-                <Map parentCallBack = {this.callBackFunction} zoom={20}/>
+                <Map parentCallBack = {this.callBackFunction} zoom={13}/>
             </RouteWrapper>
         );
     }
