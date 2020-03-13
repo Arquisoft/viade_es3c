@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Navigation, Toolbar, HamburgerButton, MobileNavigation } from './children';
+import { Navigation, Toolbar, MobileNavigation } from './children';
+import {DivLogoViade, ImageLogoViade} from './nav-bar-component.style.js';
 
 type Props = {
   t: Function,
@@ -56,11 +57,12 @@ const NavBar = (props: Props) => {
   return (
     <header role="navigation" className="header header__desktop fixed" ref={componentElement}>
       <section className="header-wrap">
-        <div className="logo-block">
+      <DivLogoViade>
           <Link to="/welcome">
-            <img src="img/logoViade.svg" alt="viade" />
+            <ImageLogoViade src="img/logoViade.svg" alt="viade" />
           </Link>
-        </div>
+      </DivLogoViade>
+        
 
         {isOpenMobile ? (
           <MobileNavigation

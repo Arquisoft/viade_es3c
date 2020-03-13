@@ -10,6 +10,7 @@
     "@rdfjs/data-model": "^1.1.1",
     "@shexjs/core": "^1.0.0-alpha.4",
     "@solid/query-ldflex": "2.6.0",
+    "@solid/react": "^1.8.0",
     "@svgr/webpack": "2.4.1",
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
@@ -49,7 +50,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "docs": "shx rm -rf build/docs && asciidoctor -D build/docs -a imagesdir=./images -r asciidoctor-diagram src/docs/index.adoc && shx cp -R src/docs/images build/docs",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -135,15 +138,15 @@
     "@babel/core": "7.1.6",
     "@babel/runtime": "^7.4.0",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "9.0.0",
+    "babel-eslint": "10.0.3",
     "babel-jest": "^24.5.0",
-    "babel-loader": "8.0.4",
+    "babel-loader": "8.0.6",
     "babel-plugin-module-resolver": "^3.1.2",
     "babel-plugin-named-asset-import": "^0.3.0",
     "babel-preset-react-app": "^7.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "1.0.0",
-    "eslint": "5.6.0",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-react-app": "^3.0.6",
@@ -175,7 +178,7 @@
     "terser-webpack-plugin": "1.1.0",
     "url-loader": "1.1.1",
     "webpack": "^4.41.2",
-    "webpack-dev-server": "3.1.14",
+    "webpack-dev-server": "3.10.2",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   }
