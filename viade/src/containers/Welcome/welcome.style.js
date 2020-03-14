@@ -46,8 +46,7 @@ export const WelcomeCard = styled.div`
 
 export const TitleCard = styled.div`
   background-color: #000000;
-  
-    //background: linear-gradient(90deg, rgba(237,251,63,1) 0%, rgba(252,149,70,1) 100%);
+
 
   margin: 30px auto;
 
@@ -68,6 +67,48 @@ export const TitleCard = styled.div`
   button {
     margin-left: 8px;
   }
+`;
+
+export const FormRouteCard = styled.div`
+background-color: #000000;
+
+margin: 30px auto;
+
+max-width: 28% !important;
+min-height: 45% !important;
+flex-direction: row !important;
+padding: 5px 0 !important; 
+
+align-items: center;
+
+h3{
+  text-align:center;
+}
+
+input {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+a {
+text-decoration: none;
+&:hover {
+  text-decoration: underline;
+}
+}
+
+#buttonSubmit {
+  float:right;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  background: 
+}
+
+
+button {
+margin-left: 8px;
+}
 `;
 
 export const WelcomeLogo = styled.div`
