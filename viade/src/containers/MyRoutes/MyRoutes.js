@@ -3,12 +3,11 @@ import {successToaster, errorToaster} from '@utils';
 import {Loader} from '@util-components';
 import {
     Header,
-    RouteCard,
     RouteWrapper,
     MyRouteContainer,
-    FormRenderContainer,
-    Button
+    FormRenderContainer
 } from './myroutes.style';
+import InfoRoute from './InfoRoute';
 
 class MyRoute extends React.Component{
 
@@ -21,28 +20,30 @@ class MyRoute extends React.Component{
                 <Header>
                     <h1>Mis rutas</h1>
                 </Header>
-            <RouteCard className="card">
-                <h3>Ruta de montaña</h3>
-                   <p>Autor</p>
-                <div>
-                <Button id="viewRoute">Ver ruta</Button>  
-                </div>
-            </RouteCard>
-            <RouteCard className="card">
-            <h3>Ruta del Alba</h3>
-                   <p>Autor</p>
-                <div>
-                <Button id="viewRoute">Ver ruta</Button>  
-                </div>
-                                            
-            </RouteCard>
-            <RouteCard className="card">
-                <h3>Ruta del cares</h3>
-                   <p>Autor</p>
-                <div>
-                <Button id="viewRoute">Ver ruta</Button>  
-                </div>
-            </RouteCard>
+            <InfoRoute
+                title="Ruta de las xanas"
+                author="Tania"
+                />
+            <InfoRoute
+                title="Ruta del alba"
+                author="Sara"
+                />
+           <InfoRoute
+                title="Ruta del cares"
+                author="Gema"
+                />
+                <InfoRoute
+                title="Senda del oso"
+                author="Sonia"
+                />
+                <InfoRoute
+                title="Ruta arenal de morís"
+                author="Javi"
+                />
+                <InfoRoute
+                title="Ruta de los molinos"
+                author="Guillermo"
+                />
             </FormRenderContainer>
             </MyRouteContainer>
             </RouteWrapper>
