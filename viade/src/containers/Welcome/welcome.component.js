@@ -1,6 +1,6 @@
 import React from 'react';
-import {Uploader} from '@inrupt/solid-react-components';
-import {useTranslation} from 'react-i18next';
+import { Uploader } from '@inrupt/solid-react-components';
+import { useTranslation } from 'react-i18next';
 import {
     WelcomeWrapper,
     WelcomeCard,
@@ -9,10 +9,13 @@ import {
     WelcomeProfile,
     WelcomeName,
     ImageWrapper,
-    ListButton
+    ListButton,
+    FormRouteCard
 } from './welcome.style';
-import {ImageProfile} from '@components';
-import {errorToaster} from '@utils';
+import { ImageProfile } from '@components';
+import { errorToaster } from '@utils';
+import {Form} from '@utils';
+import RouteForm from '../../components/Utils/Form';
 
 /**
  * Welcome Page UI component, containing the styled components for the Welcome Page
@@ -20,8 +23,8 @@ import {errorToaster} from '@utils';
  * @param props
  */
 export const WelcomePageContent = props => {
-    const {webId, image, updatePhoto, name} = props;
-    const {t} = useTranslation();
+    const { webId, image, updatePhoto, name } = props;
+    const { t } = useTranslation();
     const limit = 2100000;
     return (
         <WelcomeWrapper data-testid="welcome-wrapper">
@@ -70,12 +73,13 @@ export const WelcomePageContent = props => {
                     />
                 </ImageWrapper>
             </WelcomeCard>
-            <TitleCard className="card">
-                <h3>
-                    Rutas
-                </h3>
-            </TitleCard>
+
+            <FormRouteCard className="card"> 
+            <RouteForm></RouteForm>               
+            </FormRouteCard>
+
             
+
         </WelcomeWrapper>
     );
 };
