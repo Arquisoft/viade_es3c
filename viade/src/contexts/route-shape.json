@@ -1,0 +1,16 @@
+{
+    "@context": {
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "terms": "http://purl.org/dc/terms/",
+        "schema": "https://schema.org/"
+    },
+    "shape": [
+        {
+            "prefix": "foaf",
+            "predicate": "name",
+            "object": "name",
+            "literal": true,
+            "type": "String"
+        }
+    ]
+}

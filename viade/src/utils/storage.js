@@ -3,7 +3,7 @@ import { AccessControlList } from '@inrupt/solid-react-components';
 import { resourceExists, createDoc, createDocument } from './ldflex-helper';
 import { storageHelper, errorToaster, permissionHelper } from '@utils';
 
-const appPath = process.env.REACT_APP_TICTAC_PATH;
+const appPath = process.env.REACT_APP_VIADEES3C_PATH;
 
 /**
  * Creates a valid string that represents the application path. This is the
@@ -57,15 +57,15 @@ export const createInitialFiles = async webId => {
     if (!hasWritePermission) return;
 
     // Get the default app storage location from the user's pod and append our path to it
-    const gameUrl = await storageHelper.getAppStorage(webId);
+    const viadeUrl = await getAppStorage(webId);
 
-    // Set up various paths relative to the game URL
-    const dataFilePath = `${gameUrl}data.ttl`;
-    const settingsFilePath = `${gameUrl}settings.ttl`;
+    // Set up various paths relative to the viade URL
+    const dataFilePath = `${viadeUrl}data.ttl`;
+    const settingsFilePath = `${viadeUrl}settings.ttl`;
 
-    // Check if the tictactoe folder exists, if not then create it. This is where game files, the game inbox, and settings files are created by default
-    const gameFolderExists = await resourceExists(gameUrl);
-    if (!gameFolderExists) {
+    // Check if the tictactoe folder exists, if not then create it. This is where app files, the app inbox, and settings files are created by default
+    const folderExists = await resourceExists(viadeUrl);
+    if (!folderExists) {
       await createDoc(data, {
         method: 'PUT',
         headers: {
