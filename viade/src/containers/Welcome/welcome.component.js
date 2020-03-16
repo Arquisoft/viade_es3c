@@ -4,17 +4,12 @@ import { useTranslation } from 'react-i18next';
 import {
     WelcomeWrapper,
     WelcomeCard,
-    TitleCard,
-    WelcomeLogo,
-    WelcomeProfile,
     WelcomeName,
     ImageWrapper,
-    ListButton,
     FormRouteCard
 } from './welcome.style';
 import { ImageProfile } from '@components';
 import { errorToaster } from '@utils';
-import {Form} from '@utils';
 import RouteForm from '../../components/Utils/Form';
 
 /**
@@ -74,11 +69,11 @@ export const WelcomePageContent = props => {
                 </ImageWrapper>
             </WelcomeCard>
 
-            <FormRouteCard className="card"> 
-            <RouteForm></RouteForm>               
+            <FormRouteCard className="card">
+            <RouteForm></RouteForm>
             </FormRouteCard>
 
-            
+
 
         </WelcomeWrapper>
     );
