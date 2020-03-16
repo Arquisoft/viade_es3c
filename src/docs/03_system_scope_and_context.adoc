@@ -3,7 +3,6 @@
 
 
 [role="arc42help"]
-****
 .What are the goals of the system?
 The main idea of this project is to create a decentralised application to make routes for either running or whatever you wish
 plus being able to share this routes that you make with your friends and being able to use theirs aswell, in other words
@@ -11,7 +10,26 @@ we are creating an application capable of connecting to SOLID, and using the SOL
 users communicate between them in a safe and fast way, based on the principle on not storing any user information, and just
 allowing them to send it to the SOLID application.
 
+<<<<<<< HEAD
 image::.\images\bussines_context.png[]
+=======
+
+.Use case
+image::use_case.png[]
+The communication is done throught the user´s pods. Anytime a user wants to store a route, or access to one
+his petition is communicated to their pod, and then he is able to access one of their routes, or the one
+their friends are sharing with them.
+
+
+=== Business Context
+
+[role="arc42help"]
+This section shows a representation of the communication partners and stakeholders of our system,
+offering a more easy to understand graphical view of the business, and later explain more indepth
+in the technical context.
+
+image::bussines_context.png[]
+>>>>>>> cp_frature_login
 
 [cols="^.^2,^.^3,^.^3"] [cols=3*,options="header"]
 .Application context
@@ -40,7 +58,6 @@ image::.\images\bussines_context.png[]
 |Received data from de application
 |-
 |===
-****
 
 
 

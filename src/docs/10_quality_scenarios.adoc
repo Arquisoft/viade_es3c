@@ -3,15 +3,13 @@
 
 
 [role="arc42help"]
-****
-.
-image:images\qualitytree.png[]
-****
+
+image:qualitytree.png[]
+
 
 === Quality Scenarios
 
 [role="arc42help"]
-****
 .Testability/Coverage
 By the use of tests and multiples case scenarios, we can try to test as many scenarios as possible
 
@@ -23,4 +21,3 @@ By creating a good design and using good programming structures we will ensure t
 
 .Accesibility
 By creating a simple and easy to understand interface with as many helps to the user as possible we will ensure that our app is usable from the most experienced user to the most novice.
-****

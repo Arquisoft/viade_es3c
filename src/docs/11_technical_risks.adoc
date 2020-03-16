@@ -3,7 +3,7 @@
 
 
 [role="arc42help"]
-****
+
 The main problem in the development of the application is working with a new technology that isn´t very extended. This collides with the lack of time
 
 [options="header"]
@@ -14,4 +14,4 @@ The main problem in the development of the application is working with a new tec
 | 2     | Time management | The previous point means that the development period has to be delayed(since the devolopers need to learn how to use the tecnology) |  Rigurous organization and continuous communication between the members of the development team
 | 3     | Team organization | Working with other people in a team always leads to some problems | Productive meetings, establishing the task of each member and writting them in reports
 |===
-****
+

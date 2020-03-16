@@ -15,7 +15,7 @@ We analyzed this section in depth in the future when we will be developing the a
 Something we are sure about is the arquitecture of our project. We are going to work with two arquitectural patterns: n layers pattern and MVC pattern. These patterns will allow us to develop a maintainable and scalable application. 
 On the one hand, we want to use 3-layers pattern. This pattern will allow to separate the presentation of the application, business where we have the logic and the persistence which in our case we will store the information of each user in its pod.
 
-image::images/08_Concepts_Patterns.png["3-layers pattern. In develop"]
+image::08_Concepts_Patterns.png["3-layers pattern. In develop"]
 
 In addition, we are using React js to develop viade that also have its patterns. Content-container pattern is one of the React´s pattern and it consist on divide the component into two components: one component is responsible for obtaining the information - the container - and another component shows the information that is passed through its properties - the content. 
 

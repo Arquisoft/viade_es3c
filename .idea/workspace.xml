@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="796687d4-2b9c-4f07-b913-bf24c84dba04" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature_map" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\SARA\Documents\Universidad\3º Curso\ASW\Segundo año\viade_es3c\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Yr2iVJ192TJGVXHWpq5WLrv5mq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/viade" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="796687d4-2b9c-4f07-b913-bf24c84dba04" name="Default Changelist" comment="" />
+      <created>1583686519215</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583686519215</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="0" width="438" height="687" key="FileChooserDialogImpl" timestamp="1583748483606">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="0" width="438" height="687" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1583748483606" />
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1583747731385">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1583747731385" />
+    <state x="329" y="133" key="git4idea.merge.GitPullDialog" timestamp="1583741328364">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="329" y="133" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1583741328364" />
+  </component>
+</project>
