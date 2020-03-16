@@ -3,9 +3,10 @@ import { AccessControlList } from '@inrupt/solid-react-components';
 import { resourceExists, createDoc, createDocument } from './ldflex-helper';
 import { storageHelper, errorToaster, permissionHelper } from '@utils';
 
-const appPath = process.env.REACT_APP_VIADEES3C_PATH;
+const appPath = process.env.REACT_APP_VIADE_ES3C_PATH;
 
 /**
+ *
  * Creates a valid string that represents the application path. This is the
  * default value if no storage predicate is discovered
  * @param webId
@@ -23,7 +24,9 @@ export const buildPathFromWebId = (webId, path) => {
  * @returns {Promise<string>}
  */
 export const getAppStorage = async webId => {
+    
   const podStoragePath = await data[webId].storage;
+ 
   let podStoragePathValue =
     podStoragePath && podStoragePath.value.trim().length > 0 ? podStoragePath.value : '';
 
@@ -36,7 +39,7 @@ export const getAppStorage = async webId => {
   if (!podStoragePathValue || podStoragePathValue.trim().length === 0) {
     return buildPathFromWebId(webId, appPath);
   }
-
+  console.log([webId , "fff"] );
   return `${podStoragePathValue}${appPath}`;
 };
 
@@ -61,7 +64,8 @@ export const createInitialFiles = async webId => {
 
     // Set up various paths relative to the viade URL
     const dataFilePath = `${viadeUrl}data.ttl`;
-    const settingsFilePath = `${viadeUrl}settings.ttl`;
+    const settingsFilePath = `${viadeUrl}settings.ttl`
+    const pruebaFilePath = `${viadeUrl}gema.ttl`;
 
     // Check if the tictactoe folder exists, if not then create it. This is where app files, the app inbox, and settings files are created by default
     const folderExists = await resourceExists(viadeUrl);
@@ -86,6 +90,10 @@ export const createInitialFiles = async webId => {
       await createDocument(settingsFilePath);
     }
 
+    const pruebaFileExists = await resourceExists(pruebaFilePath);
+    if (!pruebaFileExists) {
+      await createDocument(pruebaFilePath);
+    }
     return true;
   } catch (error) {
     errorToaster(error.message, 'Error');

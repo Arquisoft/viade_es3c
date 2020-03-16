@@ -1,0 +1,27 @@
+{
+  "presets": [
+    "react-app"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./src"
+        ],
+        "alias": {
+          "@components": "./src/components",
+          "@constants": "./src/constants",
+          "@containers": "./src/containers",
+          "@contexts": "./src/contexts/",
+          "@domain": "./src/domain",
+          "@hocs": "./src/hocs",
+          "@hooks": "./src/hooks",
+          "@layouts": "./src/layouts",
+          "@services": "./src/services",
+          "@utils": "./src/utils"
+        }
+      }
+    ]
+  ]
+}

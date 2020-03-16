@@ -4,6 +4,9 @@ import './i18n';
 import App from './App';
 import { ErrorBoundary, GlobalError } from './components';
 import * as serviceWorker from './serviceWorker';
+import { viadeManager } from '@utils';
+import { ldflexHelper } from './utils';
+import { WebId } from './containers/Profile/profile.style';
 
 
 ReactDOM.render(
@@ -17,4 +20,8 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+
+
 

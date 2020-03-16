@@ -1,6 +1,8 @@
 import auth from 'solid-auth-client';
 import ldflex from '@solid/query-ldflex';
 import { errorToaster , storageHelper } from '@utils';
+import { createInitialFiles } from './storage';
+import { WebId } from '../containers/Profile/profile.style';
 
 
 
@@ -67,7 +69,8 @@ export const createNonExistentDocument = async (documentUri, body = '') => {
 };
 
 export const fetchLdflexDocument = async documentUri => {
-  try {
+  try {    
+    
     const result = await documentExists(documentUri);
     if (result.status === 404) return null;
     const document = await ldflex[documentUri];
@@ -88,6 +91,7 @@ export const resourceExists = async resourcePath => {
 
 export const discoverInbox = async document => {
   try {
+    await createInitialFiles(document);
     const documentExists = await resourceExists(document);
     if (!documentExists) return false;
 
