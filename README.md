@@ -12,7 +12,7 @@ The app is deployed at [https://arquisoft.github.io/viade_es3c/](https://arquiso
 
 More information about how this project has been setup is available [in the wiki](https://github.com/Arquisoft/viade_es3c/wiki).
 
-##Authors:
+## Authors:
 *Tania Mato Martínez
 *Sara García Rodríguez
 *Sonia García Lavandera 
