@@ -12,13 +12,7 @@
             "object": "name",
             "literal": true,
             "type": "String"
-        },
-        {
-            "prefix":"gpx",
-            "predicate": "location",
-            "object": "distance",
-            "literal": true,
-            "type": "number"
         }
+       
     ]
 }
