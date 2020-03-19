@@ -2,7 +2,8 @@
     "@context": {
         "foaf": "http://xmlns.com/foaf/0.1/",
         "terms": "http://purl.org/dc/terms/",
-        "schema": "https://schema.org/"
+        "schema": "https://schema.org/",
+        "gpx" : "https://www.w3.org/ns/pim/gpx#"
     },
     "shape": [
         {
@@ -11,6 +12,13 @@
             "object": "name",
             "literal": true,
             "type": "String"
+        },
+        {
+            "prefix":"gpx",
+            "predicate": "location",
+            "object": "distance",
+            "literal": true,
+            "type": "number"
         }
     ]
 }

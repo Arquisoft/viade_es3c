@@ -4,10 +4,13 @@ export default class Route {
     /**
      *
      * @param {String} name
+     * @param {number} distance
      */
-    constructor(name) {
+    constructor(name, distance) {
         this.name = name;
+        this.distance = distance;
     }
+    
     getIdentifier() {
         return `${this.name}`;
     }
