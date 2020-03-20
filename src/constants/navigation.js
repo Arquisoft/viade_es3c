@@ -4,25 +4,25 @@
 export const NavigationItems = [
   {
     id: 'welcome',
-    icon: '/img/icon/home.svg',
+    icon: 'img/icon/home.svg',
     label: 'navBar.welcome',
     to: '/welcome'
   },
   {
       id: 'newRoute',
-      icon: '/img/icon/route.svg',
+      icon: 'img/icon/route.svg',
       label: 'navBar.newRoute',
       to: '/route'
     },
   {
     id: 'myRoutes',
-    icon: '/img/icon/planning.svg',
+    icon: 'img/icon/planning.svg',
     label: 'navBar.myRoutes',
     to: '/myRoutes'
   },
   {
     id: 'profile',
-    icon: '/img/icon/user.svg',
+    icon: 'img/icon/user.svg',
     label: 'navBar.profile',
     to: '/profile'
   }

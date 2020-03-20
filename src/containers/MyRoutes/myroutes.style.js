@@ -43,7 +43,7 @@ export const FormRenderContainer = styled.div`
   border: 1px solid #dae0e6;
   min-height: 40px;
   padding: 5px;
-  background-image: url('/img/pattern-geo.png'),
+  background-image: url('img/pattern-geo.png'),
   background-color: white;
   background-repeat: repeat, no-repeat;
   padding: 30px 20px;
@@ -67,7 +67,7 @@ export const Header = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  background-image: url('/img/pattern-geo.png'),
+  background-image: url('img/pattern-geo.png'),
     linear(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
   background-repeat: repeat, no-repeat;
   padding: 10px 5px;

@@ -132,8 +132,9 @@
       ]
     ]
   },
-  "name": "solid-app",
+  "name": "viade_es3c",
   "version": "0.1.0",
+  "homepage": ".",
   "private": false,
   "devDependencies": {
     "@babel/core": "7.1.6",

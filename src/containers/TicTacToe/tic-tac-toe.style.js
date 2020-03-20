@@ -15,7 +15,7 @@ export const GameStatus = styled.span`
 
 export const Section = styled.section`
   flex: 1 0 auto;
-  background-image: url('/img/concentric-hex-pattern_2x.png');
+  background-image: url('img/concentric-hex-pattern_2x.png');
   background-repeat: repeat;
   box-sizing: border-box;
   display: flex;

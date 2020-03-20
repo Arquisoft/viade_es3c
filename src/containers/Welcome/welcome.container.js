@@ -4,7 +4,7 @@ import { namedNode } from '@rdfjs/data-model';
 import { WelcomePageContent } from './welcome.component';
 import { successToaster, errorToaster } from '@utils';
 
-const defaultProfilePhoto = '/img/icon/empty-profile.svg';
+const defaultProfilePhoto = 'img/icon/empty-profile.svg';
 
 /**
  * Container component for the Welcome Page, containing example of how to fetch data from a POD

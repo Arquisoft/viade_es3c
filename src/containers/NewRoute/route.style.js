@@ -5,7 +5,7 @@ export const RouteWrapper = styled.section`
   display: flex;
   flex: 1 0 auto;
   flex-direction:column;
-  background-image: url('/img/concentric-hex-pattern_2x.png');
+  background-image: url('img/concentric-hex-pattern_2x.png');
 `;
 
 export const Header = styled.div`
@@ -13,7 +13,7 @@ export const Header = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  background-image: url('/img/pattern-geo.png'),
+  background-image: url('img/pattern-geo.png'),
     linear-gradient(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
   background-repeat: repeat, no-repeat;
   padding: 30px 20px;
