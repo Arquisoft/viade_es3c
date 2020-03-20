@@ -68,13 +68,6 @@ export const WelcomePageContent = props => {
                     />
                 </ImageWrapper>
             </WelcomeCard>
-
-            <FormRouteCard className="card">
-            <RouteForm></RouteForm>
-            </FormRouteCard>
-
-
-
         </WelcomeWrapper>
     );
 };
