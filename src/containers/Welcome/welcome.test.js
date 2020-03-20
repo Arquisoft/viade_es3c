@@ -28,6 +28,5 @@ describe.only('Welcome', () => {
 
   test('renders with styled components', () => {
     expect(getByTestId('welcome-wrapper')).toBeTruthy();
-    expect(getByTestId('welcome-profile')).toBeTruthy();
   });
 });
