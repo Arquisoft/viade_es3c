@@ -9,10 +9,6 @@ const mapStyle = {
 
 export class MapContainer extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     sendData = () => {
         this.props.parentCallBack(this.state.markers);
     };

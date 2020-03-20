@@ -1,6 +1,4 @@
 import React from 'react';
-import {successToaster, errorToaster} from '@utils';
-import {Loader} from '@util-components';
 import {
     Header,
     RouteWrapper,
