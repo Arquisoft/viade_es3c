@@ -18,5 +18,5 @@ describe.only('Map', () => {
   it('renders without crashing', () => {
     expect(container).toBeTruthy();
   });
-  sss
+
 });
