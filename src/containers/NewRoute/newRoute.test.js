@@ -15,7 +15,7 @@ describe.only('NewRoute', () => {
   afterAll(cleanup);
   const { container, getByTestId } = render(
     <Router>
-      <NewRoute{...{...propssss}}/>
+      <NewRoute{...{...props}}/>
     </Router>
   );
 
