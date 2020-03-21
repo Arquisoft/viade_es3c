@@ -12,6 +12,13 @@
             "object": "name",
             "literal": true,
             "type": "String"
+        },
+        {
+            "prefix": "gpx",
+            "predicate": "longitude",
+            "object": "longitude",
+            "literal": true,
+            "type": "String"
         }
        
     ]

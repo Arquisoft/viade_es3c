@@ -5,8 +5,9 @@ export default class Route {
      *
      * @param {String} name
      */
-    constructor(name) {
+    constructor(name, longitude) {
         this.name = name;
+        this.longitude = longitude;
        
     }
     

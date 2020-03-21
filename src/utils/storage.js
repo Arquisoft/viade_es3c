@@ -1,51 +1,43 @@
-import data from '@solid/query-ldflex';
-import { AccessControlList } from '@inrupt/solid-react-components';
-import { resourceExists, createDoc, createDocument } from './ldflex-helper';
-import { storageHelper, errorToaster, permissionHelper } from '@utils';
-import { Route } from '../domain';
-import routeShape from '@contexts/route-shape.json';
+import data from "@solid/query-ldflex";
+import { AccessControlList } from "@inrupt/solid-react-components";
+import { resourceExists, createDoc, createDocument } from "./ldflex-helper";
+import {
+  storageHelper,
+  errorToaster,
+  permissionHelper,
+  ldflexHelper
+} from "@utils";
+import { Route } from "../domain";
+import routeShape from "@contexts/route-shape.json";
 
-const appPath = process.env.REACT_APP_TICTAC_PATH;
+const appPath = process.env.REACT_APP_VIADE_ES3C_PATH;
 
-export const fetchRoute = async (url, context) => {
-  try {
-    const obj = await ldflexHelper.fetchLdflexDocument(url);
-    if (!obj) throw new Error('404');
+const N3 = require("n3");
+const store = new N3.Store();
+const { DataFactory } = N3;
+const { namedNode, literal, defaultGraph, quad } = DataFactory;
 
-    let data = {};
-    data.webId = url;
-    for await (const field of context.shape) {
-      for await (const fieldData of obj[getPredicate(field, context)]) {
-        data = { ...data, [field.object]: fieldData && field.type && data[field.object] };
-      }
-    }
-    const a = 1;
+export const create = (ruta, rutaShape) => {
+  const writer = new N3.Writer();
+  const quads =  new Array();
+  quads.push(quad(
+    namedNode(ruta.webId),
+    namedNode(getPredicate(rutaShape.shape[0], rutaShape)),
+    literal(ruta.name)
+  ));
+  quads.push(quad(
+    namedNode(ruta.webId),
+    namedNode(getPredicate(rutaShape.shape[1], rutaShape)),
+    literal(ruta.longitude)
+  ));
+  return writer.quadsToString(quads);
+};
 
-    return data;
-  } catch (error) {
-    throw error;
-  }
-}
 
-export const getPredicate = (field, context) => {
-  const prefix = context['@context'][field.prefix];
+export const getPredicate = (field, routeShape) => {
+  const prefix = routeShape['@context'][field.prefix];
   return `${prefix}${field.predicate}`;
 }
-
-
-export const create = (route) => {
-  if (!route) {
-    return undefined;
-  }
-
-  let obj = new Route();
-
-  if (route.webId) obj.webId = route.webId;
-  if (route.name) obj.name = "prueba";
-  return obj;
-}
-
-
 /**
  * Creates a valid string that represents the application path. This is the
  * default value if no storage predicate is discovered
@@ -55,12 +47,12 @@ export const create = (route) => {
  */
 export const buildPathFromWebId = (webId, path) => {
   if (!webId) return false;
-  const domain = new URL(typeof webId === 'object' ? webId.webId : webId).origin;
+  const domain = new URL(typeof webId === "object" ? webId.webId : webId)
+    .origin;
   return `${domain}/${path}`;
 };
 
 function randomStr(len) {
-
   return Math.floor(Math.random() * len);
 }
 export const createRoute = async webId => {
@@ -79,27 +71,29 @@ export const createRoute = async webId => {
 
     // Set up various paths relative to the viade URL
 
-    const rutaPruebaFilePath = `${viadeUrl}` + randomStr(50) + `.ttl`;
+    const rutaPruebaFilePath = `${viadeUrl}porfavorquefuncione5.ttl`;
+    const ruta = new Route("gema", "5.4");
+    ruta.webId = webId;
 
-    const body = create(await fetchRoute(webId, routeShape));
-
+    const body = create(ruta, routeShape);
 
     const pruebaFileExists = await resourceExists(rutaPruebaFilePath);
     if (!pruebaFileExists) {
-      const newDocument = await ldflexHelper.createNonExistentDocument(rutaPruebaFilePath, "@prefix solid: <http://www.w3.org/ns/solid/terms#>.<> a solid:TypeIndex ;          a solid:UnlistedDocument.");
+      const newDocument = await ldflexHelper.createDocumentWithTurtle(
+        rutaPruebaFilePath,
+        body
+      );
       if (!newDocument) {
         return {
           added: false
         };
       }
     }
-    createRoute(webId);
     return true;
   } catch (error) {
-    errorToaster(error.message, 'Error');
+    errorToaster(error.message, "Error");
     return false;
   }
-
 };
 
 /**
@@ -109,10 +103,12 @@ export const createRoute = async webId => {
 export const getAppStorage = async webId => {
   const podStoragePath = await data[webId].storage;
   let podStoragePathValue =
-    podStoragePath && podStoragePath.value.trim().length > 0 ? podStoragePath.value : '';
+    podStoragePath && podStoragePath.value.trim().length > 0
+      ? podStoragePath.value
+      : "";
 
   // Make sure that the path ends in a / so it is recognized as a folder path
-  if (podStoragePathValue && !podStoragePathValue.endsWith('/')) {
+  if (podStoragePathValue && !podStoragePathValue.endsWith("/")) {
     podStoragePathValue = `${podStoragePathValue}/`;
   }
 
@@ -141,19 +137,18 @@ export const createInitialFiles = async webId => {
     if (!hasWritePermission) return;
 
     // Get the default app storage location from the user's pod and append our path to it
-    const gameUrl = await storageHelper.getAppStorage(webId);
-
+    const viadeUrl = await getAppStorage(webId);
     // Set up various paths relative to the game URL
-    const dataFilePath = `${gameUrl}data.ttl`;
-    const settingsFilePath = `${gameUrl}settings.ttl`;
+    const dataFilePath = `${viadeUrl}data.ttl`;
+    const settingsFilePath = `${viadeUrl}settings.ttl`;
 
     // Check if the tictactoe folder exists, if not then create it. This is where game files, the game inbox, and settings files are created by default
-    const gameFolderExists = await resourceExists(gameUrl);
+    const gameFolderExists = await resourceExists(viadeUrl);
     if (!gameFolderExists) {
       await createDoc(data, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'text/turtle'
+          "Content-Type": "text/turtle"
         }
       });
     }
@@ -169,12 +164,12 @@ export const createInitialFiles = async webId => {
     if (!settingsFileExists) {
       await createDocument(settingsFilePath);
     }
-
+    createRoute(webId);
     return true;
   } catch (error) {
-    errorToaster(error.message, 'Error');
+    errorToaster(error.message, "Error");
     return false;
   }
 };
 
-export const checkAndInitializeInbox = async () => '';
+export const checkAndInitializeInbox = async () => "";

@@ -1,6 +1,6 @@
 import auth from 'solid-auth-client';
 import ldflex from '@solid/query-ldflex';
-import { errorToaster , storageHelper } from '@utils';
+import { errorToaster , storageHelper, ldflexHelper } from '@utils';
 import { createInitialFiles } from './storage';
 import { WebId } from '../containers/Profile/profile.style';
 
