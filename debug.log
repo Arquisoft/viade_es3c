@@ -24,3 +24,4 @@
 [0316/102343.143:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0316/103757.971:ERROR:crash_report_database_win.cc(469)] failed to stat report
 >>>>>>> master:viade/debug.log
+[0321/162128.033:ERROR:crash_report_database_win.cc(469)] failed to stat report
