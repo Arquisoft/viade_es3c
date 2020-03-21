@@ -3,23 +3,39 @@
         "foaf": "http://xmlns.com/foaf/0.1/",
         "terms": "http://purl.org/dc/terms/",
         "schema": "https://schema.org/",
-        "gpx" : "https://www.w3.org/ns/pim/gpx#"
+        "gpx": "https://www.w3.org/ns/pim/gpx#",
+        "rdfs": "<http://www.w3.org/2000/01/rdf-schema#>",
+        "prefix": "<http://arquisoft.github.io/viadeSpec/>",
+        "xsd": "<http://www.w3.org/2001/XMLSchema#>",
+        "rdf": "<http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+        "viade": "<http://arquisoft.github.io/viadeSpec/>"
     },
     "shape": [
         {
-            "prefix": "foaf",
+            "prefix": "schema",
             "predicate": "name",
-            "object": "name",
-            "literal": true,
-            "type": "String"
+            "object": "name"
+        },
+        {
+            "prefix": "schema",
+            "predicate": "description",
+            "object": "description"
         },
         {
             "prefix": "gpx",
             "predicate": "longitude",
-            "object": "longitude",
-            "literal": true,
-            "type": "String"
+            "object": "longitude"
+        },
+        {
+            "prefix": "gpx",
+            "predicate": "latitude",
+            "object": "latitude"
+        },
+        {
+            "prefix": "schema",
+            "predicate": "author",
+            "object": "author"
         }
-       
+        
     ]
 }

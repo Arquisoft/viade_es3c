@@ -13,31 +13,33 @@ import routeShape from "@contexts/route-shape.json";
 const appPath = process.env.REACT_APP_VIADE_ES3C_PATH;
 
 const N3 = require("n3");
-const store = new N3.Store();
 const { DataFactory } = N3;
 const { namedNode, literal, defaultGraph, quad } = DataFactory;
 
 export const create = (ruta, rutaShape) => {
   const writer = new N3.Writer();
-  const quads =  new Array();
-  quads.push(quad(
-    namedNode(ruta.webId),
-    namedNode(getPredicate(rutaShape.shape[0], rutaShape)),
-    literal(ruta.name)
-  ));
-  quads.push(quad(
-    namedNode(ruta.webId),
-    namedNode(getPredicate(rutaShape.shape[1], rutaShape)),
-    literal(ruta.longitude)
-  ));
+  const quads = new Array();
+  quads.push(createQuad(ruta, rutaShape,0, ruta.name));
+  quads.push(createQuad(ruta, rutaShape,1, ruta.description)); 
+  quads.push(createQuad(ruta, rutaShape,2, ruta.longitude)); 
+  quads.push(createQuad(ruta, rutaShape,3, ruta.latitude)); 
+  quads.push(createQuad(ruta, rutaShape,4, ruta.author)); 
   return writer.quadsToString(quads);
 };
 
+export const createQuad = (ruta, rutaShape, order, attribute) => {
+  return quad(
+    namedNode(ruta.webId),
+    namedNode(getPredicate(rutaShape.shape[order], rutaShape)),
+    literal(attribute),
+    defaultGraph("Ruta")
+  );
+};
 
 export const getPredicate = (field, routeShape) => {
-  const prefix = routeShape['@context'][field.prefix];
+  const prefix = routeShape["@context"][field.prefix];
   return `${prefix}${field.predicate}`;
-}
+};
 /**
  * Creates a valid string that represents the application path. This is the
  * default value if no storage predicate is discovered
@@ -71,8 +73,8 @@ export const createRoute = async webId => {
 
     // Set up various paths relative to the viade URL
 
-    const rutaPruebaFilePath = `${viadeUrl}porfavorquefuncione5.ttl`;
-    const ruta = new Route("gema", "5.4");
+    const rutaPruebaFilePath = `${viadeUrl}`+randomStr(50) +`.ttl`;
+    const ruta = new Route("Ruta los cares", "Gema Rico", "Ruta muy bonita", 2, 5.4);
     ruta.webId = webId;
 
     const body = create(ruta, routeShape);
