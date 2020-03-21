@@ -47,7 +47,7 @@ let beforeContext;
 class NavBarProfile extends Component<Props> {
   constructor(props) {
     super(props);
-    this.state = { image: '/img/icon/empty-profile.svg' };
+    this.state = { image: 'img/icon/empty-profile.svg' };
   }
 
   state = {

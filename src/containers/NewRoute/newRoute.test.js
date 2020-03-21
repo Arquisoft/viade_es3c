@@ -3,30 +3,24 @@ import { render, cleanup } from 'react-testing-library';
 import { HashRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { WelcomeComponent } from './welcome.container';
+import NewRoute from "./NewRoute";
 
 library.add(fas);
 
 const props = {
-  webId: 'https://exmaple.com/#me',
-  image: 'test.png',
-  updatePhoto: 'updated.png',
-  name: 'example'
+  webId: 'https://saragarcia.solid.community/'
 };
 
-describe.only('Welcome', () => {
+describe.only('NewRoute', () => {
   afterAll(cleanup);
   const { container, getByTestId } = render(
     <Router>
-      <WelcomeComponent {...{ ...props }} />
+      <NewRoute{...{...props}}/>
     </Router>
   );
 
-  test('renders without crashing', () => {
+  it('renders without crashing', () => {
     expect(container).toBeTruthy();
   });
 
-  test('renders with styled components', () => {
-    expect(getByTestId('welcome-wrapper')).toBeTruthy();
-  });
 });

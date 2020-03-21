@@ -15,7 +15,7 @@ import {
 import { Image } from './components';
 import { AutoSaveSpinner } from '@components';
 
-const defaultProfilePhoto = '/img/icon/empty-profile.svg';
+const defaultProfilePhoto = 'img/icon/empty-profile.svg';
 
 /**
  * We are using ldflex to fetch profile data from a solid pod.

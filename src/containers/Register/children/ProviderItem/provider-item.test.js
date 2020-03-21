@@ -13,7 +13,7 @@ describe('ProviderItem', () => {
 
   const data = {
     label: 'Inrupt',
-    image: '/img/inrupt.svg',
+    image: 'img/inrupt.svg',
     value: 'https://inrupt.net/auth',
     registerLink: 'https://inrupt.net/register',
     description: 'Lorem ipsum dolor sit amet non ipsom dolor'

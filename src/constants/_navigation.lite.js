@@ -4,7 +4,7 @@
 export const NavigationItems = [
   {
     id: 'welcome',
-    icon: '/img/icon/apps.svg',
+    icon: 'img/icon/apps.svg',
     label: 'navBar.welcome',
     to: '/welcome'
   }

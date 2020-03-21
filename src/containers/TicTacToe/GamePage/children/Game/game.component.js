@@ -151,7 +151,7 @@ const Game = ({ webId, gameURL, history }: Props) => {
       const nameData = await ldflex[webId]['vcard:fn'];
       const imageData = await ldflex[webId]['vcard:hasPhoto'];
       const name = nameData ? nameData.value : webId;
-      const image = imageData ? imageData.value : '/img/icon/empty-profile.svg';
+      const image = imageData ? imageData.value : 'img/icon/empty-profile.svg';
       return { name, image, webId };
     } catch (e) {
       throw e;

@@ -36,7 +36,7 @@ const LoginComponent = () => {
               btnTxtWebId={t('login.btnTxtWebId')}
               btnTxtProvider={t('login.btnTxtProvider')}
               className="provider-login-component"
-              callbackUri={`${window.location.origin}/welcome`}
+              callbackUri={`${window.location.origin}/viade_es3c/#/welcome`}
               errorsText={{
                 unknown: t('login.errors.unknown'),
                 webIdNotValid: t('login.errors.webIdNotValid'),

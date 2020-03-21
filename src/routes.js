@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { PrivateLayout, PublicLayout, NotLoggedInLayout } from '@layouts';
-import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Switch, Redirect } from 'react-router-dom';
 
 import {
   Login,
@@ -15,12 +15,24 @@ import {
   FormModelRenderer,
   TextEditor
 } from './containers';
+import NewRoute from "./containers/NewRoute";
+import MyRoutes from "./containers/MyRoutes";
 
 const privateRoutes = [
   {
     id: 'welcome',
     path: '/welcome',
     component: Welcome
+  },
+  {
+    id: 'route',
+    path: '/route',
+    component: NewRoute
+  },
+   {
+    id: 'myRoutes',
+    path: '/myRoutes',
+    component: MyRoutes
   },
   {
     id: 'profile',
