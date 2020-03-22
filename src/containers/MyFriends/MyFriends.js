@@ -18,9 +18,9 @@ class MyFriends extends React.Component{
                 <Header>
                     <h1>My friends</h1>
                 </Header>
-                <div>
+                <FriendsList>
                     <List src="user.friends" />
-                </div>
+                </FriendsList>
             </FormRenderContainer>
             </MyRouteContainer>
             </RouteWrapper>
