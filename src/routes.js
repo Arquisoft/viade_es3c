@@ -17,6 +17,7 @@ import {
 } from './containers';
 import NewRoute from "./containers/NewRoute";
 import MyRoutes from "./containers/MyRoutes";
+import MyFriends from "./containers/MyFriends";
 
 const privateRoutes = [
   {
@@ -34,6 +35,13 @@ const privateRoutes = [
     path: '/myRoutes',
     component: MyRoutes
   },
+  
+  {
+    id: 'myFriends',
+    path: '/myfriends',
+    component: MyFriends
+  },
+  
   {
     id: 'profile',
     path: '/profile',
