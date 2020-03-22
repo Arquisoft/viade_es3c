@@ -1,15 +1,13 @@
-import auth from 'solid-auth-client';
-import ldflex from '@solid/query-ldflex';
-import { errorToaster , storageHelper, ldflexHelper } from '@utils';
-import { createInitialFiles } from './storage';
-import { WebId } from '../containers/Profile/profile.style';
-
-
+import auth from "solid-auth-client";
+import ldflex from "@solid/query-ldflex";
+import { errorToaster, storageHelper, ldflexHelper } from "@utils";
+import { createInitialFiles } from "./storage";
+import { WebId } from "../containers/Profile/profile.style";
 
 export const documentExists = async documentUri =>
   auth.fetch(documentUri, {
     headers: {
-      'Content-Type': 'text/turtle'
+      "Content-Type": "text/turtle"
     }
   });
 
@@ -23,18 +21,18 @@ export const createDoc = async (documentUri, options) => {
 
 export const deleteFile = async url => {
   try {
-    return await auth.fetch(url, { method: 'DELETE' });
+    return await auth.fetch(url, { method: "DELETE" });
   } catch (e) {
     throw e;
   }
 };
 
-export const createDocument = async (documentUri, body = '') => {
+export const createDocument = async (documentUri, body = "") => {
   try {
     const options = {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'text/turtle'
+        "Content-Type": "text/turtle"
       },
       body
     };
@@ -44,12 +42,12 @@ export const createDocument = async (documentUri, body = '') => {
   }
 };
 
-export const createDocumentWithTurtle = async (documentUri, body = '') => {
+export const createDocumentWithTurtle = async (documentUri, body = "") => {
   try {
     return createDoc(documentUri, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'text/turtle'
+        "Content-Type": "text/turtle"
       },
       body
     });
@@ -58,7 +56,7 @@ export const createDocumentWithTurtle = async (documentUri, body = '') => {
   }
 };
 
-export const createNonExistentDocument = async (documentUri, body = '') => {
+export const createNonExistentDocument = async (documentUri, body = "") => {
   try {
     const result = await documentExists(documentUri);
 
@@ -69,8 +67,7 @@ export const createNonExistentDocument = async (documentUri, body = '') => {
 };
 
 export const fetchLdflexDocument = async documentUri => {
-  try {    
-    
+  try {
     const result = await documentExists(documentUri);
     if (result.status === 404) return null;
     const document = await ldflex[documentUri];
@@ -85,17 +82,15 @@ export const resourceExists = async resourcePath => {
     const result = await auth.fetch(resourcePath);
     return result.status === 403 || result.status === 200;
   } catch (e) {
-    errorToaster(e.message, 'Error');
+    errorToaster(e.message, "Error");
   }
 };
 
 export const discoverInbox = async document => {
   try {
-    await createInitialFiles(document);
     const documentExists = await resourceExists(document);
     if (!documentExists) return false;
-
-    const inboxDocument = await ldflex[document]['ldp:inbox'];
+    const inboxDocument = await ldflex[document]["ldp:inbox"];
     const inbox = inboxDocument ? await inboxDocument.value : false;
     return inbox;
   } catch (error) {
@@ -114,7 +109,7 @@ export const getLinkedInbox = async resourcePath => {
     if (inboxLinkedPath) {
       return inboxLinkedPath.value;
     }
-    return '';
+    return "";
   } catch (error) {
     throw error;
   }

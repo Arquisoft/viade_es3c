@@ -10,6 +10,9 @@ import {
     RouteWrapper,
     Button
 } from './route.style';
+import {viadeManager} from "@utils";
+import { Route } from "domain";
+
 
 type Props = { webId: String };
 
@@ -41,16 +44,14 @@ class NewRoute extends React.Component{
         this.handleSave(event);
     }
 
-    handleSave(event){
+    handleSave(event)  {
         if(this.title.current.value.length === 0){
             alert("La ruta tiene que tener un titulo.")
         }else if(this.state.markers === 0){
             alert("No ha marcado ningún punto en el mapa.")
         }else{
-            //let route = new Route(this.title.current.value,"Ruta",this.state.markers,this.webID,null,  null,  null);
-            //let parser = new RouteToRdfParser(route, this.webID);
-            //parser.parse();
-            alert("Se ha guardado correctamente");
+            let route = new Route(this.title.current.value,"Pepe","Falta meter descripcion","2","3");
+            viadeManager.addRoute(route, this.webID).then(alert("Se ha guardado correctamente"));
         }
         event.preventDefault();
     }

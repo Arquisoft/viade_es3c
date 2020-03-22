@@ -5,11 +5,14 @@ export default class Route {
    *
    * @param {String} name
    */
-  constructor(name, author, description, latitude, longitude) {
+  constructor(name, author, description, points) {
     this.name = name;
-    this.longitude = longitude;
     this.author = author;
-    this.latitude = latitude;
     this.description = description;
-  }  
+    this.points = points;
+  }
+
+  getIdRoute() {
+    return `${this.name}_${this.author}`;
+  }
 }

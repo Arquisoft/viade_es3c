@@ -7,7 +7,6 @@ import {
   permissionHelper,
   ldflexHelper
 } from "@utils";
-import { Route } from "../domain";
 import routeShape from "@contexts/route-shape.json";
 
 const appPath = process.env.REACT_APP_VIADE_ES3C_PATH;
@@ -16,15 +15,17 @@ const N3 = require("n3");
 const { DataFactory } = N3;
 const { namedNode, literal, defaultGraph, quad } = DataFactory;
 
-export const create = (ruta, rutaShape) => {
-  const writer = new N3.Writer();
-  const quads = new Array();
-  quads.push(createQuad(ruta, rutaShape,0, ruta.name));
-  quads.push(createQuad(ruta, rutaShape,1, ruta.description)); 
-  quads.push(createQuad(ruta, rutaShape,2, ruta.longitude)); 
-  quads.push(createQuad(ruta, rutaShape,3, ruta.latitude)); 
-  quads.push(createQuad(ruta, rutaShape,4, ruta.author)); 
-  return writer.quadsToString(quads);
+export const createRoute = (ruta, rutaShape) => {
+  if (createInitialFiles) {
+    const writer = new N3.Writer();
+    const quads = new Array();
+    quads.push(createQuad(ruta, rutaShape, 0, ruta.name));
+    quads.push(createQuad(ruta, rutaShape, 1, ruta.description));
+    quads.push(createQuad(ruta, rutaShape, 2, ruta.longitude));
+    quads.push(createQuad(ruta, rutaShape, 3, ruta.latitude));
+    quads.push(createQuad(ruta, rutaShape, 4, ruta.author));
+    return writer.quadsToString(quads);
+  }
 };
 
 export const createQuad = (ruta, rutaShape, order, attribute) => {
@@ -54,17 +55,13 @@ export const buildPathFromWebId = (webId, path) => {
   return `${domain}/${path}`;
 };
 
-function randomStr(len) {
-  return Math.floor(Math.random() * len);
-}
-export const createRoute = async webId => {
+export const addRoute = async (webId, ruta) => {
   try {
     // First, check if we have WRITE permission for the app
     const hasWritePermission = await permissionHelper.checkSpecificAppPermission(
       webId,
       AccessControlList.MODES.WRITE
     );
-
     // If we do not have Write permission, there's nothing we can do here
     if (!hasWritePermission) return;
 
@@ -72,12 +69,9 @@ export const createRoute = async webId => {
     const viadeUrl = await getAppStorage(webId);
 
     // Set up various paths relative to the viade URL
+    const rutaPruebaFilePath = `${viadeUrl}` + ruta.getIdRoute() + `.ttl`;
 
-    const rutaPruebaFilePath = `${viadeUrl}`+randomStr(50) +`.ttl`;
-    const ruta = new Route("Ruta los cares", "Gema Rico", "Ruta muy bonita", 2, 5.4);
-    ruta.webId = webId;
-
-    const body = create(ruta, routeShape);
+    const body = createRoute(ruta, routeShape);
 
     const pruebaFileExists = await resourceExists(rutaPruebaFilePath);
     if (!pruebaFileExists) {
@@ -166,7 +160,7 @@ export const createInitialFiles = async webId => {
     if (!settingsFileExists) {
       await createDocument(settingsFilePath);
     }
-    createRoute(webId);
+
     return true;
   } catch (error) {
     errorToaster(error.message, "Error");
