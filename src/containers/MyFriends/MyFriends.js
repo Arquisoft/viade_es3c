@@ -24,7 +24,6 @@ class MyFriends extends React.Component{
             </FormRenderContainer>
             </MyRouteContainer>
             </RouteWrapper>
-
         );
     }
 

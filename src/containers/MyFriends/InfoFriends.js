@@ -2,11 +2,14 @@ import React from 'react';
 import {RouteCard, Button} from './myfriends.style';
 
 const InfoFriends = props => {
-  const {nombre, rutas} = props;
+  const {name, url} = props;
   return(
     <RouteCard className="card">
-      <h3>{nombre}</h3>
-        <p>{rutas}</p>
+      <h3>{name}</h3>
+        <p>{url}</p>
+      <div>
+        <Button id="viewRoute">Ver ruta</Button>  
+      </div>
       </RouteCard>
   );
 };
