@@ -34,6 +34,13 @@ const privateRoutes = [
     path: '/myRoutes',
     component: MyRoutes
   },
+  /*
+  {
+    id: 'friends',
+    path: '/friends',
+    component: Friends
+  },
+  */
   {
     id: 'profile',
     path: '/profile',
