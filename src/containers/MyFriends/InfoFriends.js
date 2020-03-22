@@ -1,7 +1,7 @@
 import React from 'react';
-import {RouteCard, Button} from './myroutes.style';
+import {RouteCard, Button} from './myfriends.style';
 
-const InfoRoute = props => {
+const InfoFriends = props => {
   const {title, author} = props;
   return(
     <RouteCard className="card">
@@ -14,4 +14,4 @@ const InfoRoute = props => {
   );
 };
 
-export default InfoRoute;
+export default InfoFriends;

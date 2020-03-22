@@ -5,9 +5,9 @@ import {
     MyRouteContainer,
     FormRenderContainer
 } from './myfriends.style';
-import InfoRoute from './InfoRoute';
+import InfoFriends from './InfoFriends';
 
-class MyRoute extends React.Component{
+class MyFriends extends React.Component{
 
  render(): React.ReactNode {
         return (
@@ -18,27 +18,27 @@ class MyRoute extends React.Component{
                 <Header>
                     <h1>Mis rutas</h1>
                 </Header>
-            <InfoRoute
+            <InfoFriends
                 title="Ruta de las xanas"
                 author="Tania"
                 />
-            <InfoRoute
+            <InfoFriends
                 title="Ruta del alba"
                 author="Sara"
                 />
-           <InfoRoute
+           <InfoFriends
                 title="Ruta del cares"
                 author="Gema"
                 />
-                <InfoRoute
+                <InfoFriends
                 title="Senda del oso"
                 author="Sonia"
                 />
-                <InfoRoute
+                <InfoFriends
                 title="Ruta arenal de morís"
                 author="Javi"
                 />
-                <InfoRoute
+                <InfoFriends
                 title="Ruta de los molinos"
                 author="Guillermo"
                 />
@@ -51,4 +51,4 @@ class MyRoute extends React.Component{
 
 };
 
-export default MyRoute;
+export default MyFriends;
