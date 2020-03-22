@@ -1,3 +1,4 @@
-import Route from './route';
+import Route from "./route";
+import Point from "./point";
 
-export { Route };
+export { Route, Point };

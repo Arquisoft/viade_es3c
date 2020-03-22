@@ -8,6 +8,7 @@ import {
   ldflexHelper
 } from "@utils";
 import routeShape from "@contexts/route-shape.json";
+import { blankNode } from "@rdfjs/data-model";
 
 const appPath = process.env.REACT_APP_VIADE_ES3C_PATH;
 
@@ -15,22 +16,45 @@ const N3 = require("n3");
 const { DataFactory } = N3;
 const { namedNode, literal, defaultGraph, quad } = DataFactory;
 
-export const createRoute = (ruta, rutaShape) => {
+export const createRoute = (webId, path, ruta, rutaShape) => {
   if (createInitialFiles) {
     const writer = new N3.Writer();
     const quads = new Array();
-    quads.push(createQuad(ruta, rutaShape, 0, ruta.name));
-    quads.push(createQuad(ruta, rutaShape, 1, ruta.description));
-    quads.push(createQuad(ruta, rutaShape, 2, ruta.longitude));
-    quads.push(createQuad(ruta, rutaShape, 3, ruta.latitude));
-    quads.push(createQuad(ruta, rutaShape, 4, ruta.author));
+    quads.push(createQuadWithLiteral(path, rutaShape, 1, ruta.name));
+    quads.push(createQuadWithLiteral(path, rutaShape, 2, ruta.description));
+    quads.push(createQuadWithLiteral(path, rutaShape, 3, ruta.author));
+
+    for (let i = 0; i < ruta.points.length; i++) {
+      const point = quad(namedNode(path),
+        namedNode(getPredicate(rutaShape.shape[4], rutaShape)), 
+        writer.blank([{
+          predicate: namedNode(getPredicate(rutaShape.shape[5], rutaShape)),
+          object:    literal(ruta.points[i].longitude),
+        },{
+          predicate: namedNode(getPredicate(rutaShape.shape[6], rutaShape)),
+          object:    literal(ruta.points[i].latitude),
+        }]));
+      quads.push(point);
+    }
+
     return writer.quadsToString(quads);
   }
 };
 
-export const createQuad = (ruta, rutaShape, order, attribute) => {
+export const createQuadWithOutLiteral = (sujeto, rutaShape, order, node) => {
   return quad(
-    namedNode(ruta.webId),
+    namedNode(sujeto),
+    namedNode(getPredicate(rutaShape.shape[order], rutaShape)),
+    namedNode(node),
+    defaultGraph("Ruta")
+  );
+};
+
+
+
+export const createQuadWithLiteral = (sujeto, rutaShape, order, attribute) => {
+  return quad(
+    namedNode(sujeto),
     namedNode(getPredicate(rutaShape.shape[order], rutaShape)),
     literal(attribute),
     defaultGraph("Ruta")
@@ -71,7 +95,7 @@ export const addRoute = async (webId, ruta) => {
     // Set up various paths relative to the viade URL
     const rutaPruebaFilePath = `${viadeUrl}` + ruta.getIdRoute() + `.ttl`;
 
-    const body = createRoute(ruta, routeShape);
+    const body = createRoute(webId, rutaPruebaFilePath, ruta, routeShape);
 
     const pruebaFileExists = await resourceExists(rutaPruebaFilePath);
     if (!pruebaFileExists) {

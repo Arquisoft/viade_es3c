@@ -1,5 +1,6 @@
 export default class Route {
   webId = "";
+  points = [];
 
   /**
    *
