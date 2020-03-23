@@ -2,31 +2,37 @@ import React from 'react';
 import auth from "solid-auth-client"
 import FC from "solid-file-client"
 
+import {
+    TextArea,
+    DivForms,
+    InputSubmit,
+    LabelInput,
+    InputFile,
+    TitleRoute
+} from './form.component.style'
+
 class RouteForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { value: '' };
     }
 
-
-
-
-    async uploadFiles(){
+    async uploadFiles() {
         const filesInput = document.getElementById('files');
         const files = filesInput.files;
 
 
-        const fc   = new FC( auth );
-      //  const {webId} = this.props;
+        const fc = new FC(auth);
+        //  const {webId} = this.props;
 
-        for(let i=0; i<files.length; i++){
+        for (let i = 0; i < files.length; i++) {
             try {
-                const fileName=files[i].name;
+                const fileName = files[i].name;
                 //const url=webId.split("profile/card#me")[0]+"public/"+fileName;
                 const url = "https://sonialavandera.solid.community/public/routes" + fileName;
                 console.log(url);
                 await fc.createFile(url);
-            }catch (e) {
+            } catch (e) {
                 console.log(e);
 
             }
@@ -37,29 +43,29 @@ class RouteForm extends React.Component {
     render() {
         return (
             <div>
-                <h3>Routes</h3>
+                <TitleRoute> New Route </TitleRoute>
                 <form>
-                    <div>
-                        <label>
+                    <DivForms>
+                        <LabelInput>
                             Name of the route:
-            <input type="text" name="route_name" />
-                        </label>
-                    </div>
+            <input type="text" name="route_name" placeholder="New Route" />
+                        </LabelInput>
+                    </DivForms>
 
-                    <div>
-                        <label>
+                    <DivForms>
+                        <LabelInput>
                             Description of the route:
-            <input type="text" name="desc_name" />
-                        </label>
-                    </div>
+            <TextArea type="text" name="description" placeholder="Description for the new Route" rows="10" />
+                        </LabelInput>
+                    </DivForms>
 
-                    <div>
-                        <label> Upload files </label>
-                        <input type="file" id="files" name="files" onClick={()=>this.uploadFiles()} multiple />
-                    </div>
-                    <div id="buttonSubmit">
-                    <input type="submit" value="Submit" />
-                    </div>
+                    <DivForms>
+                        <LabelInput> Upload files </LabelInput>
+                        <InputFile type="file" id="files" name="files" multiple />
+                    </DivForms>
+                    <DivForms id="buttonSubmit">
+                        <InputSubmit type="submit" value="Save" />
+                    </DivForms>
                 </form>
             </div>
         );
@@ -67,4 +73,3 @@ class RouteForm extends React.Component {
 
 }
 export default RouteForm;
-

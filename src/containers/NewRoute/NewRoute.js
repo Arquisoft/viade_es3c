@@ -11,6 +11,8 @@ import {
     Button
 } from './route.style';
 
+import RouteForm from "../../components/Utils/Form";
+
 type Props = { webId: String };
 
 class NewRoute extends React.Component{
@@ -54,14 +56,13 @@ class NewRoute extends React.Component{
         }
         event.preventDefault();
     }
+    
 
     render(): React.ReactNode {
         return (
             <RouteWrapper data-testid="route-component">
                 <Header>
-                    <h5 className="text--white">Nombre:</h5>
-                    <Input type="text" placeholder="Nueva ruta" ref={this.title}/>
-                    <Button onClick={this.handleSubmit}> Guardar</Button>
+                     <RouteForm></RouteForm>
                 </Header>
                 <Map parentCallBack = {this.callBackFunction} zoom={13}/>
             </RouteWrapper>
@@ -69,4 +70,10 @@ class NewRoute extends React.Component{
     }
 };
 
+
+
 export default NewRoute;
+
+//<h5 className="text--white">Nombre:</h5>
+                //    <Input type="text" placeholder="Nueva ruta" ref={this.title}/>
+              //      <Button onClick={this.handleSubmit}> Guardar</Button>
