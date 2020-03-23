@@ -3,6 +3,7 @@ import {
     Header,
     RouteWrapper,
     MyRouteContainer,
+    FriendsList,
     FormRenderContainer
 } from './myfriends.style';
 import { List } from '@solid/react';
