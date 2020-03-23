@@ -31,19 +31,24 @@
             "object": "author"
         },       
         {
-            "prefix": "gpx",
+            "prefix": "viade",
             "predicate": "point",
             "object": "point"
         },
         {
-            "prefix": "gpx",
+            "prefix": "schema",
             "predicate": "longitude",
             "object": "longitude"
         },
         {
-            "prefix": "gpx",
+            "prefix": "schema",
             "predicate": "latitude",
             "object": "latitude"
+        },
+        {
+            "prefix": "schema",
+            "predicate": "altitude",
+            "object": "altitude"
         }
         
         

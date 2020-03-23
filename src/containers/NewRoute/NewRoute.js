@@ -9,11 +9,14 @@ import { Header, RouteWrapper, Button } from "./route.style";
 import { viadeManager } from "@utils";
 import { Route, Point } from "domain";
 
+
 type Props = { webId: String };
+let author;
 
 class NewRoute extends React.Component {
     constructor({ webId }: Props) {
         super();
+        author = "pepe";
         this.webID = webId;
         console.log(this.webID);
         this.handleSave = this.handleSave.bind(this);
@@ -43,20 +46,19 @@ class NewRoute extends React.Component {
         } else if (this.state.markers.length === undefined ) {
             alert("No ha marcado ningún punto en el mapa.");
         } else {
-            const points = new Array();
+            const points = [];
             for ( let i = 0; i < this.state.markers.length; i++) {
                 points.push(
                     new Point(
                         this.state.markers[i].position.lat,
-                        this.state.markers[i].position.lng
+                        this.state.markers[i].position.lng,
+                        this.state.markers[i].position.alt
                     )
                 );
             }
-
-
             let route = new Route(
                 this.title.current.value,
-                "Pepe",
+                author,
                 "Falta meter descripcion",
                 points
             );

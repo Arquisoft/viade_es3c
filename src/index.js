@@ -4,9 +4,7 @@ import './i18n';
 import App from './App';
 import { ErrorBoundary, GlobalError } from './components';
 import * as serviceWorker from './serviceWorker';
-import { viadeManager } from '@utils';
-import { ldflexHelper } from './utils';
-import { WebId } from './containers/Profile/profile.style';
+
 
 
 ReactDOM.render(

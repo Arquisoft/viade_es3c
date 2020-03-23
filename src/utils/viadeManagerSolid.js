@@ -5,8 +5,8 @@ export const iniciateStructure = async (webId) => {
     return await storageHelper.createInitialFiles(webId);
 }
 
-export const addRoute = async (ruta, webId) => {
-    return await storageHelper.addRoute(webId, ruta);
+export const addRoute = async (route, webId) => {
+    return await storageHelper.addRoute(webId, route);
 }
 
 
