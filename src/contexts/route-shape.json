@@ -1,0 +1,51 @@
+{
+    "@context": {
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "terms": "http://purl.org/dc/terms/",
+        "schema": "https://schema.org/",
+        "gpx": "https://www.w3.org/ns/pim/gpx#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "viade": "http://arquisoft.github.io/viadeSpec/"
+    },
+    "shape": [
+        {
+            "prefix": "viade",
+            "predicate": "Route",
+            "object": "Route"
+        },
+        {
+            "prefix": "schema",
+            "predicate": "name",
+            "object": "name"
+        },
+        {
+            "prefix": "schema",
+            "predicate": "description",
+            "object": "description"
+        },
+        {
+            "prefix": "schema",
+            "predicate": "author",
+            "object": "author"
+        },       
+        {
+            "prefix": "gpx",
+            "predicate": "point",
+            "object": "point"
+        },
+        {
+            "prefix": "gpx",
+            "predicate": "longitude",
+            "object": "longitude"
+        },
+        {
+            "prefix": "gpx",
+            "predicate": "latitude",
+            "object": "latitude"
+        }
+        
+        
+    ]
+}
