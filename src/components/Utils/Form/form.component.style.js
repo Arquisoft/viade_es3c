@@ -20,6 +20,10 @@ export const TitleRoute = styled.h3`
 text-align:center;
 `;
 
+export const DivMin = styled.div`
+
+`;
+
 export const InputFile = styled.input`
 
 `;

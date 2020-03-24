@@ -8,7 +8,8 @@ import {
     InputSubmit,
     LabelInput,
     InputFile,
-    TitleRoute
+    TitleRoute,
+    DivMin
 } from './form.component.style'
 
 class RouteForm extends React.Component {
@@ -40,11 +41,15 @@ class RouteForm extends React.Component {
         }
     }
 
+    createRoute() {
+        
+    }
+
     render() {
         return (
-            <div>
+            <DivMin>
                 <TitleRoute> New Route </TitleRoute>
-                <form>
+                <form onSubmit={this.createRoute}>
                     <DivForms>
                         <LabelInput>
                             Name of the route:
@@ -67,7 +72,7 @@ class RouteForm extends React.Component {
                         <InputSubmit type="submit" value="Save" />
                     </DivForms>
                 </form>
-            </div>
+            </DivMin>
         );
     }
 
