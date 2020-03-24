@@ -77,7 +77,7 @@ class NewRoute extends React.Component {
             await viadeManager.addRoute(route, this.webID);
             alert("Se ha guardado correctamente");
         }
-        event.preventDefault();
+        event.persist();
     }
 
     render(): React.ReactNode {
