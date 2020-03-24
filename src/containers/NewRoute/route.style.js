@@ -16,6 +16,7 @@ export const Header = styled.div`
     linear-gradient(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
   background-repeat: repeat, no-repeat;
   
+  
   padding: 30px 20px;
   p {
     color: white;
