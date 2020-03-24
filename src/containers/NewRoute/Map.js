@@ -22,6 +22,7 @@ export class MapContainer extends React.Component {
                     center: {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
+                        alt: position.coords.altitude
                     }
                 })
             });

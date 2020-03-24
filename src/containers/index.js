@@ -6,6 +6,7 @@ import Profile from './Profile';
 import TextEditor from './TextEditor';
 import NewRoute from './NewRoute';
 import MyRoutes from './MyRoutes';
+import MyFriends from './MyFriends';
 import { GamePage, GameList } from './TicTacToe';
 import { FormModelConverter, FormModelRenderer } from './FormModel';
 
@@ -17,6 +18,7 @@ export {
   Welcome,
   NewRoute,
   MyRoutes,
+  MyFriends,
   Profile,
   GamePage,
   GameList,

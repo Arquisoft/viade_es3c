@@ -1,6 +1,4 @@
 import React from 'react';
-import auth from "solid-auth-client"
-import FC from "solid-file-client"
 
 import {
     TextArea,
@@ -16,8 +14,11 @@ class RouteForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { value: '' };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+<<<<<<< HEAD
     async uploadFiles() {
         const filesInput = document.getElementById('files');
         const files = filesInput.files;
@@ -39,6 +40,15 @@ class RouteForm extends React.Component {
             }
 
         }
+=======
+    handleChange(event) {
+        this.setState({ value: event.target.value });
+    }
+
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.value);
+        event.preventDefault();
+>>>>>>> develop
     }
 
     createRoute() {
@@ -53,13 +63,20 @@ class RouteForm extends React.Component {
                     <DivForms>
                         <LabelInput>
                             Name of the route:
+<<<<<<< HEAD
             <input type="text" name="route_name" placeholder="New Route" />
                         </LabelInput>
                     </DivForms>
+=======
+            <input type="text" name="route_name" onChange={this.handleChange} />
+                        </label>
+                    </div>
+>>>>>>> develop
 
                     <DivForms>
                         <LabelInput>
                             Description of the route:
+<<<<<<< HEAD
             <TextArea type="text" name="description" placeholder="Description for the new Route" rows="10" />
                         </LabelInput>
                     </DivForms>
@@ -71,6 +88,19 @@ class RouteForm extends React.Component {
                     <DivForms id="buttonSubmit">
                         <InputSubmit type="submit" value="Save" />
                     </DivForms>
+=======
+            <input type="text" name="desc_name" onChange={this.handleChange} />
+                        </label>
+                    </div>
+
+                    <div>
+                        <label> Upload images </label>
+                        <input type="file" name="images" onChange={this.handleChange} multiple />
+                    </div>
+                    <div id="buttonSubmit">
+                    <input type="submit" value="Submit" />
+                    </div>
+>>>>>>> develop
                 </form>
             </DivMin>
         );

@@ -21,6 +21,13 @@ export const NavigationItems = [
     to: '/myRoutes'
   },
   {
+    id: 'myFriends',
+    icon: 'img/friends.svg',
+    //label: 'navBar.myFriends',
+    labrl:'Friends' ,
+    to: '/myFriends'
+  },
+  {
     id: 'profile',
     icon: 'img/icon/user.svg',
     label: 'navBar.profile',

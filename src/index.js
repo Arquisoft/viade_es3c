@@ -5,6 +5,8 @@ import App from './App';
 import { ErrorBoundary, GlobalError } from './components';
 import * as serviceWorker from './serviceWorker';
 
+
+
 ReactDOM.render(
   <ErrorBoundary component={(error, info) => <GlobalError error={error} info={info} />}>
     <App />
@@ -16,3 +18,8 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+
+
+
