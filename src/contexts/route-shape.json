@@ -44,11 +44,6 @@
             "prefix": "schema",
             "predicate": "latitude",
             "object": "latitude"
-        },
-        {
-            "prefix": "schema",
-            "predicate": "altitude",
-            "object": "altitude"
         }
         
         
