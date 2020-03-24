@@ -3,12 +3,10 @@
 /* eslint-disable no-console */
 
 import React from "react";
-import { Input } from "../TextEditor/text-editor.style";
 import Map from "./Map";
 import {
     Header,
     RouteWrapper,
-    Button,
     TextArea,
     DivForms,
     InputSubmit,
@@ -20,13 +18,12 @@ import { viadeManager } from "@utils";
 import { Route, Point } from "domain";
 
 
+
 type Props = { webId: String };
-let author;
 
 class NewRoute extends React.Component {
     constructor({ webId }: Props) {
-        super();
-        author = "pepe";
+        super();        
         this.webID = webId;
         console.log(this.webID);
         this.handleSave = this.handleSave.bind(this);
@@ -69,6 +66,8 @@ class NewRoute extends React.Component {
                     )
                 );
             }
+            let author = this.webID.replace("https://","");
+            author = author.replace(".solid.community/profile/card#me","");
             let route = new Route(
                 this.title.current.value,
                 author,
