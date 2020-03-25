@@ -6,6 +6,7 @@ import {
     FormRenderContainer
 } from './myroutes.style';
 import InfoRoute from './InfoRoute';
+import MyFriends from "../MyFriends";
 
 class MyRoute extends React.Component{
 

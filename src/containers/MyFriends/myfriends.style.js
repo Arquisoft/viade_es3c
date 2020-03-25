@@ -55,7 +55,7 @@ export const FormRenderContainer = styled.div`
   border: 1px solid #dae0e6;
   min-height: 40px;
   padding: 5px;
-  background-image: url('img/pattern-geo.png'),
+ // background-image: url('img/pattern-geo.png'),
   background-color: white;
   background-repeat: repeat, no-repeat;
   padding: 30px 20px;
