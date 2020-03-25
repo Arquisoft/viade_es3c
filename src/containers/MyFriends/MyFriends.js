@@ -1,8 +1,6 @@
 import React from 'react';
 import {
     Header,
-    RouteWrapper,
-    MyRouteContainer,
     FriendsList,
     FormRenderContainer
 } from './myfriends.style';
