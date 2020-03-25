@@ -1,7 +1,6 @@
 import React , { useState } from 'react';
 import {RouteCard, Button} from './myroutes.style';
 
-import MyFriends_InfoRoute from "../MyFriends";
 import {FormRenderContainer, FriendsList, Header} from "../MyFriends/myfriends.style";
 import {List} from "@solid/react";
 
