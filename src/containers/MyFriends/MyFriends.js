@@ -1,6 +1,8 @@
 import React from 'react';
 import {
     Header,
+    RouteWrapper,
+    MyRouteContainer,
     FriendsList,
     FormRenderContainer
 } from './myfriends.style';
@@ -11,6 +13,8 @@ class MyFriends extends React.Component{
 
  render(): React.ReactNode {
          return (
+             <RouteWrapper data-testid="route-component">
+                 <MyRouteContainer>
              <FormRenderContainer>
                  <Header>
                      <h1>My friends</h1>
@@ -21,6 +25,8 @@ class MyFriends extends React.Component{
                      </List>
                  </FriendsList>
              </FormRenderContainer>
+                 </MyRouteContainer>
+             </RouteWrapper>
          );
      }
 

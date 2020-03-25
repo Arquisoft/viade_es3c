@@ -1,7 +1,9 @@
 import React , { useState } from 'react';
 import {RouteCard, Button} from './myroutes.style';
 
-import MyFriends from "../MyFriends";
+import MyFriends_InfoRoute from "../MyFriends";
+import {FormRenderContainer, FriendsList, Header} from "../MyFriends/myfriends.style";
+import {List} from "@solid/react";
 
 
 const InfoRoute = props => {
@@ -30,7 +32,16 @@ const InfoRoute = props => {
             {show ? (
                 <div></div>
             ) : (
-                <MyFriends></MyFriends>
+                <FormRenderContainer>
+                    <Header>
+                        <h1>My friends</h1>
+                    </Header>
+                    <FriendsList>
+                        <List src={"user.friends"}>{(item, i) =>
+                            <li key={i}>{<a href={`${item}`}>{`${item}`}</a>}</li>}
+                        </List>
+                    </FriendsList>
+                </FormRenderContainer>
             )}
         </RouteCard>
     );
