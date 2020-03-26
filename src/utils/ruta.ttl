@@ -1,0 +1,23 @@
+<https://taniamato.solid.community/public/viade/holi_Pepe.ttl> <https://schema.org/name> "holi" .
+<https://taniamato.solid.community/public/viade/holi_Pepe.ttl> <https://schema.org/description> "Falta meter descripcion" .
+<https://taniamato.solid.community/public/viade/holi_Pepe.ttl> <https://schema.org/author> "Pepe" .
+<https://taniamato.solid.community/public/viade/holi_Pepe.ttl> <https://www.w3.org/ns/pim/gpx#point> [
+  <https://www.w3.org/ns/pim/gpx#longitude> "-122.41956250067946"^^<http://www.w3.org/2001/XMLSchema#double>;
+  <https://www.w3.org/ns/pim/gpx#latitude> "37.793986625159775"^^<http://www.w3.org/2001/XMLSchema#double>
+] .
+<https://taniamato.solid.community/public/viade/holi_Pepe.ttl> <https://www.w3.org/ns/pim/gpx#point> [
+  <https://www.w3.org/ns/pim/gpx#longitude> "-122.41833941336867"^^<http://www.w3.org/2001/XMLSchema#double>;
+  <https://www.w3.org/ns/pim/gpx#latitude> "37.79349489176926"^^<http://www.w3.org/2001/XMLSchema#double>
+] .
+<https://taniamato.solid.community/public/viade/holi_Pepe.ttl> <https://www.w3.org/ns/pim/gpx#point> [
+  <https://www.w3.org/ns/pim/gpx#longitude> "-122.41876856681105"^^<http://www.w3.org/2001/XMLSchema#double>;
+  <https://www.w3.org/ns/pim/gpx#latitude> "37.793003155105914"^^<http://www.w3.org/2001/XMLSchema#double>
+] .
+<https://taniamato.solid.community/public/viade/holi_Pepe.ttl> <https://www.w3.org/ns/pim/gpx#point> [
+  <https://www.w3.org/ns/pim/gpx#longitude> "-122.4209572493672"^^<http://www.w3.org/2001/XMLSchema#double>;
+  <https://www.w3.org/ns/pim/gpx#latitude> "37.792511415169784"^^<http://www.w3.org/2001/XMLSchema#double>
+] .
+<https://taniamato.solid.community/public/viade/holi_Pepe.ttl> <https://www.w3.org/ns/pim/gpx#point> [
+  <https://www.w3.org/ns/pim/gpx#longitude> "-122.42057101126906"^^<http://www.w3.org/2001/XMLSchema#double>;
+  <https://www.w3.org/ns/pim/gpx#latitude> "37.79388488748545"^^<http://www.w3.org/2001/XMLSchema#double>
+] .

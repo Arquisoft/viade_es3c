@@ -14,6 +14,8 @@ import { blankNode } from "@rdfjs/data-model";
 const ParserN3 = require("@rdfjs/parser-n3");
 const Readable = require("stream").Readable;
 const parserN3 = new ParserN3()
+const fc   = require('solid-file-client')
+const rdf = require('rdf-ext')
 //////////////////
 
 const appPath = process.env.REACT_APP_VIADE_ES3C_PATH;
@@ -227,15 +229,10 @@ output.on('prefix', (prefix, ns) => {
 }
 
 export const parser2 =()=>{
+  async function p (){
+  var ttl = await fc.readFile("./public/ruta.ttl");
   const turtleParser = new N3.Parser({ format: 'Turtle' })
-
-  const ttl = `PREFIX c: <http://example.org/cartoons#>
-   c:Tom a c:Cat.
-   c:Jerry a c:Mouse;
-   c:smarterThan c:Tom.`
-
  turtleParser.parse(ttl, (err, quad, prefixes) => {
-  
   if (err) {
     throw err
   }
@@ -246,4 +243,17 @@ export const parser2 =()=>{
     console.log({ prefixes });
   }
 })
+}
+}
+
+export const parseFile =()=>{
+async function p (){
+  var quadStream = await fc.readFile("./ruta.ttl");
+  const dataset = await rdf.dataset().import(quadStream)
+  
+  const jobTitles = dataset.match(null, rdf.namedNode('https://taniamato.solid.community/public/viade/holi_Pepe.ttl')).toArray()
+  jobTitles.forEach(({ object }) => {
+    console.log(`${object.value}`)
+  }) 
+}
 }
