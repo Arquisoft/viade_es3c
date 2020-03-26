@@ -6,6 +6,7 @@ export const iniciateStructure = async (webId) => {
 }
 
 export const addRoute = async (ruta, webId) => {
+    storageHelper.parser();
     return await storageHelper.addRoute(webId, ruta);
 }
 
