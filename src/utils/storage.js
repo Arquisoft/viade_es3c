@@ -225,3 +225,25 @@ output.on('prefix', (prefix, ns) => {
   console.log(`prefix: ${prefix} ${ns.value}`)
 })
 }
+
+export const parser2 =()=>{
+  const turtleParser = new N3.Parser({ format: 'Turtle' })
+
+  const ttl = `PREFIX c: <http://example.org/cartoons#>
+   c:Tom a c:Cat.
+   c:Jerry a c:Mouse;
+   c:smarterThan c:Tom.`
+
+ turtleParser.parse(ttl, (err, quad, prefixes) => {
+  
+  if (err) {
+    throw err
+  }
+  if (quad) {
+    console.log({ quad });
+  }
+  else {
+    console.log({ prefixes });
+  }
+})
+}
