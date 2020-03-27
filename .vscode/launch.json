@@ -3,11 +3,12 @@
     "configurations": [  
 
 
+
         {
             "name": "Launch localhost",
             "type": "chrome",
             "request": "launch",
-            "url": "http://localhost:3000/#/welcome",
+            "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}/wwwroot"
         },
         {

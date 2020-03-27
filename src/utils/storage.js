@@ -10,14 +10,6 @@ import {
 import routeShape from "@contexts/route-shape.json";
 import { blankNode } from "@rdfjs/data-model";
 
-//////////////////
-const ParserN3 = require("@rdfjs/parser-n3");
-const Readable = require("stream").Readable;
-const parserN3 = new ParserN3()
-const fc   = require('solid-file-client')
-const rdf = require('rdf-ext')
-//////////////////
-
 const appPath = process.env.REACT_APP_VIADE_ES3C_PATH;
 
 const N3 = require("n3");
@@ -57,8 +49,6 @@ export const createQuadWithOutLiteral = (sujeto, rutaShape, order, node) => {
     defaultGraph("Ruta")
   );
 };
-
-
 
 export const createQuadWithLiteral = (sujeto, rutaShape, order, attribute) => {
   return quad(
@@ -202,58 +192,3 @@ export const createInitialFiles = async webId => {
 
 export const checkAndInitializeInbox = async () => "";
 
-export const parser =()=>{
-const input = new Readable({
-  read: () => {
-    input.push(`
-      PREFIX s: <http://schema.org/>
-
-      [] a s:Person ;
-        s:jobTitle "Professor" ;
-        s:name "Jane Doe" ;
-        s:telephone "(425) 123-4567" ;
-        s:url <http://www.janedoe.com> .
-    `)
-    input.push(null)
-  }
-})
-const output = parserN3.import(input)
-
-output.on('data', quad => {
-  console.log(`quad: ${quad.subject.value} - ${quad.predicate.value} - ${quad.object.value}`)
-})
-
-output.on('prefix', (prefix, ns) => {
-  console.log(`prefix: ${prefix} ${ns.value}`)
-})
-}
-
-export const parser2 =()=>{
-  async function p (){
-  var ttl = await fc.readFile("./public/ruta.ttl");
-  const turtleParser = new N3.Parser({ format: 'Turtle' })
- turtleParser.parse(ttl, (err, quad, prefixes) => {
-  if (err) {
-    throw err
-  }
-  if (quad) {
-    console.log({ quad });
-  }
-  else {
-    console.log({ prefixes });
-  }
-})
-}
-}
-
-export const parseFile =()=>{
-async function p (){
-  var quadStream = await fc.readFile("./ruta.ttl");
-  const dataset = await rdf.dataset().import(quadStream)
-  
-  const jobTitles = dataset.match(null, rdf.namedNode('https://taniamato.solid.community/public/viade/holi_Pepe.ttl')).toArray()
-  jobTitles.forEach(({ object }) => {
-    console.log(`${object.value}`)
-  }) 
-}
-}
