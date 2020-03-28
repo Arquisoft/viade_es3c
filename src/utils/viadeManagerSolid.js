@@ -1,5 +1,5 @@
 import {storageHelper} from '@utils';
-import{parseFile, getRoutesFromPod} from './parsePodFiles';
+import{parseFile, getRoutesFromPod, verRutas} from './parsePodFiles';
 
 export const iniciateStructure = async (webId) => {
     return await storageHelper.createInitialFiles(webId);
