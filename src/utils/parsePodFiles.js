@@ -6,6 +6,8 @@ const fc   = new FC( auth );
 //const rdf = require('rdf-ext')
 const N3 = require("n3");
 
+var routes = [];
+
 export const parseFile =async (urlFile)=>{
   var quadStream = await fc.readFile(urlFile);  
   const turtleParser = new N3.Parser({ format: 'Turtle' })
@@ -15,7 +17,6 @@ export const parseFile =async (urlFile)=>{
   var points = [];
   var latitude = '';
   var longitude= '';
-  var routes = [];
   turtleParser.parse(quadStream, (err, quad, prefixes) => {
     if (err) {
       throw err
@@ -47,7 +48,6 @@ export const parseFile =async (urlFile)=>{
     routes.push(route);
   }
   })
-  return routes;
 }
 
 /* export const verRutas=()=>{
@@ -67,4 +67,5 @@ export const getRoutesFromPod = async ()=>{
     for (var i = 0; i < folder.files.length; i++) {
         parseFile(folder.files[i].url);
     }
+   return routes;
 }

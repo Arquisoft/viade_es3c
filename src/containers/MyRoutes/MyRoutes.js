@@ -6,42 +6,29 @@ import {
     FormRenderContainer
 } from './myroutes.style';
 import InfoRoute from './InfoRoute';
+import { viadeManager } from "@utils";
+
+const rutas = viadeManager.readRoutesFromPod();
 
 class MyRoute extends React.Component{
 
  render(): React.ReactNode {
         return (
-
             <RouteWrapper data-testid="route-component">
             <MyRouteContainer>
             <FormRenderContainer>
                 <Header>
                     <h1>Mis rutas</h1>
                 </Header>
-            <InfoRoute
-                title="Ruta de las xanas"
-                author="Tania"
+                {rutas.map((ruta, index) => {
+          return ( 
+          <InfoRoute
+                title={ruta.title}
+                author={ruta.author}
+                description={ruta.description}
                 />
-            <InfoRoute
-                title="Ruta del alba"
-                author="Sara"
-                />
-           <InfoRoute
-                title="Ruta del cares"
-                author="Gema"
-                />
-                <InfoRoute
-                title="Senda del oso"
-                author="Sonia"
-                />
-                <InfoRoute
-                title="Ruta arenal de morís"
-                author="Javi"
-                />
-                <InfoRoute
-                title="Ruta de los molinos"
-                author="Guillermo"
-                />
+            );
+        })}
             </FormRenderContainer>
             </MyRouteContainer>
             </RouteWrapper>

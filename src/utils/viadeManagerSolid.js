@@ -6,11 +6,10 @@ export const iniciateStructure = async (webId) => {
 }
 
 export const addRoute = async (ruta, webId) => {
-    readRoute();
     return await storageHelper.addRoute(webId, ruta);
 }
 
-export const readRoute = async () => {
+export const readRoutesFromPod = async () => {
     return await getRoutesFromPod(); 
 }
 
