@@ -3,14 +3,10 @@ import {
     Header,
     RouteWrapper,
     MyRouteContainer,
-    FriendsList,
     FormRenderContainer
 } from './myfriends.style';
 import { List } from '@solid/react';
-import Image from "@solid/react/lib/components/Image";
-import useLDflexList from "@solid/react/lib/hooks/useLDflexList";
 import InfoFriends from "./InfoFriends";
-import useLDflexValue from "@solid/react/lib/hooks/useLDflexValue";
 
 class MyFriends extends React.Component{
 

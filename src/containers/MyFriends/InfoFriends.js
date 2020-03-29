@@ -1,5 +1,5 @@
 import React from 'react';
-import {RouteCard, Button} from './myfriends.style';
+import {RouteCard} from './myfriends.style';
 
 const InfoFriends = props => {
   const {name, url} = props;
