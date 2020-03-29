@@ -7,8 +7,22 @@ import {
 } from './myroutes.style';
 import InfoRoute from './InfoRoute';
 import { viadeManager } from "@utils";
+import { Route, Point } from "domain";
 
-const rutas = viadeManager.readRoutesFromPod();
+//var rutas = [];
+//rutas = viadeManager.readRoutesFromPod();
+
+const point = new Point( 43.354831, -5.851303);
+const point2 = new Point(43.356440, -5.854693);
+const points=[point, point2];
+const ruta1 = new Route("Ruta1", "Ruta de montaña", "Tania", points);
+
+const point3 = new Point(43.354831, -5.851303);
+const point4 = new Point(43.361836, -5.850547);
+const points2=[point3, point4];
+const ruta2 = new Route("Ruta2", "Ruta de montaña", "Tania", points2);
+
+const rutas = [ruta1, ruta2];
 
 class MyRoute extends React.Component{
 
@@ -35,7 +49,6 @@ class MyRoute extends React.Component{
 
         );
     }
-
 };
 
 export default MyRoute;

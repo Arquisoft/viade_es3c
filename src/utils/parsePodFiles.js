@@ -8,7 +8,7 @@ const N3 = require("n3");
 
 var routes = [];
 
-export const parseFile =async (urlFile)=>{
+async function parseFile (urlFile){
   var quadStream = await fc.readFile(urlFile);  
   const turtleParser = new N3.Parser({ format: 'Turtle' })
   var name='';
@@ -48,10 +48,15 @@ export const parseFile =async (urlFile)=>{
     routes.push(route);
   }
   })
+  console.log(routes.length);
 }
 
-/* export const verRutas=()=>{
-  for(var i=0;i<routes.length;i++){
+export const getRoutesFromPod = async ()=>{
+    var folder = await fc.readFolder('https://taniamm.solid.community/public/viade');
+    for (var i = 0; i < folder.files.length; i++) {
+        parseFile(folder.files[i].url);
+    }
+    for(var i=0;i<routes.length;i++){
     console.log(routes[i].name);
     console.log(routes[i].description);
     console.log(routes[i].author);
@@ -60,12 +65,5 @@ export const parseFile =async (urlFile)=>{
       console.log(routes[i].points[j].longitude);
     }
   }
-} 
- */
-export const getRoutesFromPod = async ()=>{
-    let folder = await fc.readFolder('https://taniamato.solid.community/public/viade');
-    for (var i = 0; i < folder.files.length; i++) {
-        parseFile(folder.files[i].url);
-    }
    return routes;
 }
