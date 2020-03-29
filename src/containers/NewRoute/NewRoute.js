@@ -68,6 +68,7 @@ class NewRoute extends React.Component {
             }
             let author = this.webID.replace("https://","");
             author = author.replace(".solid.community/profile/card#me","");
+            author = author.replace(".inrupt.net/profile/card#me","");
             let route = new Route(
                 this.title.current.value,
                 author,
