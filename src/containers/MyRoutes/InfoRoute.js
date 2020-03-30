@@ -10,7 +10,6 @@ import { List } from "@solid/react";
 
 const InfoRoute = props => {
   const { title, description, author } = props;
-  let { title, author } = props;
   const [show, setShow] = useState(true);
 
   return (
