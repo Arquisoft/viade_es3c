@@ -35,7 +35,7 @@ const AuthNavBar = React.memo((props: Props) => {
         ];
       }
       /**
-       * Get user's game inbox path from pod.
+       * Get user's viade inbox path from pod.
        */
       const appStorage = await storageHelper.getAppStorage(webId);
       const appInbox = await ldflexHelper.discoverInbox(`${appStorage}settings.ttl`);
@@ -46,7 +46,7 @@ const AuthNavBar = React.memo((props: Props) => {
       if (appInbox) {
         inboxes = [
           ...inboxes,
-          { path: appInbox, inboxName: t('navBar.notifications.tictactoe'), shape: 'default' }
+          { path: appInbox, inboxName: t('navBar.notifications.viade'), shape: 'default' }
         ];
       }
       /**

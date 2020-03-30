@@ -23,8 +23,7 @@ export const NavigationItems = [
   {
     id: 'myFriends',
     icon: 'img/friends.svg',
-    //label: 'navBar.myFriends',
-    labrl:'Friends' ,
+    label: 'navBar.myFriends',
     to: '/myFriends'
   },
   {

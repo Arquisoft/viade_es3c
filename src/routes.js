@@ -9,11 +9,9 @@ import {
   Welcome,
   RegistrationSuccess,
   Profile,
-  GameList,
-  GamePage,
   FormModelConverter,
-  FormModelRenderer,
-  TextEditor
+  FormModelRenderer
+  
 } from './containers';
 import NewRoute from "./containers/NewRoute";
 import MyRoutes from "./containers/MyRoutes";
@@ -46,21 +44,6 @@ const privateRoutes = [
     id: 'profile',
     path: '/profile',
     component: Profile
-  },
-  {
-    id: 'tictactoe',
-    path: '/tictactoe',
-    component: GameList
-  },
-  {
-    id: 'tictactoegame',
-    path: '/tictactoe/:gameId',
-    component: GamePage
-  },
-  {
-    id: 'text-editor',
-    path: '/text-editor',
-    component: TextEditor
   },
   {
     id: 'formmodelconverter',

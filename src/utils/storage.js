@@ -190,7 +190,7 @@ export const createInitialFiles = async webId => {
 
     // Get the default app storage location from the user's pod and append our path to it
     const viadeUrl = await getAppStorage(webId);
-    // Set up various paths relative to the game URL
+    // Set up various paths relative to the viade URL
     const dataFilePath = `${viadeUrl}data.ttl`;
     const settingsFilePath = `${viadeUrl}settings.ttl`;
 

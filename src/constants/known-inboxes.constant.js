@@ -3,5 +3,5 @@
  */
 export const KnownInboxes = {
   GLOBAL: 'Global',
-  GAME: 'Game'
+  VIADE: 'Viade'
 };

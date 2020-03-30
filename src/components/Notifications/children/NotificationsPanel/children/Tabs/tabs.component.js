@@ -7,7 +7,7 @@ type Props = {
   click: () => void
 };
 /**
- * Filter notificatons by inbox name (Global, Game)
+ * Filter notificatons by inbox name (Global, Viade)
  * @param list
  * @param click
  * @param activeName
