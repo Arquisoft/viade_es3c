@@ -3,10 +3,10 @@ export default class Point {
     
   
     /**
-     *
+     * Constructor class point
      * 
      */
-    constructor(latitude, longitude) {
+    constructor(latitude, longitude, altitude) {
       this.longitude = longitude;     
       this.latitude = latitude;
       

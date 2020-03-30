@@ -1,3 +1,3 @@
-import  RouteForm  from './form.component';
+import RouteForm from './form.component';
 
 export default RouteForm;
