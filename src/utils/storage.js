@@ -228,3 +228,4 @@ export const createInitialFiles = async webId => {
 };
 
 export const checkAndInitializeInbox = async () => "";
+
