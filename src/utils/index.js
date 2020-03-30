@@ -6,6 +6,8 @@ import * as notification from './notification';
 import * as storageHelper from './storage';
 import * as permissionHelper from './permissions';
 import * as viadeManager from './viadeManagerSolid';
+import * as parsePodFiles from './parsePodFiles';
+
 
 function* entries(obj) {
   for (const key of Object.keys(obj)) {
@@ -23,5 +25,6 @@ export {
   errorToaster,
   notification,
   permissionHelper,
-  viadeManager
+  viadeManager,
+  parsePodFiles
 };
