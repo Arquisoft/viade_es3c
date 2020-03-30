@@ -9,16 +9,18 @@ import {
 import { List } from "@solid/react";
 
 const InfoRoute = props => {
-  const { title, description, author } = props;
+  const { name, description, author } = props;
   const [show, setShow] = useState(true);
 
   return (
     <RouteCard className="card">
-      <h3>{title}</h3>
+      <h2>{name}</h2>
+      <h3> Ruta creada por: </h3>
       <p>{author}</p>
+      <h3> Descripción de la ruta: </h3>
       <p>{description}</p>
       <div>
-        <Button id="viewRoute">Ver ruta</Button>
+        <Button id="viewRoute">Ver ruta en el mapa</Button>
       </div>
       <br></br>
       <div id="button">
