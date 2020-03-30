@@ -8,7 +8,6 @@ import {
 } from "./myroutes.style";
 import InfoRoute from "./InfoRoute";
 import { viadeManager } from "@utils";
-import { Route, Point } from "domain";
 
 type Props = { webId: String };
 

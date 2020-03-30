@@ -15,12 +15,8 @@ export const getRoutesFromPod = async (webId) => {
   for (var i = 0; i < folder.files.length; i++) {   
     var quadStream = await fc.readFile(folder.files[i].url);
     const turtleParser = new N3.Parser({ format: "Turtle" });
-    var name = "";
-    var description = "";
-    var author = "";
-    var points = [];
-    var latitude = "";
-    var longitude = "";
+    let name , description, author, latitude, longitude = "";   
+    let points = [];    
     turtleParser.parse(quadStream, (err, quad, prefixes) => {
       if (err) {
         throw err;
