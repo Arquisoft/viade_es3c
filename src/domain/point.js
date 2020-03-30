@@ -9,11 +9,10 @@ export default class Point {
     constructor(latitude, longitude, altitude) {
       this.longitude = longitude;     
       this.latitude = latitude;
-      this.altitude = altitude;
       
     }
   
     getIdPoint() {
-      return `${this.longitude}_${this.latitude}_${this.altitude}`;
+      return `${this.longitude}_${this.latitude}`;
     }
   }

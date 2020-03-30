@@ -39,9 +39,6 @@ export const createRoute = (subject, route, routeShape) => {
         }, {
           predicate: namedNode(getPredicate(routeShape.shape[6], routeShape)),
           object: literal(route.points[i].latitude),
-        }, {
-          predicate: namedNode(getPredicate(routeShape.shape[7], routeShape)),
-          object: literal(route.points[i].altitude),
         }]));
       quads.push(point);
     }
