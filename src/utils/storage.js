@@ -25,7 +25,7 @@ const { namedNode, literal, defaultGraph, quad } = DataFactory;
 export const createRoute = (subject, route, routeShape) => {
   if (createInitialFiles) {
     const writer = new N3.Writer();
-    const quads =[];
+    const quads = [];
     quads.push(createQuadWithLiteral(subject, routeShape, 1, route.name));
     quads.push(createQuadWithLiteral(subject, routeShape, 2, route.description));
     quads.push(createQuadWithLiteral(subject, routeShape, 3, route.author));
@@ -43,9 +43,19 @@ export const createRoute = (subject, route, routeShape) => {
       quads.push(point);
     }
 
+    let reader = new FileReader();
+    for (let i = 0; i < route.mult.length; i++) {
+      let file = route.mult[i];
+      reader.readAsText(file);
+      quads.push((createQuadWithLiteral(subject, routeShape, 7, reader.result)));
+    }
+
+
     return writer.quadsToString(quads);
   }
 };
+
+
 /**
  * Creates a quad (rdf triplet) with a node value
  * @param subject

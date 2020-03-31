@@ -66,13 +66,17 @@ class NewRoute extends React.Component {
                     )
                 );
             }
+
+            let filesMult = document.getElementById('files-mult').files;
+
             let author = this.webID.replace("https://","");
             author = author.replace(".solid.community/profile/card#me","");
             let route = new Route(
                 this.title.current.value,
                 author,
                 this.descripton.current.value,
-                points
+                points,
+                filesMult
             );
             await viadeManager.addRoute(route, this.webID);
             alert("Se ha guardado correctamente");
@@ -95,7 +99,7 @@ class NewRoute extends React.Component {
                         </DivForms>
 
                         <DivForms>
-                            <LabelInput>Upload files</LabelInput><InputFile type="file" id="files" name="files" multiple />
+                            <LabelInput>Upload files</LabelInput><InputFile type="file" id="files-mult" name="files" accept="image/*, video/*" multiple/>
                         </DivForms>
 
                         <DivForms>

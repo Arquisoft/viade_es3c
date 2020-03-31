@@ -6,11 +6,12 @@ export default class Route {
    *
    * @param {String} name
    */
-  constructor(name, author, description, points) {
+  constructor(name, author, description, points, mult) {
     this.name = name;
     this.author = author;
     this.description = description;
     this.points = points;
+    this.mult = mult;
   }
 
   getIdRoute() {
