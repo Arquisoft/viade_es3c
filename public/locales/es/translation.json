@@ -52,6 +52,7 @@
     "profile": "Perfil",
     "newRoute": "Nueva ruta",
     "myRoutes": "Mis rutas",
+    "myFriends":"Mis amigos",
     "formModelRender": "Form Model Render",
     "formModelConvert": "Form Model Convert",
     "text-editor": "Editor de Textos",
@@ -62,11 +63,11 @@
     },
     "notifications": {
       "global": "Global",
-      "tictactoe": "Gato",
-      "noinbox": "No se encontró ningún inbox en su POD, debes tener al menos uno para jugar.",
+      "viade": "Viade",
+      "noinbox": "No se encontró ningún inbox en su POD, debes tener al menos uno para usar la app.",
       "fetchingError": "Error en las notificaciones"
     },
-    "tictactoe": "Juego"
+    "viade": "Viade"
   },
   "footer": {
     "version": "Versión"
@@ -126,55 +127,26 @@
     "minMaxString": "Error: Mínimo y máximo debería ser ",
     "defaultError": "Error: Formato incorrecto"
   },
-  "game": {
-    "title": "Tres en Línea",
-    "createGamePrompt": "Ingresa un oponente y un ID para el juego",
-    "createGame": "Crear Juego",
-    "createGameSuccess": "Juego creado satisfactoriamente",
-    "resetGameForm": "Limpiar",
-    "idLabel": "ID del Juego",
-    "opponentWebIDLabel": "WebID del Oponente",
-    "nogames": "No se han encontrado juegos",
-    "invitationAccept": "te ha invitado a jugar una partida de Tres en Linea. Te gustaría jugar?",
-    "invitationTemplate": "<0><0><0>{{- name}}</0> te ha invitado a un juego de Tres en Linea.</0><1>Quieres aceptar el juego?</1></0>",
-    "invitationAcceptText": "Aceptar",
-    "invitationDeclineText": "Rechazar",
-    "deleteConfirmation": "Eliminar juego?",
-    "playingAgainst": "Jugando contra:",
-    "token": "Tu token:",
-    "tieMsg": "Es un empate",
-    "winnerMsg": "Eres el ganador!!",
-    "loserMsg": "Mejor suerte la próxima",
-    "winnerObj": "Ganador",
-    "notYourTurn": "No es tu turno, por favor espera a que tu rivla juegue",
-    "status": "Estado del juego:",
-    "created": "Creado:",
-    "confirmDelete": "Confirmar Eliminar",
-    "deleteLabel": "Eliminar",
-    "playLabel": "Jugar",
-    "yourGames": "Tus juegos",
-    "otherGames": "Otros juegos",
-    "errorTitle": "Error",
-    "opponentMissing": "No se puede crear el juego porque no se ingresó ningún WebID del oponente.",
+  "viade": {
+    "title": "Viade",   
     "dataError": {
-      "message": "Los datos del juego no pudieros ser salvados, data.ttl no fue encontrado",
+      "message": "Los datos de la ruta no pudieros ser salvados, data.ttl no fue encontrado",
       "link": {
         "label": "Saber más",
         "href": "https://solidsdk.inrupt.net/public/general/en/data-file-not-found.html"
       }
     },
     "createFolder": {
-      "message": "Error al crear el folder del juego",
+      "message": "Error al crear la carpeta viade",
       "link": {
         "label": "Saber más",
         "href": "url link"
       }
     },
-    "myself": "No puedes jugar contra ti mismo",
     "alreadyExists": " archivo o carpeta ya existe en su pod."
   },
-  "noInboxOpponent": {
-    "message": "No se encontró un inbox para su oponente",
+  "noInboxFriend": {
+    "message": "No se encontró un inbox para su amigo",
     "link": {
       "label": "Conozca más",
       "href": "https://solidsdk.inrupt.net/public/general/es/missing-global-inbox.html"
@@ -230,13 +202,5 @@
       "fieldDeleted": "Campo de formulario eliminado correctamente",
       "fieldAdded": "Campo de formulario agregado con éxito"
     }
-  },
-  "editor": {
-    "explanation": "Aqui tiene un simple editor de textos con que puede crear un fichero de texto plano y guardarlo en un Pod. Para mostrarlo claramente en este demo, hay que proveer una URL que directamente identifica el fichero en el Pod. El Pod puede ser el del mismo usuario conectado, o de otra persona. Para poder escribir, y leer, al Pod de otra persona, el proprietario tendrá que dar permiso de escribir, usando el botón de 'Dar Acceso' abajo.",
-    "url": "URL",
-    "friend": "Webid de collaborador",
-    "load": "Cargar",
-    "save": "Guardar",
-    "grantAccess": "Dar Acceso"
-  }
+  }  
 }

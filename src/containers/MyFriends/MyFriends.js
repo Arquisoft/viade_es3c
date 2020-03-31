@@ -3,31 +3,45 @@ import {
     Header,
     RouteWrapper,
     MyRouteContainer,
-    FriendsList,
     FormRenderContainer
 } from './myfriends.style';
 import { List } from '@solid/react';
+import InfoFriends from "./InfoFriends";
 
 class MyFriends extends React.Component{
 
- render(): React.ReactNode {
-     return (
-
-            <RouteWrapper data-testid="route-component">
-            <MyRouteContainer>
-            <FormRenderContainer>
-                <Header>
-                    <h1>My friends</h1>
-                </Header>
-                <FriendsList>
-                    <List src="user.friends" />
-                </FriendsList>
-            </FormRenderContainer>
-            </MyRouteContainer>
-            </RouteWrapper>
-        );
+    getUserName(name){
+        let username = name.replace("https://", "");
+        return username.replace(".solid.community/", "").replace("profile/card#me", "");
     }
 
+    getUrl(name){
+        return name.replace("profile/card#me", "");
+    }
+
+ render(): React.ReactNode {
+        return (
+             <RouteWrapper data-testid="route-component">
+                 <MyRouteContainer>
+             <FormRenderContainer>
+                 <Header>
+                     <h1>My friends</h1>
+                 </Header>
+                 <List src={"user.friends"}>{
+                     (item, i) =>
+                         <InfoFriends
+                             key={i}
+                             name= {this.getUserName(`${item}`)}
+                             url = {<a href={this.getUrl(`${item}`)}>{this.getUrl(`${item}`)}</a>} />
+                 }
+                 </List>
+             </FormRenderContainer>
+                 </MyRouteContainer>
+             </RouteWrapper>
+         );
+     }
 };
+
+
 
 export default MyFriends;

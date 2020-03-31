@@ -40,7 +40,7 @@ export const checkPermissions = async (webId, errorMessage) => {
 };
 
 /**
- * Helper function to fetch permissions for the game inbox, and if permissions are not set
+ * Helper function to fetch permissions for the viade inbox, and if permissions are not set
  * correctly, then add them. This repairs a broken inbox.
  * @param inboxPath
  * @returns {Promise<void>}
