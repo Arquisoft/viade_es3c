@@ -67,7 +67,13 @@ class NewRoute extends React.Component {
                 );
             }
 
-            let filesMult = document.getElementById('files-mult').files;
+            const multimedia = [];
+            let filesMult = document.getElementById('files-mult').files
+            for (let i = 0; i < filesMult.length; i++) {
+                console.log(filesMult[i].name)
+                //multimedia.push(new Multimedia(filesMult[i].name)    );
+            }
+
 
             let author = this.webID.replace("https://","");
             author = author.replace(".solid.community/profile/card#me","");
