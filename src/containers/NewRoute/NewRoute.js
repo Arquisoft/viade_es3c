@@ -25,7 +25,6 @@ class NewRoute extends React.Component {
     constructor({ webId }: Props) {
         super();        
         this.webID = webId;
-        console.log(this.webID);
         this.handleSave = this.handleSave.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -68,14 +67,14 @@ class NewRoute extends React.Component {
             }
             let author = this.webID.replace("https://","");
             author = author.replace(".solid.community/profile/card#me","");
+            author = author.replace(".inrupt.net/profile/card#me","");
             let route = new Route(
                 this.title.current.value,
                 author,
                 this.descripton.current.value,
                 points
             );
-            await viadeManager.addRoute(route, this.webID);
-            alert("Se ha guardado correctamente");
+            await viadeManager.addRoute(route, this.webID).then(alert("Se ha guardado correctamente"));
         }
         event.persist();
     }

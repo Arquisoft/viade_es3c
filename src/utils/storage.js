@@ -116,6 +116,7 @@ export const addRoute = async (webId, route) => {
       webId,
       AccessControlList.MODES.WRITE
     );
+    
     // If we do not have Write permission, there's nothing we can do here
     if (!hasWritePermission) return;
 
@@ -184,6 +185,7 @@ export const createInitialFiles = async webId => {
       webId,
       AccessControlList.MODES.WRITE
     );
+    
 
     // If we do not have Write permission, there's nothing we can do here
     if (!hasWritePermission) return;
