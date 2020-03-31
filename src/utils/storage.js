@@ -43,10 +43,17 @@ export const createRoute = (subject, route, routeShape) => {
       quads.push(point);
     }
 
+
     let reader = new FileReader();
     for (let i = 0; i < route.mult.length; i++) {
+      const m = quad(namedNode(subject), namedNode(getPredicate(routeShape.shape[7], routeShape)), writer.blank([{
+        predicate: namedNode(getPredicate(routeShape.shape[5], routeShape)),
+        object: literal(route.mult[i].name),
+      }]));
+
+      console.log(route.mult[i])
       let file = route.mult[i];
-      reader.readAsText(file);
+      reader.readAsBinaryString(file);
       quads.push((createQuadWithLiteral(subject, routeShape, 7, reader.result)));
     }
 

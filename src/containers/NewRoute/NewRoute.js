@@ -15,7 +15,7 @@ import {
     TitleRoute
 } from "./route.style";
 import { viadeManager } from "@utils";
-import { Route, Point } from "domain";
+import { Route, Point, Multimedia } from "domain";
 
 
 
