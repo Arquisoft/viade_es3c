@@ -1,5 +1,5 @@
-import {storageHelper, parsePodFiles} from '@utils';
-import { notification } from '.';
+import {storageHelper, parsePodFiles,notification} from '@utils';
+
 
 export const iniciateStructure = async (webId) => {
     return await storageHelper.createInitialFiles(webId);

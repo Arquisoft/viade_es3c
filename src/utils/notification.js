@@ -47,19 +47,13 @@ export const getDefaultInbox = (inboxes, inbox1, inbox2) =>
    * @returns {Promise<string>}
    */
 
-  export const generateInvitation = async (baseUrl, gameUrl, userWebId, opponentWebId) {
+  export const generateInvitation = async (baseUrl, gameUrl, userWebId, opponentWebId) => {
     const invitationUrl = await this.generateUniqueUrlForResource(baseUrl);
-    const notification = `<${invitationUrl}> a <${namespaces.schema}InviteAction>.`;
-    const sparqlUpdate = `
-    <${invitationUrl}> a <${namespaces.schema}InviteAction>;
-      <${namespaces.schema}event> <${gameUrl}>;
-      <${namespaces.schema}agent> <${userWebId}>;
-      <${namespaces.schema}recipient> <${opponentWebId}>.
-  `;
+    const notification = `<${invitationUrl}> `;
+    ;
 
     return {
       notification,
-      sparqlUpdate
     };
-  }
+  };
 
