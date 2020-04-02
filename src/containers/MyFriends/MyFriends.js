@@ -19,27 +19,33 @@ class MyFriends extends React.Component{
         return name.replace("profile/card#me", "");
     }
 
+    getList() {
+        return <List src={"user.friends"}>{
+            (item, i) =>
+                <InfoFriends
+                    key={i}
+                    name={this.getUserName(`${item}`)}
+                    url={<a href={this.getUrl(`${item}`)}>{this.getUrl(`${item}`)}</a>}/>
+        }
+        </List>;
+    }
+
  render(): React.ReactNode {
         return (
              <RouteWrapper data-testid="route-component">
                  <MyRouteContainer>
-             <FormRenderContainer>
-                 <Header>
-                     <h1>My friends</h1>
-                 </Header>
-                 <List src={"user.friends"}>{
-                     (item, i) =>
-                         <InfoFriends
-                             key={i}
-                             name= {this.getUserName(`${item}`)}
-                             url = {<a href={this.getUrl(`${item}`)}>{this.getUrl(`${item}`)}</a>} />
-                 }
-                 </List>
-             </FormRenderContainer>
+                     <FormRenderContainer>
+                         <Header>
+                             <h1>My friends</h1>
+                         </Header>
+                         {this.getList()}
+                     </FormRenderContainer>
                  </MyRouteContainer>
              </RouteWrapper>
          );
      }
+
+
 };
 
 
