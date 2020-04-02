@@ -37,10 +37,8 @@ const InfoRoute = props => {
       {showRoute ? (
         <div></div>
       ) : (
-        <FormRenderContainer>
-        <div>
-            <RouteMap zoom={13} />
-        </div>
+        <FormRenderContainer id="mapa">
+          <RouteMap zoom={13} />
         </FormRenderContainer>
       )}
 
