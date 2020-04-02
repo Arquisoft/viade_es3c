@@ -13,12 +13,15 @@ export const RouteCard = styled.div`
     }
   }
   p{
-    font-size: 25px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  h2{
     font-weight: bold;
   }
   h3{
-
-    font-size: 35px
+    font-size: 25px;
+    margin: 0 0 0px 0;
   }
 `;
 
@@ -60,6 +63,10 @@ export const FormRenderContainer = styled.div`
   input {
     margin-left: 0;
   }
+  div{
+    margin-right:auto;
+    margin-left:auto;
+  }
 `;
 
 export const Header = styled.div`
@@ -85,6 +92,9 @@ export const Header = styled.div`
 `;
 
 export const Button = styled.button`
-  max-width: 200px;
-  font-size: 15px;
+
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  padding: 12px 28px;
+  font-size: 16px;
+
 `;

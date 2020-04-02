@@ -38,9 +38,10 @@ class MyRoute extends React.Component {
               {this.state.data.map((ruta, index) => {
                 return (
                   <InfoRoute key={index}
-                    title={ruta.title}
+                    name={ruta.name}
                     author={ruta.author}
                     description={ruta.description}
+                    points={ruta.points}
                   />
                 );
               })}
