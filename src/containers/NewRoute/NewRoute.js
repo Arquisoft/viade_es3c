@@ -80,6 +80,8 @@ class NewRoute extends React.Component {
         event.persist();
     }
 
+  
+
     render(): React.ReactNode {
         return (
             <RouteWrapper data-testid="route-component">
