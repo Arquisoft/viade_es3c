@@ -17,7 +17,7 @@ import { errorToaster } from '@utils';
 export const WelcomePageContent = props => {
     const { webId, image, updatePhoto, name } = props;
     const { t } = useTranslation();
-    const limit = 2100000;
+    const limit = 2100000
     return (
         <WelcomeWrapper data-testid="welcome-wrapper">
             <WelcomeCard className="card">
