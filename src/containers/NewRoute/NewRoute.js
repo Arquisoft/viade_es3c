@@ -70,10 +70,11 @@ class NewRoute extends React.Component {
             const multimedia = [];
             let filesMult = document.getElementById('files-mult').files
             for (let i = 0; i < filesMult.length; i++) {
+                let b64 = this.encodeImageFileAsURL(filesMult[i]);
+                multimedia.push(new Multimedia(filesMult[i].name, b64));
                 console.log(filesMult[i].name)
-                //multimedia.push(new Multimedia(filesMult[i].name)    );
+                console.log(b64)
             }
-
 
             let author = this.webID.replace("https://","");
             author = author.replace(".solid.community/profile/card#me","");
@@ -89,6 +90,15 @@ class NewRoute extends React.Component {
         }
         event.persist();
     }
+
+    
+    encodeImageFileAsURL(file) {
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          console.log('RESULT', reader.result)
+        }
+        return reader.readAsDataURL(file);
+      }
 
     render(): React.ReactNode {
         return (

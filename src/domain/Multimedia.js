@@ -1,11 +1,7 @@
-export default class Point {
+export default class Multimedia {
     webId = "";
     
   
-    /**
-     * Constructor class point
-     * 
-     */
     constructor(name, encoding) {
       this.name = name;     
       this.encoding = encoding;
