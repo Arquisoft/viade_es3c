@@ -63,6 +63,10 @@ export const FormRenderContainer = styled.div`
   input {
     margin-left: 0;
   }
+  div{
+    margin-right:auto;
+    margin-left:auto;
+  }
 `;
 
 export const Header = styled.div`
