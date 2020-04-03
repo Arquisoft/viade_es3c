@@ -18,7 +18,7 @@ import {
 } from "./route.style";
 import { viadeManager } from "@utils";
 import { Route, Point, Multimedia} from "domain";
-import { MultimediaComponent } from "../UploadMultimedia"
+import { MultimediaComponent } from "../UploadMultimedia/multimedia.container"
 
 
 

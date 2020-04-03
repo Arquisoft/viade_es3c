@@ -19,7 +19,7 @@ export const MultimediaPageContent = props => {
                     fileBase: webId && webId.split('/card')[0],
                     limitFiles: 1,
                     limitSize: limit,
-                    accept: 'jpg,jpeg,png',
+                    accept: 'jpg,jpeg,png, mp3',
                     errorsText: {
                         sizeLimit: t('welcome.errors.sizeLimit', {
                             limit: `${limit / 1000000}Mbs`
