@@ -1,5 +1,5 @@
 import { cleanup } from 'react-testing-library';
-import Route from "./route";
+import Point from "./point";
 
 afterAll(cleanup);
 
