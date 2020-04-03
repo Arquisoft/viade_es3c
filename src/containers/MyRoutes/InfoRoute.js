@@ -7,6 +7,7 @@ import {
 } from "../MyFriends/myfriends.style";
 import { List } from "@solid/react";
 import RouteMap from "./RouteMap";
+import { viadeManager } from "@utils";
 
 
 const InfoRoute = props => {
@@ -38,7 +39,8 @@ const InfoRoute = props => {
         <div></div>
       ) : (
         <FormRenderContainer id="mapa">
-          <RouteMap zoom={13} />
+          <RouteMap
+            markers= {points}/>
         </FormRenderContainer>
       )}
 

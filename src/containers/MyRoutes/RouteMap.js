@@ -1,21 +1,24 @@
 import {Map, GoogleApiWrapper, Marker, Polyline} from 'google-maps-react';
 import React from 'react';
-import {Point } from "domain";
+import {Route } from "domain";
 
 const mapStyle = {
     width: '680px',
     height: '366px'
 };
 
-let point = new Point(37.755998502578144, -122.47157155429458);
+const InfoRoute = props => {
+  const { markers } = props;
+}
+/* let point = new Point(37.755998502578144, -122.47157155429458);
 let point2 = new Point(37.77743913215115, -122.46642171298599);
-const points = [point, point2];
+const points = [point, point2]; */
 
 export class MapContainer extends React.Component {
 
-    constructor(props) {
+      constructor(props) {
         super(props);
-        this.state = {markers:points};
+        this.state = {markers: props.markers};
   }
 
     sendData = () => {
