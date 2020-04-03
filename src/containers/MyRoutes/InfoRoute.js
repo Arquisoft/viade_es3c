@@ -6,6 +6,7 @@ import {
 } from "../MyFriends/myfriends.style";
 import RouteMap from "./RouteMap";
 import MyFriends from "../MyFriends";
+import Share from "../Share";
 
 
 const InfoRoute = props => {
@@ -28,7 +29,7 @@ const InfoRoute = props => {
       <br></br>
       <div id="button">
         <Button id="viewFriends" onClick={() => setShow(!show)}>
-          Compartir con amigos
+          Compartir con ...
         </Button>
       </div>
       <br></br>
@@ -50,7 +51,7 @@ const InfoRoute = props => {
           <Header>
             <h1>My friends</h1>
           </Header>
-            {this.share(name)}
+            <Share ruta={name} autor={author}></Share>
         </FormRenderContainer>
       )}
     </RouteCard>
