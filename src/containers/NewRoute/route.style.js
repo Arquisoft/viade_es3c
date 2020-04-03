@@ -70,6 +70,10 @@ export const InputFile = styled.input`
 
 `;
 
+export const DivDivisor = styled.div`
+  padding: 30px 20px;
+`;
+
 export const RouteForm = styled.form`
   margin-bottom: 1em;
 `;

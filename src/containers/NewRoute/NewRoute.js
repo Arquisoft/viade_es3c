@@ -14,10 +14,11 @@ import {
     InputFile,
     TitleRoute,
     UploaderFiles,
-    RouteForm
+    RouteForm,
+    DivDivisor
 } from "./route.style";
 import { viadeManager } from "@utils";
-import { Route, Point, Multimedia} from "domain";
+import { Route, Point, Multimedia } from "domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container"
 
 
@@ -26,7 +27,7 @@ type Props = { webId: String };
 
 class NewRoute extends React.Component {
     constructor({ webId }: Props) {
-        super();        
+        super();
         this.webID = webId;
         console.log(this.webID);
         this.handleSave = this.handleSave.bind(this);
@@ -77,8 +78,8 @@ class NewRoute extends React.Component {
                 console.log(filesMult[i].name)
             }
 
-            let author = this.webID.replace("https://","");
-            author = author.replace(".solid.community/profile/card#me","");
+            let author = this.webID.replace("https://", "");
+            author = author.replace(".solid.community/profile/card#me", "");
             let route = new Route(
                 this.title.current.value,
                 author,
@@ -92,19 +93,20 @@ class NewRoute extends React.Component {
         event.persist();
     }
 
-    
+
     encodeImageFileAsURL(file) {
         var reader = new FileReader();
-        reader.onloadend = function() {
-          console.log('RESULT', reader.result)
+        reader.onloadend = function () {
+            console.log('RESULT', reader.result)
         }
         return reader.readAsDataURL(file);
-      }
+    }
 
     render(): React.ReactNode {
         return (
             <RouteWrapper data-testid="route-component">
                 <Header>
+
                     <TitleRoute>New Route</TitleRoute>
                     <RouteForm onSubmit={this.handleSubmit}>
                         <DivForms>
@@ -116,17 +118,17 @@ class NewRoute extends React.Component {
                         </DivForms>
 
                         <DivForms>
-                            <LabelInput>Upload files</LabelInput><InputFile type="file" id="files-mult" name="files" accept="image/*, video/*" multiple/>
+                            <LabelInput>Upload files</LabelInput><InputFile type="file" id="files-mult" name="files" accept="image/*, video/*" multiple />
                         </DivForms>
 
                         <DivForms>
                             <InputSubmit type="submit" value="Save" />
                         </DivForms>
                     </RouteForm>
-
-                    <UploaderFiles>Upload files</UploaderFiles>
-                    <MultimediaComponent></MultimediaComponent>
-                    
+                    <DivDivisor>
+                        <UploaderFiles>Upload files</UploaderFiles>
+                        <MultimediaComponent></MultimediaComponent>
+                    </DivDivisor>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
             </RouteWrapper>
