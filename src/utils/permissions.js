@@ -88,6 +88,7 @@ export const sharing = async (webId, friendId, shareUrl) => {
     await ACLFile.createACL(permissions);
     return true;
   } catch (e) {
+    console.log("falla")
     return false;
   }
 }

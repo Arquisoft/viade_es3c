@@ -8,7 +8,6 @@ import {
 import { List, useWebId} from '@solid/react';
 import InfoFriends from "./InfoFriends";
 import {sharing} from "../../utils/permissions";
-import useLDflexList from "@solid/react/lib/hooks/useLDflexList";
 
 
 type Props = { webId: String };
@@ -18,8 +17,7 @@ class MyFriends extends React.Component{
     constructor({ webId }: Props) {
         super();
         this.webID = webId;
-        console.log(this.getUrl(this.webID) + 'public/viade/' + 'Prueba' + '_' + this.getUserName(this.webID) + '.ttl'
-    )
+        console.log(this.getUrl(this.webID) + 'public/viade/' + 'Prueba' + '_' + this.getUserName(this.webID) + '.ttl')
     }
     getUserName(name){
         let username = name.replace("https://", "");
@@ -35,9 +33,10 @@ class MyFriends extends React.Component{
     permit(friend, route){
         //https://sonialavandera.solid.community/public/viade/Prueba_sonialavandera.ttl
         let nameRoute = this.getUrl(this.webID) + 'public/viade/' + route + '_' + this.getUserName(this.webID) + '.ttl';
-        sharing(this.webID, friend, route);
+        console.log("Entra aqui");
+        sharing(this.webID, friend, nameRoute);
     }
-    share(name){
+    share(route){
         //Construir la url de la ruta (name)
         //el amigo ya lo tengo en la lista  -> cuando le doy a la url de la ruta para que la vea el amigo
 
@@ -46,7 +45,7 @@ class MyFriends extends React.Component{
                 <InfoFriends
                     key={i}
                     name={this.getUserName(`${item}`)}
-                    url={<a href={this.permit(`${item}`, name)}>{this.getUrl(`${item}`)}</a>}/>
+                    url={<a href="#" onClick={this.permit(`${item}`, route)}>{this.getUrl(`${item}`)}</a>}/>
         }
         </List>;
     }
@@ -73,7 +72,7 @@ class MyFriends extends React.Component{
                          <Header>
                              <h1>My friends</h1>
                          </Header>
-                         {this.getList()}
+                         {this.share("Prueba")}
                      </FormRenderContainer>
                  </MyRouteContainer>
              </RouteWrapper>
