@@ -6,6 +6,8 @@ import {FormRenderContainer, FriendsList, Header, MyRouteContainer, RouteWrapper
 
 type Props = { webId: String };
 
+
+
 class Share extends React.Component{
 
     constructor({ webId }: Props) {
@@ -29,30 +31,27 @@ class Share extends React.Component{
 
     permit(friend, route, autor){
         //https://sonialavandera.solid.community/public/viade/Prueba_sonialavandera.ttl
-        let nameRoute = this.webID + 'public/viade/' + route + '_' + autor + '.ttl';
+        let nameRoute = autor + ".solid.community/" + 'public/viade/' + route + '_' + autor + '.ttl';
         console.log("Ruta nombre" + nameRoute)
-        sharing(this.webID, friend, nameRoute);
+        sharing(autor + ".solid.community/", friend, nameRoute);
     }
     share(route, autor){
         //Construir la url de la ruta (name)
         //el amigo ya lo tengo en la lista  -> cuando le doy a la url de la ruta para que la vea el amigo
         console.log(route, autor)
-        return <List src={"user.friends"}>{
-            (item, i) =>
-                <InfoFriends
-                    key={i}
-                    name={this.getUserName(`${item}`)}
-                    url={<a href="" onClick={this.permit(`${item}`, route, autor)}>{this.getUserName(`${item}`)}</a>}/>
-        }
-        </List>;
+        return <FriendsList>
+            <List src={"user.friends"}>{
+                (item, i) =>
+                    <li key={i}>{
+                        <a href="" onClick={this.permit(`${item}`, route, autor)}>{this.getUserName(`${item}`)}</a>}
+                    </li>}
+            </List>
+        </FriendsList>;
     }
 
     render(): React.ReactNode {
         return (
                     <FormRenderContainer>
-                        <Header>
-                            <h1>My friends</h1>
-                        </Header>
                         {this.share(this.props.ruta, this.props.autor)}
                     </FormRenderContainer>
         );
