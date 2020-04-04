@@ -10,13 +10,17 @@ const defaultProfilePhoto = 'img/icon/upload_multimedia.svg';
 export class MultimediaComponent extends Component<Props> {
   constructor(props) {
     super(props);
-
+    const w = this.props.webId
+    console.log(this.props.webId);
     this.state = {
       name: '',
       isLoading: false,
       hasImage: false
     };
+    
   }
+  
+  
 
   componentDidMount() {
     const { webId } = this.props;

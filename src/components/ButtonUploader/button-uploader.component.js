@@ -49,7 +49,7 @@ export const ButtonUploader = (props: Props) => {
         style: photo && photo !== '' && { backgroundImage: `url(${photo})` }
       }}
     >
-      <ButtonStyled onClick={onClickFile} className="button-upload">
+      <ButtonStyled multiple onClick={onClickFile} className="button-upload" >
         {text}
       </ButtonStyled>
       {inProgress && (

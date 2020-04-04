@@ -4,6 +4,7 @@
 
 import React from "react";
 import Map from "./Map";
+import { FormModel } from '@inrupt/solid-react-components';
 import {
     Header,
     RouteWrapper,
@@ -102,13 +103,17 @@ class NewRoute extends React.Component {
         return reader.readAsDataURL(file);
     }
 
+   
+
     render(): React.ReactNode {
         return (
             <RouteWrapper data-testid="route-component">
                 <Header>
 
                     <TitleRoute>New Route</TitleRoute>
+
                     <RouteForm onSubmit={this.handleSubmit}>
+
                         <DivForms>
                             <LabelInput>Name of the route: <input type="text" name="route_name" placeholder="New Route" ref={this.title} /></LabelInput>
                         </DivForms>
@@ -124,10 +129,12 @@ class NewRoute extends React.Component {
                         <DivForms>
                             <InputSubmit type="submit" value="Save" />
                         </DivForms>
+
                     </RouteForm>
+
                     <DivDivisor>
                         <UploaderFiles>Upload files</UploaderFiles>
-                        <MultimediaComponent></MultimediaComponent>
+                        <MultimediaComponent>...{this.webID} </MultimediaComponent>
                     </DivDivisor>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
