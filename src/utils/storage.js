@@ -43,19 +43,16 @@ export const createRoute = (subject, route, routeShape) => {
       quads.push(point);
     }
 
-
-    for (let i = 0; i < route.mults.length; i++) {
-      const m = quad(namedNode(subject), namedNode(getPredicate(routeShape.shape[7], routeShape)), writer.blank([{
-        predicate: namedNode(getPredicate(routeShape.shape[5], routeShape)),
-        object: literal(route.mults[i].name),
+    for (let j = 0; j < route.multimedia.length; j++) {
+      const m = quad(namedNode(subject), namedNode(getPredicate(routeShape.shape[7], routeShape)), 
+      writer.blank([{
+        predicate: namedNode(getPredicate(routeShape.shape[8], routeShape)),
+        object: literal(route.multimedia[j]),
       }]));
-
-      console.log(route.mults[i])
-      let file = route.mults[i];
-      quads.push((createQuadWithLiteral(subject, routeShape, 7, m)));
+      let file = route.multimedia[j];
+      console.log(file);
+      quads.push(m);
     }
-
-
     return writer.quadsToString(quads);
   }
 };

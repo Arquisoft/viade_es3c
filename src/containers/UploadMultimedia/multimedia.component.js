@@ -23,7 +23,7 @@ export const MultimediaPageContent = props => {
         <ImageWrapper>
             <Uploader
                 {...{
-                    fileBase: "https://javiponton.inrupt.net/private",
+                    fileBase: "https://tania.solid.community/private",
                     limitFiles: 10,
                     limitSize: limit,
                     accept: 'jpg,jpeg,png,mp3,mov,mp4,avi',

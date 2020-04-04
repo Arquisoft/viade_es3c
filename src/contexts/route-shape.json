@@ -44,8 +44,12 @@
             "prefix": "schema",
             "predicate": "latitude",
             "object": "latitude"
+        },
+        {
+            "prefix": "viade",
+            "predicate": "multimedia",
+            "object": "multimedia"
         }
-        
         
     ]
 }
