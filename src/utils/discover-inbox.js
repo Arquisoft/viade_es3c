@@ -16,10 +16,8 @@ function fetch_inbox(resource_iri) {
       } else {
         const resource = $rdf.sym(resource_iri);
         // Here, we look up the inbox from the calendar representation
-        const inbox = resource_iri + "inbox";
-        alert(inbox);
+        const inbox = store.any(resource, LDP("inbox"));
         resolve(inbox === undefined ? inbox : inbox.value);
-        alert(inbox);
       }
     });
   });

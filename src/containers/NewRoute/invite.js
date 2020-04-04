@@ -5,7 +5,6 @@ const invite = `
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 inv: a as:Invite;
     rdfs:label "Invitation";
-    rdfs:comment "You are invited to my book release party";
-    as:object <https://jcaesar.solid.community/public/calendar/50BC/Martius/PartyAtCaesarPalace.ttl>.
+    rdfs:comment "You are invited to my book release party".
 `;
 module.exports.invite = invite;
