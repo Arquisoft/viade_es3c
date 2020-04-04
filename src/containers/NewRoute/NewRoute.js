@@ -15,6 +15,7 @@ import {
     TitleRoute
 } from "./route.style";
 import { viadeManager } from "@utils";
+
 import { Route, Point } from "domain";
 
 
@@ -74,13 +75,18 @@ class NewRoute extends React.Component {
                 this.descripton.current.value,
                 points
             );
+            
             await viadeManager.addRoute(route, this.webID);
+            
+            await viadeManager.generateInvitation(this.webID);
             alert("Se ha guardado correctamente");
         }
         event.persist();
     }
 
   
+    
+
 
     render(): React.ReactNode {
         return (
@@ -103,12 +109,18 @@ class NewRoute extends React.Component {
                         <DivForms>
                             <InputSubmit type="submit" value="Save" />
                         </DivForms>
+
+                        <script src="src/NotificationTest.js">
+	                </script>
                     </form>
+                   
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
             </RouteWrapper>
         );
     }
 }
+
+    
 
 export default NewRoute;

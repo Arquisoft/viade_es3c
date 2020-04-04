@@ -14,8 +14,12 @@ export const readRoutesFromPod = async (webId) => {
      return await parsePodFiles.getRoutesFromPod(webId); 
 }
 
-export const generateInvitation = async() =>{
-    return await notification.generateInvitation();
+export const generateInvitation = async(route, webId) =>{
+    return await notification.addRoute(webId, route);
+}
+
+export const Invitation = async() =>{
+    return await notification.createNotification();
 }
 
 
