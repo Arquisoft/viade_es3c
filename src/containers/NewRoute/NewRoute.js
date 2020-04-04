@@ -77,7 +77,7 @@ class NewRoute extends React.Component {
             );
             
             await viadeManager.addRoute(route, this.webID);
-            await viadeManager.Invitation();
+            await viadeManager.Invitation(author, route,this.webID);
             //await viadeManager.generateInvitation(this.webID);
             alert("Se ha guardado correctamente");
         }
