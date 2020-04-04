@@ -130,7 +130,7 @@ export const WelcomeProfile = styled.div`
   img {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
+    
   }
 
   h1,
@@ -168,7 +168,7 @@ export const ImageWrapper = styled.div`
 export const ImageContainer = styled.div`
   background-image: ${({image}) => (image ? `url(${image})` : '#ffffff')};
   background-size: cover;
-  border-radius: 50%;
+ 
   width: 128px;
   height: 128px;
 `;
@@ -200,7 +200,7 @@ export const ListButton = styled.a`
     font-size: 20px;
     color: #ffffff;
     background-color: #ff5900;
-    border-radius: 6px;
+    
     border: 2px solid #ffffff;
  
   &:hover{

@@ -13,7 +13,6 @@ export class MultimediaComponent extends Component<Props> {
 
     this.state = {
       name: '',
-      image: defaultProfilePhoto,
       isLoading: false,
       hasImage: false
     };
