@@ -42,6 +42,7 @@ class MyRoute extends React.Component {
                     author={ruta.author}
                     description={ruta.description}
                     points={ruta.points}
+                    center={ruta.calculateCenter()}
                   />
                 );
               })}

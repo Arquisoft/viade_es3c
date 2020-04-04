@@ -7,11 +7,10 @@ import {
 } from "../MyFriends/myfriends.style";
 import { List } from "@solid/react";
 import RouteMap from "./RouteMap";
-import { viadeManager } from "@utils";
 
 
 const InfoRoute = props => {
-  const { name, description, author, points } = props;
+  const { name, description, author, points, center } = props;
   const [show, setShow] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
 
@@ -40,7 +39,8 @@ const InfoRoute = props => {
       ) : (
         <FormRenderContainer id="mapa">
           <RouteMap
-            markers= {points}/>
+            markers= {points}
+            center={center}/>
         </FormRenderContainer>
       )}
 
