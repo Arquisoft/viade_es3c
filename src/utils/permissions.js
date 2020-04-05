@@ -81,14 +81,15 @@ export const sharing = async (webId, friendId, shareUrl) => {
     const permissions = [
       {
         agents: [friendId],
-        modes: [AccessControlList.MODES.READ]
+        modes: [AccessControlList.MODES.READ, AccessControlList.MODES.WRITE]
       }
     ];
     const ACLFile = new AccessControlList(webId, shareUrl);
     await ACLFile.createACL(permissions);
+    console.log("Funciona");
     return true;
   } catch (e) {
-    console.log("falla")
+    console.log("falla");
     return false;
   }
 }

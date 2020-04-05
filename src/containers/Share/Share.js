@@ -1,12 +1,19 @@
 import React from 'react';
 import {sharing} from "../../utils/permissions";
 import {List, useLDflexValue, useWebId} from "@solid/react";
-import {FormRenderContainer, FriendsList} from "../MyFriends/myfriends.style";
+import {Button, FormRenderContainer, FriendsList} from "../MyFriends/myfriends.style";
 
+type Props = { webId: String };
 
 class Share extends React.Component{
 
-
+    constructor({ webId }: Props) {
+        super();
+        this.webID=this.props;
+        this.state = {
+            isClicked:false
+        };
+    }
 
 
     getUserName(name){
@@ -22,13 +29,19 @@ class Share extends React.Component{
 
 
     permit(friend, route, autor){
-        const webId = useWebId();
         console.log("Entra por aqui");
-        console.log("Webid prueba: " + webId);
+        console.log("Webid prueba: " + this.webID);
         //https://sonialavandera.solid.community/public/viade/Prueba_sonialavandera.ttl
         let nameRoute = autor + ".solid.community/" + 'public/viade/' + route + '_' + autor + '.ttl';
         console.log("Ruta nombre" + nameRoute)
         sharing(autor + ".solid.community/", friend, nameRoute);
+    }
+
+    handleClick = (friend, e) =>{
+        e.preventDefault();
+       // if(this.state.isClicked)
+        console.log("Amigo" + friend)
+            this.permit(friend, this.props.ruta, this.props.autor)
     }
 
 
@@ -39,7 +52,7 @@ class Share extends React.Component{
                         <List src={"user.friends"}>{
                             (item, i) =>
                                 <li key={i}>{
-                                    <a href="#" onClick={this.permit(`${item}`, this.props.ruta, this.props.autor)}>{this.getUserName(`${item}`)}</a>}
+                                <a href="#" onClick={(e) => this.handleClick(`${item}`, e)}>{this.getUserName(`${item}`)}</a>}
                                 </li>}
                         </List>
                     </FriendsList>
