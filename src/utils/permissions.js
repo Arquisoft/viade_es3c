@@ -81,7 +81,7 @@ export const sharing = async (webId, friendId, shareUrl) => {
     const permissions = [
       {
         agents: [friendId],
-        modes: [AccessControlList.MODES.READ, AccessControlList.MODES.WRITE]
+        modes: [AccessControlList.MODES.READ]
       }
     ];
     const ACLFile = new AccessControlList(webId, shareUrl);
