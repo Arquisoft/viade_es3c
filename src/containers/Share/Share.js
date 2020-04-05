@@ -47,7 +47,6 @@ class Share extends React.Component{
 
     render(): React.ReactNode {
         return (
-                    <FormRenderContainer>
                         <FriendsList>
                         <List src={"user.friends"}>{
                             (item, i) =>
@@ -56,7 +55,6 @@ class Share extends React.Component{
                                 </li>}
                         </List>
                     </FriendsList>
-                    </FormRenderContainer>
         );
     }
 
