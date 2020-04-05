@@ -5,7 +5,7 @@ import {
     MyRouteContainer,
     FormRenderContainer
 } from './myfriends.style';
-import {List, useWebId} from '@solid/react';
+import {List} from '@solid/react';
 import InfoFriends from "./InfoFriends";
 
 

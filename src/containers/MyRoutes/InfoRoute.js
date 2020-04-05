@@ -5,7 +5,6 @@ import {
   Header
 } from "../MyFriends/myfriends.style";
 import RouteMap from "./RouteMap";
-import MyFriends from "../MyFriends";
 import Share from "../Share";
 
 

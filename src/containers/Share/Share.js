@@ -1,8 +1,8 @@
 import React from 'react';
 import {sharing} from "../../utils/permissions";
-import {getUrl, getUserName, getWebId} from "../MyFriends/MyFriends";
-import {List, useLDflexValue, useWebId} from "@solid/react";
-import {Button, FormRenderContainer, FriendsList} from "../MyFriends/myfriends.style";
+import {getUrl, getUserName} from "../MyFriends/MyFriends";
+import {List} from "@solid/react";
+import {FriendsList} from "../MyFriends/myfriends.style";
 
 type Props = { webId: String };
 
@@ -34,7 +34,7 @@ class Share extends React.Component{
                         <List src={"user.friends"}>{
                             (item, i) =>
                                 <li key={i}>{
-                                <a href="#" onClick={(e) => this.handleClick(`${item}`, e)}>{getUserName(`${item}`)}</a>}
+                                <a href="http://localhost:3000/#/myRoutes" onClick={(e) => this.handleClick(`${item}`, e)}>{getUserName(`${item}`)}</a>}
                                 </li>}
                         </List>
                     </FriendsList>
