@@ -14,16 +14,16 @@ import { ButtonUploader } from '../../components/ButtonUploader/button-uploader.
 export const MultimediaPageContent = props => {
     const { webId } = props;
     const { t } = useTranslation();
-    const limit = 2100000
+    const limit = 210000000
 
-    console.log(webId)
+    console.log(props.webId)
 
 
     return (
         <ImageWrapper>
             <Uploader
                 {...{
-                    fileBase: "https://tania.solid.community/private",
+                    fileBase: "https://javiponton.inrupt.net/public/viade/Ruta1/profile/multimedia",
                     limitFiles: 10,
                     limitSize: limit,
                     accept: 'jpg,jpeg,png,mp3,mov,mp4,avi',

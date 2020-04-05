@@ -26,6 +26,7 @@ import { MultimediaComponent } from "../UploadMultimedia/multimedia.container"
 
 type Props = { webId: String };
 
+
 class NewRoute extends React.Component {
     constructor({ webId }: Props) {
         super();
@@ -36,6 +37,11 @@ class NewRoute extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.title = React.createRef();
         this.descripton = React.createRef();
+    }
+
+     
+    getWebId() {
+        return this.webId;
     }
 
     state = { markers: {} };
@@ -134,7 +140,7 @@ class NewRoute extends React.Component {
 
                     <DivDivisor>
                         <UploaderFiles>Upload files</UploaderFiles>
-                        <MultimediaComponent>...{this.webID} </MultimediaComponent>
+                        <MultimediaComponent>{this.webID}</MultimediaComponent>
                     </DivDivisor>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />

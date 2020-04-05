@@ -6,7 +6,7 @@ import { successToaster, errorToaster } from '@utils';
 
 const defaultProfilePhoto = 'img/icon/upload_multimedia.svg';
 
-
+type Props = { webId: String }; 
 export class MultimediaComponent extends Component<Props> {
   constructor(props) {
     super(props);
@@ -71,6 +71,7 @@ export class MultimediaComponent extends Component<Props> {
   render() {
     const { name, image, isLoading } = this.state;
     const { webId } = this.props;
+    console.log(webId)
     return (
       <MultimediaPageContent {...{ name, image, isLoading, webId, updatePhoto: this.updatePhoto }} />
     );
