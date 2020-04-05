@@ -4,7 +4,7 @@
 
 import React from "react";
 import Map from "./Map";
-import { FormModel } from '@inrupt/solid-react-components';
+
 import {
     Header,
     RouteWrapper,
@@ -140,7 +140,7 @@ class NewRoute extends React.Component {
 
                     <DivDivisor>
                         <UploaderFiles>Upload files</UploaderFiles>
-                        <MultimediaComponent>{this.webID}</MultimediaComponent>
+                        <MultimediaComponent></MultimediaComponent>
                     </DivDivisor>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
@@ -148,5 +148,6 @@ class NewRoute extends React.Component {
         );
     }
 }
+
 
 export default NewRoute;

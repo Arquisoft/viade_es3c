@@ -10,14 +10,13 @@ type Props = { webId: String };
 export class MultimediaComponent extends Component<Props> {
   constructor(props) {
     super(props);
-    const w = this.props.webId
-    console.log(this.props.webId);
+
     this.state = {
       name: '',
+      image: defaultProfilePhoto,
       isLoading: false,
       hasImage: false
     };
-    
   }
   
   

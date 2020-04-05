@@ -12,12 +12,10 @@ import { ButtonUploader } from '../../components/ButtonUploader/button-uploader.
 
 
 export const MultimediaPageContent = props => {
-    const { webId } = props;
+    const { webId, image, updatePhoto, name } = props;
     const { t } = useTranslation();
-    const limit = 210000000
-
-    console.log(props.webId)
-
+    const limit = 2100000;
+    console.log(webId && webId.split('/card')[0])
 
     return (
         <ImageWrapper>
