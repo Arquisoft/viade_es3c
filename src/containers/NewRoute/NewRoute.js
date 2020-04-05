@@ -4,7 +4,6 @@
 
 import React from "react";
 import Map from "./Map";
-import { FormModel } from '@inrupt/solid-react-components';
 import {
     Header,
     RouteWrapper,
@@ -14,15 +13,10 @@ import {
     LabelInput,
     InputFile,
     TitleRoute,
-    UploaderFiles,
-    RouteForm,
-    DivDivisor
+    RouteForm
 } from "./route.style";
 import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
-import { MultimediaComponent } from "../UploadMultimedia/multimedia.container"
-
-
 
 type Props = { webId: String };
 
@@ -72,15 +66,13 @@ class NewRoute extends React.Component {
                 );
             }
 
-            const multimedia = [];
-            let filesMult = document.getElementById('files-mult').files
-            for (let i = 0; i < filesMult.length; i++) {
-                multimedia.push(new Multimedia(filesMult[i].name, filesMult[i]));
-                console.log(filesMult[i].name)
-            }
-
             let author = this.webID.replace("https://", "");
             author = author.replace(".solid.community/profile/card#me", "");
+
+            const multimedia = [];
+            //let filesMult = document.getElementById('files-mult').files
+            multimedia.push(new Multimedia('https://tania.solid.community/private/portada10_1586009711000_.png', "fecha", author));
+            
             let route = new Route(
                 this.title.current.value,
                 author,
@@ -132,10 +124,6 @@ class NewRoute extends React.Component {
 
                     </RouteForm>
 
-                    <DivDivisor>
-                        <UploaderFiles>Upload files</UploaderFiles>
-                        <MultimediaComponent>...{this.webID} </MultimediaComponent>
-                    </DivDivisor>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
             </RouteWrapper>

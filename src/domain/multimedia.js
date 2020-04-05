@@ -2,13 +2,13 @@ export default class Multimedia {
     webId = "";
     
   
-    constructor(name, encoding) {
-      this.name = name;     
-      this.encoding = encoding;
-      
+    constructor(url, date, author) {  
+      this.url=url;
+      this.date=date;
+      this.author=author;      
     }
   
-    getIdPoint() {
-      return `${this.name}_${this.encoding}`;
+    getIdMedia() {
+      return `${this.date}_${this.author}`;
     }
   }
