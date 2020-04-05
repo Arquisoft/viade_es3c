@@ -13,13 +13,3 @@ export const invite = (webID, route) =>{
     alert("estamos en la invitacion");
     return inv;
     };
-
-    export const invitation = (webID,route) => {
-        let author = webID.replace("https://","");
-        author = author.replace(".solid.community/profile/card#me","");
-
-        const inv = "Esto es una invitación" +
-        "descripción:" + author + " ha compartido una ruta contigo"
-
-        return inv;
-    };
