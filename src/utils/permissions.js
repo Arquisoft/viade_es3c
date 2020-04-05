@@ -86,10 +86,8 @@ export const sharing = async (webId, friendId, shareUrl) => {
     ];
     const ACLFile = new AccessControlList(webId, shareUrl);
     await ACLFile.createACL(permissions);
-    console.log("Funciona");
     return true;
   } catch (e) {
-    console.log("falla");
     return false;
   }
 }
