@@ -1,5 +1,6 @@
 import React from 'react';
 import {sharing} from "../../utils/permissions";
+import {getUserName} from "../MyFriends/MyFriends";
 import {List, useLDflexValue, useWebId} from "@solid/react";
 import {Button, FormRenderContainer, FriendsList} from "../MyFriends/myfriends.style";
 
@@ -12,16 +13,6 @@ class Share extends React.Component{
         this.webID=this.props;
     }
 
-    getUserName(name){
-        let username = name.replace("https://", "");
-        return username.replace(".solid.community/", "").replace("profile/card#me", "");
-    }
-
-
-
-    getUrl(name){
-        return name.replace("profile/card#me", "");
-    }
 
     permit(friend, route, autor){
         console.log("Entra por aqui");
@@ -47,7 +38,7 @@ class Share extends React.Component{
                         <List src={"user.friends"}>{
                             (item, i) =>
                                 <li key={i}>{
-                                <a href="#" onClick={(e) => this.handleClick(`${item}`, e)}>{this.getUserName(`${item}`)}</a>}
+                                <a href="#" onClick={(e) => this.handleClick(`${item}`, e)}>{getUserName(`${item}`)}</a>}
                                 </li>}
                         </List>
                     </FriendsList>

@@ -13,25 +13,14 @@ import InfoFriends from "./InfoFriends";
 class MyFriends extends React.Component{
 
 
-    getUserName(name){
-        let username = name.replace("https://", "");
-        return username.replace(".solid.community/", "").replace("profile/card#me", "");
-    }
-
-
-
-    getUrl(name){
-        return name.replace("profile/card#me", "");
-    }
-
-
     getList() {
         return <List src={"user.friends"}>{
             (item, i) =>
                 <InfoFriends
                     key={i}
-                    name={this.getUserName(`${item}`)}
-                    url={<a href={this.getUrl(`${item}`)}>{this.getUrl(`${item}`)}</a>}/>
+                    name={getUserName(`${item}`)}
+                    url={<a href={getUrl(`${item}`)}>{getUrl(`${item}`)}</a>}
+                />
         }
         </List>;
     }
@@ -54,6 +43,14 @@ class MyFriends extends React.Component{
 
 };
 
+export const getUserName = (name) => {
+    let username = name.replace("https://", "");
+    return username.replace(".solid.community/", "").replace("profile/card#me", "");
+}
+
+export const getUrl = (name) => {
+    return name.replace("profile/card#me", "");
+}
 
 
 export default MyFriends;
