@@ -1,6 +1,6 @@
 import React from 'react';
 import {sharing} from "../../utils/permissions";
-import {getUserName} from "../MyFriends/MyFriends";
+import {getUrl, getUserName, getWebId} from "../MyFriends/MyFriends";
 import {List, useLDflexValue, useWebId} from "@solid/react";
 import {Button, FormRenderContainer, FriendsList} from "../MyFriends/myfriends.style";
 
@@ -10,7 +10,8 @@ class Share extends React.Component{
 
     constructor({ webId }: Props) {
         super();
-        this.webID=this.props;
+        this.webID=webId;
+        console.log("Webid en constructor " + this.webID)
     }
 
 
@@ -19,9 +20,9 @@ class Share extends React.Component{
         console.log("Webid prueba: " + this.webID);
         //https://sonialavandera.solid.community/profile/card#me
         //https://sonialavandera.solid.community/public/viade/Prueba_sonialavandera.ttl
-        let nameRoute = "https://" +autor + ".solid.community/" + 'public/viade/' + route + '_' + autor + '.ttl';
+        let nameRoute = getUrl(this.webID) + 'public/viade/' + route + '_' + autor + '.ttl';
         console.log("Ruta nombre" + nameRoute)
-        sharing("https://"+autor + ".solid.community/profile/card#me", friend, nameRoute);
+        sharing(this.webID, friend, nameRoute);
         alert("Ruta: " + route + " compartida con " + friend);
     }
 

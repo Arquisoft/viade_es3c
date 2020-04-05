@@ -10,7 +10,7 @@ import Share from "../Share";
 
 
 const InfoRoute = props => {
-  const { name, description, author, points, center } = props;
+  const { name, description, author, points, center, webId} = props;
   const [show, setShow] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
 
@@ -51,7 +51,7 @@ const InfoRoute = props => {
           <Header>
             <h1>My friends</h1>
           </Header>
-            <Share ruta={name} autor={author}></Share>
+            <Share ruta={name} autor={author} webId={webId}></Share>
         </FormRenderContainer>
       )}
     </RouteCard>
