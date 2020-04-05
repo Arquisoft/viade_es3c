@@ -19,7 +19,6 @@ class MyFriends extends React.Component{
 
 
     getList() {
-        console.log("WebId en MyFriends " + this.webID)
         return <List src={"user.friends"}>{
             (item, i) =>
                 <InfoFriends
