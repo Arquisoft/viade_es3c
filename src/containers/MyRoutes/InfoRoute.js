@@ -10,7 +10,7 @@ import Share from "../Share";
 
 
 const InfoRoute = props => {
-  const { name, description, author, points } = props;
+  const { name, description, author, points, center } = props;
   const [show, setShow] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
 
@@ -37,10 +37,10 @@ const InfoRoute = props => {
       {showRoute ? (
         <div></div>
       ) : (
-        <FormRenderContainer>
-        <div>
-            <RouteMap zoom={13} />
-        </div>
+        <FormRenderContainer id="mapa">
+          <RouteMap
+            markers= {points}
+            center={center}/>
         </FormRenderContainer>
       )}
 

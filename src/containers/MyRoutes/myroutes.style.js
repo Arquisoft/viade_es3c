@@ -63,10 +63,12 @@ export const FormRenderContainer = styled.div`
   input {
     margin-left: 0;
   }
-  div{
-    margin-right:auto;
-    margin-left:auto;
+  #mapa{
+    width: 100%;
+    height: 370px;
+    padding: 0px !IMPORTANT;
   }
+
 `;
 
 export const Header = styled.div`
