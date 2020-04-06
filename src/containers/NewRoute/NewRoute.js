@@ -28,7 +28,6 @@ class NewRoute extends React.Component {
     constructor({ webId }: Props) {
         super();
         this.webID = webId;
-        console.log(this.webID);
         this.handleSave = this.handleSave.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,7 +40,7 @@ class NewRoute extends React.Component {
         return this.webId;
     }
 
-    state = { markers: {} };
+    state = { markers: {} , image:{} };
 
     callBackFunction = childData => {
         this.setState({ markers: childData });
@@ -81,7 +80,8 @@ class NewRoute extends React.Component {
 
 
             const multimedia = [];
-            let filesMult = document.getElementById('files-mult').files
+            let filesFolder= document.getElementsByClassName('file-uploader--input')
+            let filesMult = filesFolder[0].files;
             let url = this.webID.replace("profile/card#me", "public/viade/");
             for(let j=0;j<filesMult.length; j++){
                 multimedia.push(new Multimedia(url + filesMult[j].name, Date.now(), author));
@@ -124,11 +124,7 @@ class NewRoute extends React.Component {
 
                         <DivForms>
                             <LabelInput> Description of the route: <TextArea type="text" name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
-                        </DivForms>
-
-                        <DivForms>
-                            <LabelInput>Upload files</LabelInput><InputFile type="file" id="files-mult" name="files" accept="image/*, video/*" multiple />
-                        </DivForms>
+                        </DivForms>                      
 
                         <DivForms>
                             <InputSubmit type="submit" value="Save" />
@@ -138,7 +134,7 @@ class NewRoute extends React.Component {
 
                     <DivDivisor>
                         <UploaderFiles>Upload files</UploaderFiles>
-                        <MultimediaComponent webId={`[${this.webId}]`}></MultimediaComponent>
+                        <MultimediaComponent webId={`[${this.webId}]`} image="" ></MultimediaComponent>
                     </DivDivisor>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
