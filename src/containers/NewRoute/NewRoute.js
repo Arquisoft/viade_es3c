@@ -21,6 +21,7 @@ import {
 import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container"
+import { useWebId } from "@solid/react";
 
 
 
@@ -87,6 +88,7 @@ class NewRoute extends React.Component {
 
             let author = this.webID.replace("https://", "");
             author = author.replace(".solid.community/profile/card#me", "");
+            author = author.replace(".inrupt.net/profile/card#me", "")
             let route = new Route(
                 this.title.current.value,
                 author,
@@ -109,9 +111,9 @@ class NewRoute extends React.Component {
         return reader.readAsDataURL(file);
     }
 
-   
 
     render(): React.ReactNode {
+        
         return (
             <RouteWrapper data-testid="route-component">
                 <Header>
@@ -140,7 +142,7 @@ class NewRoute extends React.Component {
 
                     <DivDivisor>
                         <UploaderFiles>Upload files</UploaderFiles>
-                        <MultimediaComponent></MultimediaComponent>
+                        <MultimediaComponent webId={`[${this.webId}]`}></MultimediaComponent>
                     </DivDivisor>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
