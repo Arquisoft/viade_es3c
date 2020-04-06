@@ -13,12 +13,16 @@ import {
     LabelInput,
     InputFile,
     TitleRoute,
-    RouteForm
+    RouteForm,
+    DivDivisor,
+    UploaderFiles
 } from "./route.style";
 import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
+import { MultimediaComponent } from "../UploadMultimedia/multimedia.container"
 
 type Props = { webId: String };
+
 
 class NewRoute extends React.Component {
     constructor({ webId }: Props) {
@@ -30,6 +34,11 @@ class NewRoute extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.title = React.createRef();
         this.descripton = React.createRef();
+    }
+
+     
+    getWebId() {
+        return this.webId;
     }
 
     state = { markers: {} };
@@ -124,11 +133,16 @@ class NewRoute extends React.Component {
 
                     </RouteForm>
 
+                    <DivDivisor>
+                        <UploaderFiles>Upload files</UploaderFiles>
+                        <MultimediaComponent></MultimediaComponent>
+                    </DivDivisor>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
             </RouteWrapper>
         );
     }
 }
+
 
 export default NewRoute;
