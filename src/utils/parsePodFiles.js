@@ -70,3 +70,68 @@ export const getRoutesFromPod = async webId => {
   }
   return routes;
 };
+
+
+export const getNotificationsFromPod = async webId => {
+  var path = await storageHelper.getAppStorage(webId);
+  var folder = await fc.readFolder(path);
+  alert(path);
+  for (var i = 0; i < folder.files.length; i++) {
+    if (
+      !folder.files[i].url.includes("data") &&
+      !folder.files[i].url.includes("settings")
+    ) {
+      var quadStream = await fc.readFile(folder.files[i].url);
+      const turtleParser = new N3.Parser({ format: "Turtle" });
+      let name,
+        description,
+        author,
+        latitude,
+        longitude = "";
+      let points = [];
+      turtleParser.parse(quadStream, (err, quad, prefixes) => {
+        if (err) {
+          throw err;
+        }
+        if (quad) {
+          if (
+            quad.predicate.value ===
+            storageHelper.getPredicate(rutaShape.shape[1], rutaShape)
+          ) {
+            name = quad.object.value;
+          } else if (
+            quad.predicate.value ===
+            storageHelper.getPredicate(rutaShape.shape[2], rutaShape)
+          ) {
+            description = quad.object.value;
+          } else if (
+            quad.predicate.value ===
+            storageHelper.getPredicate(rutaShape.shape[3], rutaShape)
+          ) {
+            author = quad.object.value;
+          } else if (
+            quad.predicate.value ===
+            storageHelper.getPredicate(rutaShape.shape[5], rutaShape)
+          ) {
+            longitude = quad.object.value;
+          } else if (
+            quad.predicate.value ===
+            storageHelper.getPredicate(rutaShape.shape[6], rutaShape)
+          ) {
+            latitude = quad.object.value;
+          } else if (
+            quad.predicate.value ===
+            storageHelper.getPredicate(rutaShape.shape[4], rutaShape)
+          ) {
+            let point = new Point(latitude, longitude);
+            points.push(point);
+          }
+        } else if (quad === null) {
+          let route = new Route(name, author, description, points);
+          routes.push(route);
+        }
+      });
+    }
+  }
+  return routes;
+};

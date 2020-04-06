@@ -111,21 +111,9 @@ fetch_inbox(calendar_iri)
       .catch(error => {
         console.log(error);
       });
-  alert("Llegamos al final")
+  //alert("Llegamos al final")
   return true;
 }
 
-export const invite = (author, route) =>{ 
-  const  inv = `@prefix inv: <>.
-  @prefix as: <https://www.w3.org/ns/activitystreams#>.
-  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-  @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-  inv: a as:Notification;
-      rdfs:label "Notification";
-      rdfs:comment ` + author + `" has share their route with you";
-      as:object <` + route + `>.
-  `;
-  alert("estamos en la invitacion");
-  return inv;
-  };
+
 

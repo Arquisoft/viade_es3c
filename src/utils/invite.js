@@ -10,6 +10,6 @@ export const invite = (webID, route) =>{
         rdfs:comment "` + author +` has share their route with you";
         as:object <` + route + `>.
     `;
-    alert("estamos en la invitacion");
+    //alert("estamos en la invitacion");
     return inv;
     };
