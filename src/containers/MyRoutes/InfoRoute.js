@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { RouteCard, Button } from "./myroutes.style";
-
 import {
   FormRenderContainer,
-  FriendsList,
   Header
 } from "../MyFriends/myfriends.style";
-import { List } from "@solid/react";
+import RouteMap from "./RouteMap";
+import MyFriends from "../MyFriends";
+
 
 const InfoRoute = props => {
-  const { name, description, author } = props;
+  const { name, description, author, points } = props;
   const [show, setShow] = useState(true);
+  const [showRoute, setShowRoute] = useState(true);
 
   return (
     <RouteCard className="card">
@@ -20,15 +21,27 @@ const InfoRoute = props => {
       <h3> Descripción de la ruta: </h3>
       <p>{description}</p>
       <div>
-        <Button id="viewRoute">Ver ruta en el mapa</Button>
+        <Button id="viewRoute" onClick={() => setShowRoute(!showRoute)}>
+        Ver ruta en el mapa
+        </Button>
       </div>
       <br></br>
       <div id="button">
         <Button id="viewFriends" onClick={() => setShow(!show)}>
-          Ver amigos
+          Compartir con amigos
         </Button>
       </div>
       <br></br>
+
+      {showRoute ? (
+        <div></div>
+      ) : (
+        <FormRenderContainer>
+        <div>
+            <RouteMap zoom={13} />
+        </div>
+        </FormRenderContainer>
+      )}
 
       {show ? (
         <div></div>
@@ -37,13 +50,7 @@ const InfoRoute = props => {
           <Header>
             <h1>My friends</h1>
           </Header>
-          <FriendsList>
-            <List src={"user.friends"}>
-              {(item, i) => (
-                <li key={i}>{<a href={`${item}`}>{`${item}`}</a>}</li>
-              )}
-            </List>
-          </FriendsList>
+            {this.share(name)}
         </FormRenderContainer>
       )}
     </RouteCard>
@@ -51,3 +58,4 @@ const InfoRoute = props => {
 };
 
 export default InfoRoute;
+

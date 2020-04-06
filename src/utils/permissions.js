@@ -75,3 +75,19 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
 
   return true;
 };
+
+export const sharing = async (webId, friendId, shareUrl) => {
+  try {
+    const permissions = [
+      {
+        agents: [friendId],
+        modes: [AccessControlList.MODES.READ, AccessControlList.MODES.WRITE]
+      }
+    ];
+    const ACLFile = new AccessControlList(webId, shareUrl);
+    await ACLFile.createACL(permissions);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
