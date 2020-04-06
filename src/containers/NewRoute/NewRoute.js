@@ -4,7 +4,6 @@
 
 import React from "react";
 import Map from "./Map";
-
 import {
     Header,
     RouteWrapper,
@@ -14,9 +13,9 @@ import {
     LabelInput,
     InputFile,
     TitleRoute,
-    UploaderFiles,
     RouteForm,
-    DivDivisor
+    DivDivisor,
+    UploaderFiles
 } from "./route.style";
 import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
@@ -79,16 +78,17 @@ class NewRoute extends React.Component {
                 );
             }
 
-            const multimedia = [];
-            let filesMult = document.getElementById('files-mult').files
-            for (let i = 0; i < filesMult.length; i++) {
-                multimedia.push(new Multimedia(filesMult[i].name, filesMult[i]));
-                console.log(filesMult[i].name)
-            }
-
             let author = this.webID.replace("https://", "");
             author = author.replace(".solid.community/profile/card#me", "");
-            author = author.replace(".inrupt.net/profile/card#me", "")
+            author = author.replace(".inrupt.net/profile/card#me", "");
+
+
+            const multimedia = [];
+            let filesMult = document.getElementById('files-mult').files
+            let url = this.webID.replace("profile/card#me", "public/viade/");
+            for(let j=0;j<filesMult.length; j++){
+                multimedia.push(new Multimedia(url + filesMult[j].name, Date.now(), author));
+            }            
             let route = new Route(
                 this.title.current.value,
                 author,
@@ -110,7 +110,6 @@ class NewRoute extends React.Component {
         }
         return reader.readAsDataURL(file);
     }
-
 
     render(): React.ReactNode {
         

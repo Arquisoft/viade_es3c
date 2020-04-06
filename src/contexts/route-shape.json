@@ -47,8 +47,8 @@
         },
         {
             "prefix": "viade",
-            "predicate": "multimedia",
-            "object": "multimedia"
+            "predicate": "hasMediaAttached",
+            "object": "hasMediaAttached"
         }
         
     ]

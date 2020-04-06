@@ -7,6 +7,7 @@ import {
   ldflexHelper
 } from "@utils";
 import routeShape from "@contexts/route-shape.json";
+import mediaShape from "@contexts/media-shape.json";
 
 
 const appPath = process.env.REACT_APP_VIADE_ES3C_PATH;
@@ -42,21 +43,25 @@ export const createRoute = (subject, route, routeShape) => {
         }]));
       quads.push(point);
     }
-
-    for (let j = 0; j < route.multimedia.length; j++) {
-      const m = quad(namedNode(subject), namedNode(getPredicate(routeShape.shape[7], routeShape)), 
-      writer.blank([{
-        predicate: namedNode(getPredicate(routeShape.shape[8], routeShape)),
-        object: literal(route.multimedia[j]),
-      }]));
-      let file = route.multimedia[j];
-      console.log(file);
-      quads.push(m);
+    if(route.multimedia.length > 0){
+      for(let j=0; j<route.multimedia.length; j++){
+      quads.push(createQuadWithOutLiteral(subject, routeShape, 7, route.multimedia[j].getIdMedia()+'.ttl'));
     }
+    }
+    
     return writer.quadsToString(quads);
   }
 };
 
+export const createMedia = (subject, media, mediaShape) => {
+    const writer = new N3.Writer();
+    const quads = [];
+    quads.push(createQuadWithOutLiteral(subject, mediaShape, 0, media.url));
+    quads.push(createQuadWithLiteral(subject, mediaShape, 1, media.date));
+    quads.push(createQuadWithLiteral(subject, mediaShape, 2, media.author));
+
+    return writer.quadsToString(quads);
+  };
 
 /**
  * Creates a quad (rdf triplet) with a node value
@@ -139,6 +144,46 @@ export const addRoute = async (webId, route) => {
 
     //create the body of the rdf document with the route content we are going to upload
     const body = createRoute(routeFilePath, route, routeShape);
+
+    // Check if route file exists, if not then create it. 
+    const routeFileExists = await resourceExists(routeFilePath);
+    if (!routeFileExists) {
+      const newDocument = await ldflexHelper.createDocumentWithTurtle(
+        routeFilePath,
+        body
+      );
+      if (!newDocument) {
+        return {
+          added: false
+        };
+      }
+    }
+    return true;
+  } catch (error) {
+    errorToaster(error.message, "Error");
+    return false;
+  }
+};
+
+
+export const addMedia = async (webId, media) => {
+  try {
+    // First, check if we have WRITE permission for the app
+    const hasWritePermission = await permissionHelper.checkSpecificAppPermission(
+      webId,
+      AccessControlList.MODES.WRITE
+    );
+    // If we do not have Write permission, there's nothing we can do here
+    if (!hasWritePermission) return;
+
+    // Get the default app storage location from the user's pod and append our path to it
+    const viadeUrl = await getAppStorage(webId);
+
+    // Set up various paths relative to the viade URL
+    const routeFilePath = `${viadeUrl}` + media.getIdMedia() + `.ttl`;
+
+    //create the body of the rdf document with the route content we are going to upload
+    const body = createMedia(routeFilePath, media, mediaShape);
 
     // Check if route file exists, if not then create it. 
     const routeFileExists = await resourceExists(routeFilePath);

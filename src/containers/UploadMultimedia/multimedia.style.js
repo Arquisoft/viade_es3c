@@ -6,7 +6,6 @@ export const WelcomeWrapper = styled.section`
   background: linear-gradient(90deg, #67e3c0ff 0%, #046df0f0 100%);
   background-repeat: repeat;
   padding: 50px 0;
-
   h3 {
     color: #ffffff;
     span {
@@ -22,23 +21,18 @@ export const WelcomeCard = styled.div`
   background-color: #000000;
   
     //background: linear-gradient(90deg, rgba(237,251,63,1) 0%, rgba(252,149,70,1) 100%);
-
   margin: 30px auto;
-
   //Overriding the style guide card flexbox settings
   max-width: 80% !important;
   flex-direction: row !important;
   padding: 50px 0 !important; //temporary fix to a style guide bug
-
   align-items: center;
-
   a {
     text-decoration: none;
     &:hover {
       text-decoration: underline;
     }
   }
-
   button {
     margin-left: 8px;
   }
@@ -46,24 +40,18 @@ export const WelcomeCard = styled.div`
 
 export const TitleCard = styled.div`
   background-color: #000000;
-
-
   margin: 30px auto;
-
   //Overriding the style guide card flexbox settings
   max-width: 80% !important;
   flex-direction: row !important;
   padding: 5px 0 !important; //temporary fix to a style guide bug
-
   align-items: center;
-
   a {
     text-decoration: none;
     &:hover {
       text-decoration: underline;
     }
   }
-
   button {
     margin-left: 8px;
   }
@@ -71,32 +59,25 @@ export const TitleCard = styled.div`
 
 export const FormRouteCard = styled.div`
 background-color: #000000;
-
 margin: 30px auto;
-
 max-width: 28% !important;
 min-height: 45% !important;
 flex-direction: row !important;
 padding: 5px 0 !important; 
-
 align-items: center;
-
 h3{
   text-align:center;
 }
-
 input {
   margin-top: 5px;
   margin-bottom: 20px;
 }
-
 a {
 text-decoration: none;
 &:hover {
   text-decoration: underline;
 }
 }
-
 #buttonSubmit {
   float:right;
   text-decoration: none;
@@ -104,8 +85,6 @@ text-decoration: none;
   font-size: 20px;
   background: 
 }
-
-
 button {
 margin-left: 8px;
 }
@@ -113,7 +92,6 @@ margin-left: 8px;
 
 export const WelcomeLogo = styled.div`
  
-
   img {
     width: 10%;
     height: 10%;
@@ -126,13 +104,11 @@ export const WelcomeProfile = styled.div`
   height: 100%;
   text-align: center;
   position: relative;
-
   img {
     width: 120px;
     height: 120px;
     
   }
-
   h1,
   img {
   
@@ -140,7 +116,6 @@ export const WelcomeProfile = styled.div`
     display: inline-block;
     vertical-align: middle;
   }
-
   ${media.tablet`
     width: 50%;
     &:after {
@@ -159,7 +134,6 @@ export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   button {
     margin-left: 0px;
   }
@@ -175,7 +149,6 @@ export const ImageContainer = styled.div`
 
 export const WelcomeDetail = styled.div`
   padding: 1rem 3.5rem;
-
   p,
   li {
     color: #666666;
@@ -208,5 +181,4 @@ export const ListButton = styled.a`
     color: #ff5900;
     background-color: #ffffff;
   }
-
 `;

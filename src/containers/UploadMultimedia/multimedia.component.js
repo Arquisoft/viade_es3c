@@ -15,7 +15,7 @@ import { useWebId } from "@solid/react";
 export const MultimediaPageContent = props => {
     const { webId, image, updatePhoto, name } = props;
     const { t } = useTranslation();
-    const limit = 2100000;
+    const limit = 210000000;
     const w = useWebId()
     console.log(w && w.split('/profile')[0] + "/public/viade")
    
@@ -59,5 +59,3 @@ export const MultimediaPageContent = props => {
 
     );
 };
-
-
