@@ -43,8 +43,10 @@ export const createRoute = (subject, route, routeShape) => {
         }]));
       quads.push(point);
     }
-    if(route.multimedia!=null){
-      quads.push(createQuadWithOutLiteral(subject, routeShape, 7, route.multimedia[0].getIdMedia()+'.ttl'));
+    if(route.multimedia.length > 0){
+      for(let j=0; j<route.multimedia.length; j++){
+      quads.push(createQuadWithOutLiteral(subject, routeShape, 7, route.multimedia[j].getIdMedia()+'.ttl'));
+    }
     }
     
     return writer.quadsToString(quads);

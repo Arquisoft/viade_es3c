@@ -70,9 +70,11 @@ class NewRoute extends React.Component {
             author = author.replace(".solid.community/profile/card#me", "");
 
             const multimedia = [];
-            //let filesMult = document.getElementById('files-mult').files
-            multimedia.push(new Multimedia('https://tania.solid.community/private/portada10_1586009711000_.png', "fecha", author));
-            
+            let filesMult = document.getElementById('files-mult').files
+            let url = this.webID.replace("profile/card#me", "public/viade/");
+            for(let j=0;j<filesMult.length; j++){
+                multimedia.push(new Multimedia(url + filesMult[j].name, Date.now(), author));
+            }            
             let route = new Route(
                 this.title.current.value,
                 author,
@@ -94,8 +96,6 @@ class NewRoute extends React.Component {
         }
         return reader.readAsDataURL(file);
     }
-
-   
 
     render(): React.ReactNode {
         return (
