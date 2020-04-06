@@ -5,53 +5,17 @@ import {
     MyRouteContainer,
     FormRenderContainer
 } from './myfriends.style';
-import { List, useWebId} from '@solid/react';
+import {List} from '@solid/react';
 import InfoFriends from "./InfoFriends";
-import {sharing} from "../../utils/permissions";
-import useLDflexList from "@solid/react/lib/hooks/useLDflexList";
 
 
 type Props = { webId: String };
 
 class MyFriends extends React.Component{
-
     constructor({ webId }: Props) {
         super();
-        this.webID = webId;
-        console.log(this.getUrl(this.webID) + 'public/viade/' + 'Prueba' + '_' + this.getUserName(this.webID) + '.ttl'
-    )
+        this.webID=webId;
     }
-    getUserName(name){
-        let username = name.replace("https://", "");
-        return username.replace(".solid.community/", "").replace("profile/card#me", "");
-    }
-
-
-
-    getUrl(name){
-        return name.replace("profile/card#me", "");
-    }
-
-    permit(friend, route){
-        //https://sonialavandera.solid.community/public/viade/Prueba_sonialavandera.ttl
-        let nameRoute = this.getUrl(this.webID) + 'public/viade/' + route + '_' + this.getUserName(this.webID) + '.ttl';
-        sharing(this.webID, friend, route);
-    }
-    share(name){
-        //Construir la url de la ruta (name)
-        //el amigo ya lo tengo en la lista  -> cuando le doy a la url de la ruta para que la vea el amigo
-
-        return <List src={"user.friends"}>{
-            (item, i) =>
-                <InfoFriends
-                    key={i}
-                    name={this.getUserName(`${item}`)}
-                    url={<a href={this.permit(`${item}`, name)}>{this.getUrl(`${item}`)}</a>}/>
-        }
-        </List>;
-    }
-
-
 
 
     getList() {
@@ -59,8 +23,9 @@ class MyFriends extends React.Component{
             (item, i) =>
                 <InfoFriends
                     key={i}
-                    name={this.getUserName(`${item}`)}
-                    url={<a href={this.getUrl(`${item}`)}>{this.getUrl(`${item}`)}</a>}/>
+                    name={getUserName(`${item}`)}
+                    url={<a href={getUrl(`${item}`)}>{getUrl(`${item}`)}</a>}
+                />
         }
         </List>;
     }
@@ -81,6 +46,15 @@ class MyFriends extends React.Component{
      }
 
 
+};
+
+export const getUserName = (name) => {
+    let username = name.replace("https://", "");
+    return username.replace(".solid.community/", "").replace("profile/card#me", "");
+}
+
+export const getUrl = (name) => {
+    return name.replace("profile/card#me", "");
 };
 
 

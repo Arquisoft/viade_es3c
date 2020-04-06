@@ -14,6 +14,7 @@ type Props = { webId: String };
 class MyRoute extends React.Component {
   constructor({ webId }: Props) {
     super();
+    this.WebID = webId;
     this.state = {
       data: null
     };
@@ -42,6 +43,8 @@ class MyRoute extends React.Component {
                     author={ruta.author}
                     description={ruta.description}
                     points={ruta.points}
+                    center={ruta.calculateCenter()}
+                    webId = {this.WebID}
                   />
                 );
               })}

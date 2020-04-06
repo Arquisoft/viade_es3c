@@ -6,7 +6,7 @@ const InfoFriends = props => {
   return(
     <RouteCard className="card">
       <h3>{name}</h3>
-        <p> Pod: {url}</p>
+        <p> Perfil: {url}</p>
       </RouteCard>
   );
 };
