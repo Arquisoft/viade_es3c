@@ -20,9 +20,9 @@ import {
 import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container"
+import { useWebId } from "@solid/react";
 
 type Props = { webId: String };
-
 
 class NewRoute extends React.Component {
     constructor({ webId }: Props) {
@@ -77,6 +77,8 @@ class NewRoute extends React.Component {
 
             let author = this.webID.replace("https://", "");
             author = author.replace(".solid.community/profile/card#me", "");
+            author = author.replace(".inrupt.net/profile/card#me", "");
+
 
             const multimedia = [];
             let filesMult = document.getElementById('files-mult').files
@@ -107,6 +109,7 @@ class NewRoute extends React.Component {
     }
 
     render(): React.ReactNode {
+        
         return (
             <RouteWrapper data-testid="route-component">
                 <Header>
@@ -135,7 +138,7 @@ class NewRoute extends React.Component {
 
                     <DivDivisor>
                         <UploaderFiles>Upload files</UploaderFiles>
-                        <MultimediaComponent></MultimediaComponent>
+                        <MultimediaComponent webId={`[${this.webId}]`}></MultimediaComponent>
                     </DivDivisor>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />

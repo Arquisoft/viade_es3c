@@ -9,19 +9,22 @@ import {
 } from './multimedia.style';
 import { errorToaster } from '@utils';
 import { ButtonUploader } from '../../components/ButtonUploader/button-uploader.component';
+import { useWebId } from "@solid/react";
 
 
 export const MultimediaPageContent = props => {
     const { webId, image, updatePhoto, name } = props;
     const { t } = useTranslation();
-    const limit = 2100000;
-    console.log(webId && webId.split('/card')[0])
+    const limit = 210000000;
+    const w = useWebId()
+    console.log(w && w.split('/profile')[0] + "/public/viade")
+   
 
     return (
         <ImageWrapper>
             <Uploader
                 {...{
-                    fileBase: "https://javiponton.inrupt.net/public/viade/Ruta1/profile/multimedia",
+                    fileBase: w && w.split('/profile')[0] + "/public/viade",
                     limitFiles: 10,
                     limitSize: limit,
                     accept: 'jpg,jpeg,png,mp3,mov,mp4,avi',
@@ -56,5 +59,3 @@ export const MultimediaPageContent = props => {
 
     );
 };
-
-
