@@ -1,11 +1,11 @@
-
+import {NotificationTypes, useNotification} from '@inrupt/solid-react-components';
 import data from "@solid/query-ldflex";
 import "./styles.css";
 import {  ldflexHelper } from "@utils";
 const appPath = process.env.REACT_APP_VIADE_ES3C_PATH;
 
 
-export const sendNotification = async (friend, content, createNotification, to) => {
+/* export const sendNotification = async (friend, content, createNotification, to) => {
   try {
     if (to) {
       return createNotification(content, to);
@@ -13,11 +13,11 @@ export const sendNotification = async (friend, content, createNotification, to) 
     /**
      * If the friend doesn't have an inbox, show an error
      */
-    throw new Error('Error: Your friend does not have an available inbox');
+  /*   throw new Error('Error: Your friend does not have an available inbox');
   } catch (error) {
     throw new Error(error);
   }
-};
+}; */ 
 
 export const buildPathFromWebId = (webId, path) => {
   if (!webId) return false;
@@ -74,7 +74,7 @@ export const getAppStorage = async webId => {
 };
 
 
-export const createNotification = (author, route, webId) => {
+export const crearNotificacion = (author, route, webId) => {
   const axios = require("axios");
   
 const { invite } = require("./invite");
@@ -114,6 +114,67 @@ fetch_inbox(calendar_iri)
   //alert("Llegamos al final")
   return true;
 }
+
+let cadena = null;
+//let friendWebID = null;
+function createNotification() {
+  return useNotification(cadena);
+} 
+
+async function sendNotification(content, to, type, license) {
+  
+  try {
+      await createNotification(content, to, type, license);
+  } catch (error) {
+      console.log(error);
+      alert('Error: RouteConst > sendNotification');
+  }
+}
+
+export const handleSave = async (route,friendWebID) => {
+  try {
+      const contentNotif = {
+          title: "Route share",
+          summary: "Prueba 1",
+          actor: cadena,
+          object: "https://uo246355.solid.community/private/viade/Prueba%2024_uo246355.ttl",
+          target: friendWebID
+      };
+      publish(sendNotification, contentNotif, friendWebID, NotificationTypes.OFFER);
+  } catch (error) {
+      console.log(error);
+      alert("Could not share the route");
+  }
+}
+
+const publish = async (createNotification, content, webId, type) => {
+  try {
+      type = type || NotificationTypes.ANNOUNCE;
+
+      const license = 'https://creativecommons.org/licenses/by-sa/4.0/';
+
+      const inboxes = await findUserInboxes([
+          {path: webId, name: 'Global'}
+      ]);
+      if (inboxes.length === 0)
+          return false;
+      const to = getDefaultInbox(inboxes, 'Global');
+      if (to) {
+
+          await createNotification({
+              title: content.title,
+              summary: content.summary,
+              actor: content.actor,
+              object: content.object,
+              target: content.target
+          }, to.path, type, license);
+      }
+      return true;
+  } catch (e) {
+      console.error(e);
+      return false;
+  }
+};
 
 
 
