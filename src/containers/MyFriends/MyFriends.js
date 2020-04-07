@@ -30,15 +30,36 @@ class MyFriends extends React.Component{
         </List>;
     }
 
+    addFriends(){
+        return (
+            <form>
+                <label>
+                    WebId:
+                    <input type="text" name="webId" />
+                </label>
+                <input type="submit" value="Add" />
+            </form>
+        );
+    }
+
  render(): React.ReactNode {
         return (
              <RouteWrapper data-testid="route-component">
                  <MyRouteContainer>
+
                      <FormRenderContainer>
-                         <Header>
-                             <h1>My friends</h1>
-                         </Header>
-                         {this.getList()}
+                         <div>
+                             <Header>
+                                 <h1>Adding new Friends</h1>
+                             </Header>
+                             {this.addFriends()}
+                         </div>
+                         <div>
+                             <Header>
+                                 <h1>My friends</h1>
+                             </Header>
+                             {this.getList()}
+                         </div>
                      </FormRenderContainer>
                  </MyRouteContainer>
              </RouteWrapper>
