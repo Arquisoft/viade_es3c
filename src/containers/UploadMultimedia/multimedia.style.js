@@ -17,6 +17,10 @@ export const WelcomeWrapper = styled.section`
   }
 `;
 
+export const DivForms = styled.div`
+margin-bottom: 0;
+`;
+
 export const WelcomeCard = styled.div`
   background-color: #000000;
   

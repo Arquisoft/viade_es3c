@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 export const ImageProfileWrapper = styled.div`
-width: 128px;
-position: relative;
-padding-bottom: 100%;
-background-size: cover; 
+
  
 `;
 

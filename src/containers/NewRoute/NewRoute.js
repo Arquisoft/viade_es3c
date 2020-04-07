@@ -35,12 +35,12 @@ class NewRoute extends React.Component {
         this.descripton = React.createRef();
     }
 
-     
+
     getWebId() {
         return this.webId;
     }
 
-    state = { markers: {} , image:{} };
+    state = { markers: {}, image: {} };
 
     callBackFunction = childData => {
         this.setState({ markers: childData });
@@ -80,12 +80,12 @@ class NewRoute extends React.Component {
 
 
             const multimedia = [];
-            let filesFolder= document.getElementsByClassName('file-uploader--input')
+            let filesFolder = document.getElementsByClassName('file-uploader--input')
             let filesMult = filesFolder[0].files;
             let url = this.webID.replace("profile/card#me", "public/viade/");
-            for(let j=0;j<filesMult.length; j++){
+            for (let j = 0; j < filesMult.length; j++) {
                 multimedia.push(new Multimedia(url + filesMult[j].name, Date.now(), author));
-            }            
+            }
             let route = new Route(
                 this.title.current.value,
                 author,
@@ -109,7 +109,7 @@ class NewRoute extends React.Component {
     }
 
     render(): React.ReactNode {
-        
+
         return (
             <RouteWrapper data-testid="route-component">
                 <Header>
@@ -124,7 +124,11 @@ class NewRoute extends React.Component {
 
                         <DivForms>
                             <LabelInput> Description of the route: <TextArea type="text" name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
-                        </DivForms>                      
+                        </DivForms>
+
+                        <DivForms>
+                            <MultimediaComponent webId={`[${this.webId}]`} image="" ></MultimediaComponent>
+                        </DivForms>
 
                         <DivForms>
                             <InputSubmit type="submit" value="Save" />
@@ -132,10 +136,6 @@ class NewRoute extends React.Component {
 
                     </RouteForm>
 
-                    <DivDivisor>
-                        <UploaderFiles>Upload files</UploaderFiles>
-                        <MultimediaComponent webId={`[${this.webId}]`} image="" ></MultimediaComponent>
-                    </DivDivisor>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
             </RouteWrapper>

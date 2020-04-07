@@ -1,5 +1,7 @@
 import React from 'react';
-import { Uploader } from '@inrupt/solid-react-components';
+//import { Uploader, UploadedFiles, SolidError as SolidErrorEntity } from '@inrupt/solid-react-components';
+import Uploader from "./uploader.component"
+
 import { useTranslation } from 'react-i18next';
 import {
     WelcomeWrapper,
