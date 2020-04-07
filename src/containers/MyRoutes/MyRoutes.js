@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import { Loader } from "@util-components";
 import {
   Header,
@@ -16,16 +17,16 @@ class MyRoute extends React.Component {
     super();
     this.WebID = webId;
     this.state = {
-      data: null
+      data: null    
     };
   }
   componentDidMount() {
-    const { webId } = this.props;
-    this._asyncRequest = viadeManager.readRoutesFromPod(webId).then(data => {
-      this._asyncRequest = null;
-      this.setState({ data });
+    const { webId } = this.props;       
+    this._asyncRequest = viadeManager.readRoutesFromPod(webId).then(data => {         
+      this._asyncRequest = null;      
+      this.setState( {data} );       
     });
-  }
+  }  
 
   render(): React.ReactNode {
     if (this.state.data !== null) {
