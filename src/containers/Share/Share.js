@@ -30,16 +30,7 @@ class Share extends React.Component{
 
 
     render(): React.ReactNode {
-        return (
-                        <FriendsList>
-                        <List src={"user.friends"}>{
-                            (item, i) =>
-                                <li key={i}>{
-                                <a href="http://localhost:3000/#/myRoutes" onClick={(e) => this.handleClick(`${item}`, e)}>{getUserName(`${item}`)}</a>}
-                                </li>}
-                        </List>
-                    </FriendsList>
-        );
+        return Notifications(this.props.ruta)
     }
 
 

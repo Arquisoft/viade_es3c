@@ -2,11 +2,15 @@ import React, {useEffect} from 'react';
 import {NotificationTypes, useNotification} from '@inrupt/solid-react-components';
 import {notification} from '@utils';
 import auth from "solid-auth-client";
+import {FriendsList} from "../MyFriends/myfriends.style";
+import {List} from "@solid/react";
+import {getUrl, getUserName} from "../MyFriends/MyFriends";
 
 
 const Notifications = ({ruta}) => {
         let cadena = null;
         let friendWebID = null;
+
         const {createNotification} = useNotification(cadena);
 
         useEffect(() => {
@@ -27,16 +31,17 @@ const Notifications = ({ruta}) => {
             }
         }
 
-        function handleSave() {
+        function handleSave(friendWebId) {
+            let nameRoute = getUrl(cadena) + 'public/viade/' + ruta + '_' + getUserName(cadena) + '.ttl';
             try {
                 const contentNotif = {
                     title: "Route share",
                     summary: "hola guapa",
                     actor: cadena,
-                    object: cadena + "viade/" + ruta,
-                    target: friendWebID
+                    object: nameRoute,
+                    target: friendWebId
                 };
-                publish(sendNotification, contentNotif, friendWebID, NotificationTypes.OFFER);
+                publish(sendNotification, contentNotif, friendWebId, NotificationTypes.OFFER);
             } catch (error) {
                 console.log(error);
                 alert("Could not share the route");
@@ -72,7 +77,16 @@ const Notifications = ({ruta}) => {
             }
         };
 
-        return handleSave();
+    return (
+        <FriendsList>
+            <List src={"user.friends"}>{
+                (item, i) =>
+                    <li key={i}>{
+                        <a href="http://localhost:3000/#/myRoutes" onClick={(e) => handleSave(`${item}`, e)}>{getUserName(`${item}`)}</a>}
+                    </li>}
+            </List>
+        </FriendsList>
+    );
 
     }
 
