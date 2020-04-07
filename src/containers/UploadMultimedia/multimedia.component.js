@@ -3,12 +3,7 @@ import React from 'react';
 import Uploader from "./uploader.component"
 
 import { useTranslation } from 'react-i18next';
-import {
-    WelcomeWrapper,
-    WelcomeCard,
-    WelcomeName,
-    ImageWrapper
-} from './multimedia.style';
+import {ImageWrapper} from './multimedia.style';
 import { errorToaster } from '@utils';
 import { ButtonUploader } from '../../components/ButtonUploader/button-uploader.component';
 import { useWebId } from "@solid/react";

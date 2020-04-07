@@ -11,16 +11,12 @@ import {
     DivForms,
     InputSubmit,
     LabelInput,
-    InputFile,
     TitleRoute,
-    RouteForm,
-    DivDivisor,
-    UploaderFiles
+    RouteForm
 } from "./route.style";
 import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container"
-import { useWebId } from "@solid/react";
 
 type Props = { webId: String };
 
