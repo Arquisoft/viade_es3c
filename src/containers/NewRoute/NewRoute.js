@@ -11,21 +11,19 @@ import {
     DivForms,
     InputSubmit,
     LabelInput,
-    InputFile,
-    TitleRoute
+    TitleRoute,
+    RouteForm
 } from "./route.style";
 import { viadeManager } from "@utils";
-import { Route, Point } from "domain";
-
-
+import { Route, Point, Multimedia } from "domain";
+import { MultimediaComponent } from "../UploadMultimedia/multimedia.container"
 
 type Props = { webId: String };
 
 class NewRoute extends React.Component {
     constructor({ webId }: Props) {
-        super();        
+        super();
         this.webID = webId;
-        console.log(this.webID);
         this.handleSave = this.handleSave.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,7 +31,12 @@ class NewRoute extends React.Component {
         this.descripton = React.createRef();
     }
 
-    state = { markers: {} };
+
+    getWebId() {
+        return this.webId;
+    }
+
+    state = { markers: {}, image: {} };
 
     callBackFunction = childData => {
         this.setState({ markers: childData });
@@ -42,7 +45,7 @@ class NewRoute extends React.Component {
     handleChange(event) {
         this.setState({ value: event.target.value });
     }
-
+   
     handleSubmit(event) {
         event.preventDefault();
         this.handleSave(event);
@@ -66,13 +69,26 @@ class NewRoute extends React.Component {
                     )
                 );
             }
-            let author = this.webID.replace("https://","");
-            author = author.replace(".solid.community/profile/card#me","");
+
+            let author = this.webID.replace("https://", "");
+            author = author.replace(".solid.community/profile/card#me", "");
+            author = author.replace(".inrupt.net/profile/card#me", "");
+
+
+            const multimedia = [];
+            let filesFolder = document.getElementsByClassName('file-uploader--input')
+            let filesMult = filesFolder[0].files;
+            let url = this.webID.replace("profile/card#me", "public/viade/");
+            for (let j = 0; j < filesMult.length; j++) {
+                let name = filesMult[j].name.split(".")[0];
+                multimedia.push(new Multimedia(url + filesMult[j].name, Date.now(), author,name));
+            }
             let route = new Route(
                 this.title.current.value,
                 author,
                 this.descripton.current.value,
-                points
+                points,
+                multimedia
             );
             await viadeManager.addRoute(route, this.webID);
             alert("Se ha guardado correctamente");
@@ -81,11 +97,15 @@ class NewRoute extends React.Component {
     }
 
     render(): React.ReactNode {
+
         return (
             <RouteWrapper data-testid="route-component">
                 <Header>
+
                     <TitleRoute>New Route</TitleRoute>
-                    <form onSubmit={this.handleSubmit}>
+
+                    <RouteForm id="routef">
+
                         <DivForms>
                             <LabelInput>Name of the route: <input type="text" name="route_name" placeholder="New Route" ref={this.title} /></LabelInput>
                         </DivForms>
@@ -94,19 +114,23 @@ class NewRoute extends React.Component {
                             <LabelInput> Description of the route: <TextArea type="text" name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
                         </DivForms>
 
+                        </RouteForm>
                         <DivForms>
-                            <LabelInput>Upload files</LabelInput><InputFile type="file" id="files" name="files" multiple />
+                            <MultimediaComponent webId={`[${this.webId}]`} image=""></MultimediaComponent>
                         </DivForms>
 
                         <DivForms>
-                            <InputSubmit type="submit" value="Save" />
+                            <InputSubmit type="submit" value="Save" form="routef" onClick={this.handleSubmit} />
                         </DivForms>
-                    </form>
+
+                    
+
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
             </RouteWrapper>
         );
     }
 }
+
 
 export default NewRoute;

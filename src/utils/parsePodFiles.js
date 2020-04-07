@@ -9,12 +9,14 @@ const N3 = require("n3");
 var routes = [];
 
 export const getRoutesFromPod = async webId => {
+  routes = [];
   var path = await storageHelper.getAppStorage(webId);
   var folder = await fc.readFolder(path);
   for (var i = 0; i < folder.files.length; i++) {
     if (
       !folder.files[i].url.includes("data") &&
-      !folder.files[i].url.includes("settings")
+      !folder.files[i].url.includes("settings")&&
+      !folder.files[i].url.includes("jpg")
     ) {
       var quadStream = await fc.readFile(folder.files[i].url);
       const turtleParser = new N3.Parser({ format: "Turtle" });
