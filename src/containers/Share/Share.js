@@ -12,7 +12,7 @@ type Props = { webId: String };
 
 const  exp = ({match,}) => {
     let cadena = null;
-    let friendWebID = null;
+    let friendWebID = this.webID;
     const {createNotification} = useNotification(cadena);
   
 
