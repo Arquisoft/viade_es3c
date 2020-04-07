@@ -5,6 +5,7 @@ import auth from "solid-auth-client";
 import {FriendsList} from "../MyFriends/myfriends.style";
 import {List} from "@solid/react";
 import {getUrl, getUserName} from "../MyFriends/MyFriends";
+import {sharing} from "../../utils/permissions";
 
 
 const Notifications = ({ruta}) => {
@@ -33,6 +34,7 @@ const Notifications = ({ruta}) => {
 
         function handleSave(friendWebId) {
             let nameRoute = getUrl(cadena) + 'public/viade/' + ruta + '_' + getUserName(cadena) + '.ttl';
+            sharing(cadena, friendWebId, nameRoute);
             try {
                 const contentNotif = {
                     title: "Route share",
