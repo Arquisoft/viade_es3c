@@ -12,7 +12,7 @@ type Props = { webId: String };
 
 const  exp = ({match,}) => {
     let cadena = null;
-    let friendWebID = this.webID;
+    //let friendWebID = this.webID;
     const {createNotification} = useNotification(cadena);
   
 
@@ -33,7 +33,7 @@ const  exp = ({match,}) => {
             alert('Error: RouteConst > sendNotification');
         }
     }
-     function handleSave(route) {
+     function handleSave(route, friendWebID) {
         try {
             const contentNotif = {
                 title: "Route share",
@@ -101,7 +101,7 @@ class Share extends React.Component{
 
     handleClick = (friend, e) =>{
         e.preventDefault();
-            exp.handleSave(this.props.ruta)
+            exp.handleSave(this.props.ruta, friend)
             this.permit(friend, this.props.ruta, this.props.autor)
     }
 
