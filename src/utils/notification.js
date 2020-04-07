@@ -75,13 +75,14 @@ export const getAppStorage = async webId => {
 
 
 export const crearNotificacion = (author, route, webId) => {
-  const axios = require("axios");
+  //const axios = require("axios");
   
 const { invite } = require("./invite");
-const { fetch_inbox } = require("./discover-inbox");
+//const { fetch_inbox } = require("./discover-inbox");
 
 // Get the default app storage location from the user's pod and append our path to it
 const viadeUrl =  getAppStorage(webId);
+
 
 // Set up various paths relative to the viade URL
 const routeFilePath = `${viadeUrl}` + route.getIdRoute() + `.ttl`;
@@ -94,7 +95,7 @@ const invitation = invite(webId,routeFilePath);
 //const fetcher = new $rdf.Fetcher(store, timeout)
 
 // First, fetch the inbox...
-fetch_inbox(calendar_iri)
+/* fetch_inbox(calendar_iri)
   .then(inbox => {
     // ...and then perform a POST to the target inbox to send
     // the invite defined in invite.js
@@ -113,7 +114,7 @@ fetch_inbox(calendar_iri)
       });
   //alert("Llegamos al final")
   return true;
-}
+} */
 
 let cadena = null;
 //let friendWebID = null;
@@ -131,7 +132,7 @@ async function sendNotification(content, to, type, license) {
   }
 }
 
-export const handleSave = async (route,friendWebID) => {
+/* export const handleSave = async (route,friendWebID) => {
   try {
       const contentNotif = {
           title: "Route share",
@@ -145,7 +146,7 @@ export const handleSave = async (route,friendWebID) => {
       console.log(error);
       alert("Could not share the route");
   }
-}
+} */
 
 const publish = async (createNotification, content, webId, type) => {
   try {
@@ -174,7 +175,5 @@ const publish = async (createNotification, content, webId, type) => {
       console.error(e);
       return false;
   }
-};
-
-
-
+}
+}
