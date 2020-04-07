@@ -49,7 +49,7 @@ class NewRoute extends React.Component {
     handleChange(event) {
         this.setState({ value: event.target.value });
     }
-
+   
     handleSubmit(event) {
         event.preventDefault();
         this.handleSave(event);
@@ -84,7 +84,8 @@ class NewRoute extends React.Component {
             let filesMult = filesFolder[0].files;
             let url = this.webID.replace("profile/card#me", "public/viade/");
             for (let j = 0; j < filesMult.length; j++) {
-                multimedia.push(new Multimedia(url + filesMult[j].name, Date.now(), author));
+                let name = filesMult[j].name.split(".")[0];
+                multimedia.push(new Multimedia(url + filesMult[j].name, Date.now(), author,name));
             }
             let route = new Route(
                 this.title.current.value,
@@ -99,15 +100,6 @@ class NewRoute extends React.Component {
         event.persist();
     }
 
-
-    encodeImageFileAsURL(file) {
-        var reader = new FileReader();
-        reader.onloadend = function () {
-            console.log('RESULT', reader.result)
-        }
-        return reader.readAsDataURL(file);
-    }
-
     render(): React.ReactNode {
 
         return (
@@ -116,7 +108,7 @@ class NewRoute extends React.Component {
 
                     <TitleRoute>New Route</TitleRoute>
 
-                    <RouteForm onSubmit={this.handleSubmit}>
+                    <RouteForm id="routef">
 
                         <DivForms>
                             <LabelInput>Name of the route: <input type="text" name="route_name" placeholder="New Route" ref={this.title} /></LabelInput>
@@ -126,15 +118,16 @@ class NewRoute extends React.Component {
                             <LabelInput> Description of the route: <TextArea type="text" name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
                         </DivForms>
 
+                        </RouteForm>
                         <DivForms>
-                            <MultimediaComponent webId={`[${this.webId}]`} image="" ></MultimediaComponent>
+                            <MultimediaComponent webId={`[${this.webId}]`} image=""></MultimediaComponent>
                         </DivForms>
 
                         <DivForms>
-                            <InputSubmit type="submit" value="Save" />
+                            <InputSubmit type="submit" value="Save" form="routef" onClick={this.handleSubmit} />
                         </DivForms>
 
-                    </RouteForm>
+                    
 
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />

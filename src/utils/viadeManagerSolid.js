@@ -6,8 +6,8 @@ export const iniciateStructure = async (webId) => {
 
 
 export const addRoute = async (route, webId) => {
-    if(route.multimedia.lenght > 0){
-        for(let i=0; i<route.multimedia.lenght; i++){
+    if(route.multimedia.length > 0){
+        for(let i=0; i<route.multimedia.length; i++){
             addMedia(route.multimedia[i], webId);
         }
     }
