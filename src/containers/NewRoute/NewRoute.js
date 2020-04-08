@@ -4,6 +4,7 @@
 
 import React from "react";
 import Map from "./Map";
+import {errorToaster, successToaster} from "../../utils";
 import {
     Header,
     RouteWrapper,
@@ -16,7 +17,7 @@ import {
 } from "./route.style";
 import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
-import { MultimediaComponent } from "../UploadMultimedia/multimedia.container"
+import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
 
 type Props = { webId: String };
 
@@ -30,7 +31,6 @@ class NewRoute extends React.Component {
         this.title = React.createRef();
         this.descripton = React.createRef();
     }
-
 
     getWebId() {
         return this.webId;
@@ -53,11 +53,11 @@ class NewRoute extends React.Component {
 
     async handleSave(event) {
         if (this.title.current.value.length === 0) {
-            alert("La ruta tiene que tener un titulo.");
+            errorToaster("La ruta tiene que tener un titulo", "ERROR");
         } else if (this.descripton.current.value.length === 0) {
-            alert("La ruta tiene que tener una descripción.");
+            errorToaster("La ruta tiene que tener una descripción", "ERROR");
         } else if (this.state.markers.length === undefined) {
-            alert("No ha marcado ningún punto en el mapa.");
+            errorToaster("No se ha marcado ningún punto en el mapa", "ERROR");
         } else {
             const points = [];
             for (let i = 0; i < this.state.markers.length; i++) {
@@ -91,7 +91,8 @@ class NewRoute extends React.Component {
                 points,
                 multimedia
             );
-            await viadeManager.addRoute(route, this.webID).then(alert("Se ha guardado correctamente"));
+            await viadeManager.addRoute(route, this.webID);
+            successToaster("Se ha guardado correctamente", "Éxito");
         }
         event.persist();
     }
@@ -107,20 +108,20 @@ class NewRoute extends React.Component {
                     <RouteForm id="routef">
 
                         <DivForms>
-                            <LabelInput>Name of the route: <input type="text" name="route_name" placeholder="New Route" ref={this.title} /></LabelInput>
+                            <LabelInput>Name of the route: <input type="text" id="route_name" name="route_name" placeholder="New Route" ref={this.title} /></LabelInput>
                         </DivForms>
 
                         <DivForms>
-                            <LabelInput> Description of the route: <TextArea type="text" name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
+                            <LabelInput> Description of the route: <TextArea type="text" id="description"name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
                         </DivForms>
 
                         </RouteForm>
                         <DivForms>
-                            <MultimediaComponent webId={`[${this.webId}]`} image=""></MultimediaComponent>
+                            <MultimediaComponent id={"input-img"} webId={`[${this.webId}]`} image=""/>
                         </DivForms>
 
                         <DivForms>
-                            <InputSubmit type="submit" value="Save" form="routef" onClick={this.handleSubmit} />
+                            <InputSubmit type="submit" id="save_route" value="Save" form="routef" onClick={this.handleSubmit} />
                         </DivForms>
 
                     
