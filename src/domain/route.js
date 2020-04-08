@@ -1,3 +1,5 @@
+import { v5 as uuidv5 } from 'uuid';
+
 export default class Route {
   webId = "";
   points = [];
@@ -15,7 +17,8 @@ export default class Route {
   }
 
   getIdRoute() {
-    return `${this.name}_${this.author}`;
+    const MY_NAMESPACE = '10eadb41-c6bb-4874-b752-13465ec77185' ;   
+    return uuidv5 (this.name, MY_NAMESPACE);
   }
 
   calculateCenter(){
