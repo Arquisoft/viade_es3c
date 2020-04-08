@@ -27,7 +27,7 @@ const { namedNode, literal, defaultGraph, quad } = DataFactory;
  * @param routeShape
  * @returns {*}
  */
-export const createRoute = (subject, route, routeShape) => {
+export const createRoute = (subject, mediaurl, route, routeShape) => {
   if (createInitialFiles) {
     const writer = new N3.Writer();
     const quads = [];
@@ -47,9 +47,10 @@ export const createRoute = (subject, route, routeShape) => {
         }]));
       quads.push(point);
     }
+   
     if (route.multimedia.length > 0) {
       for (let j = 0; j < route.multimedia.length; j++) {
-        quads.push(createQuadWithOutLiteral(subject, routeShape, 7, route.multimedia[j].getIdMedia() + '.ttl'));
+        quads.push(createQuadWithOutLiteral(subject, routeShape, 7,mediaurl+route.multimedia[j].getIdMedia() + '.ttl'));
       }
     }
 
@@ -142,12 +143,13 @@ export const addRoute = async (webId, route) => {
 
     // Get the default app storage location from the user's pod and append our path to it
     const viadeUrl = await getAppStorage(webId, routePath);
+    const mediaurl = await getAppStorage(webId, mediaPath);
 
     // Set up various paths relative to the viade URL
     const routeFilePath = `${viadeUrl}` + route.getIdRoute() + `.ttl`;
 
     //create the body of the rdf document with the route content we are going to upload
-    const body = createRoute(routeFilePath, route, routeShape);
+    const body = createRoute(routeFilePath,mediaurl, route, routeShape);
 
     // Check if route file exists, if not then create it. 
     const routeFileExists = await resourceExists(routeFilePath);
