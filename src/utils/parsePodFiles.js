@@ -7,11 +7,9 @@ const auth = require("solid-auth-cli");
 const FC = require("solid-file-client");
 const fc = new FC(auth);
 const N3 = require("n3");
-var routes = [];
-var media = [];
 
 export const getRoutesFromPod = async webId => {
-  routes = [];
+  var routes = [];
   var path = await storageHelper.getAppStorage(webId);
   var folder = await fc.readFolder(path);
   for (var i = 0; i < folder.files.length; i++) {
@@ -78,7 +76,7 @@ export const getRoutesFromPod = async webId => {
 };
 
 export const getMediaFromPod = async webId => {
-  media = [];
+  var media = [];
   var path = await storageHelper.getAppStorage(webId);
   var folder = await fc.readFolder(path);
   for (var i = 0; i < folder.files.length; i++) {
