@@ -38,7 +38,7 @@ const Notifications = ({ruta}) => {
             try {
                 const contentNotif = {
                     title: "Route share",
-                    summary: getUserName(cadena) + "ha compartido su ruta contigo",
+                    summary: getUserName(cadena) + " ha compartido su ruta contigo",
                     actor: cadena,
                     object: nameRoute,
                     target: friendWebId
