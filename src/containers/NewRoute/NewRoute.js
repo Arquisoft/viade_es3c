@@ -78,10 +78,11 @@ class NewRoute extends React.Component {
             const multimedia = [];
             let filesFolder = document.getElementsByClassName('file-uploader--input')
             let filesMult = filesFolder[0].files;
-            let url = this.webID.replace("profile/card#me", "public/viade/");
+            let url = this.webID.replace("profile/card#me", "public/viade/rawMedia/");
             for (let j = 0; j < filesMult.length; j++) {
                 let name = filesMult[j].name.split(".")[0];
-                multimedia.push(new Multimedia(url + filesMult[j].name, Date.now(), author,name));
+                var d = Date(Date.now());
+                multimedia.push(new Multimedia(url + filesMult[j].name, d.toString(), author,name));
             }
             let route = new Route(
                 this.title.current.value,

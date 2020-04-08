@@ -10,6 +10,6 @@ export default class Multimedia {
     }
   
     getIdMedia() {     
-      return `${this.name}_${this.author}`;
+      return `${'img'}_${this.name}_${this.author}`; //TEMPORAL
     }
   }
