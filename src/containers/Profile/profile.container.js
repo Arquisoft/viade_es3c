@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FormModel } from '@inrupt/solid-react-components';
-import { successToaster, errorToaster } from '@utils';
+import { successToaster, errorToaster } from "../../utils";
 import { Loader } from '@util-components';
 import {
   Header,
