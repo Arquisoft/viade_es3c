@@ -1,3 +1,5 @@
+import { v5 as uuidv5 } from 'uuid';
+
 export default class Multimedia {
     webId = "";
     
@@ -10,6 +12,7 @@ export default class Multimedia {
     }
   
     getIdMedia() {     
-      return `${'img'}_${this.name}_${this.author}`; //TEMPORAL
+      const MY_NAMESPACE = '10eadb41-c6bb-4874-b752-13465ec77185' ;   
+      return uuidv5 (this.name, MY_NAMESPACE);
     }
   }
