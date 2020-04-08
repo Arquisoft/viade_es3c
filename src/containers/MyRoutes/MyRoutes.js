@@ -25,7 +25,7 @@ class MyRoute extends React.Component {
       this.setState( {data} );       
     });
   }  
-
+ 
   render(): React.ReactNode {
     if (this.state.data !== null) {
       return (

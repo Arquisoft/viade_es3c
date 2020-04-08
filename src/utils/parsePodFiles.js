@@ -9,12 +9,12 @@ const FC = require("solid-file-client");
 const fc = new FC(auth);
 const N3 = require("n3");
 
-export const getRoutesFromPod = async webId => {
-  var routes = [];
-  var path = await storageHelper.getAppStorage(webId, routePath);
-  var folder = await fc.readFolder(path);
-  for (var i = 0; i < folder.files.length; i++) {    
-      var quadStream = await fc.readFile(folder.files[i].url);
+export const createRouteFromData = async (folder) => {
+  let routes = [];
+  while (routes.length < folder.length) {    routes = [];
+
+    for (const element of folder) {
+      let quadStream = await fc.readFile(element.url);
       const turtleParser = new N3.Parser({ format: "Turtle" });
       let name,
         description,
@@ -22,6 +22,7 @@ export const getRoutesFromPod = async webId => {
         latitude,
         longitude = "";
       let points = [];
+      let multimedia = [];
       turtleParser.parse(quadStream, (err, quad, prefixes) => {
         if (err) {
           throw err;
@@ -49,6 +50,12 @@ export const getRoutesFromPod = async webId => {
             longitude = quad.object.value;
           } else if (
             quad.predicate.value ===
+            storageHelper.getPredicate(rutaShape.shape[7], rutaShape)
+          ) {
+            let media = new Multimedia();
+            multimedia.push(media);
+          } else if (
+            quad.predicate.value ===
             storageHelper.getPredicate(rutaShape.shape[6], rutaShape)
           ) {
             latitude = quad.object.value;
@@ -59,21 +66,28 @@ export const getRoutesFromPod = async webId => {
             let point = new Point(latitude, longitude);
             points.push(point);
           }
-        } else if (quad === null) {
-          let route = new Route(name, author, description, points);
-          routes.push(route);
+        } else {
+          let ruta = new Route(name, description, author, points, multimedia);
+          routes.push(ruta);
         }
       });
-    }  
+    }
+  }
   return routes;
-};
+}
+
+export const getRoutesFromPod = async webId => {
+  var path = await storageHelper.getAppStorage(webId, routePath);
+  var folder = await fc.readFolder(path);
+  return await createRouteFromData(folder.files);
+}
 
 export const getMediaFromPod = async webId => {
   var media = [];
-  var path = await storageHelper.getAppStorage(webId, mediaPath);
-  var folder = await fc.readFolder(path);
-  for (var i = 0; i < folder.files.length; i++) {
-    var quadStream = await fc.readFile(folder.files[i].url);
+  var mediaP = await storageHelper.getAppStorage(webId, mediaPath);
+  var folderMedia = await fc.readFolder(mediaP);
+  for (var j = 0; j < folderMedia.files.length; j++) {
+    var quadStream = await fc.readFile(folderMedia.files[j].url);
     const turtleParser = new N3.Parser({ format: "Turtle" });
     let url,
       date,
