@@ -11,8 +11,8 @@ const N3 = require("n3");
 
 export const createRouteFromData = async (folder) => {
   let routes = [];
-  while (routes.length < folder.length) {    routes = [];
-
+  while (routes.length < folder.length) {    
+    routes = [];
     for (const element of folder) {
       let quadStream = await fc.readFile(element.url);
       const turtleParser = new N3.Parser({ format: "Turtle" });
@@ -23,6 +23,7 @@ export const createRouteFromData = async (folder) => {
         longitude = "";
       let points = [];
       let multimedia = [];
+      // eslint-disable-next-line
       turtleParser.parse(quadStream, (err, quad, prefixes) => {
         if (err) {
           throw err;
