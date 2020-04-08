@@ -116,7 +116,7 @@ class NewRoute extends React.Component {
 
                         </RouteForm>
                         <DivForms>
-                            <MultimediaComponent webId={`[${this.webId}]`} image=""></MultimediaComponent>
+                            <MultimediaComponent id={"input-img"} webId={`[${this.webId}]`} image=""/>
                         </DivForms>
 
                         <DivForms>

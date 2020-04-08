@@ -269,6 +269,7 @@ class Uploader extends Component<Props> {
     return (
       <DivForms>
         <input
+          id={"input-img"}
           ref={this.fileInput}
           type="file"
           className="file-uploader--input"
