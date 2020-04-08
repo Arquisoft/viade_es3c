@@ -13,7 +13,7 @@ let page = null;
 defineFeature(feature, test => {
 
   beforeEach(async () => {
-    jest.setTimeout(20000000);
+    jest.setTimeout(200000000);
   });
 
   test('Trying to log in', ({ given, when,and, then }) => {

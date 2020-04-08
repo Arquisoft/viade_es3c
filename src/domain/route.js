@@ -6,14 +6,30 @@ export default class Route {
    *
    * @param {String} name
    */
-  constructor(name, author, description, points) {
+  constructor(name, author, description, points, multimedia) {
     this.name = name;
     this.author = author;
     this.description = description;
     this.points = points;
+    this.multimedia = multimedia;
   }
 
   getIdRoute() {
     return `${this.name}_${this.author}`;
   }
+
+  calculateCenter(){
+    let center = [];
+    let lat;
+    let lng;
+    let c = this.points.length%2;
+    for (let i = 0; i < this.points.length; i++) {
+        if(i=== c){
+          lat = parseFloat(this.points[i].latitude);
+          lng = parseFloat(this.points[i].longitude);
+        }
+    }
+    center = [lat, lng];
+    return center;
+  } 
 }
