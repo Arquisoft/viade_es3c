@@ -15,17 +15,17 @@ class MyRoute extends React.Component {
   constructor({ webId }: Props) {
     super();
     this.state = {
-      data: null
+      data: null    
     };
   }
   componentDidMount() {
-    const { webId } = this.props;
-    this._asyncRequest = viadeManager.readRoutesFromPod(webId).then(data => {
-      this._asyncRequest = null;
-      this.setState({ data });
+    const { webId } = this.props;       
+    this._asyncRequest = viadeManager.readRoutesFromPod(webId).then(data => {         
+      this._asyncRequest = null;      
+      this.setState( {data} );       
     });
-  }
-
+  }  
+ 
   render(): React.ReactNode {
     if (this.state.data !== null) {
       return (
@@ -41,6 +41,8 @@ class MyRoute extends React.Component {
                     name={ruta.name}
                     author={ruta.author}
                     description={ruta.description}
+                    points={ruta.points}
+                    center={ruta.calculateCenter()}
                   />
                 );
               })}

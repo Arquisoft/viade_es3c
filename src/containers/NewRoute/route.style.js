@@ -57,11 +57,24 @@ export const TitleRoute = styled.h3`
 text-align:center;
 `;
 
+export const UploaderFiles = styled.h3`
+margin-top: 1em;
+text-align:center;
+`;
+
 export const DivMin = styled.div`
 
 `;
 
 export const InputFile = styled.input`
 
+`;
+
+export const DivDivisor = styled.div`
+  padding: 30px 20px;
+`;
+
+export const RouteForm = styled.form`
+  margin-bottom: 1em;
 `;
 

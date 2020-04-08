@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import data from "@solid/query-ldflex";
-import { namedNode } from "@rdfjs/data-model";
-import { WelcomePageContent } from "./welcome.component";
-import { successToaster, errorToaster, viadeManager } from "@utils";
+import React, { Component } from 'react';
+import data from '@solid/query-ldflex';
+import { namedNode } from '@rdfjs/data-model';
+import { WelcomePageContent } from './welcome.component';
+import { successToaster, errorToaster } from '@utils';
+import { viadeManager } from "@utils";
 
 const defaultProfilePhoto = "img/icon/empty-profile.svg";
 
@@ -47,6 +48,8 @@ export class WelcomeComponent extends Component<Props> {
      * will contain all of the data stored in the webID link, such as profile information. Then, we're grabbing the user.name property
      * from the returned user object.
      */
+
+    await viadeManager.iniciateStructure(webId);
     const user = data[webId];
     const nameLd = await user.vcard_fn;
     viadeManager.iniciateStructure(webId);

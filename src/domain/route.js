@@ -1,3 +1,5 @@
+import { v5 as uuidv5 } from 'uuid';
+
 export default class Route {
   webId = "";
   points = [];
@@ -6,14 +8,31 @@ export default class Route {
    *
    * @param {String} name
    */
-  constructor(name, author, description, points) {
+  constructor(name, author, description, points, multimedia) {
     this.name = name;
     this.author = author;
     this.description = description;
     this.points = points;
+    this.multimedia = multimedia;
   }
 
   getIdRoute() {
-    return `${this.name}_${this.author}`;
+    const MY_NAMESPACE = '10eadb41-c6bb-4874-b752-13465ec77185' ;   
+    return uuidv5 (this.name, MY_NAMESPACE);
   }
+
+  calculateCenter(){
+    let center = [];
+    let lat;
+    let lng;
+    let c = this.points.length%2;
+    for (let i = 0; i < this.points.length; i++) {
+        if(i=== c){
+          lat = parseFloat(this.points[i].latitude);
+          lng = parseFloat(this.points[i].longitude);
+        }
+    }
+    center = [lat, lng];
+    return center;
+  } 
 }

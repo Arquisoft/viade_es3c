@@ -7,9 +7,14 @@ import {
   ldflexHelper
 } from "@utils";
 import routeShape from "@contexts/route-shape.json";
+import mediaShape from "@contexts/media-shape.json";
 
 
-const appPath = process.env.REACT_APP_VIADE_ES3C_PATH;
+const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
+const mediaPath = process.env.REACT_APP_VIADE_ES3C_MEDIA_PATH;
+const rawMediaPath = process.env.REACT_APP_VIADE_ES3C_RAWMEDIA_PATH;
+const settingsPath = process.env.REACT_APP_VIADE_ES3C_SETTINGS_PATH;
+
 const N3 = require("n3");
 const { DataFactory } = N3;
 const { namedNode, literal, defaultGraph, quad } = DataFactory;
@@ -22,10 +27,10 @@ const { namedNode, literal, defaultGraph, quad } = DataFactory;
  * @param routeShape
  * @returns {*}
  */
-export const createRoute = (subject, route, routeShape) => {
+export const createRoute = (subject, mediaurl, route, routeShape) => {
   if (createInitialFiles) {
     const writer = new N3.Writer();
-    const quads =[];
+    const quads = [];
     quads.push(createQuadWithLiteral(subject, routeShape, 1, route.name));
     quads.push(createQuadWithLiteral(subject, routeShape, 2, route.description));
     quads.push(createQuadWithLiteral(subject, routeShape, 3, route.author));
@@ -42,10 +47,27 @@ export const createRoute = (subject, route, routeShape) => {
         }]));
       quads.push(point);
     }
+   
+    if (route.multimedia.length > 0) {
+      for (let j = 0; j < route.multimedia.length; j++) {
+        quads.push(createQuadWithOutLiteral(subject, routeShape, 7,mediaurl+route.multimedia[j].getIdMedia() + '.ttl'));
+      }
+    }
 
     return writer.quadsToString(quads);
   }
 };
+
+export const createMedia = (subject, media, mediaShape) => {
+  const writer = new N3.Writer();
+  const quads = [];
+  quads.push(createQuadWithOutLiteral(subject, mediaShape, 0, media.url));
+  quads.push(createQuadWithLiteral(subject, mediaShape, 1, media.date));
+  quads.push(createQuadWithLiteral(subject, mediaShape, 2, media.author));
+
+  return writer.quadsToString(quads);
+};
+
 /**
  * Creates a quad (rdf triplet) with a node value
  * @param subject
@@ -121,13 +143,54 @@ export const addRoute = async (webId, route) => {
     if (!hasWritePermission) return;
 
     // Get the default app storage location from the user's pod and append our path to it
-    const viadeUrl = await getAppStorage(webId);
+    const viadeUrl = await getAppStorage(webId, routePath);
+    const mediaurl = await getAppStorage(webId, mediaPath);
 
     // Set up various paths relative to the viade URL
     const routeFilePath = `${viadeUrl}` + route.getIdRoute() + `.ttl`;
 
     //create the body of the rdf document with the route content we are going to upload
-    const body = createRoute(routeFilePath, route, routeShape);
+    const body = createRoute(routeFilePath,mediaurl, route, routeShape);
+
+    // Check if route file exists, if not then create it. 
+    const routeFileExists = await resourceExists(routeFilePath);
+    if (!routeFileExists) {
+      const newDocument = await ldflexHelper.createDocumentWithTurtle(
+        routeFilePath,
+        body
+      );
+      if (!newDocument) {
+        return {
+          added: false
+        };
+      }
+    }
+    return true;
+  } catch (error) {
+    errorToaster(error.message, "Error");
+    return false;
+  }
+};
+
+
+export const addMedia = async (webId, media) => {
+  try {
+    // First, check if we have WRITE permission for the app
+    const hasWritePermission = await permissionHelper.checkSpecificAppPermission(
+      webId,
+      AccessControlList.MODES.WRITE
+    );
+    // If we do not have Write permission, there's nothing we can do here
+    if (!hasWritePermission) return;
+
+    // Get the default app storage location from the user's pod and append our path to it
+    const viadeUrl = await getAppStorage(webId, mediaPath);
+
+    // Set up various paths relative to the viade URL
+    const routeFilePath = `${viadeUrl}` + media.getIdMedia() + `.ttl`;
+
+    //create the body of the rdf document with the route content we are going to upload
+    const body = createMedia(routeFilePath, media, mediaShape);
 
     // Check if route file exists, if not then create it. 
     const routeFileExists = await resourceExists(routeFilePath);
@@ -153,7 +216,7 @@ export const addRoute = async (webId, route) => {
  * Helper function to check for the user's pod storage value. If it doesn't exist, we assume root of the pod
  * @returns {Promise<string>}
  */
-export const getAppStorage = async webId => {
+export const getAppStorage = async (webId, appPath) => {
   const podStoragePath = await data[webId].storage;
   let podStoragePathValue =
     podStoragePath && podStoragePath.value.trim().length > 0
@@ -191,14 +254,49 @@ export const createInitialFiles = async webId => {
     if (!hasWritePermission) return;
 
     // Get the default app storage location from the user's pod and append our path to it
-    const viadeUrl = await getAppStorage(webId);
+    const routesUrl = await getAppStorage(webId, routePath);
+    const mediaUrl = await getAppStorage(webId, mediaPath);
+    const rawMediaUrl = await getAppStorage(webId, rawMediaPath);
+    const settingsUrl = await getAppStorage(webId, settingsPath);
+
     // Set up various paths relative to the viade URL
-    const dataFilePath = `${viadeUrl}data.ttl`;
-    const settingsFilePath = `${viadeUrl}settings.ttl`;
+    const dataFilePath = `${settingsUrl}data.ttl`;
+    const settingsFilePath = `${settingsUrl}settings.ttl`;
 
     // Check if the viade folder exists, if not then create it.
-    const viadeFolderExists = await resourceExists(viadeUrl);
-    if (!viadeFolderExists) {
+    const routesFolderExists = await resourceExists(routesUrl);
+    if (!routesFolderExists) {
+      await createDoc(data, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "text/turtle"
+        }
+      });
+    }
+    // Check if the viade folder exists, if not then create it.
+    const mediaFolderExists = await resourceExists(mediaUrl);
+    if (!mediaFolderExists) {
+      await createDoc(data, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "text/turtle"
+        }
+      });
+    }
+    // Check if the viade folder exists, if not then create it.
+    const rawMediaFolderExists = await resourceExists(rawMediaUrl);
+    if (!rawMediaFolderExists) {
+      await createDoc(data, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "text/turtle"
+        }
+      });
+    }
+
+    // Check if the viade folder exists, if not then create it.
+    const settingsFolderExists = await resourceExists(settingsUrl);
+    if (!settingsFolderExists) {
       await createDoc(data, {
         method: "PUT",
         headers: {
