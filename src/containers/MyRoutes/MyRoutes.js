@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import { Loader } from "@util-components";
 import {
   Header,
@@ -26,7 +25,7 @@ class MyRoute extends React.Component {
       this.setState( {data} );       
     });
   }  
-
+ 
   render(): React.ReactNode {
     if (this.state.data !== null) {
       return (

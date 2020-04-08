@@ -1,6 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import { Toaster } from '@util-components';
+import { Toaster } from "../App.styled";
 
 export const errorToaster = (content: String, title: String = null, link: Object) =>
   toast(<Toaster {...{ content, title, type: 'error', link }} />, {
