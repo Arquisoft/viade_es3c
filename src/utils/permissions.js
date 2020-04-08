@@ -2,6 +2,9 @@ import { AccessControlList, AppPermission } from '@inrupt/solid-react-components
 import { errorToaster } from '@utils';
 
 // Check that all permissions we need are set. If any are missing, this returns false
+import auth from "solid-auth-client";
+import FC from "solid-file-client"
+
 const checkAppPermissions = (userAppPermissions, appPermissions) =>
   appPermissions.every(permission => userAppPermissions.includes(permission));
 
@@ -77,8 +80,6 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
 };
 
 export const sharing = async (webId, friendId, shareUrl) => {
-  const auth = require('solid-auth-cli')
-  const FC   = require('solid-file-client')
   const fc   = new FC( auth )
   let withAcl = shareUrl + ".acl#";
   let ruta = shareUrl;
@@ -105,7 +106,7 @@ export const sharing = async (webId, friendId, shareUrl) => {
     acl:default <{$ruta}>;
     acl:agent <{$id}>;
     acl:mode acl:Read, acl:Write.`;
-  fc.createFile(shareUrl+".acl", baseAcl).then(success =>{
+  fc.createFile(shareUrl+".acl", baseAcl, "text/turtle").then(success =>{
     console.log('permissions given');
   }, (err: any) => console.log(err));
 

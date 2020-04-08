@@ -50,7 +50,8 @@
     "shacl-js": "0.0.1",
     "solid-auth-client": "^2.3.0",
     "solid-file-client": "^1.0.2",
-    "styled-components": "^4.1.3"
+    "styled-components": "^4.1.3",
+    "solid-auth-cli": "latest"
   },
   "scripts": {
     "start": "node scripts/start.js",
