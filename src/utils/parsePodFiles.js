@@ -2,7 +2,8 @@ import { Route, Point, Multimedia } from "domain";
 import { storageHelper } from "@utils";
 import rutaShape from "@contexts/route-shape.json";
 import mediaShape from "@contexts/media-shape.json";
-
+const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
+const mediaPath = process.env.REACT_APP_VIADE_ES3C_MEDIA_PATH;
 const auth = require("solid-auth-cli");
 const FC = require("solid-file-client");
 const fc = new FC(auth);
@@ -10,16 +11,9 @@ const N3 = require("n3");
 
 export const getRoutesFromPod = async webId => {
   var routes = [];
-  var path = await storageHelper.getAppStorage(webId);
+  var path = await storageHelper.getAppStorage(webId, routePath);
   var folder = await fc.readFolder(path);
-  for (var i = 0; i < folder.files.length; i++) {
-    if (
-      !folder.files[i].url.includes("data") &&
-      !folder.files[i].url.includes("settings")&&
-      !folder.files[i].url.includes("jpg")&& //TEMPORAL
-      !folder.files[i].url.includes("png")&& //TEMPORAL
-      !folder.files[i].url.includes("img") //TEMPORAL
-    ) {
+  for (var i = 0; i < folder.files.length; i++) {    
       var quadStream = await fc.readFile(folder.files[i].url);
       const turtleParser = new N3.Parser({ format: "Turtle" });
       let name,
@@ -70,58 +64,47 @@ export const getRoutesFromPod = async webId => {
           routes.push(route);
         }
       });
-    }
-  }
+    }  
   return routes;
 };
 
 export const getMediaFromPod = async webId => {
   var media = [];
-  var path = await storageHelper.getAppStorage(webId);
+  var path = await storageHelper.getAppStorage(webId, mediaPath);
   var folder = await fc.readFolder(path);
   for (var i = 0; i < folder.files.length; i++) {
-    if (
-      !folder.files[i].url.includes("data") &&
-      !folder.files[i].url.includes("settings")&&
-      !folder.files[i].url.includes("jpg")&& //TEMPORAL
-      !folder.files[i].url.includes("png")&& //TEMPORAL
-      folder.files[i].url.includes("img") //TEMPORAL
-    ) {
-      var quadStream = await fc.readFile(folder.files[i].url);
-      const turtleParser = new N3.Parser({ format: "Turtle" });
-      let url,
-        date,
-        author = "";
-      turtleParser.parse(quadStream, (err, quad, prefixes) => {
-        if (err) {
-          throw err;
+    var quadStream = await fc.readFile(folder.files[i].url);
+    const turtleParser = new N3.Parser({ format: "Turtle" });
+    let url,
+      date,
+      author = "";
+    turtleParser.parse(quadStream, (err, quad, prefixes) => {
+      if (err) {
+        throw err;
+      }
+      if (quad) {
+        if (
+          quad.predicate.value ===
+          storageHelper.getPredicate(mediaShape.shape[0], mediaShape)
+        ) {
+          url = quad.object.value;
+        } else if (
+          quad.predicate.value ===
+          storageHelper.getPredicate(mediaShape.shape[1], mediaShape)
+        ) {
+          date = quad.object.value;
+        } else if (
+          quad.predicate.value ===
+          storageHelper.getPredicate(mediaShape.shape[2], mediaShape)
+        ) {
+          author = quad.object.value;
         }
-        if (quad) {
-          if (
-            quad.predicate.value ===
-            storageHelper.getPredicate(mediaShape.shape[0], mediaShape)
-          ) {
-            url = quad.object.value;
-          } else if (
-            quad.predicate.value ===
-            storageHelper.getPredicate(mediaShape.shape[1], mediaShape)
-          ) {
-            date = quad.object.value;
-          } else if (
-            quad.predicate.value ===
-            storageHelper.getPredicate(mediaShape.shape[2], mediaShape)
-          ) {
-            author = quad.object.value;
-          } 
-        } else if (quad === null) {
-          let name = url.split('/')[5]; //TEMPORAL
-          let m = new Multimedia(url, date, author, name);
-          media.push(m);
-        }
-      });
-    }
+      } else if (quad === null) {
+        let name = url.split('/')[5]; //TEMPORAL
+        let m = new Multimedia(url, date, author, name);
+        media.push(m);
+      }
+    });
   }
-  //return media;
-  console.log(media);
-
+  return media;
 };

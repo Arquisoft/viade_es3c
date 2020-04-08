@@ -1,27 +1,23 @@
 import React from 'react';
-//import { Uploader, UploadedFiles, SolidError as SolidErrorEntity } from '@inrupt/solid-react-components';
 import Uploader from "./uploader.component"
-
 import { useTranslation } from 'react-i18next';
-import {ImageWrapper} from './multimedia.style';
+import { ImageWrapper } from './multimedia.style';
 import { errorToaster } from '@utils';
 import { ButtonUploader } from '../../components/ButtonUploader/button-uploader.component';
 import { useWebId } from "@solid/react";
 
 
 export const MultimediaPageContent = props => {
-    const { webId} = props;
+    const { webId } = props;
     const { t } = useTranslation();
     const limit = 210000000;
-    const w = useWebId()
-    console.log(w && w.split('/profile')[0] + "/public/viade")
-   
+    const w = useWebId();
 
     return (
         <ImageWrapper>
             <Uploader
                 {...{
-                    fileBase: w && w.split('/profile')[0] + "/public/viade",
+                    fileBase: w && w.split('/profile')[0] + "/public/viade/rawMedia",
                     limitFiles: 10,
                     limitSize: limit,
                     accept: 'jpg,jpeg,png,mp3,mov,mp4,avi',
