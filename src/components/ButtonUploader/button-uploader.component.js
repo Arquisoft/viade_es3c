@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   ImageProfileWrapper,
   ButtonStyled,
-  LoaderText,
   ImageProfileLoader
 } from './button-uploader.style';
 
@@ -31,7 +30,6 @@ export const ButtonUploader = (props: Props) => {
     onClickFile,
     text,
     inProgress,
-    uploadingText
   } = props;
   const photo =
     uploadedFiles && uploadedFiles.length > 0 ? uploadedFiles[uploadedFiles.length - 1].uri : img;

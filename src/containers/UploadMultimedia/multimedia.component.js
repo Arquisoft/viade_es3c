@@ -10,7 +10,7 @@ import { useWebId } from "@solid/react";
 
 
 export const MultimediaPageContent = props => {
-    const { webId, image, updatePhoto, name } = props;
+    const { webId} = props;
     const { t } = useTranslation();
     const limit = 210000000;
     const w = useWebId()

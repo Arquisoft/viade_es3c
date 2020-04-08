@@ -15,6 +15,7 @@ export const addRoute = async (route, webId) => {
 }
 
 export const readRoutesFromPod = async (webId) => {
+     parsePodFiles.getMediaFromPod(webId); 
      return await parsePodFiles.getRoutesFromPod(webId); 
 }
 
