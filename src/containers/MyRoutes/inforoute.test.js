@@ -1,7 +1,8 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
 import InfoRoutes from "./InfoRoute";
-import {cleanup, queryByAttribute, render} from 'react-testing-library';
+import {cleanup, render} from 'react-testing-library';
+import { getByTestId } from "@testing-library/dom";
 
 const props = {
   webId: 'https://saragg.solid.community/'
@@ -10,7 +11,6 @@ const props = {
 describe.only('InfoRoutes', () => {
   afterAll(cleanup);
 
-  const getById = queryByAttribute.bind(null, 'id');
   const { container } = render(
     <Router>
       <InfoRoutes{...{...props}}/>
@@ -22,14 +22,10 @@ describe.only('InfoRoutes', () => {
   });
 
   test('inforoute render properly', () => {
-
-    setTimeout(function () {
-      const btroute = getById(container, 'viewRoute');
-      const btfriends = getById(container, 'viewFriends');
+      const btroute = getByTestId(container, 'viewRoute');
+      const btfriends = getByTestId(container, 'viewFriends');
 
       expect(btroute).not.toBe(null);
       expect(btfriends).not.toBe(null);
-    }, 3000);
-
   });
 });

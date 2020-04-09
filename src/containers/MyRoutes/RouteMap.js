@@ -28,7 +28,7 @@ export class MapContainer extends React.Component {
                 zoom={13}
                 style={mapStyle}
                 initialCenter={{lat: this.state.center[0], lng: this.state.center[1]}}
-              >
+            >
                 {this.state.markers.map((marker) => {
                     return (
                         <Marker key={marker.latitude+marker.longitude} position={{lat: marker.latitude, lng: marker.longitude}}/>

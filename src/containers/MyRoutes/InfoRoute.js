@@ -22,13 +22,13 @@ const InfoRoute = props => {
       <h3> Descripción de la ruta: </h3>
       <p>{description}</p>
       <div>
-        <Button id="viewRoute" onClick={() => setShowRoute(!showRoute)}>
+        <Button data-testid="viewRoute" id="viewRoute" onClick={() => setShowRoute(!showRoute)}>
         Ver ruta en el mapa
         </Button>
       </div>
       <br></br>
       <div id="button">
-        <Button id="viewFriends" onClick={() => setShow(!show)}>
+        <Button  data-testid="viewFriends" id="viewFriends" onClick={() => setShow(!show)}>
           Ver amigos
         </Button>
       </div>
