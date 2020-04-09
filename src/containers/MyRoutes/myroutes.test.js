@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
 import MyRoutes from "./MyRoutes";
-
+import {cleanup, queryByAttribute, render} from 'react-testing-library';
 
 const props = {
   webId: 'https://saragg.solid.community/'
