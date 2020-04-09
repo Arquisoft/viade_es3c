@@ -1,10 +1,7 @@
-import {fas} from '@fortawesome/free-solid-svg-icons';
-import {MyRoutes} from './MyRoutes';
-import { RouteWrapper } from "/MyRoutes/myroutes.style";
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
+import MyRoutes from "./MyRoutes";
 
-library.add(fas);
 
 const props = {
   webId: 'https://saragg.solid.community/'
