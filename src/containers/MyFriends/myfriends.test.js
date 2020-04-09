@@ -20,11 +20,6 @@ describe.only('MyFriends', () => {
   );
 
   test('renders without crashing', () => {
-    g
-  });
-
-  test('get user', () => {
     expect(container).toBeTruthy();
   });
-
 });
