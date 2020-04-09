@@ -2,8 +2,7 @@ import { v5 as uuidv5 } from 'uuid';
 
 export default class Multimedia {
     webId = "";
-    
-  
+
     constructor(url, date, author, name) {  
       this.url=url;
       this.date=date;

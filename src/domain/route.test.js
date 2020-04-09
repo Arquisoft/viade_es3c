@@ -14,7 +14,8 @@ describe('Route class domain', () => {
     expect(route.name === "Prueba");
     expect(route.author === "Sara");
     expect(route.description === "prueba");
-    expect(route.markers === markers);
+    expect(route.points === markers);
     expect(route.getIdRoute() === "Prueba_Sara");
+    expect(route.calculateCenter() != null);
   });
 });
