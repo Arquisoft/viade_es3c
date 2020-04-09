@@ -14,24 +14,7 @@ class RouteForm extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    async uploadFiles() {
-      const filesInput = document.getElementById('files');
-      const files = filesInput.files;
-      const fc = new FC(auth);
-
-      for (let i = 0; i < files.length; i++) {
-        try {
-          const fileName = files[i].name;
-          const url = "https://sonialavandera.solid.community/public/routes" + fileName;
-          console.log(url);
-          await fc.createFile(url);
-        } catch (e) {
-          console.log(e);
-        }
-      }
-    }
-    handleChange(event) {
+  handleChange(event) {
         this.setState({ value: event.target.value });
     }
 
@@ -52,21 +35,22 @@ class RouteForm extends React.Component {
                     <DivForms>
                         <LabelInput>
                             Name of the route:
-                             <input type="text" name="route_name" onChange={this.handleChange} />
+                             <input type="text" id="route_name" name="route_name" onChange={this.handleChange} />
                         </LabelInput>
                     </DivForms>
 
                     <DivForms>
                         <LabelInput>
                             Description of the route:
-                           <input type="text" name="desc_name" onChange={this.handleChange} />
+                           <input type="text" id="description_name" name="desc_name" onChange={this.handleChange} />
                         </LabelInput>
                     </DivForms>
 
                     <div>
                         <label> Upload images </label>
-                        <input type="file" name="images" onChange={this.handleChange} multiple />
+                        <input type="file" id="id_img" name="images" onChange={this.handleChange} multiple />
                     </div>
+
                     <div id="buttonSubmit">
                       <input type="submit" value="Submit" />
                     </div>
