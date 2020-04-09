@@ -32,12 +32,6 @@ class NewRoute extends React.Component {
         this.descripton = React.createRef();
     }
 
-    getWebId() {
-        return this.webId;
-    }
-
-    state = { markers: {}, image: {} };
-
     callBackFunction = childData => {
         this.setState({ markers: childData });
     };
@@ -74,14 +68,14 @@ class NewRoute extends React.Component {
             author = author.replace(".solid.community/profile/card#me", "");
             author = author.replace(".inrupt.net/profile/card#me", "");
 
-
             const multimedia = [];
             let filesFolder = document.getElementsByClassName('file-uploader--input')
             let filesMult = filesFolder[0].files;
-            let url = this.webID.replace("profile/card#me", "public/viade/");
+            let url = this.webID.replace("profile/card#me", "public/viade/rawMedia/");
             for (let j = 0; j < filesMult.length; j++) {
                 let name = filesMult[j].name.split(".")[0];
-                multimedia.push(new Multimedia(url + filesMult[j].name, Date.now(), author,name));
+                var d = Date(Date.now());
+                multimedia.push(new Multimedia(url + filesMult[j].name, d.toString(), author,name));
             }
             let route = new Route(
                 this.title.current.value,
@@ -92,6 +86,9 @@ class NewRoute extends React.Component {
             );
             await viadeManager.addRoute(route, this.webID);
             successToaster("Se ha guardado correctamente", "Éxito");
+            setTimeout(function () {
+                window.location.href = '#/myRoutes'
+            }, 1000)
         }
         event.persist();
     }
@@ -101,36 +98,26 @@ class NewRoute extends React.Component {
         return (
             <RouteWrapper data-testid="route-component">
                 <Header>
-
                     <TitleRoute>New Route</TitleRoute>
-
                     <RouteForm id="routef">
-
                         <DivForms>
                             <LabelInput>Name of the route: <input type="text" id="route_name" name="route_name" placeholder="New Route" ref={this.title} /></LabelInput>
                         </DivForms>
-
                         <DivForms>
                             <LabelInput> Description of the route: <TextArea type="text" id="description"name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
                         </DivForms>
-
-                        </RouteForm>
-                        <DivForms>
-                            <MultimediaComponent id={"input-img"} webId={`[${this.webId}]`} image=""/>
-                        </DivForms>
-
-                        <DivForms>
-                            <InputSubmit type="submit" id="save_route" value="Save" form="routef" onClick={this.handleSubmit} />
-                        </DivForms>
-
-                    
-
+                    </RouteForm>
+                    <DivForms>
+                        <MultimediaComponent id={"input-img"} webId={`[${this.webId}]`} image=""/>
+                    </DivForms>
+                    <DivForms>
+                        <InputSubmit type="submit" id="save_route" value="Save" form="routef" onClick={this.handleSubmit} />
+                    </DivForms>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
             </RouteWrapper>
         );
     }
 }
-
 
 export default NewRoute;

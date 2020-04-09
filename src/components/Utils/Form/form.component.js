@@ -1,11 +1,8 @@
 import React from 'react';
 
 import {
-    TextArea,
     DivForms,
-    InputSubmit,
     LabelInput,
-    InputFile,
     TitleRoute,
     DivMin
 } from './form.component.style'
@@ -18,29 +15,22 @@ class RouteForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-<<<<<<< HEAD
     async uploadFiles() {
-        const filesInput = document.getElementById('files');
-        const files = filesInput.files;
+      const filesInput = document.getElementById('files');
+      const files = filesInput.files;
+      const fc = new FC(auth);
 
-
-        const fc = new FC(auth);
-        //  const {webId} = this.props;
-
-        for (let i = 0; i < files.length; i++) {
-            try {
-                const fileName = files[i].name;
-                //const url=webId.split("profile/card#me")[0]+"public/"+fileName;
-                const url = "https://sonialavandera.solid.community/public/routes" + fileName;
-                console.log(url);
-                await fc.createFile(url);
-            } catch (e) {
-                console.log(e);
-
-            }
-
+      for (let i = 0; i < files.length; i++) {
+        try {
+          const fileName = files[i].name;
+          const url = "https://sonialavandera.solid.community/public/routes" + fileName;
+          console.log(url);
+          await fc.createFile(url);
+        } catch (e) {
+          console.log(e);
         }
-=======
+      }
+    }
     handleChange(event) {
         this.setState({ value: event.target.value });
     }
@@ -48,11 +38,10 @@ class RouteForm extends React.Component {
     handleSubmit(event) {
         alert('A name was submitted: ' + this.state.value);
         event.preventDefault();
->>>>>>> develop
     }
 
     createRoute() {
-        
+
     }
 
     render() {
@@ -63,44 +52,24 @@ class RouteForm extends React.Component {
                     <DivForms>
                         <LabelInput>
                             Name of the route:
-<<<<<<< HEAD
-            <input type="text" name="route_name" placeholder="New Route" />
+                             <input type="text" name="route_name" onChange={this.handleChange} />
                         </LabelInput>
                     </DivForms>
-=======
-            <input type="text" name="route_name" onChange={this.handleChange} />
-                        </label>
-                    </div>
->>>>>>> develop
 
                     <DivForms>
                         <LabelInput>
                             Description of the route:
-<<<<<<< HEAD
-            <TextArea type="text" name="description" placeholder="Description for the new Route" rows="10" />
+                           <input type="text" name="desc_name" onChange={this.handleChange} />
                         </LabelInput>
                     </DivForms>
-
-                    <DivForms>
-                        <LabelInput> Upload files </LabelInput>
-                        <InputFile type="file" id="files" name="files" multiple />
-                    </DivForms>
-                    <DivForms id="buttonSubmit">
-                        <InputSubmit type="submit" value="Save" />
-                    </DivForms>
-=======
-            <input type="text" name="desc_name" onChange={this.handleChange} />
-                        </label>
-                    </div>
 
                     <div>
                         <label> Upload images </label>
                         <input type="file" name="images" onChange={this.handleChange} multiple />
                     </div>
                     <div id="buttonSubmit">
-                    <input type="submit" value="Submit" />
+                      <input type="submit" value="Submit" />
                     </div>
->>>>>>> develop
                 </form>
             </DivMin>
         );

@@ -49,7 +49,7 @@ export const WelcomePageContent = props => {
                                     uploadedFiles[uploadedFiles.length - 1].uri,
                                     t('welcome.uploadSuccess'),
                                     t('welcome.successTitle')
-                                );
+                                );                              
                             },
                             render: props => (
                                 <ImageProfile
