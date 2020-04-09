@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { UpdateContext } from '@inrupt/solid-react-components';
-import { Dropdown } from '@util-components';
+import { Dropdown } from '../../../../components/Utils';
 
 import auth from 'solid-auth-client';
 import data from '@solid/query-ldflex';
-import { errorToaster } from '@utils';
-import { ProfileOptions } from '@constants/navigation';
+import { errorToaster } from '../../../../utils';
+import { ProfileOptions } from '../../../../constants/_navigation.lite';
 
 export const ImageContainer = styled.div`
   width: 42px;

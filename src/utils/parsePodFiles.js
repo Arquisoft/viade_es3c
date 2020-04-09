@@ -1,7 +1,7 @@
 import { Route, Point, Multimedia } from "domain";
-import { storageHelper } from "@utils";
-import rutaShape from "@contexts/route-shape.json";
-import mediaShape from "@contexts/media-shape.json";
+import { storageHelper } from "../utils";
+import rutaShape from  "../contexts/route-shape";
+import mediaShape from "../contexts/media-shape";
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
 const mediaPath = process.env.REACT_APP_VIADE_ES3C_MEDIA_PATH;
 const auth = require("solid-auth-cli");

@@ -2,7 +2,7 @@ import {
   AccessControlList,
   AppPermission
 } from "@inrupt/solid-react-components";
-import { errorToaster } from "@utils";
+import { errorToaster } from "../utils";
 
 // Check that all permissions we need are set. If any are missing, this returns false
 const checkAppPermissions = (userAppPermissions, appPermissions) =>

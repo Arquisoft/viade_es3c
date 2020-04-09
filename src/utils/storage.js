@@ -5,9 +5,9 @@ import {
   errorToaster,
   permissionHelper,
   ldflexHelper
-} from "@utils";
-import routeShape from "@contexts/route-shape.json";
-import mediaShape from "@contexts/media-shape.json";
+} from "../utils";
+import routeShape from  "../contexts/route-shape";
+import mediaShape from "../contexts/media-shape";
 
 
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;

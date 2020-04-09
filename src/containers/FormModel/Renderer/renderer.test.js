@@ -3,7 +3,7 @@ import { render, cleanup } from 'react-testing-library';
 import { HashRouter as Router } from 'react-router-dom';
 import FormModelRenderer from './form-renderer.component';
 
-describe.only('Form Model Converter', () => {
+describe.only('Form Model Renderer', () => {
   afterAll(cleanup);
 
   const { container, getByTestId } = render(
@@ -14,11 +14,5 @@ describe.only('Form Model Converter', () => {
 
   test('renders without crashing', () => {
     expect(container).toBeTruthy();
-  });
-
-  test('renders initial state correctly', () => {
-    expect(getByTestId('layout-text-box').hasAttribute('disabled')).toBeTruthy();
-    expect(getByTestId('copy-button').hasAttribute('disabled')).toBeTruthy();
-    expect(getByTestId('convert-button').hasAttribute('disabled')).toBeTruthy();
   });
 });
