@@ -16,24 +16,24 @@ class MyRoute extends React.Component {
     super();
     this.WebID = webId;
     this.state = {
-      data: null
+      data: null    
     };
   }
   componentDidMount() {
-    const { webId } = this.props;
-    this._asyncRequest = viadeManager.readRoutesFromPod(webId).then(data => {
-      this._asyncRequest = null;
-      this.setState({ data });
+    const { webId } = this.props;       
+    this._asyncRequest = viadeManager.readRoutesFromPod(webId).then(data => {         
+      this._asyncRequest = null;      
+      this.setState( {data} );       
     });
-  }
-
+  }  
+ 
   render(): React.ReactNode {
     if (this.state.data !== null) {
       return (
         <RouteWrapper data-testid="route-component">
-          <MyRouteContainer>
+          <MyRouteContainer data-testid="myroute-container">
             <FormRenderContainer>
-              <Header>
+              <Header data-testid="myroute-header">
                 <h1>Mis rutas</h1>
               </Header>
               {this.state.data.map((ruta, index) => {

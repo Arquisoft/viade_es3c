@@ -4,6 +4,7 @@
 
 import React from "react";
 import Map from "./Map";
+import {errorToaster, successToaster} from "../../utils";
 import {
     Header,
     RouteWrapper,
@@ -11,29 +12,25 @@ import {
     DivForms,
     InputSubmit,
     LabelInput,
-    InputFile,
-    TitleRoute
+    TitleRoute,
+    RouteForm
 } from "./route.style";
 import { viadeManager } from "@utils";
-import { Route, Point } from "domain";
-
-
+import { Route, Point, Multimedia } from "domain";
+import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
 
 type Props = { webId: String };
 
 class NewRoute extends React.Component {
     constructor({ webId }: Props) {
-        super();        
+        super();
         this.webID = webId;
-        console.log(this.webID);
         this.handleSave = this.handleSave.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.title = React.createRef();
         this.descripton = React.createRef();
     }
-
-    state = { markers: {} };
 
     callBackFunction = childData => {
         this.setState({ markers: childData });
@@ -42,7 +39,7 @@ class NewRoute extends React.Component {
     handleChange(event) {
         this.setState({ value: event.target.value });
     }
-
+   
     handleSubmit(event) {
         event.preventDefault();
         this.handleSave(event);
@@ -50,11 +47,11 @@ class NewRoute extends React.Component {
 
     async handleSave(event) {
         if (this.title.current.value.length === 0) {
-            alert("La ruta tiene que tener un titulo.");
+            errorToaster("La ruta tiene que tener un titulo", "ERROR");
         } else if (this.descripton.current.value.length === 0) {
-            alert("La ruta tiene que tener una descripción.");
+            errorToaster("La ruta tiene que tener una descripción", "ERROR");
         } else if (this.state.markers.length === undefined) {
-            alert("No ha marcado ningún punto en el mapa.");
+            errorToaster("No se ha marcado ningún punto en el mapa", "ERROR");
         } else {
             const points = [];
             for (let i = 0; i < this.state.markers.length; i++) {
@@ -66,42 +63,56 @@ class NewRoute extends React.Component {
                     )
                 );
             }
-            let author = this.webID.replace("https://","");
-            author = author.replace(".solid.community/profile/card#me","");
+
+            let author = this.webID.replace("https://", "");
+            author = author.replace(".solid.community/profile/card#me", "");
+            author = author.replace(".inrupt.net/profile/card#me", "");
+
+            const multimedia = [];
+            let filesFolder = document.getElementsByClassName('file-uploader--input')
+            let filesMult = filesFolder[0].files;
+            let url = this.webID.replace("profile/card#me", "public/viade/rawMedia/");
+            for (let j = 0; j < filesMult.length; j++) {
+                let name = filesMult[j].name.split(".")[0];
+                var d = Date(Date.now());
+                multimedia.push(new Multimedia(url + filesMult[j].name, d.toString(), author,name));
+            }
             let route = new Route(
                 this.title.current.value,
                 author,
                 this.descripton.current.value,
-                points
+                points,
+                multimedia
             );
             await viadeManager.addRoute(route, this.webID);
-            alert("Se ha guardado correctamente");
+            successToaster("Se ha guardado correctamente", "Éxito");
+            setTimeout(function () {
+                window.location.href = '#/myRoutes'
+            }, 1000)
         }
         event.persist();
     }
 
     render(): React.ReactNode {
+
         return (
             <RouteWrapper data-testid="route-component">
                 <Header>
                     <TitleRoute>New Route</TitleRoute>
-                    <form onSubmit={this.handleSubmit}>
+                    <RouteForm id="routef">
                         <DivForms>
-                            <LabelInput>Name of the route: <input type="text" name="route_name" placeholder="New Route" ref={this.title} /></LabelInput>
+                            <LabelInput>Name of the route: <input type="text" id="route_name" name="route_name" placeholder="New Route" ref={this.title} /></LabelInput>
                         </DivForms>
-
                         <DivForms>
-                            <LabelInput> Description of the route: <TextArea type="text" name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
+                            <LabelInput> Description of the route: <TextArea type="text" id="description"name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
                         </DivForms>
-
-                        <DivForms>
-                            <LabelInput>Upload files</LabelInput><InputFile type="file" id="files" name="files" multiple />
-                        </DivForms>
-
-                        <DivForms>
-                            <InputSubmit type="submit" value="Save" />
-                        </DivForms>
-                    </form>
+                    </RouteForm>
+                    <DivForms>
+                        <MultimediaComponent id={"input-img"} webId={`[${this.webId}]`} image=""/>
+                    </DivForms>
+                    <DivForms>
+                        <InputSubmit type="submit" id="save_route" value="Save" form="routef" onClick={this.handleSubmit} />
+                    </DivForms>
                 </Header>
                 <Map parentCallBack={this.callBackFunction} zoom={13} />
             </RouteWrapper>
