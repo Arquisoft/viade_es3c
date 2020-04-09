@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 
 import React from "react";
-import Map from "./Map";
+import {MapContainer} from "./Map";
 import {errorToaster, successToaster, viadeManager} from "../../utils";
 import {
     Header,
@@ -119,7 +119,7 @@ class NewRoute extends React.Component {
                         <InputSubmit type="submit" id="save_route" value="Save" form="routef" onClick={this.handleSubmit} />
                     </DivForms>
                 </Header>
-                <Map parentCallBack={this.callBackFunction} zoom={13} />
+                <MapContainer parentCallBack={this.callBackFunction} zoom={13} />
             </RouteWrapper>
         );
     }
