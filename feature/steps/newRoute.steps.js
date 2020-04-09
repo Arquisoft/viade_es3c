@@ -95,12 +95,8 @@ defineFeature(feature, test => {
     });
 
     then('Redirect to my routes page', async () => {
-
-      await page.waitForNavigation({
-        waitUntil: 'networkidle2'
-      });
-
-      expect(page.url()).toBe("http://localhost:3000/#/myroutes")
+      await page.waitFor(4000);
+      expect(page.url()).toBe("http://localhost:3000/#/myroutes");
     })
 
   });

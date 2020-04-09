@@ -7,12 +7,12 @@ export const errorToaster = (content: String, title: String = null, link: Object
     autoClose: false,
     className: 'solid-toaster toaster-error',
     type: 'error',
-    position:"bottom-center"
+    position:"top-center"
   });
 
 export const successToaster = (content: String, title: String = null, link: Object) =>
   toast(<Toaster {...{ content, title, type: 'success', link }} />, {
     className: 'solid-toaster toaster-success',
     type: 'success',
-    position:"bottom-center"
+    position:"top-center"
   });
