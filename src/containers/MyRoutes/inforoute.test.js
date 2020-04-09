@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
 import InfoRoutes from "./InfoRoute";
-import {cleanup, render} from 'react-testing-library';
+import {cleanup, render, fireEvent} from 'react-testing-library';
 import { getByTestId } from "@testing-library/dom";
 
 const props = {
@@ -27,5 +27,8 @@ describe.only('InfoRoutes', () => {
 
       expect(btroute).not.toBe(null);
       expect(btfriends).not.toBe(null);
+
+      fireEvent.click(btroute);
+      fireEvent.click(btfriends);
   });
 });
