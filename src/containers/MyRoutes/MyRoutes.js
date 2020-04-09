@@ -30,9 +30,9 @@ class MyRoute extends React.Component {
     if (this.state.data !== null) {
       return (
         <RouteWrapper data-testid="route-component">
-          <MyRouteContainer>
+          <MyRouteContainer data-testid="myroute-container">
             <FormRenderContainer>
-              <Header>
+              <Header data-testid="myroute-header">
                 <h1>Mis rutas</h1>
               </Header>
               {this.state.data.map((ruta, index) => {
