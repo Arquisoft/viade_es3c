@@ -15,11 +15,15 @@ describe.only('MyFriends', () => {
   afterAll(cleanup);
   const {container} = render(
     <Router>
-      <MyFriends {...{...props}} />
+      <MyFriends {...{...props}}/>
     </Router>
   );
 
   test('renders without crashing', () => {
+    g
+  });
+
+  test('get user', () => {
     expect(container).toBeTruthy();
   });
 

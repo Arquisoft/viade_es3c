@@ -18,10 +18,13 @@ import {
 import { Route, Point, Multimedia } from "domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
 
-type Props = { webId: String };
+type Props = {
+    webId: String,
+    test: boolean
+};
 
 class NewRoute extends React.Component {
-    constructor({ webId }: Props) {
+    constructor({ webId, test }: Props) {
         super();
         this.webID = webId;
         this.handleSave = this.handleSave.bind(this);
@@ -49,7 +52,7 @@ class NewRoute extends React.Component {
             errorToaster("La ruta tiene que tener un titulo", "ERROR");
         } else if (this.descripton.current.value.length === 0) {
             errorToaster("La ruta tiene que tener una descripción", "ERROR");
-        } else if (this.state.markers.length === undefined) {
+        } else if (!test && this.state.markers.length === undefined) {
             errorToaster("No se ha marcado ningún punto en el mapa", "ERROR");
         } else {
             const points = [];
@@ -96,7 +99,7 @@ class NewRoute extends React.Component {
 
         return (
             <RouteWrapper data-testid="route-component">
-                <Header>
+                <Header data-testid="route-header">
                     <TitleRoute>New Route</TitleRoute>
                     <RouteForm id="routef">
                         <DivForms>
