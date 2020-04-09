@@ -15,7 +15,7 @@ export class MapContainer extends React.Component {
 
     state = {markers:[]};
 
-    getLocation() {
+    getMyLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
                 this.setState({
@@ -56,7 +56,7 @@ export class MapContainer extends React.Component {
     };
 
     render() {
-        this.getLocation();
+        this.getMyLocation();
         return (
             <Map
                 google={this.props.google}

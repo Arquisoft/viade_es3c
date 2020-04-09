@@ -18,8 +18,6 @@ export class MultimediaComponent extends Component<Props> {
       hasImage: false
     };
   }
-  
-  
 
   componentDidMount() {
     const { webId } = this.props;
@@ -70,7 +68,7 @@ export class MultimediaComponent extends Component<Props> {
   render() {
     const { name, image, isLoading } = this.state;
     const { webId } = this.props;
-    console.log(webId)
+    console.log(webId);
     return (
       <MultimediaPageContent {...{ name, image, isLoading, webId, updatePhoto: this.updatePhoto }} />
     );
