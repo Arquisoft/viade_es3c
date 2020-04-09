@@ -24,4 +24,8 @@
 .*Decisions*
 * Using JavaScript because it supports solid and is a language that is not entirely new to us since we have a small idea of ​​how to use it.
 * Using React is not only because it is a condition to develop the application, but also because it is a very powerful JavaScript library that makes our lives much easier and makes the code cleaner.
+<<<<<<< HEAD
 * Using the api of google maps for the routes.
+****
+=======
+>>>>>>> cp_frature_login

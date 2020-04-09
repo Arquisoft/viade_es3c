@@ -1,5 +1,3 @@
-import { v5 as uuidv5 } from 'uuid';
-
 export default class Route {
   webId = "";
   points = [];
@@ -8,17 +6,15 @@ export default class Route {
    *
    * @param {String} name
    */
-  constructor(name, author, description, points, multimedia) {
+  constructor(name, author, description, points) {
     this.name = name;
     this.author = author;
     this.description = description;
     this.points = points;
-    this.multimedia = multimedia;
   }
 
   getIdRoute() {
-    const MY_NAMESPACE = '10eadb41-c6bb-4874-b752-13465ec77185' ;   
-    return uuidv5 (this.name, MY_NAMESPACE);
+    return `${this.name}_${this.author}`;
   }
 
   calculateCenter(){
