@@ -4,7 +4,7 @@
 
 import React from "react";
 import Map from "./Map";
-import {errorToaster, successToaster} from "../../utils";
+import {errorToaster, successToaster, viadeManager} from "../../utils";
 import {
     Header,
     RouteWrapper,
@@ -15,7 +15,6 @@ import {
     TitleRoute,
     RouteForm
 } from "./route.style";
-import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
 
@@ -104,7 +103,7 @@ class NewRoute extends React.Component {
                             <LabelInput>Name of the route: <input type="text" id="route_name" name="route_name" placeholder="New Route" ref={this.title} /></LabelInput>
                         </DivForms>
                         <DivForms>
-                            <LabelInput> Description of the route: <TextArea type="text" id="description"name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
+                            <LabelInput> Description of the route: <TextArea type="text" id="description" name="description" placeholder="Description for the new Route" rows="10" ref={this.descripton} /> </LabelInput>
                         </DivForms>
                     </RouteForm>
                     <DivForms>
