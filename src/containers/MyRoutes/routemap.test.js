@@ -3,15 +3,15 @@ import { render, cleanup } from 'react-testing-library';
 import { HashRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import Map from "./Map";
+import RouteMap from "./RouteMap";
 
 library.add(fas);
 
-describe.only('Map', () => {
+describe.only('RouteMap', () => {
   afterAll(cleanup);
   const { container } = render(
     <Router>
-      <Map/>
+      <RouteMap/>
     </Router>
   );
 
