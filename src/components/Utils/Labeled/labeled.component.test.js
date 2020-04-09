@@ -1,5 +1,5 @@
 import { render, cleanup } from 'react-testing-library';
-import Labeled from 'labeled.component';
+import Labeled from './labeled.component';
 import React from "react";
 
 afterAll(cleanup);
