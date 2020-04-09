@@ -3,12 +3,13 @@ import {cleanup, render} from 'react-testing-library';
 import {HashRouter as Router} from 'react-router-dom';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fas} from '@fortawesome/free-solid-svg-icons';
-import InfoFriends from "./MyFriends";
+import InfoFriends from "./InfoFriends";
 
 library.add(fas);
 
 const props = {
-  webId: ' https://saragg.solid.community/'
+  name: 'elmer',
+  url: ' https://elmer.solid.community/'
 };
 
 describe.only('MyFriends', () => {
