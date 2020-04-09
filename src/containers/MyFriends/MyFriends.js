@@ -42,6 +42,4 @@ class MyFriends extends React.Component{
      }
 };
 
-
-
 export default MyFriends;
