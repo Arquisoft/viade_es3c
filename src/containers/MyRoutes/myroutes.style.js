@@ -100,3 +100,82 @@ export const Button = styled.button`
   font-size: 16px;
 
 `;
+
+export const Slider = styled.div`
+
+width: 100%;
+	position: relative;
+
+`;
+
+export const OrderList = styled.ul`
+  width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	padding: 15px 50px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+	color: #fff;
+	z-index: 1;
+`;
+
+export const OrderLi = styled.li`
+  overflow: hidden;
+`;
+
+export const OrderLiImg = styled.img`
+  width: 100%;
+  max-height: 50%;
+`;
+
+export const Pagination = styled.ol`
+  position: absolute;
+	top: 102%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+`;
+
+export const PaginationLi = styled.li`
+  font-size: 20px;
+  margin: 2px 5px;
+  color: #858585;
+  cursor: pointer;
+`;
+
+
+export const Left = styled.div`
+  left: 10px;
+  position: absolute;
+	top: 0;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+
+	color: #fff;
+	font-size: 35px;
+	cursor: pointer;
+	z-index: 2;
+`;
+
+export const Right = styled.div`
+  right: 10px;
+  position: absolute;
+	top: 0;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+
+	color: #fff;
+	font-size: 35px;
+	cursor: pointer;
+	z-index: 2;
+`;
