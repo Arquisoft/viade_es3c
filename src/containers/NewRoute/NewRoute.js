@@ -48,6 +48,7 @@ class NewRoute extends React.Component {
         this.handleSave(event);
     }
 
+    
     async handleSave(event) {
         if (this.title.current.value.length === 0) {
             alert("La ruta tiene que tener un titulo.");
