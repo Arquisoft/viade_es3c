@@ -35,7 +35,7 @@ class MyRoute extends React.Component {
               <Header data-testid="myroute-header">
                 <h1>Mis rutas</h1>
               </Header>
-              {this.state.data.map((ruta, index) => {
+             {this.state.data.map((ruta, index) => {
                 return (
                   <InfoRoute key={index}
                     name={ruta.name}
@@ -46,7 +46,7 @@ class MyRoute extends React.Component {
                     mult={ruta.multimedia}
                     r={ruta}
                   />
-                );
+                );               
               })}
             </FormRenderContainer>
           </MyRouteContainer>
