@@ -63,6 +63,7 @@ const Notifications = ({ webId, inbox }: Props) => {
     }
   }, [inbox, notify]);
 
+
   /**
    * Fetch new notifications when liveUpdate's timestamp changes, similar to componentWillUpdate
    */
@@ -72,6 +73,8 @@ const Notifications = ({ webId, inbox }: Props) => {
       oldTimestamp = currentTimestamp;
     }
   }, [timestamp]);
+
+
 
   return (
     <NotificationsWrapper ref={ref}>

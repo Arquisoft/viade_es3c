@@ -52,7 +52,6 @@ export class WelcomeComponent extends Component<Props> {
     await viadeManager.iniciateStructure(webId);
     const user = data[webId];
     const nameLd = await user.vcard_fn;
-    viadeManager.iniciateStructure(webId);
     const name =
       nameLd && nameLd.value.trim().length > 0
         ? nameLd.value

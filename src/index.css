@@ -117,6 +117,7 @@ Ends temporary react/fontawesome fix
   margin: 10px 0;
   border-radius: 4px;
   border: solid 1px #ccc;
+  border: solid 1px #666;
   box-sizing: border-box;
 }
 
@@ -131,4 +132,12 @@ form-group .select-role {
 
 .solid-provider-select .option {
   padding-left: 10px !important;
+}
+
+div.fade.in.modal {
+  display:flex !important;
+}
+
+.modal-dialog {
+  margin: auto;
 }

@@ -16,6 +16,8 @@ const Notification = React.memo(({ webId, inbox }: Props) => {
    */
   const inboxUrl = inbox.map(item => item.path);
 
+
+
   return inboxUrl ? (
     <LiveUpdate subscribe={inboxUrl}>
       <Notifications {...{ webId, inbox }} />

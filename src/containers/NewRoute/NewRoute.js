@@ -1,10 +1,6 @@
-/* eslint-disable constructor-super */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable no-console */
-
 import React from "react";
 import Map from "./Map";
-import {errorToaster, successToaster} from "../../utils";
+import {errorToaster, successToaster} from "@utils";
 import {
     Header,
     RouteWrapper,
@@ -30,11 +26,18 @@ class NewRoute extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.title = React.createRef();
         this.descripton = React.createRef();
+        this.state={
+            markers:null
+        };
     }
+
+    state = { markers: {}, image: {} };
 
     callBackFunction = childData => {
         this.setState({ markers: childData });
     };
+
+    componentWillUnmount(){}
 
     handleChange(event) {
         this.setState({ value: event.target.value });
@@ -47,10 +50,10 @@ class NewRoute extends React.Component {
 
     async handleSave(event) {
         if (this.title.current.value.length === 0) {
-            errorToaster("La ruta tiene que tener un titulo", "ERROR");
+            errorToaster("La ruta tiene que tener un título", "ERROR");
         } else if (this.descripton.current.value.length === 0) {
             errorToaster("La ruta tiene que tener una descripción", "ERROR");
-        } else if (this.state.markers.length === undefined) {
+        } else if (this.state.markers ===null || this.state.markers.length <0  ) {
             errorToaster("No se ha marcado ningún punto en el mapa", "ERROR");
         } else {
             const points = [];
@@ -75,7 +78,7 @@ class NewRoute extends React.Component {
             for (let j = 0; j < filesMult.length; j++) {
                 let name = filesMult[j].name.split(".")[0];
                 var d = Date(Date.now());
-                multimedia.push(new Multimedia(url + filesMult[j].name, d.toString(), author,name));
+                multimedia.push(new Multimedia(url + filesMult[j].name, d.toString(), author,name, null));
             }
             let route = new Route(
                 this.title.current.value,

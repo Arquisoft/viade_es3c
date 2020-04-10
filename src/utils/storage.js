@@ -14,6 +14,8 @@ const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
 const mediaPath = process.env.REACT_APP_VIADE_ES3C_MEDIA_PATH;
 const rawMediaPath = process.env.REACT_APP_VIADE_ES3C_RAWMEDIA_PATH;
 const settingsPath = process.env.REACT_APP_VIADE_ES3C_SETTINGS_PATH;
+const inboxPath = process.env.REACT_APP_VIADE_ES3C_INBOX_PATH;
+
 
 const N3 = require("n3");
 const { DataFactory } = N3;
@@ -258,10 +260,12 @@ export const createInitialFiles = async webId => {
     const mediaUrl = await getAppStorage(webId, mediaPath);
     const rawMediaUrl = await getAppStorage(webId, rawMediaPath);
     const settingsUrl = await getAppStorage(webId, settingsPath);
+    const settingsInboxUrl = await getAppStorage(webId, inboxPath);
 
     // Set up various paths relative to the viade URL
     const dataFilePath = `${settingsUrl}data.ttl`;
     const settingsFilePath = `${settingsUrl}settings.ttl`;
+    const settingsInboxFilePath = `${settingsInboxUrl}settings.ttl`;
 
     // Check if the viade folder exists, if not then create it.
     const routesFolderExists = await resourceExists(routesUrl);
@@ -315,6 +319,11 @@ export const createInitialFiles = async webId => {
     const settingsFileExists = await resourceExists(settingsFilePath);
     if (!settingsFileExists) {
       await createDocument(settingsFilePath);
+    }
+
+    const settingsInboxFileExists = await resourceExists(settingsInboxFilePath);
+    if (!settingsInboxFileExists) {
+      await createDocument(settingsInboxFilePath);
     }
 
     return true;
