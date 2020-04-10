@@ -45,6 +45,7 @@ class MyRoute extends React.Component {
                     points={ruta.points}
                     center={ruta.calculateCenter()}
                     webId = {this.WebID}
+                    uuid = {ruta.getIdRoute()}
                   />
                 );
               })}

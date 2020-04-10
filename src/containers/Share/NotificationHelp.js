@@ -7,7 +7,6 @@ import {List} from "@solid/react";
 import {getUrl, getUserName} from "../MyFriends/MyFriends";
 import {sharing} from "../../utils/permissions";
 
-
 const Notifications = ({ruta}) => {
         let cadena = null;
         let friendWebID = null;
@@ -34,7 +33,9 @@ const Notifications = ({ruta}) => {
 
         function handleSave(friendWebId, e) {
             e.preventDefault();
-            let nameRoute = getUrl(cadena) + 'public/viade/' + ruta + '_' + getUserName(cadena) + '.ttl';
+            //url de la ruta será: uuid.ttl 
+            let nameRoute = getUrl(cadena) + 'public/viade/routes' + ruta + '.ttl';
+            console.log("ruta!!!!!: " + nameRoute)
             sharing(cadena, friendWebId, nameRoute);
             try {
                 const contentNotif = {

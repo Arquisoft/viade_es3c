@@ -10,7 +10,7 @@ import Notifications from "../Share/NotificationHelp";
 
 
 const InfoRoute = props => {
-  const { name, description, author, points, center, webId} = props;
+  const { name, description, author, points, center, webId, uuid} = props;
   const [show, setShow] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
 
@@ -51,7 +51,7 @@ const InfoRoute = props => {
           <Header>
             <h1>My friends</h1>
           </Header>
-            <Notifications ruta={name}></Notifications>
+            <Notifications ruta={uuid}></Notifications>
         </FormRenderContainer>
       )}
     </RouteCard>
