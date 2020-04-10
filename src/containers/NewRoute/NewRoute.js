@@ -4,7 +4,7 @@
 
 import React from "react";
 import Map from "./Map";
-import {errorToaster, successToaster} from "../../utils";
+import {errorToaster, successToaster} from "@utils";
 import {
     Header,
     RouteWrapper,
@@ -32,6 +32,8 @@ class NewRoute extends React.Component {
         this.descripton = React.createRef();
     }
 
+    state = { markers: {}, image: {} };
+
     callBackFunction = childData => {
         this.setState({ markers: childData });
     };
@@ -47,7 +49,7 @@ class NewRoute extends React.Component {
 
     async handleSave(event) {
         if (this.title.current.value.length === 0) {
-            errorToaster("La ruta tiene que tener un titulo", "ERROR");
+            errorToaster("La ruta tiene que tener un título", "ERROR");
         } else if (this.descripton.current.value.length === 0) {
             errorToaster("La ruta tiene que tener una descripción", "ERROR");
         } else if (this.state.markers.length === undefined) {
