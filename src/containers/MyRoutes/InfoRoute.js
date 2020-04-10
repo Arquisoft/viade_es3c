@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal } from "react-bootstrap";
 import { RouteCard, Button } from "./myroutes.style";
 import { ldflexHelper } from "@utils";
-import {successToaster} from "../../utils";
+import { successToaster } from "@utils";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   FormRenderContainer,
@@ -16,7 +16,7 @@ import RouteMap from "./RouteMap";
 import MultsButton from "./ViewMult";
 
 const InfoRoute = props => {
-  const { name, author, description, points, center, mult, ruta} = props;
+  const { name, author, description, points, center, mult, ruta } = props;
   const [show, setShow] = useState(true);
   const [showConfirm, setShowConfirm] = useState(false);
   const [showRoute, setShowRoute] = useState(true);
@@ -45,15 +45,15 @@ const InfoRoute = props => {
           <Modal.Footer>
             <Button
               onClick={e => {
-                for(const media of mult){
-                    ldflexHelper.deleteFile(media.url);
-                    ldflexHelper.deleteFile(media.ttlUrl);
+                for (const media of mult) {
+                  ldflexHelper.deleteFile(media.url);
+                  ldflexHelper.deleteFile(media.ttlUrl);
                 }
                 ldflexHelper.deleteFile(ruta);
+                successToaster("La ruta se está eliminando", "Éxito");
                 setTimeout(function() {
-                  successToaster("Se ha eliminado correctamente", "Éxito");
                   window.location.reload();
-                }, 1000);                
+                }, 1500);
               }}
             >
               Delete
