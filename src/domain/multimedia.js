@@ -13,7 +13,8 @@ export default class Multimedia {
     }
   
     getIdMedia() {     
+      let mix = this.name+this.date+this.author;
       const MY_NAMESPACE = '10eadb41-c6bb-4874-b752-13465ec77185' ;   
-      return uuidv5 (this.name, MY_NAMESPACE);
+      return uuidv5 (mix, MY_NAMESPACE);
     }
   }
