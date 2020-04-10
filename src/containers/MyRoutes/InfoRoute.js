@@ -26,9 +26,7 @@ const InfoRoute = props => {
           onClick={e => {
             if (window.confirm("Are you sure you wish to delete this item?")){
               ldflexHelper.deleteFile(r);
-               setTimeout(function () {
-                window.location.href = '#/myRoutes'
-            }, 1000)
+              window.location.reload();
             }
 
           }}
