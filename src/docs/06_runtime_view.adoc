@@ -20,3 +20,8 @@ To create a new route, the user must access the corresponding view of the applic
 
 image::06_runtime_view_New_Route.png[New Route diagram]
 
+=== My Routes
+In the application, there is a view that shows all the routes that the user has saved so far.
+For each route you can see: name, author, description, the points of the route on the map and you can also share the route with your friends.
+
+image::06_runtime_view_My_Routes.png[My Routes diagram]
