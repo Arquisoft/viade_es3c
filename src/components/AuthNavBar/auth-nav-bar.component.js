@@ -7,6 +7,9 @@ import { NavigationItems } from '@constants';
 import LanguageDropdown from "../Utils/LanguageDropdown";
 import Notification from "../Notifications";
 
+const inboxPath = process.env.REACT_APP_VIADE_ES3C_INBOX_PATH;
+
+
 type Props = {
   webId: string
 };
@@ -22,6 +25,7 @@ const AuthNavBar = React.memo((props: Props) => {
    */
   const discoverInbox = useCallback(async () => {
     try {
+      await storageHelper.createInitialFiles;
       let inboxes = [];
       /**
        * Get user's global inbox path from pod.
@@ -37,7 +41,7 @@ const AuthNavBar = React.memo((props: Props) => {
       /**
        * Get user's viade inbox path from pod.
        */
-      const appStorage = await storageHelper.getAppStorage(webId);
+      const appStorage = await storageHelper.getAppStorage(webId,inboxPath);
       const appInbox = await ldflexHelper.discoverInbox(`${appStorage}settings.ttl`);
 
       /**

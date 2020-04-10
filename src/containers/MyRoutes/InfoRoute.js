@@ -14,10 +14,9 @@ import MultsButton from "./ViewMult"
 
 
 const InfoRoute = props => {
-  const { name, author,description, points, center, mult, r} = props;
+  const { name, author,description, points, center, mult} = props;
   const [show, setShow] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
-  console.log(r)
 
   return (
     <RouteCard className="card">

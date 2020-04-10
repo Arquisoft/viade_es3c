@@ -13,17 +13,17 @@ const AutoRotatingCarouselModal = ({
   media
 }) => {
   function createSlides(media) {
-    console.log(media);
     var j;
     var arr = [];
 
     for (var i = 0; i < media.mult.length; i++) {
       j = (
         <Slide
-          media={<img src={media.mult[i].url} alt={media.mult[i].name}/>}
+          media={<img src={media.mult[i].url} alt={"Media de la ruta"+media.mult[i].name}/>}
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
           style={{ backgroundColor: cyan[400] }}
-          title= {media.mult[i].name}
+          title= {media.mult[i].date}
+          key = {media.mult[i].date}
         />
       );
       arr.push(j);
