@@ -76,6 +76,37 @@ export const FormRenderContainer = styled.div`
   }
 `;
 
+export const FormRenderContainerMult = styled.div`
+
+  border: 1px solid #dae0e6;
+  min-height: 40px;
+  padding: 5px;
+  //background-image: url('img/pattern-geo.png'),
+  background-color: white;
+  background-repeat: repeat, no-repeat;
+  padding: 30px 20px;
+  height : 100%
+  width: 100%;
+
+  .input-wrap {
+    margin: 0;
+  }
+
+  input {
+    margin-left: 0;
+  }
+`;
+
+export const DivSlider = styled.div`
+height : 372px;
+  width: 600px;
+`;
+
+export const ImgSlider = styled.img`
+height : 372px;
+  width: 600px;
+`;
+
 export const Header = styled.div`
   display: flex;
   position: relative;

@@ -8,7 +8,7 @@ export const WelcomeWrapper = styled.section`
   padding: 50px 0;
 
   h3 {
-    color: #ffffff;
+    color: #666;
     span {
       font-weight: bold;
     }

@@ -7,8 +7,6 @@ import {
     DivForms
    
 } from "./multimedia.style";
-//import { SolidError } from '@utils';
-
 const  SolidError = {
     type: String,
     statusText: String,
