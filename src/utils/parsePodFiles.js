@@ -1,5 +1,5 @@
 import { Route, Point, Multimedia } from "domain";
-import { storageHelper } from "@utils";
+import { storageHelper, ldflexHelper } from "@utils";
 import rutaShape from "@contexts/route-shape.json";
 import mediaShape from "@contexts/media-shape.json";
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
@@ -80,9 +80,11 @@ export const createRouteFromData = async folder => {
                 }
               } else if (quad === null) {
                 let nameMedia = url.split("/")[6]; //TEMPORAL
-                multimedia.push(new Multimedia(url, date, authorMedia, nameMedia));                
+                multimedia.push(
+                  new Multimedia(url, date, authorMedia, nameMedia)
+                );
               }
-            });           
+            });
           } else if (
             quad.predicate.value ===
             storageHelper.getPredicate(rutaShape.shape[6], rutaShape)
@@ -107,7 +109,10 @@ export const createRouteFromData = async folder => {
 
 export const getRoutesFromPod = async webId => {
   var path = await storageHelper.getAppStorage(webId, routePath);
-  var folder = await fc.readFolder(path);
-  return await createRouteFromData(folder.files);
+  const routesFolderExists = await ldflexHelper.resourceExists(path);
+  if (!routesFolderExists) return "EMPTY";
+  else {
+    var folder = await fc.readFolder(path);
+    return await createRouteFromData(folder.files);
+  }
 };
-

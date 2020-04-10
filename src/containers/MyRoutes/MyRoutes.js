@@ -15,19 +15,19 @@ class MyRoute extends React.Component {
   constructor({ webId }: Props) {
     super();
     this.state = {
-      data: null    
+      data: null
     };
   }
   componentDidMount() {
-    const { webId } = this.props;       
-    this._asyncRequest = viadeManager.readRoutesFromPod(webId).then(data => {         
-      this._asyncRequest = null;      
-      this.setState( {data} );       
+    const { webId } = this.props;
+    this._asyncRequest = viadeManager.readRoutesFromPod(webId).then(data => {
+      this._asyncRequest = null;
+      this.setState({ data });
     });
-  }  
- 
+  }
+
   render(): React.ReactNode {
-    if (this.state.data !== null) {
+    if (this.state.data !== null && this.state.data !== "EMPTY") {
       return (
         <RouteWrapper data-testid="route-component">
           <MyRouteContainer data-testid="myroute-container">
@@ -35,9 +35,10 @@ class MyRoute extends React.Component {
               <Header data-testid="myroute-header">
                 <h1>Mis rutas</h1>
               </Header>
-             {this.state.data.map((ruta, index) => {
+              {this.state.data.map((ruta, index) => {
                 return (
-                  <InfoRoute key={index}
+                  <InfoRoute
+                    key={index}
                     name={ruta.name}
                     author={ruta.author}
                     description={ruta.description}
@@ -46,8 +47,25 @@ class MyRoute extends React.Component {
                     mult={ruta.multimedia}
                     r={ruta}
                   />
-                );               
+                );
               })}
+            </FormRenderContainer>
+          </MyRouteContainer>
+        </RouteWrapper>
+      );
+    }
+    if (this.state.data === "EMPTY") {
+      return (
+        <RouteWrapper data-testid="route-component">
+          <MyRouteContainer data-testid="myroute-container">
+            <FormRenderContainer>
+              <Header data-testid="myroute-header">
+                <h1>Mis rutas</h1>
+              </Header>
+              <h5 align="center">
+                Actualmente no tiene ninguna ruta. Cree su primera ruta{" "}
+                <a href={"#/route"}>aquí</a>
+              </h5>
             </FormRenderContainer>
           </MyRouteContainer>
         </RouteWrapper>

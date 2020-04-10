@@ -1,7 +1,3 @@
-/* eslint-disable constructor-super */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable no-console */
-
 import React from "react";
 import Map from "./Map";
 import {errorToaster, successToaster} from "../../utils";
