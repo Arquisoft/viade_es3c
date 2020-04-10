@@ -13,7 +13,7 @@ let page = null;
 defineFeature(feature, test => {
 
   beforeEach(async () => {
-    jest.setTimeout(200000000);
+    jest.setTimeout(2000000);
   });
 
   test('Trying to log in', ({ given, when,and, then }) => {
@@ -32,8 +32,8 @@ defineFeature(feature, test => {
 
     when('Putting my webId', async () => {
 
-        await page.waitForSelector(".sc-EHOje.cffgrt");
-        await page.type(".sc-EHOje.cffgrt", "https://saragarcia.solid.community/profile/card#me");
+        await page.waitForSelector(".sc-bZQynM.HIBZC");
+        await page.type(".sc-bZQynM.HIBZC", "https://saragarcia.solid.community/profile/card#me");
 
         await page.evaluate(() => {
           let btns = [...document.querySelectorAll("button")];

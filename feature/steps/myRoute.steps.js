@@ -13,7 +13,7 @@ let page = null;
 defineFeature(feature, test => {
 
   beforeEach(async () => {
-    jest.setTimeout(20000000);
+    jest.setTimeout(1200000);
   });
 
   test('Trying to view a route', ({ given, when, then }) => {
@@ -27,8 +27,8 @@ defineFeature(feature, test => {
       await page.goto("http://localhost:3000/#/login", {
         waitUntil: 'networkidle2'
       });
-      await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(".sc-EHOje.cffgrt", "https://saragg.solid.community/profile/card#me");
+      await page.waitForSelector(".sc-bZQynM.HIBZC");
+      await page.type(".sc-bZQynM.HIBZC", "https://saragg.solid.community/profile/card#me");
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function (btn) {
@@ -65,15 +65,13 @@ defineFeature(feature, test => {
     });
 
     when('Pressing view route button', async () => {
-      await page.evaluate(() => {
-        let submit = document.getElementById("viewRoute");
-        submit.click();
-      });
+      await page.waitFor(500);
+      await page.waitForSelector('#viewRoute');
+      await page.click('#viewRoute');
     });
 
     then('It shows the map with the route drawn', async () => {
-
+      await page.waitForSelector(".sc-kaNhvL.eMUjmX");
     })
-
   });
 });

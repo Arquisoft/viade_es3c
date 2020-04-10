@@ -6,7 +6,7 @@ import {
 } from 'jest-cucumber';
 
 const feature = loadFeature('./feature/features/newRoute.feature');
-const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer');
 let browser = null;
 let page = null;
 
@@ -21,14 +21,14 @@ defineFeature(feature, test => {
     given('I am a user trying to create a route', async () => {
       browser = await puppeteer.launch({
         headless: false
-      })
+      });
       // login
       page = await browser.newPage();
       await page.goto("http://localhost:3000/#/login", {
         waitUntil: 'networkidle2'
       });
-      await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(".sc-EHOje.cffgrt", "https://saragr.inrupt.net/profile/card#me");
+      await page.waitForSelector(".sc-bZQynM.HIBZC");
+      await page.type(".sc-bZQynM.HIBZC", "https://saragr.inrupt.net/profile/card#me");
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function (btn) {
@@ -56,7 +56,7 @@ defineFeature(feature, test => {
       await page.waitForNavigation({
         waitUntil: 'networkidle2'
       });
-      expect(page.url()).toBe("http://localhost:3000/viade_es3c/#/welcome")
+      expect(page.url()).toBe("http://localhost:3000/viade_es3c/#/welcome");
 
       await page.goto("http://localhost:3000/#/route", {
         waitUntil: 'networkidle2'
@@ -96,7 +96,7 @@ defineFeature(feature, test => {
 
     then('Redirect to my routes page', async () => {
       await page.waitFor(4000);
-      expect(page.url()).toBe("http://localhost:3000/#/myroutes");
+      expect(page.url()).toBe("http://localhost:3000/#/myRoutes");
     })
 
   });
