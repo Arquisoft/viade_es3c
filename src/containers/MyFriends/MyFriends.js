@@ -9,7 +9,7 @@ import {
 } from './myfriends.style';
 import {List} from '@solid/react';
 import InfoFriends from "./InfoFriends";
-
+import friendsHelper from "./FriendsHelper";
 
 type Props = { webId: String };
 
@@ -17,8 +17,15 @@ class MyFriends extends React.Component{
     constructor({ webId }: Props) {
         super();
         this.webID=webId;
+        this.state = {
+            friendWebID: ''
+        };
+        this.handleChange = this.handleChange.bind(this);
     }
 
+    handleChange(event) {
+        this.setState({friendWebID: event.target.value});
+      }
 
     getList() {
         return <Friends>
@@ -34,15 +41,29 @@ class MyFriends extends React.Component{
         </Friends>;
     }
 
+
+    redirectTo(){
+        this.forceUpdate();
+    }
+
+    
+    handleClick(e){
+        e.preventDefault();
+        friendsHelper.addFriend(this.webID, this.state.friendWebID);
+        this.redirectTo();
+
+    }
+
+
     addFriends(){
         return (
             <FormAddFriends>
             <form>
                 <label>
                     WebId:
-                    <input type="text" name="webId" />
+                    <input type="text" name="webID" onChange={this.handleChange}/>
                 </label>
-                <input type="submit" value="Add" />
+                <input type="submit" value="Add" onClick={(e) => this.handleClick(e)}/>
             </form>
             </FormAddFriends>
         );
