@@ -9,9 +9,9 @@ const FC = require("solid-file-client");
 const fc = new FC(auth);
 const N3 = require("n3");
 
-export const createRouteFromData = async (folder) => {
+export const createRouteFromData = async folder => {
   let routes = [];
-  while (routes.length < folder.length) {    
+  while (routes.length < folder.length) {
     routes = [];
     for (const element of folder) {
       let quadStream = await fc.readFile(element.url);
@@ -24,7 +24,7 @@ export const createRouteFromData = async (folder) => {
       let points = [];
       let multimedia = [];
       // eslint-disable-next-line
-      turtleParser.parse(quadStream, (err, quad, prefixes) => {
+      turtleParser.parse(quadStream, async (err, quad, prefixes) => {
         if (err) {
           throw err;
         }
@@ -53,8 +53,37 @@ export const createRouteFromData = async (folder) => {
             quad.predicate.value ===
             storageHelper.getPredicate(rutaShape.shape[7], rutaShape)
           ) {
-            let media = new Multimedia();
-            multimedia.push(media);
+            var quadStreamMedia = await fc.readFile(quad.object.value);
+            const turtleParserMedia = new N3.Parser({ format: "Turtle" });
+            let url,
+              date,
+              authorMedia = "";
+            turtleParserMedia.parse(quadStreamMedia, (err, quad, prefixes) => {
+              if (err) {
+                throw err;
+              }
+              if (quad) {
+                if (
+                  quad.predicate.value ===
+                  storageHelper.getPredicate(mediaShape.shape[0], mediaShape)
+                ) {
+                  url = quad.object.value;
+                } else if (
+                  quad.predicate.value ===
+                  storageHelper.getPredicate(mediaShape.shape[1], mediaShape)
+                ) {
+                  date = quad.object.value;
+                } else if (
+                  quad.predicate.value ===
+                  storageHelper.getPredicate(mediaShape.shape[2], mediaShape)
+                ) {
+                  authorMedia = quad.object.value;
+                }
+              } else if (quad === null) {
+                let nameMedia = url.split("/")[6]; //TEMPORAL
+                multimedia.push(new Multimedia(url, date, author, nameMedia));                
+              }
+            });           
           } else if (
             quad.predicate.value ===
             storageHelper.getPredicate(rutaShape.shape[6], rutaShape)
@@ -75,51 +104,11 @@ export const createRouteFromData = async (folder) => {
     }
   }
   return routes;
-}
+};
 
 export const getRoutesFromPod = async webId => {
   var path = await storageHelper.getAppStorage(webId, routePath);
   var folder = await fc.readFolder(path);
   return await createRouteFromData(folder.files);
-}
-
-export const getMediaFromPod = async webId => {
-  var media = [];
-  var mediaP = await storageHelper.getAppStorage(webId, mediaPath);
-  var folderMedia = await fc.readFolder(mediaP);
-  for (var j = 0; j < folderMedia.files.length; j++) {
-    var quadStream = await fc.readFile(folderMedia.files[j].url);
-    const turtleParser = new N3.Parser({ format: "Turtle" });
-    let url,
-      date,
-      author = "";
-    turtleParser.parse(quadStream, (err, quad, prefixes) => {
-      if (err) {
-        throw err;
-      }
-      if (quad) {
-        if (
-          quad.predicate.value ===
-          storageHelper.getPredicate(mediaShape.shape[0], mediaShape)
-        ) {
-          url = quad.object.value;
-        } else if (
-          quad.predicate.value ===
-          storageHelper.getPredicate(mediaShape.shape[1], mediaShape)
-        ) {
-          date = quad.object.value;
-        } else if (
-          quad.predicate.value ===
-          storageHelper.getPredicate(mediaShape.shape[2], mediaShape)
-        ) {
-          author = quad.object.value;
-        }
-      } else if (quad === null) {
-        let name = url.split('/')[5]; //TEMPORAL
-        let m = new Multimedia(url, date, author, name);
-        media.push(m);
-      }
-    });
-  }
-  return media;
 };
+
