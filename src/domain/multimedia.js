@@ -4,11 +4,12 @@ export default class Multimedia {
     webId = "";
     
   
-    constructor(url, date, author, name) {  
+    constructor(url, date, author, name,ttlUrl) {  
       this.url=url;
       this.date=date;
       this.author=author; 
-      this.name = name;     
+      this.name = name; 
+      this.ttlUrl= ttlUrl;    
     }
   
     getIdMedia() {     

@@ -74,7 +74,7 @@ class NewRoute extends React.Component {
             for (let j = 0; j < filesMult.length; j++) {
                 let name = filesMult[j].name.split(".")[0];
                 var d = Date(Date.now());
-                multimedia.push(new Multimedia(url + filesMult[j].name, d.toString(), author,name));
+                multimedia.push(new Multimedia(url + filesMult[j].name, d.toString(), author,name, null));
             }
             let route = new Route(
                 this.title.current.value,

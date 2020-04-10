@@ -36,8 +36,8 @@ class MyRoute extends React.Component {
 
   render(): React.ReactNode {
     const { webId } = this.props;
-    let url = webId.split("/",3)+"/";
-    url = url.replace(",,","//")
+    let baseUrl = webId.split("/",3)+"/";
+    baseUrl = baseUrl.replace(",,","//")
     if (this.state.data !== null && this.state.data !== "EMPTY") {
       return (
         <RouteWrapper data-testid="route-component">
@@ -56,7 +56,7 @@ class MyRoute extends React.Component {
                     points={ruta.points}
                     center={ruta.calculateCenter()}
                     mult={ruta.multimedia}                    
-                    r={url +routePath+ruta.getIdRoute()+".ttl"}
+                    ruta={baseUrl+routePath+ruta.getIdRoute()+".ttl"}
                   />
                 );
               })}

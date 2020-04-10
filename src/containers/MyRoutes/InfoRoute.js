@@ -16,7 +16,7 @@ import RouteMap from "./RouteMap";
 import MultsButton from "./ViewMult";
 
 const InfoRoute = props => {
-  const { name, author, description, points, center, mult, r } = props;
+  const { name, author, description, points, center, mult, ruta} = props;
   const [show, setShow] = useState(true);
   const [showConfirm, setShowConfirm] = useState(false);
   const [showRoute, setShowRoute] = useState(true);
@@ -39,12 +39,17 @@ const InfoRoute = props => {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Are you sure you wish to delete this item?</h4>
+            <h4>Are you sure you wish to delete this item? </h4>
+            <p>All the media associate also will be deleted permanently</p>
           </Modal.Body>
           <Modal.Footer>
             <Button
               onClick={e => {
-                ldflexHelper.deleteFile(r);
+                for(const media of mult){
+                    ldflexHelper.deleteFile(media.url);
+                    ldflexHelper.deleteFile(media.ttlUrl);
+                }
+                ldflexHelper.deleteFile(ruta);
                 setTimeout(function() {
                   successToaster("Se ha eliminado correctamente", "Éxito");
                   window.location.reload();

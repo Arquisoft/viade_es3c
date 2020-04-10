@@ -52,6 +52,7 @@ export const createRouteFromData = async folder => {
             quad.predicate.value ===
             storageHelper.getPredicate(rutaShape.shape[7], rutaShape)
           ) {
+            let urlFile = quad.object.value;
             var quadStreamMedia = await fc.readFile(quad.object.value);
             const turtleParserMedia = new N3.Parser({ format: "Turtle" });
             let url,
@@ -81,7 +82,7 @@ export const createRouteFromData = async folder => {
               } else if (quad === null) {
                 let nameMedia = url.split("/")[6]; //TEMPORAL
                 multimedia.push(
-                  new Multimedia(url, date, authorMedia, nameMedia)
+                  new Multimedia(url, date, authorMedia, nameMedia, urlFile)
                 );
               }
             });
