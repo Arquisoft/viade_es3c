@@ -9,6 +9,7 @@ import { Provider } from '@services';
 
 const LoginComponent = () => {
   const { t } = useTranslation();
+  const subdomain = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? '' : 'viade_es3c/';
   return (
     <LoginWrapper data-testid="login-wrapper">
       <CenterContainer>
@@ -36,7 +37,7 @@ const LoginComponent = () => {
               btnTxtWebId={t('login.btnTxtWebId')}
               btnTxtProvider={t('login.btnTxtProvider')}
               className="provider-login-component"
-              callbackUri={`${window.location.origin}/viade_es3c/#/welcome`}
+              callbackUri={`${window.location.origin}/${subdomain}#/welcome`}
               errorsText={{
                 unknown: t('login.errors.unknown'),
                 webIdNotValid: t('login.errors.webIdNotValid'),

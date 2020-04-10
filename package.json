@@ -1,8 +1,8 @@
 {
   "name": "viade_es3c",
   "version": "0.1.0",
-  "homepage": ".",
-  "private": false,
+  "homepage": "https://arquisoft.github.io/viade_es3c/",
+  "private": true,
   "dependencies": {
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
