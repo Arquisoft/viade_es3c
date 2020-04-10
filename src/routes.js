@@ -11,7 +11,7 @@ import {
   Profile,
   FormModelConverter,
   FormModelRenderer
-  
+
 } from './containers';
 import NewRoute from "./containers/NewRoute";
 import MyRoutes from "./containers/MyRoutes";
@@ -33,13 +33,13 @@ const privateRoutes = [
     path: '/myRoutes',
     component: MyRoutes
   },
-  
+
   {
     id: 'myFriends',
-    path: '/myfriends',
+    path: '/myFriends',
     component: MyFriends
   },
-  
+
   {
     id: 'profile',
     path: '/profile',

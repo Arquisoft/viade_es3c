@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { RouteCard, Button } from "./myroutes.style";
 import {
   FormRenderContainer,
-  FriendsList,
   Header
 } from "../MyFriends/myfriends.style";
-import { List } from "@solid/react";
 import RouteMap from "./RouteMap";
+import Share from "../Share";
+import Notifications from "../Share/NotificationHelp";
 
 
 const InfoRoute = props => {
-  const { name, description, author, points, center } = props;
+  const { name, description, author, points, center, webId} = props;
   const [show, setShow] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
 
@@ -29,7 +29,7 @@ const InfoRoute = props => {
       <br></br>
       <div id="button">
         <Button id="viewFriends" onClick={() => setShow(!show)}>
-          Ver amigos
+          Compartir con ...
         </Button>
       </div>
       <br></br>
@@ -51,13 +51,7 @@ const InfoRoute = props => {
           <Header>
             <h1>My friends</h1>
           </Header>
-          <FriendsList>
-            <List src={"user.friends"}>
-              {(item, i) => (
-                <li key={i}>{<a href={`${item}`}>{`${item}`}</a>}</li>
-              )}
-            </List>
-          </FriendsList>
+            <Notifications ruta={name}></Notifications>
         </FormRenderContainer>
       )}
     </RouteCard>

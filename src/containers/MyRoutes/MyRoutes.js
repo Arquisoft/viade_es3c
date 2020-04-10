@@ -14,25 +14,26 @@ type Props = { webId: String };
 class MyRoute extends React.Component {
   constructor({ webId }: Props) {
     super();
+    this.WebID = webId;
     this.state = {
-      data: null    
+      data: null
     };
   }
   componentDidMount() {
-    const { webId } = this.props;       
-    this._asyncRequest = viadeManager.readRoutesFromPod(webId).then(data => {         
-      this._asyncRequest = null;      
-      this.setState( {data} );       
+    const { webId } = this.props;
+    this._asyncRequest = viadeManager.readRoutesFromPod(webId).then(data => {
+      this._asyncRequest = null;
+      this.setState({ data });
     });
-  }  
- 
+  }
+
   render(): React.ReactNode {
     if (this.state.data !== null) {
       return (
         <RouteWrapper data-testid="route-component">
-          <MyRouteContainer data-testid="myroute-container">
+          <MyRouteContainer>
             <FormRenderContainer>
-              <Header data-testid="myroute-header">
+              <Header>
                 <h1>Mis rutas</h1>
               </Header>
               {this.state.data.map((ruta, index) => {
@@ -43,6 +44,7 @@ class MyRoute extends React.Component {
                     description={ruta.description}
                     points={ruta.points}
                     center={ruta.calculateCenter()}
+                    webId = {this.WebID}
                   />
                 );
               })}

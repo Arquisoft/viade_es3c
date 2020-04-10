@@ -18,7 +18,6 @@ export const WelcomePageContent = props => {
     const { webId, image, updatePhoto, name } = props;
     const { t } = useTranslation();
     const limit = 2100000;
-    console.log(webId && webId.split('/card')[0])
     return (
         <WelcomeWrapper data-testid="welcome-wrapper">
             <WelcomeCard className="card">
@@ -49,7 +48,7 @@ export const WelcomePageContent = props => {
                                     uploadedFiles[uploadedFiles.length - 1].uri,
                                     t('welcome.uploadSuccess'),
                                     t('welcome.successTitle')
-                                );                              
+                                );
                             },
                             render: props => (
                                 <ImageProfile
