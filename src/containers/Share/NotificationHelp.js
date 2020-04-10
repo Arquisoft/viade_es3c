@@ -34,7 +34,7 @@ const Notifications = ({ruta}) => {
         function handleSave(friendWebId, e) {
             e.preventDefault();
             //url de la ruta será: uuid.ttl 
-            let nameRoute = getUrl(cadena) + 'public/viade/routes' + ruta + '.ttl';
+            let nameRoute = getUrl(cadena) + 'public/viade/routes/' + ruta + '.ttl';
             console.log("ruta!!!!!: " + nameRoute)
             sharing(cadena, friendWebId, nameRoute);
             try {

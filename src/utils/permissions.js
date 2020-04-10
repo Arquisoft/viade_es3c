@@ -88,32 +88,28 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
 
 export const sharing = async (webId, friendId, shareUrl) => {
   const fc   = new FC( auth )
-  let withAcl = shareUrl + ".acl#";
   let ruta = shareUrl;
   let webID = webId;
   let id = friendId;
-  console.log(withAcl);
-  console.log(ruta)
-  console.log(webID)
-  console.log(id)
-  let baseAcl = `@prefix acl: <http://www.w3.org/ns/auth/acl#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix n: <http://www.w3.org/2006/vcard/ns#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix : <{$withAcl}>.
-@prefix me: <{$webID}>.
-
-:ReadWriteControl a acl:Authorization;
-    acl:accessTo <{$ruta}>;
-    acl:default <{$ruta}>;
-    acl:agent <{$webID}>;
-    acl:mode acl:Read, acl:Write, acl:Control.
-:ReadWrite a acl:Authorization;
-    acl:accessTo <{$ruta}>;
-    acl:default <{$ruta}>;
-    acl:agent <{$id}>;
-    acl:mode acl:Read, acl:Write.`;
-  fc.createFile(shareUrl+".acl", baseAcl, "text/turtle").then(success =>{
+  let baseAcl = `@prefix : <#>.
+  @prefix n0: <http://www.w3.org/ns/auth/acl#>.
+  @prefix c: </profile/card#>.
+  @prefix c0: <{$id}>.
+  @prefix n1: <http://xmlns.com/foaf/0.1/>.
+  
+  :ControlReadWrite
+      a n0:Authorization;
+      n0:accessTo <{$ruta}>;
+      n0:agent c:me;
+      n0:mode n0:Control, n0:Read, n0:Write.
+  :Read
+      a n0:Authorization;
+      n0:accessTo <{$ruta}>;
+      n0:agent c0:me;
+      n0:agentClass n1:Agent;
+      n0:mode n0:Read.`;
+  fc.updateFile(shareUrl+".acl", baseAcl, "text/turtle").then(success =>{
+    console.log(shareUrl+".acl");
     console.log('permissions given');
   }, (err: any) => console.log(err));
 
