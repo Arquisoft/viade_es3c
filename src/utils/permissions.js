@@ -5,6 +5,9 @@ import {
 import { errorToaster } from "@utils";
 
 // Check that all permissions we need are set. If any are missing, this returns false
+import auth from "solid-auth-client";
+import FC from "solid-file-client"
+
 const checkAppPermissions = (userAppPermissions, appPermissions) =>
   appPermissions.every(permission => userAppPermissions.includes(permission));
 
@@ -84,17 +87,34 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
 };
 
 export const sharing = async (webId, friendId, shareUrl) => {
-  try {
-    const permissions = [
-      {
-        agents: [friendId],
-        modes: [AccessControlList.MODES.READ, AccessControlList.MODES.WRITE]
-      }
-    ];
-    const ACLFile = new AccessControlList(webId, shareUrl);
-    await ACLFile.createACL(permissions);
-    return true;
-  } catch (e) {
-    return false;
-  }
+  const fc   = new FC( auth )
+  let withAcl = shareUrl + ".acl#";
+  let ruta = shareUrl;
+  let webID = webId;
+  let id = friendId;
+  console.log(withAcl);
+  console.log(ruta)
+  console.log(webID)
+  console.log(id)
+  let baseAcl = `@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix n: <http://www.w3.org/2006/vcard/ns#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix : <{$withAcl}>.
+@prefix me: <{$webID}>.
+
+:ReadWriteControl a acl:Authorization;
+    acl:accessTo <{$ruta}>;
+    acl:default <{$ruta}>;
+    acl:agent <{$webID}>;
+    acl:mode acl:Read, acl:Write, acl:Control.
+:ReadWrite a acl:Authorization;
+    acl:accessTo <{$ruta}>;
+    acl:default <{$ruta}>;
+    acl:agent <{$id}>;
+    acl:mode acl:Read, acl:Write.`;
+  fc.createFile(shareUrl+".acl", baseAcl, "text/turtle").then(success =>{
+    console.log('permissions given');
+  }, (err: any) => console.log(err));
+
 }

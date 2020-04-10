@@ -6,6 +6,7 @@ import {
 } from "../MyFriends/myfriends.style";
 import RouteMap from "./RouteMap";
 import Share from "../Share";
+import Notifications from "../Share/NotificationHelp";
 
 
 const InfoRoute = props => {
@@ -50,7 +51,7 @@ const InfoRoute = props => {
           <Header>
             <h1>My friends</h1>
           </Header>
-            <Share ruta={name} autor={author} webId={webId}></Share>
+            <Notifications ruta={name}></Notifications>
         </FormRenderContainer>
       )}
     </RouteCard>

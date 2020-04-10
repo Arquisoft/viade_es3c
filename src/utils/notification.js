@@ -1,14 +1,14 @@
-import { ldflexHelper } from './index';
+import {ldflexHelper} from './index';
 
-export const sendNotification = async (friend, content, createNotification, to) => {
+export const sendNotification = async (opponent, content, createNotification, to) => {
   try {
     if (to) {
       return createNotification(content, to);
     }
     /**
-     * If the friend doesn't have an inbox, show an error
+     * If the opponent doesn't have an inbox, show an error
      */
-    throw new Error('Error: Your friend does not have an available inbox');
+    throw new Error('Error: The opponent does not have an available inbox');
   } catch (error) {
     throw new Error(error);
   }

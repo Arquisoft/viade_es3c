@@ -3,7 +3,7 @@ import {sharing} from "../../utils/permissions";
 import {getUrl, getUserName} from "../MyFriends/MyFriends";
 import {List} from "@solid/react";
 import {FriendsList} from "../MyFriends/myfriends.style";
-
+import Notifications from "./NotificationHelp";
 type Props = { webId: String };
 
 class Share extends React.Component{
@@ -24,24 +24,18 @@ class Share extends React.Component{
 
     handleClick = (friend, e) =>{
         e.preventDefault();
+            Notifications(this.props.ruta);
             this.permit(friend, this.props.ruta, this.props.autor)
     }
 
 
     render(): React.ReactNode {
-        return (
-                        <FriendsList>
-                        <List src={"user.friends"}>{
-                            (item, i) =>
-                                <li key={i}>{
-                                <a href="http://localhost:3000/#/myRoutes" onClick={(e) => this.handleClick(`${item}`, e)}>{getUserName(`${item}`)}</a>}
-                                </li>}
-                        </List>
-                    </FriendsList>
-        );
+        return Notifications(this.props.ruta)
     }
 
 
 };
 
 export default Share;
+
+

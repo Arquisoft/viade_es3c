@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Item, Body, Message, Meta, MarkAsRead, Delete, Img } from './notification-item.style';
+import {getUserName} from "../../../../../../containers/MyFriends/MyFriends";
 
 type Props = {
   notification: Object,
@@ -24,7 +25,7 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
   const redirectTo = useCallback(async () => {
     if (notification.target) {
       await markAsRead(notification.path, notification.id);
-      window.location = notification.target;
+      window.location = notification.object;
     }
   }, [notification]);
   /**
@@ -51,7 +52,9 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
       </a>
       <Body>
         <Message onClick={redirectTo}>
-          <strong>{actor && actor.name}</strong> {notification.summary}
+          <strong>{actor && getUserName(actor.name)}</strong>
+            <br></br>
+            {notification.summary}
         </Message>
         <Meta>
           <span className="moment">{moment(notification.published).fromNow()}</span>

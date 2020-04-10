@@ -84,6 +84,7 @@ class NewRoute extends React.Component {
                 points,
                 multimedia
             );
+            
             await viadeManager.addRoute(route, this.webID);
             successToaster("Se ha guardado correctamente", "Éxito");
             setTimeout(function () {
@@ -92,6 +93,10 @@ class NewRoute extends React.Component {
         }
         event.persist();
     }
+
+  
+    
+
 
     render(): React.ReactNode {
 
