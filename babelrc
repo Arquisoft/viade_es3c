@@ -19,9 +19,7 @@
           "@hooks": "./src/hooks",
           "@layouts": "./src/layouts",
           "@services": "./src/services",
-          "@utils": "./src/utils",
-          "@util-components": "./src/components/Utils",
-          "@mocks": "./test/__mocks__"
+          "@utils": "./src/utils"
         }
       }
     ]

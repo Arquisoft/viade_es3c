@@ -35,7 +35,7 @@ export const CubeGrid = styled.div`
 `;
 
 export const Cube = styled.span`
-  background-color: #339FE0;
+  background-color: #7c4dff;
   animation: ${cubeGridScaleDelay} 1.3s infinite ease-in-out;
   animation-delay: ${({ delay }) => delay || 0}s;
 `;
