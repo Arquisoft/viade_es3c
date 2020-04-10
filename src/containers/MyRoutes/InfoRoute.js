@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { Modal } from "react-bootstrap";
 import { RouteCard, Button } from "./myroutes.style";
 import { ldflexHelper } from "@utils";
+import {successToaster} from "../../utils";
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
   FormRenderContainer,
   FriendsList,
@@ -16,24 +18,46 @@ import MultsButton from "./ViewMult";
 const InfoRoute = props => {
   const { name, author, description, points, center, mult, r } = props;
   const [show, setShow] = useState(true);
+  const [showConfirm, setShowConfirm] = useState(false);
   const [showRoute, setShowRoute] = useState(true);
 
   return (
     <RouteCard className="card">
       <div>
-        <Button
-          type="button"
-          onClick={e => {
-            if (window.confirm("Are you sure you wish to delete this item?")){
-              ldflexHelper.deleteFile(r);
-              window.location.reload();
-            }
-
-          }}
-        >
+        <Button type="button" onClick={() => setShowConfirm(!showConfirm)}>
           <FontAwesomeIcon icon="trash" className="trash-icon" />
         </Button>
+        <Modal
+          show={showConfirm}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">
+              Attention!
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h4>Are you sure you wish to delete this item?</h4>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              onClick={e => {
+                ldflexHelper.deleteFile(r);
+                setTimeout(function() {
+                  successToaster("Se ha eliminado correctamente", "Éxito");
+                  window.location.reload();
+                }, 1000);                
+              }}
+            >
+              Delete
+            </Button>
+            <Button onClick={() => setShowConfirm(!showConfirm)}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
+
       <h2>{name}</h2>
       <h3> Ruta creada por: </h3>
       <p>{author}</p>
