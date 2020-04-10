@@ -1,25 +1,41 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { RouteCard, Button } from "./myroutes.style";
+import { ldflexHelper } from "@utils";
 import {
   FormRenderContainer,
-  
   FriendsList,
   Header
 } from "../MyFriends/myfriends.style";
 import { List } from "@solid/react";
 import RouteMap from "./RouteMap";
 
-import MultsButton from "./ViewMult"
-
-
+import MultsButton from "./ViewMult";
 
 const InfoRoute = props => {
-  const { name, author,description, points, center, mult} = props;
+  const { name, author, description, points, center, mult, r } = props;
   const [show, setShow] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
 
   return (
     <RouteCard className="card">
+      <div>
+        <Button
+          type="button"
+          onClick={e => {
+            if (window.confirm("Are you sure you wish to delete this item?")){
+              ldflexHelper.deleteFile(r);
+               setTimeout(function () {
+                window.location.href = '#/myRoutes'
+            }, 1000)
+            }
+
+          }}
+        >
+          <FontAwesomeIcon icon="trash" className="trash-icon" />
+        </Button>
+      </div>
       <h2>{name}</h2>
       <h3> Ruta creada por: </h3>
       <p>{author}</p>
@@ -27,7 +43,7 @@ const InfoRoute = props => {
       <p>{description}</p>
       <div>
         <Button id="viewRoute" onClick={() => setShowRoute(!showRoute)}>
-        Ver ruta en el mapa
+          Ver ruta en el mapa
         </Button>
       </div>
       <br></br>
@@ -38,16 +54,13 @@ const InfoRoute = props => {
       </div>
       <br></br>
       <div>
-      <MultsButton {... { mult }}></MultsButton>
-    
+        <MultsButton {...{ mult }}></MultsButton>
       </div>
       {showRoute ? (
         <div></div>
       ) : (
         <FormRenderContainer id="mapa">
-          <RouteMap
-            markers= {points}
-            center={center}/>
+          <RouteMap markers={points} center={center} />
         </FormRenderContainer>
       )}
 
@@ -72,4 +85,3 @@ const InfoRoute = props => {
 };
 
 export default InfoRoute;
-

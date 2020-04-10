@@ -113,6 +113,9 @@ export const getRoutesFromPod = async webId => {
   if (!routesFolderExists) return "EMPTY";
   else {
     var folder = await fc.readFolder(path);
-    return await createRouteFromData(folder.files);
+    if (folder.files.length <= 0) return "EMPTY";
+    else {
+      return await createRouteFromData(folder.files);
+    }
   }
 };

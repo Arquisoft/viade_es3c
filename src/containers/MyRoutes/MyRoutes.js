@@ -10,6 +10,8 @@ import InfoRoute from "./InfoRoute";
 import { viadeManager } from "@utils";
 
 type Props = { webId: String };
+const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
+
 
 class MyRoute extends React.Component {
   constructor({ webId }: Props) {
@@ -27,8 +29,15 @@ class MyRoute extends React.Component {
       this.setState({ data });
     });
   }
+  componentWillUnmount(){}
+
+
+ 
 
   render(): React.ReactNode {
+    const { webId } = this.props;
+    let url = webId.split("/",3)+"/";
+    url = url.replace(",,","//")
     if (this.state.data !== null && this.state.data !== "EMPTY") {
       return (
         <RouteWrapper data-testid="route-component">
@@ -47,7 +56,7 @@ class MyRoute extends React.Component {
                     points={ruta.points}
                     center={ruta.calculateCenter()}
                     mult={ruta.multimedia}
-                    r={ruta}
+                    r={url +routePath+ruta.getIdRoute()+".ttl"}
                   />
                 );
               })}
@@ -65,8 +74,8 @@ class MyRoute extends React.Component {
                 <h1>Mis rutas</h1>
               </Header>
               <h5 align="center">
-                Actualmente no tiene ninguna ruta. Cree su primera ruta{" "}
-                <a href={"#/route"}>aquí</a>
+                Actualmente no tiene ninguna ruta. Cree su primera ruta
+                <a href={"#/route"}> aquí</a>
               </h5>
             </FormRenderContainer>
           </MyRouteContainer>
