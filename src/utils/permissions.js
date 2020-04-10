@@ -4,6 +4,7 @@ import {
 } from "@inrupt/solid-react-components";
 import { errorToaster } from "@utils";
 
+
 // Check that all permissions we need are set. If any are missing, this returns false
 import auth from "solid-auth-client";
 import FC from "solid-file-client"
@@ -16,7 +17,7 @@ export const checkSpecificAppPermission = async (webId, permission) => {
   try {
     const userAppPermissions = await AppPermission.checkPermissions(webId);
     return userAppPermissions.permissions.includes(permission);
-  } catch (e) {}
+  } catch (e) { }
 };
 /**
  * SDK app will need all the permissions by the user pod so we check these permissions to work without any issues.
@@ -87,30 +88,15 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
 };
 
 export const sharing = async (webId, friendId, shareUrl) => {
-  const fc   = new FC( auth )
-  let ruta = shareUrl;
-  let webID = webId;
-  let id = friendId;
-  let baseAcl = `@prefix : <#>.
-  @prefix n0: <http://www.w3.org/ns/auth/acl#>.
-  @prefix c: </profile/card#>.
-  @prefix c0: <{$id}>.
-  @prefix n1: <http://xmlns.com/foaf/0.1/>.
-  
-  :ControlReadWrite
-      a n0:Authorization;
-      n0:accessTo <{$ruta}>;
-      n0:agent c:me;
-      n0:mode n0:Control, n0:Read, n0:Write.
-  :Read
-      a n0:Authorization;
-      n0:accessTo <{$ruta}>;
-      n0:agent c0:me;
-      n0:agentClass n1:Agent;
-      n0:mode n0:Read.`;
-  fc.updateFile(shareUrl+".acl", baseAcl, "text/turtle").then(success =>{
-    console.log(shareUrl+".acl");
-    console.log('permissions given');
-  }, (err: any) => console.log(err));
+  const SolidAclUtils = require('solid-acl-utils')
 
+  // You could also use SolidAclUtils.Permissions.READ instead of following
+  // This is just more convenient
+  const { AclApi, AclDoc, AclParser, AclRule, Permissions, Agents } = SolidAclUtils
+  const { READ, WRITE, APPEND, CONTROL } = Permissions
+  // Passing it the fetch from solid-auth-client
+  const fetch = auth.fetch.bind(auth)
+  const aclApi = new AclApi(fetch, { autoSave: true });
+  const acl = await aclApi.loadFromFileUrl(shareUrl);
+  await acl.addRule(READ, friendId);
 }
