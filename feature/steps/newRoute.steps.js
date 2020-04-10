@@ -80,7 +80,6 @@ defineFeature(feature, test => {
     });
 
     and('Putting the markers', async () => {
-
       await page.mouse.move(500, 500);
       await page.mouse.down({button: 'left'});
       await page.mouse.up({button: 'left'});
@@ -88,6 +87,7 @@ defineFeature(feature, test => {
       await page.mouse.move(520, 500);
       await page.mouse.down({button: 'left'});
       await page.mouse.up({button: 'left'});
+
       await page.evaluate(() => {
         let submit = document.getElementById("save_route");
         submit.click();
