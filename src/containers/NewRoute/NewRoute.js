@@ -26,6 +26,9 @@ class NewRoute extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.title = React.createRef();
         this.descripton = React.createRef();
+        this.state={
+            markers:null
+        };
     }
 
     callBackFunction = childData => {
@@ -46,7 +49,7 @@ class NewRoute extends React.Component {
             errorToaster("La ruta tiene que tener un titulo", "ERROR");
         } else if (this.descripton.current.value.length === 0) {
             errorToaster("La ruta tiene que tener una descripción", "ERROR");
-        } else if (this.state.markers.length === undefined) {
+        } else if (this.state.markers ===null || this.state.markers.length <0  ) {
             errorToaster("No se ha marcado ningún punto en el mapa", "ERROR");
         } else {
             const points = [];
