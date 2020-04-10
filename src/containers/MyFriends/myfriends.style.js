@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const RouteCard = styled.div`
   background:  linear-gradient(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
-  margin: 15px auto;
+  margin: 15px 20px;
 
-  max-width: 80% !important;
-  padding: 30px 0 !important; //temporary fix to a style guide bug
+  max-width: 100% !important;
+  padding: 10px 0 !important; //temporary fix to a style guide bug
   a {
     text-decoration: none;
     &:hover {
@@ -14,13 +14,33 @@ export const RouteCard = styled.div`
   }
   p{
     font-size: 25px;
-      justify-content: center;
+    justify-content: center;
     font-weight: bold;
   }
   h3{
-
+    color:white;
+    font-weight: bold;
     font-size: 35px
   }
+`;
+
+export const FormAddFriends = styled.div`
+  display: flex;
+  justify-content: center;
+
+  input {
+    margin:20px;
+  }
+
+
+
+`;
+
+
+export const Friends = styled.div`
+display: flex;
+justify-content: center;
+  height: 600px;
 `;
 
 export const FriendsList = styled.div`
@@ -34,6 +54,8 @@ export const FriendsList = styled.div`
   padding: 10px 5px;
 
 `;
+
+
 
 export const RouteWrapper = styled.section`
   display: flex;
@@ -54,11 +76,11 @@ export const MyRouteContainer = styled.div`
 `;
 export const FormRenderContainer = styled.div`
 
-  border: 1px solid #dae0e6;
+  //border: 1px solid #dae0e6;
   min-height: 40px;
   padding: 5px;
   //background-image: url('img/pattern-geo.png'),
-  background-color: white;
+  background: LIGHTSKYBLUE;
   background-repeat: repeat, no-repeat;
   padding: 30px 20px;
   .inrupt-form-group {

@@ -3,7 +3,9 @@ import {
     Header,
     RouteWrapper,
     MyRouteContainer,
-    FormRenderContainer
+    FormRenderContainer,
+    Friends, 
+    FormAddFriends
 } from './myfriends.style';
 import {List} from '@solid/react';
 import InfoFriends from "./InfoFriends";
@@ -19,7 +21,8 @@ class MyFriends extends React.Component{
 
 
     getList() {
-        return <List src={"user.friends"}>{
+        return <Friends>
+        <List src={"user.friends"}>{
             (item, i) =>
                 <InfoFriends
                     key={i}
@@ -27,11 +30,13 @@ class MyFriends extends React.Component{
                     url={<a href={getUrl(`${item}`)}>{getUrl(`${item}`)}</a>}
                 />
         }
-        </List>;
+        </List>
+        </Friends>;
     }
 
     addFriends(){
         return (
+            <FormAddFriends>
             <form>
                 <label>
                     WebId:
@@ -39,6 +44,7 @@ class MyFriends extends React.Component{
                 </label>
                 <input type="submit" value="Add" />
             </form>
+            </FormAddFriends>
         );
     }
 
@@ -48,18 +54,14 @@ class MyFriends extends React.Component{
                  <MyRouteContainer>
 
                      <FormRenderContainer>
-                         <div>
                              <Header>
                                  <h1>Adding new Friends</h1>
                              </Header>
                              {this.addFriends()}
-                         </div>
-                         <div>
-                             <Header>
+                            <Header>
                                  <h1>My friends</h1>
                              </Header>
                              {this.getList()}
-                         </div>
                      </FormRenderContainer>
                  </MyRouteContainer>
              </RouteWrapper>
