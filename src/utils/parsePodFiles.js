@@ -98,7 +98,7 @@ export const createRouteFromData = async folder => {
             points.push(point);
           }
         } else {
-          let ruta = new Route(name, description, author, points, multimedia);
+          let ruta = new Route(name, author, description, points, multimedia);
           routes.push(ruta);
         }
       });
