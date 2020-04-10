@@ -2,17 +2,25 @@ import React, { useState } from "react";
 import { RouteCard, Button } from "./myroutes.style";
 import {
   FormRenderContainer,
+  FormRenderContainerMult,
   FriendsList,
+  ImgSlider,
+  DivSlider,
   Header
 } from "../MyFriends/myfriends.style";
 import { List } from "@solid/react";
 import RouteMap from "./RouteMap";
 
+import MultsButton from "./ViewMult"
+
+
 
 const InfoRoute = props => {
-  const { name, description, author, points, center } = props;
+  const { name, description, author, points, center, mult, r} = props;
   const [show, setShow] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
+  const [showMult, setShowMult] = useState(true);
+  console.log(r)
 
   return (
     <RouteCard className="card">
@@ -33,7 +41,10 @@ const InfoRoute = props => {
         </Button>
       </div>
       <br></br>
-
+      <div>
+      <MultsButton {... { mult }}></MultsButton>
+    
+      </div>
       {showRoute ? (
         <div></div>
       ) : (
