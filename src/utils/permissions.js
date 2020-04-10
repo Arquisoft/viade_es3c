@@ -87,6 +87,7 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
   return true;
 };
 
+
 export const sharing = async (webId, friendId, shareUrl) => {
   const SolidAclUtils = require('solid-acl-utils')
 
@@ -100,3 +101,20 @@ export const sharing = async (webId, friendId, shareUrl) => {
   const acl = await aclApi.loadFromFileUrl(shareUrl);
   await acl.addRule(READ, friendId);
 }
+
+
+export const notSharing = async (webId, friendId, shareUrl) => {
+  const SolidAclUtils = require('solid-acl-utils')
+
+  // You could also use SolidAclUtils.Permissions.READ instead of following
+  // This is just more convenient
+  const { AclApi, AclDoc, AclParser, AclRule, Permissions, Agents } = SolidAclUtils
+  const { READ, WRITE, APPEND, CONTROL } = Permissions
+  // Passing it the fetch from solid-auth-client
+  const fetch = auth.fetch.bind(auth)
+  const aclApi = new AclApi(fetch, { autoSave: true });
+  const acl = await aclApi.loadFromFileUrl(shareUrl);
+  await acl.deleteRule(READ, friendId);
+}
+
+
