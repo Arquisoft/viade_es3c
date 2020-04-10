@@ -39,7 +39,7 @@ class RegisterComponent extends Component<Props, State> {
     } = this.state;
     const { protocol, host } = window.location;
     if (canContinue) {
-      window.location = `${provider}?returnToUrl=${protocol}//${host}/register/success`;
+      window.location = `${provider}?returnToUrl=${protocol}//${host}/`;
     }
   };
 
@@ -59,7 +59,7 @@ class RegisterComponent extends Component<Props, State> {
     } = this.state;
     const { protocol, host } = window.location;
     if (canContinue) {
-      window.location = `${provider}?returnToUrl=${protocol}//${host}/register/success`;
+      window.location = `${provider}?returnToUrl=${protocol}//${host}/`;
     }
   };
 
