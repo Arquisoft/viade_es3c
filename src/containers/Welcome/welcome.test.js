@@ -28,5 +28,6 @@ describe.only('Welcome', () => {
 
   test('renders with styled components', () => {
     expect(getByTestId('welcome-wrapper')).toBeTruthy();
+    expect(document.querySelector('.card')).toBeTruthy();
   });
 });
