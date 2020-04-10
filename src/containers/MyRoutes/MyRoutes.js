@@ -55,7 +55,7 @@ class MyRoute extends React.Component {
                     description={ruta.description}
                     points={ruta.points}
                     center={ruta.calculateCenter()}
-                    mult={ruta.multimedia}
+                    mult={ruta.multimedia}                    
                     r={url +routePath+ruta.getIdRoute()+".ttl"}
                   />
                 );

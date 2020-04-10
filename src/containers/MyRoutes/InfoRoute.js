@@ -76,7 +76,7 @@ const InfoRoute = props => {
       </div>
       <br></br>
       <div>
-        <MultsButton {...{ mult }}></MultsButton>
+        <MultsButton {...{ mult, name }}></MultsButton>
       </div>
       {showRoute ? (
         <div></div>
