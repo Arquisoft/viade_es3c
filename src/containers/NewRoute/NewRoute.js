@@ -37,6 +37,8 @@ class NewRoute extends React.Component {
         this.setState({ markers: childData });
     };
 
+    componentWillUnmount(){}
+
     handleChange(event) {
         this.setState({ value: event.target.value });
     }
