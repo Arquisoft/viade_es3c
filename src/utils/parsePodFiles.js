@@ -3,7 +3,6 @@ import { storageHelper } from "@utils";
 import rutaShape from "@contexts/route-shape.json";
 import mediaShape from "@contexts/media-shape.json";
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
-const mediaPath = process.env.REACT_APP_VIADE_ES3C_MEDIA_PATH;
 const auth = require("solid-auth-cli");
 const FC = require("solid-file-client");
 const fc = new FC(auth);
@@ -81,7 +80,7 @@ export const createRouteFromData = async folder => {
                 }
               } else if (quad === null) {
                 let nameMedia = url.split("/")[6]; //TEMPORAL
-                multimedia.push(new Multimedia(url, date, author, nameMedia));                
+                multimedia.push(new Multimedia(url, date, authorMedia, nameMedia));                
               }
             });           
           } else if (

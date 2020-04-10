@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { RouteCard, Button } from "./myroutes.style";
 import {
   FormRenderContainer,
-  FormRenderContainerMult,
+  
   FriendsList,
-  ImgSlider,
-  DivSlider,
   Header
 } from "../MyFriends/myfriends.style";
 import { List } from "@solid/react";
@@ -19,7 +17,6 @@ const InfoRoute = props => {
   const { name, description, author, points, center, mult, r} = props;
   const [show, setShow] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
-  const [showMult, setShowMult] = useState(true);
   console.log(r)
 
   return (

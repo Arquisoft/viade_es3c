@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-// import Slide from "react-swipeable-views";
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { lightGreen, cyan, green } from "@material-ui/core/colors";
+import { cyan } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
+// eslint-disable-next-line
 import { Player } from "video-react";
 
 const AutoRotatingCarouselModal = ({
@@ -20,10 +20,10 @@ const AutoRotatingCarouselModal = ({
     for (var i = 0; i < media.mult.length; i++) {
       j = (
         <Slide
-          media={<img src={media.mult[i].url} />}
+          media={<img src={media.mult[i].url} alt={media.mult[i].name}/>}
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
           style={{ backgroundColor: cyan[400] }}
-          title=""
+          title= {media.mult[i].name}
         />
       );
       arr.push(j);
