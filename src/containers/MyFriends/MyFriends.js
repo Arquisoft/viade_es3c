@@ -18,8 +18,7 @@ class MyFriends extends React.Component{
         super();
         this.webID=webId;
         this.state = {
-            friendWebID: '',
-            cargando:false
+            friendWebID: ''
         };
         this.handleChange = this.handleChange.bind(this);
     }
