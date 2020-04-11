@@ -6,6 +6,23 @@ import { lightGreen, cyan, green } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
 import { Player } from "video-react";
 
+const getMediaComponent = (url) => {
+  console.log(url);
+  if (url.includes('.mp4')) {
+    return (<Player
+      playsInline
+      poster="/assets/poster.png"
+      src={url}
+      fluid={false}
+      width={640}
+      height={360}
+    />)
+  } else {
+    return <img id="img" src={url} width={640}
+    height={360} />
+  }
+}
+
 const AutoRotatingCarouselModal = ({
   handleOpen,
   setHandleOpen,
@@ -18,14 +35,14 @@ const AutoRotatingCarouselModal = ({
     var arr = [];
 
     for (var i = 0; i < media.mult.length; i++) {
-      j = (
-        <Slide
-          media={<img src={media.mult[i].url} />}
+      
+
+      j = (<Slide
+          media={getMediaComponent(media.mult[i].url)}
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
           style={{ backgroundColor: cyan[400] }}
-          title=""
-        />
-      );
+          title={media.mult[i].name}
+        />)
       arr.push(j);
     }
     return arr;

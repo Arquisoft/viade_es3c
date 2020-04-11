@@ -131,7 +131,7 @@
     "jest-puppeteer": "^4.4.0",
     "jest-puppeteer-preset": "^4.4.0",
     "jest-resolve": "23.6.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mini-css-extract-plugin": "0.4.3",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",

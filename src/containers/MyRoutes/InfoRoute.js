@@ -21,6 +21,11 @@ const InfoRoute = props => {
   const [showRoute, setShowRoute] = useState(true);
   const [showMult, setShowMult] = useState(true);
   console.log(r)
+  var vm = "No hay multimedia"
+
+  if(mult.length > 0){
+    vm = <MultsButton {... { mult }}></MultsButton>
+  }
 
   return (
     <RouteCard className="card">
@@ -42,7 +47,8 @@ const InfoRoute = props => {
       </div>
       <br></br>
       <div>
-      <MultsButton {... { mult }}></MultsButton>
+        
+      {vm}
     
       </div>
       {showRoute ? (
