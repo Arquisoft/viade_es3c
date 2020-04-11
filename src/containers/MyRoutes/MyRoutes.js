@@ -46,6 +46,7 @@ class MyRoute extends React.Component {
 										center={ruta.calculateCenter()}
 										mult={ruta.multimedia}
 										ruta={baseUrl + routePath + ruta.getIdRoute() + ".ttl"}
+										uuid={ruta.getIdRoute()}
 									/>
 								);
 							})}

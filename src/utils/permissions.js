@@ -3,6 +3,8 @@ import { AccessControlList, AppPermission } from "@inrupt/solid-react-components
 import { errorToaster } from "@utils";
 
 // Check that all permissions we need are set. If any are missing, this returns false
+import auth from "solid-auth-client";
+
 const checkAppPermissions = (userAppPermissions, appPermissions) =>
 	appPermissions.every((permission) => userAppPermissions.includes(permission));
 
@@ -79,4 +81,32 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
 	}
 
 	return true;
+};
+
+export const sharing = async (webId, friendId, shareUrl) => {
+	const SolidAclUtils = require("solid-acl-utils");
+
+	// You could also use SolidAclUtils.Permissions.READ instead of following
+	// This is just more convenient
+	const { AclApi, Permissions } = SolidAclUtils;
+	const { READ } = Permissions;
+	// Passing it the fetch from solid-auth-client
+	const fetch = auth.fetch.bind(auth);
+	const aclApi = new AclApi(fetch, { autoSave: true });
+	const acl = await aclApi.loadFromFileUrl(shareUrl);
+	await acl.addRule(READ, friendId);
+};
+
+export const notSharing = async (webId, friendId, shareUrl) => {
+	const SolidAclUtils = require("solid-acl-utils");
+
+	// You could also use SolidAclUtils.Permissions.READ instead of following
+	// This is just more convenient
+	const { AclApi, Permissions } = SolidAclUtils;
+	const { READ } = Permissions;
+	// Passing it the fetch from solid-auth-client
+	const fetch = auth.fetch.bind(auth);
+	const aclApi = new AclApi(fetch, { autoSave: true });
+	const acl = await aclApi.loadFromFileUrl(shareUrl);
+	await acl.deleteRule(READ, friendId);
 };

@@ -8,11 +8,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FormRenderContainer, FriendsList, Header } from "../MyFriends/myfriends.style";
 import { List } from "@solid/react";
 import RouteMap from "./RouteMap";
+import Notifications from "../Share/NotificationHelp";
 
 import MultsButton from "./ViewMult";
 
 const InfoRoute = (props) => {
-	const { name, author, description, points, center, mult, ruta } = props;
+	const { name, author, description, points, center, mult, ruta, uuid } = props;
 	const [ show, setShow ] = useState(true);
 	const [ showConfirm, setShowConfirm ] = useState(false);
 	const [ showRoute, setShowRoute ] = useState(true);
@@ -87,11 +88,7 @@ const InfoRoute = (props) => {
 					<Header>
 						<h1>My friends</h1>
 					</Header>
-					<FriendsList>
-						<List src={"user.friends"}>
-							{(item, i) => <li key={i}>{<a href={`${item}`}>{`${item}`}</a>}</li>}
-						</List>
-					</FriendsList>
+					<Notifications ruta={uuid} />
 				</FormRenderContainer>
 			)}
 		</RouteCard>
