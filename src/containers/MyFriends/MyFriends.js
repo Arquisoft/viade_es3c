@@ -49,6 +49,7 @@ class MyFriends extends React.Component{
     handleClick(e){
         e.preventDefault();
         friendsHelper.addFriend(this.webID, this.state.friendWebID);
+        console.log("Añadiendo: " + this.webID + " " + this.state.friendWebID);
         refreshPage();
 
     }
@@ -100,7 +101,7 @@ export const getUrl = (name) => {
     return name.replace("profile/card#me", "");
 };
 
-export const  refreshPage = () => { 
+export const refreshPage = () => { 
     window.location.reload(); 
 }
 

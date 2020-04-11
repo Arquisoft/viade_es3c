@@ -7,7 +7,6 @@ import { errorToaster } from "@utils";
 
 // Check that all permissions we need are set. If any are missing, this returns false
 import auth from "solid-auth-client";
-import FC from "solid-file-client"
 
 const checkAppPermissions = (userAppPermissions, appPermissions) =>
   appPermissions.every(permission => userAppPermissions.includes(permission));
@@ -93,8 +92,8 @@ export const sharing = async (webId, friendId, shareUrl) => {
 
   // You could also use SolidAclUtils.Permissions.READ instead of following
   // This is just more convenient
-  const { AclApi, AclDoc, AclParser, AclRule, Permissions, Agents } = SolidAclUtils
-  const { READ, WRITE, APPEND, CONTROL } = Permissions
+  const { AclApi, Permissions } = SolidAclUtils
+  const { READ } = Permissions
   // Passing it the fetch from solid-auth-client
   const fetch = auth.fetch.bind(auth)
   const aclApi = new AclApi(fetch, { autoSave: true });
@@ -108,8 +107,8 @@ export const notSharing = async (webId, friendId, shareUrl) => {
 
   // You could also use SolidAclUtils.Permissions.READ instead of following
   // This is just more convenient
-  const { AclApi, AclDoc, AclParser, AclRule, Permissions, Agents } = SolidAclUtils
-  const { READ, WRITE, APPEND, CONTROL } = Permissions
+  const { AclApi, Permissions } = SolidAclUtils
+  const { READ } = Permissions
   // Passing it the fetch from solid-auth-client
   const fetch = auth.fetch.bind(auth)
   const aclApi = new AclApi(fetch, { autoSave: true });

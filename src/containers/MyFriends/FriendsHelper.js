@@ -22,7 +22,7 @@ class FriendsHelper {
         const doc = await fetchDocument(webId);
         const me = doc.getSubject(webId);
         const name = me.getString(foaf.name);
-        //console.log('The name in this profile is:', name);
+        console.log('The name in this profile is:', name);
     }
 
 }

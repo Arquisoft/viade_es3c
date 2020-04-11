@@ -5,12 +5,11 @@ import {
   Header
 } from "../MyFriends/myfriends.style";
 import RouteMap from "./RouteMap";
-import Share from "../Share";
 import Notifications from "../Share/NotificationHelp";
 
 
 const InfoRoute = props => {
-  const { name, description, author, points, center, webId, uuid} = props;
+  const { name, description, author, points, center, uuid} = props;
   const [show, setShow] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
 

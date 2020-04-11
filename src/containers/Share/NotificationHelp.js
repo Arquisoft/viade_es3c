@@ -9,7 +9,6 @@ import {sharing} from "../../utils/permissions";
 
 const Notifications = ({ruta}) => {
         let cadena = null;
-        let friendWebID = null;
 
         const {createNotification} = useNotification(cadena);
 
