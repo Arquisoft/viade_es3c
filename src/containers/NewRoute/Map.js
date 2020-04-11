@@ -49,8 +49,8 @@ export class MapContainer extends React.Component {
 		let markers = [];
 		for (let i = 0; i < this.state.markers.length; i++) {
 			markers.push({
-				lat: this.state.markers[i].position.lat,
-				lng: this.state.markers[i].position.lng
+				lat: this.state.markers[parseInt(i)].position.lat,
+				lng: this.state.markers[parseInt(i)].position.lng
 			});
 		}
 		return markers;

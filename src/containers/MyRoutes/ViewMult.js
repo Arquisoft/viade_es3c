@@ -21,15 +21,15 @@ const AutoRotatingCarouselModal = ({
         <Slide
           media={
             <img
-              src={media.mult[i].url}
+              src={media.mult[parseInt(i)].url}
               alt={"Archivo multimedia de la ruta"}
             />
           }
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
           style={{ backgroundColor: cyan[400] }}
           title={"Archivo multimedia de la ruta " + media.name}
-          key={media.mult[i].date}
-          subtitle={media.mult[i].date}
+          key={media.mult[parseInt(i)].date}
+          subtitle={media.mult[parseInt(i)].date}
         />
       );
       arr.push(j);
