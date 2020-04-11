@@ -14,7 +14,6 @@ class MyRoute extends React.Component {
 			data: null
 		};
 	}
-
 	componentDidMount() {
 		const { webId } = this.props;
 		this._asyncRequest = viadeManager.readRoutesFromPod(webId).then((data) => {
