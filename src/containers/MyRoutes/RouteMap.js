@@ -19,7 +19,7 @@ export class MapContainer extends React.Component {
 		for (let i = 0; i < this.state.markers.length; i++) {
 			markers.push({
 				lat: parseFloat(this.state.markers[i].latitude),
-				lng: parseFloat(this.state.markers[i].longitude)
+				lng: parseFloat(this.state.markers[parseInt(i)].longitude)
 			});
 		}
 		return markers;

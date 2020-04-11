@@ -7,7 +7,7 @@ export const iniciateStructure = async (webId) => {
 export const addRoute = async (route, webId) => {
 	if (route.multimedia.length > 0) {
 		for (let i = 0; i < route.multimedia.length; i++) {
-			addMedia(route.multimedia[i], webId);
+			addMedia(route.multimedia[parseInt(i)], webId);
 		}
 	}
 	return await storageHelper.addRoute(webId, route);

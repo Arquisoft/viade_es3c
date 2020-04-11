@@ -57,11 +57,11 @@ export const createRoute = (subject, mediaurl, route, routeShape) => {
 				writer.blank([
 					{
 						predicate: namedNode(getPredicate(routeShape.shape[5], routeShape)),
-						object: literal(route.points[i].longitude)
+						object: literal(route.points[parseInt(i)].longitude)
 					},
 					{
 						predicate: namedNode(getPredicate(routeShape.shape[6], routeShape)),
-						object: literal(route.points[i].latitude)
+						object: literal(route.points[parseInt(i)].latitude)
 					}
 				])
 			);
@@ -75,7 +75,7 @@ export const createRoute = (subject, mediaurl, route, routeShape) => {
 						subject,
 						routeShape,
 						7,
-						mediaurl + route.multimedia[j].getIdMedia() + ".ttl"
+						mediaurl + route.multimedia[parseInt(j)].getIdMedia() + ".ttl"
 					)
 				);
 			}
@@ -106,7 +106,7 @@ export const createMedia = (subject, media, mediaShape) => {
 export const createQuadWithOutLiteral = (subject, routeShape, order, node) => {
 	return quad(
 		namedNode(subject),
-		namedNode(getPredicate(routeShape.shape[order], routeShape)),
+		namedNode(getPredicate(routeShape.shape[parseInt(order)], routeShape)),
 		namedNode(node),
 		defaultGraph("Ruta")
 	);
@@ -122,7 +122,7 @@ export const createQuadWithOutLiteral = (subject, routeShape, order, node) => {
 export const createQuadWithLiteral = (subject, routeShape, order, attribute) => {
 	return quad(
 		namedNode(subject),
-		namedNode(getPredicate(routeShape.shape[order], routeShape)),
+		namedNode(getPredicate(routeShape.shape[parseInt(order)], routeShape)),
 		literal(attribute),
 		defaultGraph("Ruta")
 	);

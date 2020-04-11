@@ -60,9 +60,9 @@ class NewRoute extends React.Component {
 			for (let i = 0; i < this.state.markers.length; i++) {
 				points.push(
 					new Point(
-						this.state.markers[i].position.lat,
-						this.state.markers[i].position.lng,
-						this.state.markers[i].position.alt
+						this.state.markers[parseInt(i)].position.lat,
+						this.state.markers[parseInt(i)].position.lng,
+						this.state.markers[parseInt(i)].position.alt
 					)
 				);
 			}
@@ -76,9 +76,9 @@ class NewRoute extends React.Component {
 			let filesMult = filesFolder[0].files;
 			let url = this.webID.replace("profile/card#me", "public/viade/rawMedia/");
 			for (let j = 0; j < filesMult.length; j++) {
-				let name = filesMult[j].name.split(".")[0];
+				let name = filesMult[parseInt(j)].name.split(".")[0];
 				var d = Date(Date.now());
-				multimedia.push(new Multimedia(url + filesMult[j].name, d.toString(), author, name, null));
+				multimedia.push(new Multimedia(url + filesMult[parseInt(j)].name, d.toString(), author, name, null));
 			}
 			let route = new Route(this.title.current.value, author, this.descripton.current.value, points, multimedia);
 			await viadeManager.addRoute(route, this.webID);
