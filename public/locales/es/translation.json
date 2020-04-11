@@ -52,7 +52,7 @@
     "profile": "Perfil",
     "newRoute": "Nueva ruta",
     "myRoutes": "Mis rutas",
-    "myFriends":"Mis amigos",
+    "myFriends": "Mis amigos",
     "formModelRender": "Form Model Render",
     "formModelConvert": "Form Model Convert",
     "text-editor": "Editor de Textos",
@@ -128,7 +128,7 @@
     "defaultError": "Error: Formato incorrecto"
   },
   "viade": {
-    "title": "Viade",   
+    "title": "Viade",
     "dataError": {
       "message": "Los datos de la ruta no pudieros ser salvados, data.ttl no fue encontrado",
       "link": {
@@ -202,5 +202,5 @@
       "fieldDeleted": "Campo de formulario eliminado correctamente",
       "fieldAdded": "Campo de formulario agregado con éxito"
     }
-  }  
+  }
 }

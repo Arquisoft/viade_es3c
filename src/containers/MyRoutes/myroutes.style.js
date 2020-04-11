@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const RouteCard = styled.div`
-  background:  linear-gradient(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
+  background: linear-gradient(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
   margin: 15px auto;
 
   max-width: 80% !important;
@@ -12,14 +12,14 @@ export const RouteCard = styled.div`
       text-decoration: underline;
     }
   }
-  p{
+  p {
     font-weight: bold;
     font-size: 20px;
   }
-  h2{
+  h2 {
     font-weight: bold;
   }
-  h3{
+  h3 {
     font-size: 25px;
     margin: 0 0 0px 0;
   }
@@ -76,8 +76,8 @@ export const Header = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  background-image: url('img/pattern-geo.png'),
-    linear(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
+  background-image: url("img/pattern-geo.png"),
+    linear(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
   background-repeat: repeat, no-repeat;
   padding: 10px 5px;
   p {
@@ -94,35 +94,32 @@ export const Header = styled.div`
 `;
 
 export const Button = styled.button`
-
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
   padding: 12px 28px;
   font-size: 16px;
-
 `;
 
 export const Slider = styled.div`
-
-width: 100%;
-	position: relative;
-
+  width: 100%;
+  position: relative;
 `;
 
 export const OrderList = styled.ul`
   width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	padding: 15px 50px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 15px 50px;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-	text-align: center;
-	color: #fff;
-	z-index: 1;
+  text-align: center;
+  color: #fff;
+  z-index: 1;
 `;
 
 export const OrderLi = styled.li`
@@ -136,10 +133,10 @@ export const OrderLiImg = styled.img`
 
 export const Pagination = styled.ol`
   position: absolute;
-	top: 102%;
-	width: 100%;
-	display: flex;
-	justify-content: center;
+  top: 102%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 export const PaginationLi = styled.li`
@@ -149,33 +146,32 @@ export const PaginationLi = styled.li`
   cursor: pointer;
 `;
 
-
 export const Left = styled.div`
   left: 10px;
   position: absolute;
-	top: 0;
-	height: 100%;
+  top: 0;
+  height: 100%;
 
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 
-	color: #fff;
-	font-size: 35px;
-	cursor: pointer;
-	z-index: 2;
+  color: #fff;
+  font-size: 35px;
+  cursor: pointer;
+  z-index: 2;
 `;
 
 export const Right = styled.div`
   right: 10px;
   position: absolute;
-	top: 0;
-	height: 100%;
+  top: 0;
+  height: 100%;
 
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 
-	color: #fff;
-	font-size: 35px;
-	cursor: pointer;
-	z-index: 2;
+  color: #fff;
+  font-size: 35px;
+  cursor: pointer;
+  z-index: 2;
 `;

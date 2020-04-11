@@ -1,3 +1,3 @@
-import MyRoutes from './MyRoutes';
+import MyRoutes from "./MyRoutes";
 
 export default MyRoutes;

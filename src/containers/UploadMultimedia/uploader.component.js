@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import { lookup, extension } from 'mime-types';
-import auth from 'solid-auth-client';
-import { UploadedFiles, SolidError as SolidErrorEntity } from '../../entities/index';
+import React, { Component } from "react";
+import { lookup, extension } from "mime-types";
+import auth from "solid-auth-client";
 import {
-  
-    DivForms
-   
-} from "./multimedia.style";
-const  SolidError = {
-    type: String,
-    statusText: String,
-    code: parseInt(String)
-  };
+  UploadedFiles,
+  SolidError as SolidErrorEntity
+} from "../../entities/index";
+import { DivForms } from "./multimedia.style";
+const SolidError = {
+  type: String,
+  statusText: String,
+  code: parseInt(String)
+};
 
 type Props = {
   fileBase: String,
@@ -39,10 +38,10 @@ class Uploader extends Component<Props> {
   }
 
   componentDidMount() {
-    window.addEventListener('dragover', (event: React.EventHandler) => {
+    window.addEventListener("dragover", (event: React.EventHandler) => {
       this.overrideEvent(event);
     });
-    window.addEventListener('drop', (event: React.EventHandler) => {
+    window.addEventListener("drop", (event: React.EventHandler) => {
       this.overrideEvent(event);
     });
   }
@@ -59,12 +58,12 @@ class Uploader extends Component<Props> {
     /**
      * Remove subscribe after component Unmount
      */
-    window.removeEventListener('dragover', this.overrideEvent);
-    window.removeEventListener('drop', this.overrideEvent);
+    window.removeEventListener("dragover", this.overrideEvent);
+    window.removeEventListener("drop", this.overrideEvent);
   }
 
   validateAcceptFiles = (accept: String, type: String) => {
-    const extensions = accept.split(',');
+    const extensions = accept.split(",");
 
     return extensions.find(ext => extension(type.trim()) === ext);
   };
@@ -101,20 +100,20 @@ class Uploader extends Component<Props> {
           const data = f.target.result;
 
           if (limitSize && file.size > limitSize) {
-            throw new SolidError(errorsText.sizeLimit, 'file', 400);
+            throw new SolidError(errorsText.sizeLimit, "file", 400);
           }
 
           // Check if file has extension and add suffix string
-          if (file.type && file.type !== '') {
+          if (file.type && file.type !== "") {
             if (file.type !== lookup(file.name)) {
               suffix = `${extension(file.type)}`;
             }
           } else {
-            throw new SolidError(errorsText.unsupported, 'file', 415);
+            throw new SolidError(errorsText.unsupported, "file", 415);
           }
 
           if (accept && !this.validateAcceptFiles(accept, file.type)) {
-            throw new SolidError(errorsText.unsupported, 'file', 415);
+            throw new SolidError(errorsText.unsupported, "file", 415);
           }
 
           const newFileName = this.renameFile(file, suffix);
@@ -124,13 +123,13 @@ class Uploader extends Component<Props> {
 
           // Send file on Base64 to server using fetch from solid-auth-client
           const response = await auth.fetch(destinationUri, {
-            method: 'PUT',
+            method: "PUT",
             force: true,
             headers: {
-              'content-type': file.type
+              "content-type": file.type
             },
             body: data,
-            credentials: 'include'
+            credentials: "include"
           });
           // If everything is fine, we add new files into the uploadedFiles array
           if (response.ok) {
@@ -178,8 +177,10 @@ class Uploader extends Component<Props> {
     this.counter += 1;
 
     if (
-      (event.dataTransfer.items && event.dataTransfer.items[this.positionFile]) ||
-      (event.dataTransfer.types && event.dataTransfer.types[this.positionFile] === 'Files')
+      (event.dataTransfer.items &&
+        event.dataTransfer.items[this.positionFile]) ||
+      (event.dataTransfer.types &&
+        event.dataTransfer.types[this.positionFile] === "Files")
     ) {
       this.setState({ dragging: true });
     }
@@ -202,7 +203,7 @@ class Uploader extends Component<Props> {
     let files = [];
 
     if (limitFiles && event.dataTransfer.items.length > limitFiles) {
-      const error = new SolidError(errorsText.maximumFiles, 'file', 400);
+      const error = new SolidError(errorsText.maximumFiles, "file", 400);
 
       return onError(error, []);
     }
@@ -272,7 +273,7 @@ class Uploader extends Component<Props> {
           type="file"
           className="file-uploader--input"
           onChange={this.onFileChanged}
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
           data-testid="input-file"
           multiple
         />
@@ -291,9 +292,10 @@ class Uploader extends Component<Props> {
 
 Uploader.defaultProps = {
   errorsText: {
-    sizeLimit: 'File size exceeds the allowable limit',
-    unsupported: 'Unsupported media type',
-    maximumFiles: 'Sorry, you have exceeded the maximum number of files allowed per upload'
+    sizeLimit: "File size exceeds the allowable limit",
+    unsupported: "Unsupported media type",
+    maximumFiles:
+      "Sorry, you have exceeded the maximum number of files allowed per upload"
   }
 };
 

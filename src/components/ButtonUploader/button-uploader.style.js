@@ -1,9 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const ImageProfileWrapper = styled.div`
-
- 
-`;
+export const ImageProfileWrapper = styled.div``;
 
 export const ButtonStyled = styled.button`
   border: none;

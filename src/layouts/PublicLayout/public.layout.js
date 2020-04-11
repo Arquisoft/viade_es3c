@@ -1,15 +1,13 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import { useWebId } from '@inrupt/solid-react-components';
-import styled from 'styled-components';
-import { NavBar, AuthNavBar } from '@components';
+import React from "react";
+import { Route, Link } from "react-router-dom";
+import { useWebId } from "@inrupt/solid-react-components";
+import styled from "styled-components";
+import { NavBar, AuthNavBar } from "@components";
 
 const Container = styled.div`
   min-height: 100%;
   position: relative;
 `;
-
-
 
 const PublicLayout = props => {
   const webId = useWebId();
@@ -32,8 +30,8 @@ const PublicLayout = props => {
               toolbar={[
                 {
                   component: () => <Link to="/login">Login</Link>,
-                  label: 'authComponent',
-                  id: 'authComponent'
+                  label: "authComponent",
+                  id: "authComponent"
                 }
               ]}
             />

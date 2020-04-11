@@ -12,7 +12,6 @@ import { viadeManager } from "@utils";
 type Props = { webId: String };
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
 
-
 class MyRoute extends React.Component {
   constructor({ webId }: Props) {
     super();
@@ -20,7 +19,6 @@ class MyRoute extends React.Component {
       data: null
     };
   }
- 
 
   componentDidMount() {
     const { webId } = this.props;
@@ -29,15 +27,12 @@ class MyRoute extends React.Component {
       this.setState({ data });
     });
   }
-  componentWillUnmount(){}
-
-
- 
+  componentWillUnmount() {}
 
   render(): React.ReactNode {
     const { webId } = this.props;
-    let baseUrl = webId.split("/",3)+"/";
-    baseUrl = baseUrl.replace(",,","//")
+    let baseUrl = webId.split("/", 3) + "/";
+    baseUrl = baseUrl.replace(",,", "//");
     if (this.state.data !== null && this.state.data !== "EMPTY") {
       return (
         <RouteWrapper data-testid="route-component">
@@ -55,8 +50,8 @@ class MyRoute extends React.Component {
                     description={ruta.description}
                     points={ruta.points}
                     center={ruta.calculateCenter()}
-                    mult={ruta.multimedia}                    
-                    ruta={baseUrl+routePath+ruta.getIdRoute()+".ttl"}
+                    mult={ruta.multimedia}
+                    ruta={baseUrl + routePath + ruta.getIdRoute() + ".ttl"}
                   />
                 );
               })}

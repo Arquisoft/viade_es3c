@@ -19,12 +19,17 @@ const AutoRotatingCarouselModal = ({
     for (var i = 0; i < media.mult.length; i++) {
       j = (
         <Slide
-          media={<img src={media.mult[i].url} alt={"Archivo multimedia de la ruta"}/>}
+          media={
+            <img
+              src={media.mult[i].url}
+              alt={"Archivo multimedia de la ruta"}
+            />
+          }
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
           style={{ backgroundColor: cyan[400] }}
-          title= {"Archivo multimedia de la ruta "+media.name}
-          key = {media.mult[i].date}
-          subtitle = {media.mult[i].date}
+          title={"Archivo multimedia de la ruta " + media.name}
+          key={media.mult[i].date}
+          subtitle={media.mult[i].date}
         />
       );
       arr.push(j);
@@ -63,7 +68,7 @@ function MultsButton(params, name) {
         handleOpen={handleOpen}
         setHandleOpen={setHandleOpen}
         media={params}
-        name = {name}
+        name={name}
       />
     </>
   );

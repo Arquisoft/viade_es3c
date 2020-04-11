@@ -1,14 +1,9 @@
 import data from "@solid/query-ldflex";
 import { AccessControlList } from "@inrupt/solid-react-components";
 import { resourceExists, createDoc, createDocument } from "./ldflex-helper";
-import {
-  errorToaster,
-  permissionHelper,
-  ldflexHelper
-} from "@utils";
+import { errorToaster, permissionHelper, ldflexHelper } from "@utils";
 import routeShape from "@contexts/route-shape.json";
 import mediaShape from "@contexts/media-shape.json";
-
 
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
 const mediaPath = process.env.REACT_APP_VIADE_ES3C_MEDIA_PATH;
@@ -16,11 +11,9 @@ const rawMediaPath = process.env.REACT_APP_VIADE_ES3C_RAWMEDIA_PATH;
 const settingsPath = process.env.REACT_APP_VIADE_ES3C_SETTINGS_PATH;
 const inboxPath = process.env.REACT_APP_VIADE_ES3C_INBOX_PATH;
 
-
 const N3 = require("n3");
 const { DataFactory } = N3;
 const { namedNode, literal, defaultGraph, quad } = DataFactory;
-
 
 /**
  * Returns the content of the rdf file in Turtle format
@@ -34,25 +27,39 @@ export const createRoute = (subject, mediaurl, route, routeShape) => {
     const writer = new N3.Writer();
     const quads = [];
     quads.push(createQuadWithLiteral(subject, routeShape, 1, route.name));
-    quads.push(createQuadWithLiteral(subject, routeShape, 2, route.description));
+    quads.push(
+      createQuadWithLiteral(subject, routeShape, 2, route.description)
+    );
     quads.push(createQuadWithLiteral(subject, routeShape, 3, route.author));
 
     for (let i = 0; i < route.points.length; i++) {
-      const point = quad(namedNode(subject),
+      const point = quad(
+        namedNode(subject),
         namedNode(getPredicate(routeShape.shape[4], routeShape)),
-        writer.blank([{
-          predicate: namedNode(getPredicate(routeShape.shape[5], routeShape)),
-          object: literal(route.points[i].longitude),
-        }, {
-          predicate: namedNode(getPredicate(routeShape.shape[6], routeShape)),
-          object: literal(route.points[i].latitude),
-        }]));
+        writer.blank([
+          {
+            predicate: namedNode(getPredicate(routeShape.shape[5], routeShape)),
+            object: literal(route.points[i].longitude)
+          },
+          {
+            predicate: namedNode(getPredicate(routeShape.shape[6], routeShape)),
+            object: literal(route.points[i].latitude)
+          }
+        ])
+      );
       quads.push(point);
     }
-   
+
     if (route.multimedia.length > 0) {
       for (let j = 0; j < route.multimedia.length; j++) {
-        quads.push(createQuadWithOutLiteral(subject, routeShape, 7,mediaurl+route.multimedia[j].getIdMedia() + '.ttl'));
+        quads.push(
+          createQuadWithOutLiteral(
+            subject,
+            routeShape,
+            7,
+            mediaurl + route.multimedia[j].getIdMedia() + ".ttl"
+          )
+        );
       }
     }
 
@@ -94,7 +101,12 @@ export const createQuadWithOutLiteral = (subject, routeShape, order, node) => {
  * @param attribute
  * @returns {*}
  */
-export const createQuadWithLiteral = (subject, routeShape, order, attribute) => {
+export const createQuadWithLiteral = (
+  subject,
+  routeShape,
+  order,
+  attribute
+) => {
   return quad(
     namedNode(subject),
     namedNode(getPredicate(routeShape.shape[order], routeShape)),
@@ -102,7 +114,6 @@ export const createQuadWithLiteral = (subject, routeShape, order, attribute) => 
     defaultGraph("Ruta")
   );
 };
-
 
 /**
  * Gets the predicate from the context shape file
@@ -129,7 +140,7 @@ export const buildPathFromWebId = (webId, path) => {
 };
 
 /**
- *  Check and create the route file 
+ *  Check and create the route file
  * @param folderPath
  * @returns {Promise<boolean>} Returns whether or not there were any errors during the creation process
  */
@@ -140,7 +151,7 @@ export const addRoute = async (webId, route) => {
       webId,
       AccessControlList.MODES.WRITE
     );
-    
+
     // If we do not have Write permission, there's nothing we can do here
     if (!hasWritePermission) return;
 
@@ -152,9 +163,9 @@ export const addRoute = async (webId, route) => {
     const routeFilePath = `${viadeUrl}` + route.getIdRoute() + `.ttl`;
 
     //create the body of the rdf document with the route content we are going to upload
-    const body = createRoute(routeFilePath,mediaurl, route, routeShape);
+    const body = createRoute(routeFilePath, mediaurl, route, routeShape);
 
-    // Check if route file exists, if not then create it. 
+    // Check if route file exists, if not then create it.
     const routeFileExists = await resourceExists(routeFilePath);
     if (!routeFileExists) {
       const newDocument = await ldflexHelper.createDocumentWithTurtle(
@@ -173,7 +184,6 @@ export const addRoute = async (webId, route) => {
     return false;
   }
 };
-
 
 export const addMedia = async (webId, media) => {
   try {
@@ -194,7 +204,7 @@ export const addMedia = async (webId, media) => {
     //create the body of the rdf document with the route content we are going to upload
     const body = createMedia(routeFilePath, media, mediaShape);
 
-    // Check if route file exists, if not then create it. 
+    // Check if route file exists, if not then create it.
     const routeFileExists = await resourceExists(routeFilePath);
     if (!routeFileExists) {
       const newDocument = await ldflexHelper.createDocumentWithTurtle(
@@ -250,7 +260,6 @@ export const createInitialFiles = async webId => {
       webId,
       AccessControlList.MODES.WRITE
     );
-    
 
     // If we do not have Write permission, there's nothing we can do here
     if (!hasWritePermission) return;
@@ -309,7 +318,7 @@ export const createInitialFiles = async webId => {
       });
     }
 
-    // Check if data file exists, if not then create it. 
+    // Check if data file exists, if not then create it.
     const dataFileExists = await resourceExists(dataFilePath);
     if (!dataFileExists) {
       await createDocument(dataFilePath);
@@ -334,4 +343,3 @@ export const createInitialFiles = async webId => {
 };
 
 export const checkAndInitializeInbox = async () => "";
-

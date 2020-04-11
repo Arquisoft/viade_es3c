@@ -1,3 +1,4 @@
+/* eslint no-empty: ["error", { "allowEmptyCatch": true }] */
 import {
   AccessControlList,
   AppPermission
@@ -13,7 +14,9 @@ export const checkSpecificAppPermission = async (webId, permission) => {
   try {
     const userAppPermissions = await AppPermission.checkPermissions(webId);
     return userAppPermissions.permissions.includes(permission);
-  } catch (e) {}
+  } catch (e) {
+     // TODO: Better error handling here
+  }
 };
 /**
  * SDK app will need all the permissions by the user pod so we check these permissions to work without any issues.

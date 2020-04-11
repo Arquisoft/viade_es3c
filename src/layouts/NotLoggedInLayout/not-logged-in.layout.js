@@ -1,16 +1,14 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { withTranslation } from 'react-i18next';
-import { NavBar } from '@components';
-import { withWebId } from '@inrupt/solid-react-components';
-import styled from 'styled-components';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { withTranslation } from "react-i18next";
+import { NavBar } from "@components";
+import { withWebId } from "@inrupt/solid-react-components";
+import styled from "styled-components";
 
 const Container = styled.div`
   height: 100%;
   position: relative;
 `;
-
-
 
 const NotLoggedInLayout = props => {
   const { component: Component, webId, ...rest } = props;
@@ -24,11 +22,7 @@ const NotLoggedInLayout = props => {
       {...rest}
       component={matchProps => (
         <Container>
-          <NavBar
-            {...matchProps}
-            toolbar={[
-            ]}
-          />
+          <NavBar {...matchProps} toolbar={[]} />
           <ComponentWrapper {...matchProps} />
         </Container>
       )}

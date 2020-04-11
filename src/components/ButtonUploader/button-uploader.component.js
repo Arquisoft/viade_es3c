@@ -1,10 +1,10 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   ImageProfileWrapper,
   ButtonStyled,
   ImageProfileLoader
-} from './button-uploader.style';
+} from "./button-uploader.style";
 
 type Props = {
   photo: String,
@@ -29,10 +29,12 @@ export const ButtonUploader = (props: Props) => {
     onDrop,
     onClickFile,
     text,
-    inProgress,
+    inProgress
   } = props;
   const photo =
-    uploadedFiles && uploadedFiles.length > 0 ? uploadedFiles[uploadedFiles.length - 1].uri : img;
+    uploadedFiles && uploadedFiles.length > 0
+      ? uploadedFiles[uploadedFiles.length - 1].uri
+      : img;
 
   return (
     <ImageProfileWrapper
@@ -44,16 +46,15 @@ export const ButtonUploader = (props: Props) => {
         onDragLeave,
         onDragEnter,
         onDrop,
-        style: photo && photo !== '' && { backgroundImage: `url(${photo})` }
+        style: photo && photo !== "" && { backgroundImage: `url(${photo})` }
       }}
     >
-      <ButtonStyled multiple onClick={onClickFile} className="button-upload" >
+      <ButtonStyled multiple onClick={onClickFile} className="button-upload">
         {text}
       </ButtonStyled>
       {inProgress && (
         <ImageProfileLoader className="image-profile-loader">
           <FontAwesomeIcon icon="spinner" spin size="2x" />
-          
         </ImageProfileLoader>
       )}
     </ImageProfileWrapper>
@@ -61,6 +62,6 @@ export const ButtonUploader = (props: Props) => {
 };
 
 ButtonUploader.defaultProps = {
-  text: 'Uploads route photos',
-  uploadingText: 'Uploading'
+  text: "Uploads route photos",
+  uploadingText: "Uploading"
 };

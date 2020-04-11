@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import { useNotification, useLiveUpdate } from '@inrupt/solid-react-components';
-import { NotificationsWrapper } from './notifications.style';
-import { Bell, NotificationsPanel } from '../index';
-import { useOnClickOutside } from '@hooks';
+import React, { useState, useRef, useEffect } from "react";
+import { CSSTransition } from "react-transition-group";
+import { useNotification, useLiveUpdate } from "@inrupt/solid-react-components";
+import { NotificationsWrapper } from "./notifications.style";
+import { Bell, NotificationsPanel } from "../index";
+import { useOnClickOutside } from "@hooks";
 
 let oldTimestamp;
 
@@ -63,7 +63,6 @@ const Notifications = ({ webId, inbox }: Props) => {
     }
   }, [inbox, notify]);
 
-
   /**
    * Fetch new notifications when liveUpdate's timestamp changes, similar to componentWillUpdate
    */
@@ -74,11 +73,13 @@ const Notifications = ({ webId, inbox }: Props) => {
     }
   }, [timestamp]);
 
-
-
   return (
     <NotificationsWrapper ref={ref}>
-      <Bell unread={unread || 0} onClick={toggleNotifications} active={isOpen} />
+      <Bell
+        unread={unread || 0}
+        onClick={toggleNotifications}
+        active={isOpen}
+      />
       <CSSTransition
         in={isOpen}
         timeout={300}

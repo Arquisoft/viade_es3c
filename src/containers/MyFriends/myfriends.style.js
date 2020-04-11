@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const RouteCard = styled.div`
-  background:  linear-gradient(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
+  background: linear-gradient(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
   margin: 15px auto;
 
   max-width: 80% !important;
@@ -12,14 +12,13 @@ export const RouteCard = styled.div`
       text-decoration: underline;
     }
   }
-  p{
+  p {
     font-size: 25px;
-      justify-content: center;
+    justify-content: center;
     font-weight: bold;
   }
-  h3{
-
-    font-size: 35px
+  h3 {
+    font-size: 35px;
   }
 `;
 
@@ -28,11 +27,10 @@ export const FriendsList = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  background-image: url('img/pattern-geo.png'),
-  linear(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
+  background-image: url("img/pattern-geo.png"),
+    linear(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
   background-repeat: repeat, no-repeat;
   padding: 10px 5px;
-
 `;
 
 export const RouteWrapper = styled.section`
@@ -53,7 +51,6 @@ export const MyRouteContainer = styled.div`
   flex: 1 0 auto;
 `;
 export const FormRenderContainer = styled.div`
-
   border: 1px solid #dae0e6;
   min-height: 40px;
   padding: 5px;
@@ -98,12 +95,12 @@ export const FormRenderContainerMult = styled.div`
 `;
 
 export const DivSlider = styled.div`
-height : 372px;
+  height: 372px;
   width: 600px;
 `;
 
 export const ImgSlider = styled.img`
-height : 372px;
+  height: 372px;
   width: 600px;
 `;
 
@@ -112,8 +109,8 @@ export const Header = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  background-image: url('img/pattern-geo.png'),
-    linear(135deg, #1CD8D2 0%, #57E2CC 30%, #93EDC7 100%);
+  background-image: url("img/pattern-geo.png"),
+    linear(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
   background-repeat: repeat, no-repeat;
   padding: 10px 5px;
   p {

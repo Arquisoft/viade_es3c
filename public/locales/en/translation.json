@@ -53,8 +53,8 @@
     "formModelConvert": "Form Model Convert",
     "text-editor": "Text Editor",
     "newRoute": "New Route",
-    "myRoutes":"My routes",
-    "myFriends":"My friends",
+    "myRoutes": "My routes",
+    "myFriends": "My friends",
     "changeLanguage": "Change Language",
     "languages": {
       "en": "English (English)",
@@ -130,7 +130,7 @@
     "defaultError": "Error: Field value has wrong format"
   },
   "viade": {
-    "title": "Viade routes manager",    
+    "title": "Viade routes manager",
     "dataError": {
       "message": "Route data could not be saved, data.ttl was not found",
       "link": {

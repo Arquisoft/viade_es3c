@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { PrivateLayout, PublicLayout, NotLoggedInLayout } from '@layouts';
-import { HashRouter as Router, Switch, Redirect } from 'react-router-dom';
+import React, { Fragment } from "react";
+import { PrivateLayout, PublicLayout, NotLoggedInLayout } from "@layouts";
+import { HashRouter as Router, Switch, Redirect } from "react-router-dom";
 
 import {
   Login,
@@ -11,48 +11,47 @@ import {
   Profile,
   FormModelConverter,
   FormModelRenderer
-  
-} from './containers';
+} from "./containers";
 import NewRoute from "./containers/NewRoute";
 import MyRoutes from "./containers/MyRoutes";
 import MyFriends from "./containers/MyFriends";
 
 const privateRoutes = [
   {
-    id: 'welcome',
-    path: '/welcome',
+    id: "welcome",
+    path: "/welcome",
     component: Welcome
   },
   {
-    id: 'route',
-    path: '/route',
+    id: "route",
+    path: "/route",
     component: NewRoute
   },
-   {
-    id: 'myRoutes',
-    path: '/myRoutes',
+  {
+    id: "myRoutes",
+    path: "/myRoutes",
     component: MyRoutes
   },
-  
+
   {
-    id: 'myFriends',
-    path: '/myfriends',
+    id: "myFriends",
+    path: "/myfriends",
     component: MyFriends
   },
-  
+
   {
-    id: 'profile',
-    path: '/profile',
+    id: "profile",
+    path: "/profile",
     component: Profile
   },
   {
-    id: 'formmodelconverter',
-    path: '/formmodel/converter',
+    id: "formmodelconverter",
+    path: "/formmodel/converter",
     component: FormModelConverter
   },
   {
-    id: 'formmodelrenderer',
-    path: '/formmodel/renderer',
+    id: "formmodelrenderer",
+    path: "/formmodel/renderer",
     component: FormModelRenderer
   }
 ];
@@ -63,7 +62,11 @@ const Routes = () => (
       <Switch>
         <NotLoggedInLayout component={Login} path="/login" exact />
         <NotLoggedInLayout component={Register} path="/register" exact />
-        <NotLoggedInLayout path="/register/success" component={RegistrationSuccess} exact />
+        <NotLoggedInLayout
+          path="/register/success"
+          component={RegistrationSuccess}
+          exact
+        />
         <PublicLayout path="/404" component={PageNotFound} exact />
         <Redirect from="/" to="/welcome" exact />
         <PrivateLayout path="/" routes={privateRoutes} />
