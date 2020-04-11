@@ -7,7 +7,6 @@ import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
 import { Player } from "video-react";
 
 const getMediaComponent = (url) => {
-  console.log(url);
   if (url.includes('.mp4')) {
     return (<Player
       playsInline
@@ -34,9 +33,19 @@ const AutoRotatingCarouselModal = ({
     var j;
     var arr = [];
 
-    for (var i = 0; i < media.mult.length; i++) {
-      
+    if(media.mult.length<=0){
+       j = (<Slide
+          media={ <img id="img" src={"img/illustration-noresults.png"} 
+          width={640} height={360} />}
+          mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
+          style={{ backgroundColor: cyan[400] }}
+          title={"Sorry :("}
+          subtitle={"seems like there is no media uploaded for this route"}
+        />)
+         arr.push(j);
+    }
 
+    for (var i = 0; i < media.mult.length; i++) {
       j = (<Slide
           media={getMediaComponent(media.mult[i].url)}
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
