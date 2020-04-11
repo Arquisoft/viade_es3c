@@ -49,7 +49,7 @@ class MyFriends extends React.Component {
 	async handleClick(e) {
 		e.preventDefault();
 		await friendsHelper.addFriend(this.webID, this.state.friendWebID);
-		successToaster("Amigo añadido correctamente", "Éxito");
+		successToaster("Adding " + this.state.friendWebID + " to your friend list", "Éxito");
 		setTimeout(function() {
 			window.location.reload();
 		}, 1000);
@@ -102,7 +102,7 @@ export const getUrl = (name) => {
 
 export const removeFriend = (webIdUser, friendWebID) => {
 	friendsHelper.deleteFriend(webIdUser, friendWebID);
-	successToaster("Amigo eliminado correctamente", "Éxito");
+	successToaster("Deleting " + friendWebID + "from your friend list", "Éxito");
 	setTimeout(function() {
 		window.location.reload();
 	}, 1000);

@@ -18,7 +18,7 @@ const getMediaComponent = (url) => {
     />)
   } else {
     return <img id="img" src={url} width={640}
-    height={360} />
+    height={360} alt={"Media for the route"}/>
   }
 }
 
@@ -35,7 +35,7 @@ const AutoRotatingCarouselModal = ({
     if(media.mult.length<=0){
        j = (<Slide
           media={ <img id="img" src={"img/illustration-noresults.png"} 
-          width={640} height={360} />}
+          width={640} height={360} alt={"No media for this route"} />}
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
           key={Date.now()}
           style={{ backgroundColor: cyan[400] }}
