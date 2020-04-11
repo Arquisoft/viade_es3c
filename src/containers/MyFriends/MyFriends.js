@@ -36,22 +36,21 @@ class MyFriends extends React.Component{
                     key={i}
                     name={getUserName(`${item}`)}
                     url={<a href={getUrl(`${item}`)}>{getUrl(`${item}`)}</a>}
+                    webidUser = {this.webID}
+                    webidFriend = {`${item}`}
                 />
         }
         </List>
         </Friends>;
     }
 
-     refreshPage(){ 
-        window.location.reload(); 
-    }
-
+    
 
     
     handleClick(e){
         e.preventDefault();
         friendsHelper.addFriend(this.webID, this.state.friendWebID);
-        this.refreshPage();
+        refreshPage();
 
     }
 
@@ -101,6 +100,15 @@ export const getUserName = (name) => {
 export const getUrl = (name) => {
     return name.replace("profile/card#me", "");
 };
+
+export const  refreshPage = () => { 
+    window.location.reload(); 
+}
+
+export const removeFriend = (webIdUser,friendWebID) => {
+    friendsHelper.deleteFriend(webIdUser, friendWebID);
+    //refreshPage();
+}
 
 
 

@@ -126,3 +126,10 @@ export const Button = styled.button`
   max-width: 200px;
   font-size: 15px;
 `;
+
+export const ButtonDelete = styled.button`
+max-width: 200px;
+font-size: 15px;
+background-color: red;
+
+`;
