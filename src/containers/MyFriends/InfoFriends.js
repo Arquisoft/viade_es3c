@@ -18,7 +18,7 @@ const InfoFriends = props => {
     <RouteCard className="card">
       <h3>{name}</h3>
       <p> Perfil: {url}</p>
-      <ButtonDelete onClick={(e) => handleClick(e)}></ButtonDelete>
+      <ButtonDelete onClick={(e) => handleClick(e)}>Delete friend</ButtonDelete>
     </RouteCard>
   );
 };

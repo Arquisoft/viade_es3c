@@ -128,8 +128,8 @@ export const Button = styled.button`
 `;
 
 export const ButtonDelete = styled.button`
-max-width: 200px;
-font-size: 15px;
-background-color: red;
-
+  background: red;
+  padding: 12px 28px;
+  font-size: 20px;
+  color:black;
 `;
