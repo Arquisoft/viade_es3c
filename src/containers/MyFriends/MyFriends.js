@@ -18,7 +18,8 @@ class MyFriends extends React.Component{
         super();
         this.webID=webId;
         this.state = {
-            friendWebID: ''
+            friendWebID: '',
+            cargando:false
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -41,16 +42,16 @@ class MyFriends extends React.Component{
         </Friends>;
     }
 
-
-    redirectTo(){
-        this.forceUpdate();
+     refreshPage(){ 
+        window.location.reload(); 
     }
+
 
     
     handleClick(e){
         e.preventDefault();
         friendsHelper.addFriend(this.webID, this.state.friendWebID);
-        this.redirectTo();
+        this.refreshPage();
 
     }
 

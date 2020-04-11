@@ -1,5 +1,5 @@
 import React from 'react';
-import {RouteCard} from './myfriends.style';
+import {RouteCard, Button} from './myfriends.style';
 
 const InfoFriends = props => {
   const {name, url} = props;
@@ -7,6 +7,7 @@ const InfoFriends = props => {
     <RouteCard className="card">
       <h3>{name}</h3>
         <p> Perfil: {url}</p>
+        
       </RouteCard>
   );
 };
