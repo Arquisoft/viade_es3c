@@ -13,7 +13,7 @@ import Notifications from "../Share/NotificationHelp";
 import MultsButton from "./ViewMult";
 
 const InfoRoute = (props) => {
-	const { name, author, description, points, center, mult, ruta, uuid } = props;
+	const { name, author, description, points, center, mult, r, uuid } = props;
 	const [ show, setShow ] = useState(true);
 	const [ showConfirm, setShowConfirm ] = useState(false);
 	const [ showRoute, setShowRoute ] = useState(true);
@@ -39,7 +39,7 @@ const InfoRoute = (props) => {
 									ldflexHelper.deleteFile(media.url);
 									ldflexHelper.deleteFile(media.ttlUrl);
 								}
-								ldflexHelper.deleteFile(ruta);
+								ldflexHelper.deleteFile(r);
 								successToaster("La ruta se está eliminando", "Éxito");
 								setTimeout(function() {
 									window.location.reload();
@@ -66,7 +66,7 @@ const InfoRoute = (props) => {
 			<br />
 			<div id="button">
 				<Button id="viewFriends" onClick={() => setShow(!show)}>
-					Ver amigos
+					Compartir con ...
 				</Button>
 			</div>
 			<br />

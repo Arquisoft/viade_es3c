@@ -37,6 +37,7 @@ const AutoRotatingCarouselModal = ({
           media={ <img id="img" src={"img/illustration-noresults.png"} 
           width={640} height={360} />}
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
+          key={Date.now()}
           style={{ backgroundColor: cyan[400] }}
           title={"Sorry :("}
           subtitle={"seems like there is no media uploaded for this route"}
