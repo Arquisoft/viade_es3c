@@ -1,16 +1,14 @@
 import React from "react";
 import { RouteCard, ButtonDelete } from "./myfriends.style";
 import { removeFriend, refreshPage } from "./MyFriends";
+import { successToaster } from "@utils";
 
 const InfoFriends = (props) => {
 	const { name, url, webidUser, webidFriend } = props;
 
-	function handleClick(e) {
+	async function handleClick(e) {
 		e.preventDefault();
-		removeFriend(props.webidUser, props.webidFriend);
-		console.log(props.webidUser);
-		console.log(props.webidFriend);
-		refreshPage();
+		await removeFriend(props.webidUser, props.webidFriend);
 	}
 
 	return (

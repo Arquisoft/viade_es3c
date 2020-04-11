@@ -46,11 +46,13 @@ class MyFriends extends React.Component {
 		);
 	}
 
-	handleClick(e) {
+	async handleClick(e) {
 		e.preventDefault();
-		friendsHelper.addFriend(this.webID, this.state.friendWebID);
+		await friendsHelper.addFriend(this.webID, this.state.friendWebID);
 		successToaster("Amigo añadido correctamente", "Éxito");
-		refreshPage();
+		setTimeout(function() {
+			window.location.reload();
+		}, 1000);
 	}
 
 	addFriends() {
@@ -98,14 +100,12 @@ export const getUrl = (name) => {
 	return name.replace("profile/card#me", "");
 };
 
-export const refreshPage = () => {
-	window.location.reload();
-};
-
 export const removeFriend = (webIdUser, friendWebID) => {
 	friendsHelper.deleteFriend(webIdUser, friendWebID);
 	successToaster("Amigo eliminado correctamente", "Éxito");
-	//refreshPage();
+	setTimeout(function() {
+		window.location.reload();
+	}, 1000);
 };
 
 export default MyFriends;
