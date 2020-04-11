@@ -2,7 +2,7 @@ import {
   AccessControlList,
   AppPermission
 } from "@inrupt/solid-react-components";
-import { errorToaster } from "@utils";
+import { errorToaster, successToaster } from "@utils";
 
 
 // Check that all permissions we need are set. If any are missing, this returns false
@@ -114,6 +114,7 @@ export const notSharing = async (webId, friendId, shareUrl) => {
   const aclApi = new AclApi(fetch, { autoSave: true });
   const acl = await aclApi.loadFromFileUrl(shareUrl);
   await acl.deleteRule(READ, friendId);
+  successToaster("La ruta ha sido compartida", "Éxito")
 }
 
 
