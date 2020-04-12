@@ -1,23 +1,6 @@
 [[section-architecture-constraints]]
 == Architecture Constraints
 
-
-[role="arc42help"]
-****
-.Contents
-Any requirement that constrains software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.
-
-.Motivation
-Architects should know exactly where they are free in their design decisions and where they must adhere to constraints.
-Constraints must always be dealt with; they may be negotiable, though.
-
-.Form
-Simple tables of constraints with explanations.
-If needed you can subdivide them into
-technical constraints, organizational and political constraints and
-conventions (e.g. programming or versioning guidelines, documentation or naming conventions)
-****
-
 === Technical Constraints
 [width="100%",options="header"]
 |====================
@@ -47,7 +30,7 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 | Code | Constraint | Explanation 
 | CC01 | Version control source | Must be performed with Git, using the repository hosted in the GitHub service
 | CC02 | Documentation | Implemented following the Arc42 structure template and using AsciiDoctor
-| CC03 | Javascript code conventions | The code shoud follow the javascript code convections 
-| CC04 | Node code conventions | The code shoud follow the node code convections 
-| CC05 | React code conventions | The code shoud follow the react code convections 
+| CC03 | https://travis-ci.org/[Travis] | We use it to deploy the project and we can test our libraries or applications against different configurations without having to have them installed locally
+| CC04 | https://codecov.io/[Codecov] | We use it to check the test coverage 
+| CC05 | https://app.codacy.com/[Codacy] | We use it to check the quality of our code
 |====================
