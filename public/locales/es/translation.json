@@ -127,6 +127,12 @@
     "minMaxString": "Error: Mínimo y máximo debería ser ",
     "defaultError": "Error: Formato incorrecto"
   },
+  "newRoute":{
+    "title": "Nueva ruta",
+    "name": "Nombre de la ruta:",
+    "description": "Descripción de la ruta:",
+    "btnSave":"Guardar"
+  },
   "viade": {
     "title": "Viade",
     "dataError": {

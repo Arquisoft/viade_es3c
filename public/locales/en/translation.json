@@ -129,6 +129,12 @@
     "minMaxString": "Error: Min and max should be ",
     "defaultError": "Error: Field value has wrong format"
   },
+  "newRoute":{
+    "title": "New route",
+    "name": "Name of the route:",
+    "description": "Description of the route:",
+    "btnSave":"Save"
+  },
   "viade": {
     "title": "Viade routes manager",
     "dataError": {

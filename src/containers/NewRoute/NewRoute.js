@@ -14,6 +14,7 @@ import {
 import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
+import i18n from "i18n";
 
 type Props = { webId: String };
 
@@ -30,7 +31,7 @@ class NewRoute extends React.Component {
 			markers: null
 		};
 	}
-
+	
 	state = { markers: {}, image: {} };
 
 	callBackFunction = (childData) => {
@@ -91,19 +92,19 @@ class NewRoute extends React.Component {
 	}
 
 	render(): React.ReactNode {
+		//const { t } = this.props;
 		return (
 			<RouteWrapper data-testid="route-component">
 				<Header>
-					<TitleRoute>New Route</TitleRoute>
+					<TitleRoute>{i18n.t("newRoute.title")}</TitleRoute>
 					<RouteForm id="routef">
 						<DivForms>
 							<LabelInput>
-								Name of the route:{" "}
+								{i18n.t("newRoute.name")}{" "}
 								<input
 									type="text"
 									id="route_name"
 									name="route_name"
-									placeholder="New Route"
 									ref={this.title}
 								/>
 							</LabelInput>
@@ -111,12 +112,11 @@ class NewRoute extends React.Component {
 						<DivForms>
 							<LabelInput>
 								{" "}
-								Description of the route:{" "}
+								{i18n.t("newRoute.description")}{" "}
 								<TextArea
 									type="text"
 									id="description"
 									name="description"
-									placeholder="Description for the new Route"
 									rows="10"
 									ref={this.descripton}
 								/>{" "}
@@ -130,7 +130,7 @@ class NewRoute extends React.Component {
 						<InputSubmit
 							type="submit"
 							id="save_route"
-							value="Save"
+							value={i18n.t("newRoute.btnSave")}
 							form="routef"
 							onClick={this.handleSubmit}
 						/>
