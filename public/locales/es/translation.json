@@ -158,6 +158,18 @@
     "noMult": "Parece que no hay archivos multimedia para esta ruta.",
     "noMultTitle" :"Vaya..."
   },
+  "myFriends":{
+    "title": "Añade nuevos amigos",
+    "friends": "Mis amigos",
+    "delete": "Eliminar amigo",
+    "perfil": "Perfil:",
+    "deleting": "Eliminando a ",
+    "friendsList": " de tu lista de amigos",
+    "adding":"Añadiendo a ",
+    "addingList": "a tu lista de amigos",
+    "btnAdd": "Añadir",
+    "webId":"Introduce el webID del usuario que desees añadir a tu lista de amigos"
+  },
   "viade": {
     "title": "Viade",
     "dataError": {

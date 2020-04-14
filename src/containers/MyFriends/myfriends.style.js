@@ -31,6 +31,9 @@ export const FormAddFriends = styled.div`
 	input {
 		margin: 20px;
 	}
+	form{
+		text-align:center;
+	}
 `;
 
 export const Friends = styled.div`

@@ -160,6 +160,18 @@
     "noMult": "Seems like there is no media uploaded for this route",
     "noMultTitle" :"Sorry..."
   },
+  "myFriends":{
+    "title": "Add new friends",
+    "friends": "My friends",
+    "delete": "Delete friend",
+    "perfil": "Profile:",
+    "deleting": "Deleting ",
+    "friendsList": " from your friends list",
+    "adding":"Adding ",
+    "addingList": "to your friends list",
+    "btnAdd": "Add",
+    "webId":"Enter the webID of the user you want to add to your friends list"
+  },
   "viade": {
     "title": "Viade routes manager",
     "dataError": {

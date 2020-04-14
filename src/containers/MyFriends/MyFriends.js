@@ -11,6 +11,7 @@ import { List } from "@solid/react";
 import InfoFriends from "./InfoFriends";
 import friendsHelper from "./FriendsHelper";
 import { successToaster } from "@utils";
+import i18n from "i18n";
 
 type Props = { webId: String };
 
@@ -49,7 +50,7 @@ class MyFriends extends React.Component {
 	async handleClick(e) {
 		e.preventDefault();
 		await friendsHelper.addFriend(this.webID, this.state.friendWebID);
-		successToaster("Adding " + this.state.friendWebID + " to your friend list", "Éxito");
+		successToaster(i18n.t("myFriends.adding") + this.state.friendWebID + i18n.t("myFriends.addingList"), i18n.t("newRoute.success"));
 		setTimeout(function() {
 			window.location.reload();
 		}, 1000);
@@ -60,10 +61,10 @@ class MyFriends extends React.Component {
 			<FormAddFriends>
 				<form>
 					<label>
-						WebId:
+						{i18n.t("myFriends.webId")}
 						<input type="text" name="webID" onChange={this.handleChange} />
 					</label>
-					<input type="submit" value="Add" onClick={(e) => this.handleClick(e)} />
+					<input type="submit" value={i18n.t("myFriends.btnAdd")} onClick={(e) => this.handleClick(e)} />
 				</form>
 			</FormAddFriends>
 		);
@@ -75,11 +76,11 @@ class MyFriends extends React.Component {
 				<MyRouteContainer>
 					<FormRenderContainer>
 						<Header>
-							<h1>Adding new Friends</h1>
+							<h1>{i18n.t("myFriends.title")}</h1>
 						</Header>
 						{this.addFriends()}
 						<Header>
-							<h1>My friends</h1>
+							<h1>{i18n.t("myRoutes.friends")}</h1>
 						</Header>
 						{this.getList()}
 					</FormRenderContainer>
@@ -102,7 +103,7 @@ export const getUrl = (name) => {
 
 export const removeFriend = (webIdUser, friendWebID) => {
 	friendsHelper.deleteFriend(webIdUser, friendWebID);
-	successToaster("Deleting " + friendWebID + "from your friend list", "Éxito");
+	successToaster(i18n.t("myFriends.deleting") + friendWebID + i18n.t("myFriends.friendsList"), i18n.t("newRoute.success"));
 	setTimeout(function() {
 		window.location.reload();
 	}, 1000);
