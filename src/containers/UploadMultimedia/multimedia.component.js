@@ -38,7 +38,7 @@ export const MultimediaPageContent = (props) => {
 							{...{
 								...props,
 								webId,
-								text: t("welcome.upload"),
+								text: t("newRoute.btnMedia"),
 								uploadingText: t("welcome.uploadingText")
 							}}
 						/>

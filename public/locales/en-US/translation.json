@@ -137,7 +137,13 @@
     "title": "New route",
     "name": "Name of the route:",
     "description": "Description of the route:",
-    "btnSave":"Save"
+    "btnSave":"Save",
+    "errorTitle": "The route must have a title",
+    "errorDecription": "The route must have a description",
+    "errorPoints": "No point has been marked on the map",
+    "successRoute": "The route has been saved successfully",
+    "success": "SUCCESS",
+    "btnMedia": "Upload photo/video"
   },
   "viade": {
     "viade": "Viade",

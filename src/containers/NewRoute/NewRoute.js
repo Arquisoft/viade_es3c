@@ -51,11 +51,11 @@ class NewRoute extends React.Component {
 
 	async handleSave(event) {
 		if (this.title.current.value.length === 0) {
-			errorToaster("La ruta tiene que tener un título", "ERROR");
+			errorToaster(i18n.t("newRoute.errorTitle"), "ERROR");
 		} else if (this.descripton.current.value.length === 0) {
-			errorToaster("La ruta tiene que tener una descripción", "ERROR");
+			errorToaster(i18n.t("newRoute.errorDescription"), "ERROR");
 		} else if (this.state.markers === null || this.state.markers.length < 0) {
-			errorToaster("No se ha marcado ningún punto en el mapa", "ERROR");
+			errorToaster(i18n.t("newRoute.errorPoints"), "ERROR");
 		} else {
 			const points = [];
 			for (let i = 0; i < this.state.markers.length; i++) {
@@ -83,7 +83,7 @@ class NewRoute extends React.Component {
 			}
 			let route = new Route(this.title.current.value, author, this.descripton.current.value, points, multimedia);
 			await viadeManager.addRoute(route, this.webID);
-			successToaster("Se ha guardado correctamente", "Éxito");
+			successToaster(i18n.t("newRoute.successRoute"), i18n.t("newRoute.success"));
 			setTimeout(function() {
 				window.location.href = "#/myRoutes";
 			}, 1000);
@@ -92,7 +92,6 @@ class NewRoute extends React.Component {
 	}
 
 	render(): React.ReactNode {
-		//const { t } = this.props;
 		return (
 			<RouteWrapper data-testid="route-component">
 				<Header>

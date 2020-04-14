@@ -131,7 +131,13 @@
     "title": "Nueva ruta",
     "name": "Nombre de la ruta:",
     "description": "Descripción de la ruta:",
-    "btnSave":"Guardar"
+    "btnSave":"Guardar",
+    "errorTitle": "La ruta tiene que tener un título",
+    "errorDecription": "La ruta tiene que tener una descripción",
+    "errorPoints": "No se ha marcado ningún punto en el mapa",
+    "successRoute": "La ruta se ha guardado correctamente",
+    "success": "ÉXITO",
+    "btnMedia": "Subir foto/vídeo"
   },
   "viade": {
     "title": "Viade",
