@@ -139,6 +139,25 @@
     "success": "ÉXITO",
     "btnMedia": "Subir foto/vídeo"
   },
+  "myRoutes":{
+    "title": "Mis rutas",
+    "noRoutes": "Actualmente no tiene ninguna ruta guardada, puede crear una nueva ruta",
+    "here": "aquí",
+    "sure": "¿Estás seguro de que deseas eliminar la ruta? ",
+    "deleteMedia": "Todos los archivos multimedia asociados también serán eliminados permanentemente.",
+    "attetion": "¡Atención!",
+    "deletingMedia": "La ruta se está eliminando",
+    "btnDelete":"Eliminar",
+    "btnClose": "Cerrar",
+    "createdBy":"Ruta creada por:",
+    "description":"Descripción de la ruta:",
+    "btnViewRoute" :"Visualizar ruta en el mapa",
+    "btnShare": "Compartir ruta con...",
+    "friends": "Mis amigos",
+    "viewMult": "Ver archivos multimedia",
+    "noMult": "Parece que no hay archivos multimedia para esta ruta.",
+    "noMultTitle" :"Vaya..."
+  },
   "viade": {
     "title": "Viade",
     "dataError": {

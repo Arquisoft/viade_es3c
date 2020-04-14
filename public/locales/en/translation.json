@@ -141,6 +141,25 @@
     "success": "SUCCESS",
     "btnMedia": "Upload photo/video"
   },
+  "myRoutes":{
+    "title": "My routes",
+    "noRoutes": "You currently have no saved route, you can create a new route",
+    "here": "here",
+    "sure": "Are you sure you wish to delete this item? ",
+    "deleteMedia": "All the media associate also will be deleted permanently",
+    "attetion": "Attention!",
+    "deletingMedia": "The route is being removed",
+    "btnDelete":"Delete",
+    "btnClose": "Close",
+    "createdBy":"Route created by:",
+    "description":"Description of the route:",
+    "btnViewRoute" :"Show route on the map",
+    "btnShare": "Share route with...",
+    "friends": "My friends",
+    "viewMult": "View Multimedia",
+    "noMult": "Seems like there is no media uploaded for this route",
+    "noMultTitle" :"Sorry..."
+  },
   "viade": {
     "title": "Viade routes manager",
     "dataError": {

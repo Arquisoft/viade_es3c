@@ -34,7 +34,7 @@ class MyRoute extends React.Component {
 					<MyRouteContainer data-testid="myroute-container">
 						<FormRenderContainer>
 							<Header data-testid="myroute-header">
-								<h1>Mis rutas</h1>
+								<h1>{i18n.t("myRoutes.title")}</h1>
 							</Header>
 							{this.state.data.map((ruta, index) => {
 								return (
@@ -62,11 +62,11 @@ class MyRoute extends React.Component {
 					<MyRouteContainer data-testid="myroute-container">
 						<FormRenderContainer>
 							<Header data-testid="myroute-header">
-								<h1>Mis rutas</h1>
+								<h1>{i18n.t("myRoutes.title")}</h1>
 							</Header>
 							<h5 align="center">
-								Actualmente no tiene ninguna ruta. Cree su primera ruta
-								<a href={"#/route"}> aquí</a>
+								{i18n.t("myRoutes.noRoutes")}
+								<a href={"#/route"}> {i18n.t("myRoutes.here")}</a>
 							</h5>
 						</FormRenderContainer>
 					</MyRouteContainer>
