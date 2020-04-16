@@ -2,8 +2,8 @@ import { Map, GoogleApiWrapper, Marker, Polyline } from "google-maps-react";
 import React from "react";
 
 const mapStyle = {
-	width: "635px",
-	height: "368px"
+	width: "600px",
+	height: "350px"
 	
 };
 

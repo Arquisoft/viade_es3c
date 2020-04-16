@@ -72,10 +72,13 @@ export const FormRenderContainer = styled.div`
     margin-left: 0;
   }
   #mapa{
-    width: 100%;
-    height: 370px;
+    width: 600px;
+    height: 350px;
     padding: 0px !IMPORTANT;
   }
+  #shareRoute{
+    display: contents;
+	}
 
 `;
 

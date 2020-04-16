@@ -47,11 +47,12 @@ export const FriendsList = styled.div`
 	position: relative;
 	align-items: center;
 	justify-content: center;
-	background-image: url('img/pattern-geo.png'), linear(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
-	background-repeat: repeat, no-repeat;
+	//background-image: url('img/pattern-geo.png'), linear(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
 	padding: 10px 5px;
 	a {
-		font-size: 25px;
+		font-size: 20px;
+		font-weight: bold;
+		
 	}
 `;
 
@@ -73,11 +74,9 @@ export const MyRouteContainer = styled.div`
 	flex: 1 0 auto;
 `;
 export const FormRenderContainer = styled.div`
-	border: 1px solid #dae0e6;
 	min-height: 40px;
 	padding: 5px;
-	//background-image: url('img/pattern-geo.png'),
-	background-color: white;
+	background: white;
 	background-repeat: repeat, no-repeat;
 	padding: 30px 20px;
 	.inrupt-form-group {
