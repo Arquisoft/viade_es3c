@@ -4,8 +4,6 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { cyan } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
 import {PlayerDiv} from "./myroutes.style"
-// eslint-disable-next-line
-import { Player } from "video-react";
 
 const getMediaComponent = (url) => {
   if (url.includes('.mp4')) {
