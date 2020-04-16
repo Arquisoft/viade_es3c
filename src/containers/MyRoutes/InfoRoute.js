@@ -62,34 +62,31 @@ const InfoRoute = (props) => {
 					{i18n.t("myRoutes.btnViewRoute")}
 				</Button>
 			</div>
-			<br />
-			<div id="button">
-				<Button id="viewFriends" onClick={() => setShow(!show)}>
-					{i18n.t("myRoutes.btnShare")}
-				</Button>
-			</div>
-			<br />
-			<div>
-				<MultsButton {...{ mult, name }} />
-			</div>
 			{showRoute ? (
 				<div />
 			) : (
 				<FormRenderContainer id="mapa">
 					<RouteMap markers={points} center={center} />
 				</FormRenderContainer>
+				
 			)}
-
+			<br />
+			<div id="button">
+				<Button id="viewFriends" onClick={() => setShow(!show)}>
+					{i18n.t("myRoutes.btnShare")}
+				</Button>
+			</div>
 			{show ? (
 				<div />
 			) : (
 				<FormRenderContainer>
-					<Header>
-						<h1>{i18n.t("myRoutes.friends")}</h1>
-					</Header>
 					<Notifications ruta={uuid} />
 				</FormRenderContainer>
 			)}
+			<br />
+			<div>
+				<MultsButton {...{ mult, name }} />
+			</div>
 		</RouteCard>
 	);
 };

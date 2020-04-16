@@ -2,8 +2,9 @@ import { Map, GoogleApiWrapper, Marker, Polyline } from "google-maps-react";
 import React from "react";
 
 const mapStyle = {
-	width: "680px",
-	height: "366px"
+	width: "635px",
+	height: "368px"
+	
 };
 
 export class MapContainer extends React.Component {
