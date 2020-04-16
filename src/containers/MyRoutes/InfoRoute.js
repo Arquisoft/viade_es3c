@@ -56,10 +56,11 @@ const InfoRoute = (props) => {
 			<p>{author}</p>
 			<h3> {i18n.t("myRoutes.description")}</h3>
 			<p>{description}</p>
-			<div id="divShare">
+			<div id="divShare" class="btn-group">
 				<Button id="viewFriends" type="button" onClick={() => setShow(!show)}>
 					{i18n.t("myRoutes.btnShare")}
 				</Button>
+				<MultsButton {...{ mult, name }} />
 			</div>
 			{show ? (
 				<div />
@@ -73,9 +74,6 @@ const InfoRoute = (props) => {
 					<RouteMap markers={points} center={center} />
 			</FormRenderContainer>
 			<br />
-			<div>
-				<MultsButton {...{ mult, name }} />
-			</div>
 		</RouteCard>
 	);
 };

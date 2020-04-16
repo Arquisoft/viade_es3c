@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
+//import Button from "@material-ui/core/Button";
+import { Button } from "./myroutes.style";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { cyan } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";

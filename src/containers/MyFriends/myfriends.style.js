@@ -49,6 +49,9 @@ export const FriendsList = styled.div`
 	justify-content: center;
 	//background-image: url('img/pattern-geo.png'), linear(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
 	padding: 10px 5px;
+	margin-right: 50px;
+	border-left: groove;
+
 	a {
 		font-size: 20px;
 		font-weight: bold;

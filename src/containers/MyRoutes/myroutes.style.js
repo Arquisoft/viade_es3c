@@ -31,6 +31,9 @@ export const RouteCard = styled.div`
     font-size: 14px; 
     padding: 10px 20px;
   }
+  #divShare{
+    margin-left: 50px;
+  }
 `;
 
 export const RouteWrapper = styled.section`
@@ -79,6 +82,7 @@ export const FormRenderContainer = styled.div`
   #shareRoute{
     display: contents;
 	}
+  
 
 `;
 
@@ -109,6 +113,7 @@ export const Button = styled.button`
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   padding: 8px 10px;
   font-size: 15px;
+  margin-right: 30px;
 `;
 
 export const Slider = styled.div`
