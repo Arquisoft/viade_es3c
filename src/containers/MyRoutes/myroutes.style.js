@@ -175,3 +175,9 @@ export const Right = styled.div`
   cursor: pointer;
   z-index: 2;
 `;
+
+export const PlayerDiv = styled.div`
+      max-height=30px
+      max-width=30px
+
+`;

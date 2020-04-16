@@ -3,19 +3,13 @@ import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { cyan } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
+import {PlayerDiv} from "./myroutes.style"
 // eslint-disable-next-line
 import { Player } from "video-react";
 
 const getMediaComponent = (url) => {
   if (url.includes('.mp4')) {
-    return (<Player
-      playsInline
-      poster="/assets/poster.png"
-      src={url}
-      fluid={false}
-      width={640}
-      height={360}
-    />)
+    return (<PlayerDiv><video autoplay controls src={url} width="640" height="380"></video></PlayerDiv>)
   } else {
     return <img id="img" src={url} width={640}
     height={360} alt={"Media for the route"}/>
