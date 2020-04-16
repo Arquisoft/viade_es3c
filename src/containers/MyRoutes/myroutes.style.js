@@ -5,7 +5,7 @@ export const RouteCard = styled.div`
   margin: 15px auto;
 
   max-width: 80% !important;
-  padding: 30px 0 !important; //temporary fix to a style guide bug
+  padding: 30px 0;
   a {
     text-decoration: none;
     &:hover {
@@ -22,6 +22,13 @@ export const RouteCard = styled.div`
   h3 {
     font-size: 25px;
     margin: 0 0 0px 0;
+  }
+  #divDelete{
+    margin-left: 580px;
+  }
+  #btnDelete{
+    font-size: 14px; 
+    padding: 10px 20px;
   }
 `;
 
