@@ -14,6 +14,7 @@ import {
 import { Route, Point, Multimedia } from "domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
 import i18n from "i18n";
+import * as viadeManager from "../../utils/storage";
 
 type Props = {
     webId: String,
