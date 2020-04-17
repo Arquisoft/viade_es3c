@@ -63,6 +63,7 @@
     "react-toastify": "^5.3.0",
     "react-transition-group": "^4.1.1",
     "shacl-js": "0.0.1",
+    "solid-acl-utils": "github:otto-aa/solid-acl-utils",
     "solid-auth-client": "^2.3.0",
     "solid-file-client": "^1.0.2",
     "solid-namespace": "^0.3.0",
