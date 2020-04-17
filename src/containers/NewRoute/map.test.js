@@ -11,8 +11,7 @@ describe.only('Map', () => {
     </Router>
   );
 
-  it('renders without crashing', () => {
+  it("renders without crashing", () => {
     expect(container).toBeTruthy();
   });
-
 });

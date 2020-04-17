@@ -1,3 +1,3 @@
-import NewRoute from './NewRoute';
+import NewRoute from "./NewRoute";
 
 export default NewRoute;

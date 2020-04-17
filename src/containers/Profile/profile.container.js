@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FormModel } from '@inrupt/solid-react-components';
+import React, { Fragment, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FormModel } from "@inrupt/solid-react-components";
 import { successToaster, errorToaster } from "../../utils";
-import { Loader } from '@util-components';
+import { Loader } from "@util-components";
 import {
   Header,
   ProfileContainer,
@@ -11,11 +11,11 @@ import {
   FormRenderContainer,
   AutoSaveNotification,
   WebId
-} from './profile.style';
-import { Image } from './components';
-import { AutoSaveSpinner } from '@components';
+} from "./profile.style";
+import { Image } from "./components";
+import { AutoSaveSpinner } from "@components";
 
-const defaultProfilePhoto = 'img/icon/empty-profile.svg';
+const defaultProfilePhoto = "img/icon/empty-profile.svg";
 
 /**
  * We are using ldflex to fetch profile data from a solid pod.
@@ -31,21 +31,31 @@ const Profile = ({ webId }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onError = e => {
-    if (e.message.toString().indexOf('Validation failed') < 0) {
-      errorToaster(t('formLanguage.renderer.formNotLoaded'), t('notifications.error'), {
-        label: t('errorFormRender.link.label'),
-        href: t('errorFormRender.link.href')
-      });
+    if (e.message.toString().indexOf("Validation failed") < 0) {
+      errorToaster(
+        t("formLanguage.renderer.formNotLoaded"),
+        t("notifications.error"),
+        {
+          label: t("errorFormRender.link.label"),
+          href: t("errorFormRender.link.href")
+        }
+      );
       setIsLoading(false);
     }
   };
 
   const onDelete = () => {
-    successToaster(t('formLanguage.renderer.fieldDeleted'), t('notifications.success'));
+    successToaster(
+      t("formLanguage.renderer.fieldDeleted"),
+      t("notifications.success")
+    );
   };
 
   const onAddNewField = () => {
-    successToaster(t('formLanguage.renderer.fieldAdded'), t('notifications.success'));
+    successToaster(
+      t("formLanguage.renderer.fieldAdded"),
+      t("notifications.success")
+    );
   };
 
   return (
@@ -65,7 +75,7 @@ const Profile = ({ webId }: Props) => {
             <AutoSaveNotification className="banner-wrap--warning banner">
               <div className="banner-wrap__content">
                 <i className="icon fa fa-exclamation-circle" />
-                {t('profile.autosaveNotification')}
+                {t("profile.autosaveNotification")}
               </div>
             </AutoSaveNotification>
 
@@ -78,7 +88,8 @@ const Profile = ({ webId }: Props) => {
               </WebId>
               <FormModel
                 {...{
-                  modelPath: 'https://solidsdk.inrupt.net/sdk/userprofile.ttl#formRoot',
+                  modelPath:
+                    "https://solidsdk.inrupt.net/sdk/userprofile.ttl#formRoot",
                   podPath: webId,
                   viewer: false,
                   onInit: () => setIsLoading(true),
@@ -92,10 +103,10 @@ const Profile = ({ webId }: Props) => {
                   onDelete: response => onDelete(response),
                   settings: {
                     theme: {
-                      inputText: 'input-wrap',
-                      inputCheckbox: 'sdk-checkbox checkbox',
-                      form: 'inrupt-sdk-form',
-                      childGroup: 'inrupt-form-group'
+                      inputText: "input-wrap",
+                      inputCheckbox: "sdk-checkbox checkbox",
+                      form: "inrupt-sdk-form",
+                      childGroup: "inrupt-form-group"
                     },
                     savingComponent: AutoSaveSpinner
                   }

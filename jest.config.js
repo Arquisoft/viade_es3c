@@ -2,7 +2,6 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
-
   collectCoverage: true,
 
   collectCoverageFrom: [
@@ -14,7 +13,7 @@ module.exports = {
     "!src/**/index.js",
     "!src/**/serviceWorker.js",
     "!src/**/setupTests.js",
-    "!src/**/*.lite.js",
+    "!src/**/*.lite.js"
   ],
 
   coverageDirectory: "coverage",
@@ -37,15 +36,11 @@ module.exports = {
     "@inrupt/solid-style-guide": "<rootDir>/node_modules/jest-css-modules"
   },
 
-  "resolver": "jest-pnp-resolver",
+  resolver: "jest-pnp-resolver",
 
-  setupFiles: [
-    "react-app-polyfill/jsdom"
-  ],
+  setupFiles: ["react-app-polyfill/jsdom"],
 
-  "setupFilesAfterEnv": [
-    './node_modules/jest-enzyme/lib/index.js'
-  ],
+  setupFilesAfterEnv: ["./node_modules/jest-enzyme/lib/index.js"],
 
   testEnvironment: "jsdom",
 
@@ -55,13 +50,13 @@ module.exports = {
     "/scripts/"
   ],
 
-  "transform": {
+  transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
     "^(?!.*\\.(js|jsx|ts|tsx|json)$)": "<rootDir>/config/jest/fileTransform.js"
   },
 
   transformIgnorePatterns: [
     "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-    "\\\\node_modules\\\\",
-  ],
+    "\\\\node_modules\\\\"
+  ]
 };

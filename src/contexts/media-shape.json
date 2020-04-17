@@ -1,22 +1,22 @@
 {
-    "@context": {
-      "schema": "http://schema.org/"
+  "@context": {
+    "schema": "http://schema.org/"
+  },
+  "shape": [
+    {
+      "prefix": "schema",
+      "predicate": "contentUrl",
+      "object": "url"
     },
-    "shape": [
-      {
-        "prefix": "schema",
-        "predicate": "contentUrl",
-        "object": "url"
-      },
-      {
-        "prefix": "schema",
-        "predicate": "publishedDate",  
-        "object": "date"
-      },
-      {
-        "prefix": "schema",
-        "predicate": "author",
-        "object": "author"
-      }
-    ]
-  }
+    {
+      "prefix": "schema",
+      "predicate": "publishedDate",
+      "object": "date"
+    },
+    {
+      "prefix": "schema",
+      "predicate": "author",
+      "object": "author"
+    }
+  ]
+}

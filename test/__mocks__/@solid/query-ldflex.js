@@ -1,4 +1,4 @@
-const { context } = jest.requireActual('@solid/query-ldflex').default;
+const { context } = jest.requireActual("@solid/query-ldflex").default;
 
 export default {
   context,

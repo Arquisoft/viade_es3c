@@ -13,12 +13,12 @@ const props = {
   test: true
 };
 
-describe.only('NewRoute', () => {
+describe.only("NewRoute", () => {
   afterAll(cleanup);
   const getById = queryByAttribute.bind(null, 'id');
   const { container } = render(
     <Router>
-      <NewRoute{...{...props}}/>
+      <NewRoute {...{ ...props }} />
     </Router>
   );
 

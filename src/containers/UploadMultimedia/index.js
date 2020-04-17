@@ -1,3 +1,3 @@
-import { MultimediaComponent } from './multimedia.container';
+import { MultimediaComponent } from "./multimedia.container";
 
 export default MultimediaComponent;
