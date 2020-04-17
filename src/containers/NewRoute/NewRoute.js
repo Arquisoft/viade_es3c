@@ -100,7 +100,7 @@ class NewRoute extends React.Component {
 	render(): React.ReactNode {
 		return (
 			<RouteWrapper data-testid="route-component">
-				<Header>
+				<Header data-testid="route-header">
 					<TitleRoute>{i18n.t("newRoute.title")}</TitleRoute>
 					<RouteForm id="routef">
 						<DivForms>
