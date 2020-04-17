@@ -135,6 +135,7 @@
     "errorTitle": "La ruta tiene que tener un título",
     "errorDecription": "La ruta tiene que tener una descripción",
     "errorPoints": "No se ha marcado ningún punto en el mapa",
+    "errorOnePoint": "La ruta debe tener más de un punto",
     "successRoute": "La ruta se ha guardado correctamente",
     "success": "ÉXITO",
     "btnMedia": "Subir foto/vídeo"

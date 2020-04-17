@@ -56,7 +56,10 @@ class NewRoute extends React.Component {
 			errorToaster(i18n.t("newRoute.errorDescription"), "ERROR");
 		} else if (this.state.markers === null || this.state.markers.length < 0) {
 			errorToaster(i18n.t("newRoute.errorPoints"), "ERROR");
-		} else {
+		} else if(this.state.markers.length === 1) {
+			errorToaster(i18n.t("newRoute.errorOnePoint"), "ERROR");
+		}
+		else {
 			const points = [];
 			for (let i = 0; i < this.state.markers.length; i++) {
 				points.push(

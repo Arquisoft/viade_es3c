@@ -141,6 +141,7 @@
     "errorTitle": "The route must have a title",
     "errorDecription": "The route must have a description",
     "errorPoints": "No point has been marked on the map",
+    "errorOnePoint": "The route must have at least two points",
     "successRoute": "The route has been saved successfully",
     "success": "SUCCESS",
     "btnMedia": "Upload photo/video"
