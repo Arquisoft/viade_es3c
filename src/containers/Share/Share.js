@@ -1,8 +1,6 @@
 import React from 'react';
 import {sharing} from "../../utils/permissions";
 import {getUrl, getUserName} from "../MyFriends/MyFriends";
-import {List} from "@solid/react";
-import {FriendsList} from "../MyFriends/myfriends.style";
 import Notifications from "./NotificationHelp";
 type Props = { webId: String };
 
