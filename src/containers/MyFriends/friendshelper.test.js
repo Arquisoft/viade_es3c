@@ -1,26 +1,17 @@
 import React from 'react';
-import {cleanup, render} from 'react-testing-library';
-import {HashRouter as Router} from 'react-router-dom';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {fas} from '@fortawesome/free-solid-svg-icons';
-import InfoFriends from "./InfoFriends";
+import {cleanup} from 'react-testing-library';
+import friendsHelper from "./FriendsHelper";
 
-library.add(fas);
+afterAll(cleanup);
 
-const props = {
-  name: 'elmer',
-  url: ' https://elmer.solid.community/'
-};
+describe.only('FriendsHelp', () => {
+  var name = 'elmer';
+  var url = 'https://elmer.solid.community/';
 
-describe.only('MyFriends', () => {
-  afterAll(cleanup);
-  const {container} = render(
-    <Router>
-      <InfoFriends {...{...props}} />
-    </Router>
-  );
-
-  test('renders without crashing', () => {
-    expect(container).toBeTruthy();
+  it("create class FriendsHelp without crashing", () => {
+    friendsHelper.addFriend(name, url);
+    friendsHelper.deleteFriend(name, url);
+    friendsHelper.findFriendsFor(name);
+    friendsHelper.getName(name);
   });
 });
