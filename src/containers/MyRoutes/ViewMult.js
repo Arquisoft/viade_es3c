@@ -4,13 +4,10 @@ import { Button } from "./myroutes.style";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { cyan } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
-<<<<<<< HEAD
 import {PlayerDiv} from "./myroutes.style"
-=======
 // eslint-disable-next-line
 import { Player } from "video-react";
 import i18n from "i18n";
->>>>>>> origin/feature_myRoutes_front
 
 const getMediaComponent = (url) => {
   if (url.includes('.mp4')) {
