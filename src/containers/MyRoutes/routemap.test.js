@@ -1,17 +1,19 @@
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
 import { HashRouter as Router } from 'react-router-dom';
-import {MapContainer} from "./Map";
+import RouteMap from "./RouteMap";
 
-describe.only('Map', () => {
+
+describe.only('RouteMap', () => {
   afterAll(cleanup);
   const { container } = render(
     <Router>
-      <MapContainer/>
+      <RouteMap/>
     </Router>
   );
 
-  it("renders without crashing", () => {
+  it('renders without crashing', () => {
     expect(container).toBeTruthy();
   });
+
 });

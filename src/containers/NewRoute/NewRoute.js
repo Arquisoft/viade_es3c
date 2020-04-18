@@ -11,12 +11,15 @@ import {
 	TitleRoute,
 	RouteForm
 } from "./route.style";
-import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
 import i18n from "i18n";
+import * as viadeManager from "../../utils/storage";
 
-type Props = { webId: String };
+type Props = {
+    webId: String,
+    test: boolean
+};
 
 class NewRoute extends React.Component {
 	constructor({ webId }: Props) {
@@ -97,7 +100,7 @@ class NewRoute extends React.Component {
 	render(): React.ReactNode {
 		return (
 			<RouteWrapper data-testid="route-component">
-				<Header>
+				<Header data-testid="route-header">
 					<TitleRoute>{i18n.t("newRoute.title")}</TitleRoute>
 					<RouteForm id="routef">
 						<DivForms>

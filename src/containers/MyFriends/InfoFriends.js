@@ -15,7 +15,7 @@ const InfoFriends = (props) => {
 		<RouteCard className="card">
 			<h3>{name}</h3>
 			<p>{i18n.t("myFriends.perfil")} {url}</p>
-			<ButtonDelete onClick={(e) => handleClick(e)}>{i18n.t("myFriends.delete")}</ButtonDelete>
+			<ButtonDelete id="delete_friend" onClick={(e) => handleClick(e)}>{i18n.t("myFriends.delete")}</ButtonDelete>
 		</RouteCard>
 	);
 };

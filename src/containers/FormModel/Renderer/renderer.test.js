@@ -1,17 +1,18 @@
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
 import { HashRouter as Router } from 'react-router-dom';
-import {MapContainer} from "./Map";
+import FormModelRenderer from './form-renderer.component';
 
-describe.only('Map', () => {
+describe.only('Form Model Renderer', () => {
   afterAll(cleanup);
-  const { container } = render(
+
+  const { container, getByTestId } = render(
     <Router>
-      <MapContainer/>
+      <FormModelRenderer t={key => key} />
     </Router>
   );
 
-  it("renders without crashing", () => {
+  test('renders without crashing', () => {
     expect(container).toBeTruthy();
   });
 });

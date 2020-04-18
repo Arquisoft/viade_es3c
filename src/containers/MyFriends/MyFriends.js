@@ -64,7 +64,7 @@ class MyFriends extends React.Component {
 						{i18n.t("myFriends.webId")}
 						<input type="text" name="webID" onChange={this.handleChange} />
 					</label>
-					<input type="submit" value={i18n.t("myFriends.btnAdd")} onClick={(e) => this.handleClick(e)} />
+					<input type="submit" id="submit-friends" value={i18n.t("myFriends.btnAdd")} onClick={(e) => this.handleClick(e)} />
 				</form>
 			</FormAddFriends>
 		);
