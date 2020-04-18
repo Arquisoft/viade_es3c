@@ -4,8 +4,8 @@ export const RouteCard = styled.div`
   background: linear-gradient(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
   margin: 15px auto;
 
-  max-width: 80% !important;
-  padding: 30px 0 !important; //temporary fix to a style guide bug
+  max-width: 78% !important;
+  padding: 5px 15px !important;
   a {
     text-decoration: none;
     &:hover {
@@ -22,6 +22,17 @@ export const RouteCard = styled.div`
   h3 {
     font-size: 25px;
     margin: 0 0 0px 0;
+  }
+  #divDelete{
+    margin-left: 550px;
+    margin-top: 18px;
+  }
+  #btnDelete{
+    font-size: 14px; 
+    padding: 10px 20px;
+  }
+  #divShare{
+    margin-left: 50px;
   }
 `;
 
@@ -64,10 +75,14 @@ export const FormRenderContainer = styled.div`
     margin-left: 0;
   }
   #mapa{
-    width: 100%;
-    height: 370px;
+    width: 600px;
+    height: 350px;
     padding: 0px !IMPORTANT;
   }
+  #shareRoute{
+    display: contents;
+	}
+  
 
 `;
 
@@ -96,8 +111,9 @@ export const Header = styled.div`
 export const Button = styled.button`
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  padding: 12px 28px;
-  font-size: 16px;
+  padding: 8px 10px;
+  font-size: 15px;
+  margin-right: 30px;
 `;
 
 export const Slider = styled.div`
@@ -174,4 +190,10 @@ export const Right = styled.div`
   font-size: 35px;
   cursor: pointer;
   z-index: 2;
+`;
+
+export const PlayerDiv = styled.div`
+      max-height=30px
+      max-width=30px
+
 `;
