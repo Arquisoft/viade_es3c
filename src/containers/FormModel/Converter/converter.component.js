@@ -55,7 +55,6 @@ const FormModelConverter = () => {
 
   // Temporary code for Shex Layout testing
   /* eslint-disable */
-  // This is from Eric's code and is required for AnnotateSchema
   const F = N3.DataFactory;
   const NS_Rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
   const IRI_RdfType = NS_Rdf + "type";
@@ -66,7 +65,6 @@ const FormModelConverter = () => {
   const TERM_LayoutPath = F.namedNode(NS_Layout + "path");
   const TERM_LayoutRef = F.namedNode(NS_Layout + "ref");
 
-  //TODO: This is Eric's code, and requires an update to shex.js with shexpath to work. Leaving for now
   const annotateSchema = (schema, layout) => {
     const newSchema = JSON.parse(JSON.stringify(schema)); // modify copy, not original.
     let index = Util.index(newSchema); // update index to point at copy.

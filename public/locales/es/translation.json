@@ -127,6 +127,50 @@
     "minMaxString": "Error: Mínimo y máximo debería ser ",
     "defaultError": "Error: Formato incorrecto"
   },
+  "newRoute":{
+    "title": "Nueva ruta",
+    "name": "Nombre de la ruta:",
+    "description": "Descripción de la ruta:",
+    "btnSave":"Guardar",
+    "errorTitle": "La ruta tiene que tener un título",
+    "errorDecription": "La ruta tiene que tener una descripción",
+    "errorPoints": "No se ha marcado ningún punto en el mapa",
+    "errorOnePoint": "La ruta debe tener más de un punto",
+    "successRoute": "La ruta se ha guardado correctamente",
+    "success": "ÉXITO",
+    "btnMedia": "Subir foto/vídeo"
+  },
+  "myRoutes":{
+    "title": "Mis rutas",
+    "noRoutes": "Actualmente no tiene ninguna ruta guardada, puede crear una nueva ruta",
+    "here": "aquí",
+    "sure": "¿Estás seguro de que deseas eliminar la ruta? ",
+    "deleteMedia": "Todos los archivos multimedia asociados también serán eliminados permanentemente.",
+    "attetion": "¡Atención!",
+    "deletingMedia": "La ruta se está eliminando",
+    "btnDelete":"Eliminar",
+    "btnClose": "Cerrar",
+    "createdBy":"Ruta creada por:",
+    "description":"Descripción de la ruta:",
+    "btnViewRoute" :"Visualizar ruta en el mapa",
+    "btnShare": "Compartir ruta con...",
+    "friends": "Mis amigos",
+    "viewMult": "Ver archivos multimedia",
+    "noMult": "Parece que no hay archivos multimedia para esta ruta.",
+    "noMultTitle" :"Vaya..."
+  },
+  "myFriends":{
+    "title": "Añade nuevos amigos",
+    "friends": "Mis amigos",
+    "delete": "Eliminar amigo",
+    "perfil": "Perfil:",
+    "deleting": "Eliminando a ",
+    "friendsList": " de tu lista de amigos",
+    "adding":"Añadiendo a ",
+    "addingList": "a tu lista de amigos",
+    "btnAdd": "Añadir",
+    "webId":"Introduce el webID del usuario que desees añadir a tu lista de amigos"
+  },
   "viade": {
     "title": "Viade",
     "dataError": {

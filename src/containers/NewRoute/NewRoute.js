@@ -11,11 +11,15 @@ import {
 	TitleRoute,
 	RouteForm
 } from "./route.style";
-import { viadeManager } from "@utils";
 import { Route, Point, Multimedia } from "domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
+import i18n from "i18n";
+import * as viadeManager from "../../utils/storage";
 
-type Props = { webId: String };
+type Props = {
+    webId: String,
+    test: boolean
+};
 
 class NewRoute extends React.Component {
 	constructor({ webId }: Props) {
@@ -30,7 +34,7 @@ class NewRoute extends React.Component {
 			markers: null
 		};
 	}
-
+	
 	state = { markers: {}, image: {} };
 
 	callBackFunction = (childData) => {
@@ -50,12 +54,15 @@ class NewRoute extends React.Component {
 
 	async handleSave(event) {
 		if (this.title.current.value.length === 0) {
-			errorToaster("La ruta tiene que tener un título", "ERROR");
+			errorToaster(i18n.t("newRoute.errorTitle"), "ERROR");
 		} else if (this.descripton.current.value.length === 0) {
-			errorToaster("La ruta tiene que tener una descripción", "ERROR");
+			errorToaster(i18n.t("newRoute.errorDescription"), "ERROR");
 		} else if (this.state.markers === null || this.state.markers.length < 0) {
-			errorToaster("No se ha marcado ningún punto en el mapa", "ERROR");
-		} else {
+			errorToaster(i18n.t("newRoute.errorPoints"), "ERROR");
+		} else if(this.state.markers.length === 1) {
+			errorToaster(i18n.t("newRoute.errorOnePoint"), "ERROR");
+		}
+		else {
 			const points = [];
 			for (let i = 0; i < this.state.markers.length; i++) {
 				points.push(
@@ -82,7 +89,7 @@ class NewRoute extends React.Component {
 			}
 			let route = new Route(this.title.current.value, author, this.descripton.current.value, points, multimedia);
 			await viadeManager.addRoute(route, this.webID);
-			successToaster("Se ha guardado correctamente", "Éxito");
+			successToaster(i18n.t("newRoute.successRoute"), i18n.t("newRoute.success"));
 			setTimeout(function() {
 				window.location.href = "#/myRoutes";
 			}, 1000);
@@ -93,17 +100,16 @@ class NewRoute extends React.Component {
 	render(): React.ReactNode {
 		return (
 			<RouteWrapper data-testid="route-component">
-				<Header>
-					<TitleRoute>New Route</TitleRoute>
+				<Header data-testid="route-header">
+					<TitleRoute>{i18n.t("newRoute.title")}</TitleRoute>
 					<RouteForm id="routef">
 						<DivForms>
 							<LabelInput>
-								Name of the route:{" "}
+								{i18n.t("newRoute.name")}{" "}
 								<input
 									type="text"
 									id="route_name"
 									name="route_name"
-									placeholder="New Route"
 									ref={this.title}
 								/>
 							</LabelInput>
@@ -111,12 +117,11 @@ class NewRoute extends React.Component {
 						<DivForms>
 							<LabelInput>
 								{" "}
-								Description of the route:{" "}
+								{i18n.t("newRoute.description")}{" "}
 								<TextArea
 									type="text"
 									id="description"
 									name="description"
-									placeholder="Description for the new Route"
 									rows="10"
 									ref={this.descripton}
 								/>{" "}
@@ -130,7 +135,7 @@ class NewRoute extends React.Component {
 						<InputSubmit
 							type="submit"
 							id="save_route"
-							value="Save"
+							value={i18n.t("newRoute.btnSave")}
 							form="routef"
 							onClick={this.handleSubmit}
 						/>

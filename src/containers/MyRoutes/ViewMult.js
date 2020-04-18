@@ -1,21 +1,17 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
+//import Button from "@material-ui/core/Button";
+import { Button } from "./myroutes.style";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { cyan } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
+import {PlayerDiv} from "./myroutes.style"
 // eslint-disable-next-line
 import { Player } from "video-react";
+import i18n from "i18n";
 
 const getMediaComponent = (url) => {
   if (url.includes('.mp4')) {
-    return (<Player
-      playsInline
-      poster="/assets/poster.png"
-      src={url}
-      fluid={false}
-      width={640}
-      height={360}
-    />)
+    return (<PlayerDiv><video autoplay controls src={url} width="640" height="380"></video></PlayerDiv>)
   } else {
     return <img id="img" src={url} width={640}
     height={360} alt={"Media for the route"}/>
@@ -39,8 +35,8 @@ const AutoRotatingCarouselModal = ({
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
           key={Date.now()}
           style={{ backgroundColor: cyan[400] }}
-          title={"Sorry :("}
-          subtitle={"seems like there is no media uploaded for this route"}
+          title={i18n.t("myRoutes.noMultTitle")}
+          subtitle={i18n.t("myRoutes.noMult")}
         />)
          arr.push(j);
     }
@@ -51,7 +47,7 @@ const AutoRotatingCarouselModal = ({
           media={getMediaComponent(media.mult[i].url)}
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
           style={{ backgroundColor: cyan[400] }}
-           title={"Archivo multimedia de la ruta " + media.name}
+           title={media.name}
             key={media.mult[parseInt(i)].date}
           subtitle={media.mult[parseInt(i)].date}
         />)
@@ -85,7 +81,7 @@ function MultsButton(params, name) {
   const matches = useMediaQuery("(max-width:600px)");
   return (
     <>
-      <Button onClick={handleClick}>View Multimedia</Button>
+      <Button onClick={handleClick}>{i18n.t("myRoutes.viewMult")}</Button>
       <AutoRotatingCarouselModal
         isMobile={matches}
         handleOpen={handleOpen}

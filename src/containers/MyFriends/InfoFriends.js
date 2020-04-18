@@ -1,6 +1,7 @@
 import React from "react";
 import { RouteCard, ButtonDelete } from "./myfriends.style";
 import { removeFriend } from "./MyFriends";
+import i18n from "i18n";
 
 const InfoFriends = (props) => {
 	const { name, url, webidUser, webidFriend } = props;
@@ -13,8 +14,8 @@ const InfoFriends = (props) => {
 	return (
 		<RouteCard className="card">
 			<h3>{name}</h3>
-			<p> Perfil: {url}</p>
-			<ButtonDelete onClick={(e) => handleClick(e)}>Delete friend</ButtonDelete>
+			<p>{i18n.t("myFriends.perfil")} {url}</p>
+			<ButtonDelete id="delete_friend" onClick={(e) => handleClick(e)}>{i18n.t("myFriends.delete")}</ButtonDelete>
 		</RouteCard>
 	);
 };
