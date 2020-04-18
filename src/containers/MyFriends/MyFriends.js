@@ -49,7 +49,7 @@ class MyFriends extends React.Component {
 
 	async handleClick(e) {
 		e.preventDefault();
-		if(this.state.friendWebID!=""){
+		if(this.state.friendWebID!==""){
 		await friendsHelper.addFriend(this.webID, this.state.friendWebID);
 		successToaster(i18n.t("myFriends.adding") + this.state.friendWebID + i18n.t("myFriends.addingList"), i18n.t("newRoute.success"));
 		setTimeout(function() {
