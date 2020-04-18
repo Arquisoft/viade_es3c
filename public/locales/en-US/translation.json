@@ -133,6 +133,49 @@
     "minMaxString": "Error: Min and max should be ",
     "defaultError": "Error: Field value has wrong format"
   },
+  "newRoute":{
+    "title": "New route",
+    "name": "Name of the route:",
+    "description": "Description of the route:",
+    "btnSave":"Save",
+    "errorTitle": "The route must have a title",
+    "errorDecription": "The route must have a description",
+    "errorPoints": "No point has been marked on the map",
+    "successRoute": "The route has been saved successfully",
+    "success": "SUCCESS",
+    "btnMedia": "Upload photo/video"
+  },
+  "myRoutes":{
+    "title": "My routes",
+    "noRoutes": "You currently have no saved route, you can create a new route",
+    "here": "here",
+    "sure": "Are you sure you wish to delete this route? ",
+    "deleteMedia": "All the media associate also will be deleted permanently",
+    "attetion": "Attention!",
+    "deletingMedia": "The route is being removed",
+    "btnDelete":"Delete",
+    "btnClose": "Close",
+    "createdBy":"Route created by:",
+    "description":"Description of the route:",
+    "btnViewRoute" :"Show route on the map",
+    "btnShare": "Share route with...",
+    "friends": "My friends",
+    "viewMult": "View Multimedia",
+    "noMult": "Seems like there is no media uploaded for this route",
+    "noMultTitle" :"Sorry..."
+  },
+  "myFriends":{
+    "title": "Add new friends",
+    "friends": "My friends",
+    "delete": "Delete friend",
+    "perfil": "Profile:",
+    "deleting": "Deleting ",
+    "friendsList": " from your friends list",
+    "adding":"Adding ",
+    "addingList": "to your friends list",
+    "btnAdd": "Add",
+    "webId":"Enter the webID of the user you want to add to your friends list"
+  },
   "viade": {
     "viade": "Viade",
     "dataError": {
