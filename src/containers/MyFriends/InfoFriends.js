@@ -13,7 +13,7 @@ const InfoFriends = (props) => {
 
 	return (
 		<RouteCard className="card">
-			<h3>{name}</h3>
+			<h3 data-testid="friendId">{name}</h3>
 			<p>{i18n.t("myFriends.perfil")} {url}</p>
 			<ButtonDelete id="delete_friend" onClick={(e) => handleClick(e)}>{i18n.t("myFriends.delete")}</ButtonDelete>
 		</RouteCard>

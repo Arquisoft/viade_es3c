@@ -20,10 +20,12 @@ defineFeature(feature, test => {
       // login
       page = await browser.newPage();
       await page.goto("http://localhost:3000/#/login", {
-        waitUntil: "networkidle2"
+        waitUntil: "load",
+        // Remove the timeout
+        timeout: 0
       });
-      await page.waitForSelector(".sc-bZQynM.HIBZC");
-      await page.type(".sc-bZQynM.HIBZC", "https://saragr.inrupt.net/profile/card#me");
+      await page.waitForSelector(".sc-EHOje.cffgrt");
+      await page.type(".sc-EHOje.cffgrt", "https://saragr.inrupt.net/profile/card#me");
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function(btn) {
@@ -54,7 +56,7 @@ defineFeature(feature, test => {
       await page.waitForNavigation({
         waitUntil: "networkidle2"
       });
-      expect(page.url()).toBe("http://localhost:3000/viade_es3c/#/welcome");
+      expect(page.url()).toBe("http://localhost:3000/#/welcome");
 
       await page.goto("http://localhost:3000/#/route", {
         waitUntil: "networkidle2"
