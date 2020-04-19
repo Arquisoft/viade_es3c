@@ -27,6 +27,7 @@ export const WelcomeCard = styled.div`
 	ul li {
 		color: white;
 		text-align: center;
+		margin: 10px;
 	}
 	margin-top: 50px;
 	margin-left: 75%;
