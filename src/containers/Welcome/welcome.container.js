@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import data from '@solid/query-ldflex';
-import { namedNode } from '@rdfjs/data-model';
-import { WelcomePageContent } from './welcome.component';
-import { successToaster, errorToaster } from '@utils';
+import React, { Component } from "react";
+import data from "@solid/query-ldflex";
+import { namedNode } from "@rdfjs/data-model";
+import { WelcomePageContent } from "./welcome.component";
+import { successToaster, errorToaster } from "@utils";
 import { viadeManager } from "@utils";
 
 const defaultProfilePhoto = "img/icon/empty-profile.svg";
@@ -22,10 +22,10 @@ export class WelcomeComponent extends Component<Props> {
     };
   }
 
-  componentDidMount()  {
+  componentDidMount() {
     const { webId } = this.props;
     if (webId) {
-      this.getProfileData();     
+      this.getProfileData();
     }
   }
 
@@ -52,7 +52,6 @@ export class WelcomeComponent extends Component<Props> {
     await viadeManager.iniciateStructure(webId);
     const user = data[webId];
     const nameLd = await user.vcard_fn;
-    viadeManager.iniciateStructure(webId);
     const name =
       nameLd && nameLd.value.trim().length > 0
         ? nameLd.value

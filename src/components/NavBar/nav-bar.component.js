@@ -1,8 +1,8 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { Navigation, Toolbar, MobileNavigation } from './children';
-import {DivLogoViade, ImageLogoViade} from './nav-bar-component.style.js';
-import {HamburgerButton} from './children';
+import React, { useEffect, useState, Fragment } from "react";
+import { Link } from "react-router-dom";
+import { Navigation, Toolbar, MobileNavigation } from "./children";
+import { DivLogoViade, ImageLogoViade } from "./nav-bar-component.style.js";
+import { HamburgerButton } from "./children";
 
 type Props = {
   t: Function,
@@ -20,16 +20,16 @@ const NavBar = (props: Props) => {
   const setNavFixed = () => {
     if (componentElement) {
       const navHeight = componentElement.clientHeight;
-      const content = document.getElementsByClassName('contentApp');
+      const content = document.getElementsByClassName("contentApp");
       if (content.length > 0) {
-        content[0].style['padding-top'] = `${navHeight}px`;
+        content[0].style["padding-top"] = `${navHeight}px`;
       }
     }
   };
 
   const onComponentResize = () => {
     setNavFixed();
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       setNavFixed();
 
       if (window.innerWidth >= 1024 && isOpenMobile) {
@@ -39,7 +39,7 @@ const NavBar = (props: Props) => {
   };
 
   const getUserProfileOptions = () => {
-    const profile = toolbar ? toolbar.filter(bar => bar.id !== 'language') : [];
+    const profile = toolbar ? toolbar.filter(bar => bar.id !== "language") : [];
     setProfileOption(profile);
   };
 
@@ -56,14 +56,17 @@ const NavBar = (props: Props) => {
   };
 
   return (
-    <header role="navigation" className="header header__desktop fixed" ref={componentElement}>
+    <header
+      role="navigation"
+      className="header header__desktop fixed"
+      ref={componentElement}
+    >
       <section className="header-wrap">
-      <DivLogoViade>
+        <DivLogoViade>
           <Link to="/welcome">
             <ImageLogoViade src="img/logoViade.svg" alt="viade" />
           </Link>
-      </DivLogoViade>
-        
+        </DivLogoViade>
 
         {isOpenMobile ? (
           <MobileNavigation
@@ -82,7 +85,7 @@ const NavBar = (props: Props) => {
             {toolbar && <Toolbar toolbar={toolbar} />}
           </Fragment>
         )}
-        <HamburgerButton toggleMobileMenu={toggleMobileMenu}/>
+        <HamburgerButton toggleMobileMenu={toggleMobileMenu} />
       </section>
     </header>
   );

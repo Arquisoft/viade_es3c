@@ -1,13 +1,14 @@
-import React from 'react';
-import * as reactI18next from 'react-i18next';
+import React from "react";
+import * as reactI18next from "react-i18next";
 
-const hasChildren = node => node && (node.children || (node.props && node.props.children));
+const hasChildren = node =>
+  node && (node.children || (node.props && node.props.children));
 
 const getChildren = node =>
   node && node.children ? node.children : node.props && node.props.children;
 
 const renderNodes = reactNodes => {
-  if (typeof reactNodes === 'string') {
+  if (typeof reactNodes === "string") {
     return reactNodes;
   }
 
@@ -15,7 +16,7 @@ const renderNodes = reactNodes => {
     const child = reactNodes[key];
     const isElement = React.isValidElement(child);
 
-    if (typeof child === 'string') {
+    if (typeof child === "string") {
       return child;
     }
     if (hasChildren(child)) {
@@ -23,8 +24,11 @@ const renderNodes = reactNodes => {
       const key = i + 1;
       return React.cloneElement(child, { ...child.props, key }, inner);
     }
-    if (child && typeof child === 'object' && !isElement) {
-      return Object.keys(child).reduce((str, childKey) => `${str}${child[childKey]}`, '');
+    if (child && typeof child === "object" && !isElement) {
+      return Object.keys(child).reduce(
+        (str, childKey) => `${str}${child[childKey]}`,
+        ""
+      );
     }
 
     return child;
@@ -37,7 +41,9 @@ useMock.i18n = {};
 
 module.exports = {
   // this mock makes sure any components using the translate HoC receive the t function as a prop
-  withTranslation: () => Component => props => <Component t={k => k} {...props} />,
+  withTranslation: () => Component => props => (
+    <Component t={k => k} {...props} />
+  ),
   Trans: ({ children }) => children,
   Translation: ({ children }) => children(k => k, { i18n: {} }),
   useTranslation: () => useMock,
