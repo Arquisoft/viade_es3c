@@ -1,5 +1,7 @@
 import React from "react";
 import { Loader } from "@util-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { Header, RouteWrapper, MyRouteContainer, FormRenderContainer } from "./myroutes.style";
 import InfoRoute from "./InfoRoute";
 import { viadeManager } from "@utils";
@@ -63,6 +65,7 @@ class MyRoute extends React.Component {
 									onChange={this.handleChange}
 									placeholder="Search..."
 								/>
+								<FontAwesomeIcon icon="search" className="search-icon" />
 							</Header>
 							{this.state.data.map((ruta, index) => {
 								if (ruta.points.length > 0) {

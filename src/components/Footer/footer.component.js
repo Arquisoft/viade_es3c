@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 		position: "fixed",
 		left: 0,
 		bottom: 0,
-		opacity: "0.7",
+		opacity: "0.9",
 		right: 0,
 		height: "60px",
 		backgroundColor: theme.palette.type === "light" ? theme.palette.grey[200] : theme.palette.grey[800]

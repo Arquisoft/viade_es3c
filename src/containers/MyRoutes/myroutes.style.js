@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const RouteCard = styled.div`
-	background: rgb(0, 77, 134);
-	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 	margin: 15px auto;
 
 	max-width: 78% !important;
@@ -45,14 +43,20 @@ export const RouteWrapper = styled.section`
 	flex: 1 0 auto;
 	align-items: center;
 	justify-content: center;
-	background: rgb(0, 77, 134);
-	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+	background: url(../img/misrutas.png);
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
 	padding: 60px 0;
 `;
 export const MyRouteContainer = styled.div`
 	overflow: hidden;
+	h1 {
+		color: white;
+	}
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-	background-color: white;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 	max-width: 900px;
 	margin: 0 20px;
 	width: 100%;
