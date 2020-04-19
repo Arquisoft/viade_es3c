@@ -77,7 +77,13 @@
 		"redirectButton": "Take me back to the welcome page"
 	},
 	"welcome": {
-		"welcome": "Welcome",
+		"welcome": "Welcome to Viade",
+		"welcomeSub": "Create, manage and share your adventures!",
+		"howitworks": "How it works?",
+		"knowMore": "Know more",
+		"knowMore1": "Create and customize your route",
+		"knowMore2": "Store the route in your pod",
+		"knowMore3": "Start sharing with your friends",
 		"doneMessage": "All done ?",
 		"fairUsageTitle": "Fair Usage",
 		"contactUsTitle": "Contact Us",

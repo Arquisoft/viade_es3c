@@ -6,7 +6,7 @@ export const WelcomeWrapper = styled.section`
 	background: url(../img/welcome_image.jpeg);
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: cover;
 	h3 {
 		color: #666;
 		span {
@@ -19,16 +19,17 @@ export const WelcomeWrapper = styled.section`
 `;
 
 export const WelcomeCard = styled.div`
-	background-color: #c1bab9;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 	opacity: 0.9;
 	h5,
 	h6,
 	ul li {
-		color: #373737;
+		color: white;
 		text-align: center;
 	}
 	margin-top: 50px;
-	margin-left: 20px;
+	margin-left: 75%;
 	#more {
 		text-align: center;
 	}
