@@ -1,56 +1,54 @@
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import Link from "@material-ui/core/Link";
 import React from "react";
 import { IconLookup, IconDefinition, findIconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withTranslation } from "react-i18next";
 
-type Props = {
-	t: Function
-};
+function Copyright() {
+	return (
+		<Typography variant="body2" color="textSecondary">
+			{"Copyright © "}
+			<Link color="inherit" href="https://github.com/Arquisoft/viade_es3c">
+				ViadeEs3c{" "}
+			</Link>{" "}
+			{new Date().getFullYear()}
+			{"."}
+		</Typography>
+	);
+}
+
+const useStyles = makeStyles((theme) => ({
+	footer: {
+		padding: "10px",
+		textAlign: "center",
+		marginTop: "auto",
+		position: "fixed",
+		left: 0,
+		bottom: 0,
+		opacity: "0.7",
+		right: 0,
+		height: "60px",
+		backgroundColor: theme.palette.type === "light" ? theme.palette.grey[200] : theme.palette.grey[800]
+	}
+}));
 
 const Footer = (props: Props) => {
 	const { t } = props;
-	const githubIcon: IconLookup = { prefix: "fab", iconName: "github" };
-	const githubIconDef: IconDefinition = findIconDefinition(githubIcon);
+	const classes = useStyles();
 
 	return (
-		<footer className="solid-footer footer">
-			<section className="solid-footer__content">
-				<div className="solid-footer__content--copyright">
-					<ul>
-						<li>© {process.env.REACT_APP_COMPANY_NAME}</li>
-						<li>
-							{t("footer.version")}
-							{""} <span className="build-value">{process.env.REACT_APP_VERSION}</span>
-						</li>
-					</ul>
-				</div>
-
-				<div className="solid-footer__content--links">
-					<ul>
-						<li>
-							<a
-								href="https://github.com/inrupt/solid-react-sdk"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<FontAwesomeIcon className="link-icon" icon={githubIconDef} />
-								react-solid-sdk
-							</a>
-						</li>
-						<li>
-							<a
-								href="https://github.com/inrupt/solid-style-guide"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<FontAwesomeIcon className="link-icon" icon={githubIconDef} />
-								solid-style-guide
-							</a>
-						</li>
-					</ul>
-				</div>
-			</section>
-		</footer>
+		<div className={classes.root}>
+			<footer className={classes.footer}>
+				<Container maxWidth="sm">
+					<Typography variant="body1">ViadeEs3c</Typography>
+					<Copyright />
+				</Container>
+			</footer>
+		</div>
 	);
 };
 

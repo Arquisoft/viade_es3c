@@ -78,7 +78,13 @@
 		"redirectButton": "Llevarme a la página principal"
 	},
 	"welcome": {
-		"welcome": "Bienvenido",
+		"welcome": "Bienvenido a Viade",
+		"welcomeSub": "Crea, gestiona y comparte tus aventuras!",
+		"howitworks": "¿Cómo funciona?",
+		"knowMore": "Saber más",
+		"knowMore1": "Crea y personaliza tu ruta",
+		"knowMore2": "Guarda la ruta en tu pod",
+		"knowMore3": "Empieza a compartir con tus amigos",
 		"doneMessage": "¿Terminaste?",
 		"fairUsageSummary": "En general, aplique sentido común y honestidad a su uso de los logotipos de Solid o Inrupt. No utilice para implicar una asociación o respaldo oficial donde no exista.",
 		"contactUsTitle": "Contáctenos",
