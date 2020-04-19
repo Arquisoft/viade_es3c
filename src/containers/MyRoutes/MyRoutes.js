@@ -36,9 +36,11 @@ class MyRoute extends React.Component {
 		if (e.target.value !== "") {
 			currentList = this.state.original;
 			newList = currentList.filter((item) => {
-				const lc = item.name.toLowerCase();
-				const filter = e.target.value.toLowerCase();
-				return lc.includes(filter);
+				if (item.name !== undefined) {
+					const lc = item.name.toLowerCase();
+					const filter = e.target.value.toLowerCase();
+					return lc.includes(filter);
+				}
 			});
 		} else {
 			newList = this.state.original;
