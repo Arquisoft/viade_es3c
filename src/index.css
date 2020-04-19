@@ -115,6 +115,11 @@ Ends temporary react/fontawesome fix
 	display: block;
 }
 
+#searchIcon {
+	color: white;
+	margin-left: 10px;
+}
+
 .form-group > input {
 	height: 38px;
 	width: 100%;

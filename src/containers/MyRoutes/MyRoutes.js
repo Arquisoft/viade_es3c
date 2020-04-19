@@ -65,7 +65,7 @@ class MyRoute extends React.Component {
 									onChange={this.handleChange}
 									placeholder="Search..."
 								/>
-								<FontAwesomeIcon icon="search" className="search-icon" />
+								<FontAwesomeIcon icon="search" className="search-icon" id="searchIcon" />
 							</Header>
 							{this.state.data.map((ruta, index) => {
 								if (ruta.points.length > 0) {
