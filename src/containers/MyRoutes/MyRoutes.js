@@ -37,41 +37,55 @@ class MyRoute extends React.Component {
 								<h1>{i18n.t("myRoutes.title")}</h1>
 							</Header>
 							{this.state.data.map((ruta, index) => {
-								return (
-									<InfoRoute
-										key={index}
-										name={ruta.name}
-										author={ruta.author}
-										description={ruta.description}
-										points={ruta.points}
-										center={ruta.calculateCenter()}
-										mult={ruta.multimedia}
-										r={baseUrl + routePath + ruta.getIdRoute() + ".ttl"}
-										uuid={ruta.getIdRoute()}
-									/>
-								);
+								if (ruta.points.length > 0) {
+									return (
+										<InfoRoute
+											key={index}
+											name={ruta.name}
+											author={ruta.author}
+											description={ruta.description}
+											points={ruta.points}
+											center={ruta.calculateCenter()}
+											mult={ruta.multimedia}
+											r={baseUrl + routePath + ruta.getIdRoute() + ".ttl"}
+											uuid={ruta.getIdRoute()}
+											error={false}
+											errorMore={false}
+										/>
+									);
+								} else {
+									return (
+										<InfoRoute
+											key={index}
+											error={i18n.t("myRoutes.errorParsing")}
+											errorMore={i18n.t("myRoutes.errorParsingMore")}
+										/>
+									);
+								}
 							})}
 						</FormRenderContainer>
 					</MyRouteContainer>
 				</RouteWrapper>
 			);
 		}
-		if (this.state.data === "EMPTY") {
-			return (
-				<RouteWrapper data-testid="route-component">
-					<MyRouteContainer data-testid="myroute-container">
-						<FormRenderContainer>
-							<Header data-testid="myroute-header">
-								<h1>{i18n.t("myRoutes.title")}</h1>
-							</Header>
-							<h5 align="center">
-								{i18n.t("myRoutes.noRoutes")}
-								<a href={"#/route"}> {i18n.t("myRoutes.here")}</a>
-							</h5>
-						</FormRenderContainer>
-					</MyRouteContainer>
-				</RouteWrapper>
-			);
+		if (this.state.data !== null) {
+			if (this.state.data === "EMPTY" || this.state.data.length <= 0) {
+				return (
+					<RouteWrapper data-testid="route-component">
+						<MyRouteContainer data-testid="myroute-container">
+							<FormRenderContainer>
+								<Header data-testid="myroute-header">
+									<h1>{i18n.t("myRoutes.title")}</h1>
+								</Header>
+								<h5 align="center">
+									{i18n.t("myRoutes.noRoutes")}
+									<a href={"#/route"}> {i18n.t("myRoutes.here")}</a>
+								</h5>
+							</FormRenderContainer>
+						</MyRouteContainer>
+					</RouteWrapper>
+				);
+			}
 		} else {
 			return <Loader absolute />;
 		}
