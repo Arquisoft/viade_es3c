@@ -149,7 +149,7 @@
 	},
 	"myRoutes": {
 		"title": "My routes",
-		"noRoutes": "You currently have no saved route, you can create a new route",
+		"noRoutes": "Currently there is no saved routes in your pod. Create one",
 		"errorParsing": "Seems like there was a problem with this route",
 		"errorParsingMore": "Maybe the route file was created using a different app. The ViadeEs3c app is working currently in offer support to routes created in different Viade apps. We apologize for the inconvinience that this might cause you. ",
 		"here": "here",

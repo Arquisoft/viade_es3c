@@ -1,21 +1,14 @@
 import React, { useState } from "react";
-import { Uploader } from "@inrupt/solid-react-components";
 import { useTranslation } from "react-i18next";
-import { WelcomeWrapper, WelcomeCard, WelcomeName, ImageWrapper } from "./welcome.style";
-import { ImageProfile } from "@components";
-import { errorToaster } from "@utils";
+import { WelcomeWrapper, WelcomeCard } from "./welcome.style";
 /**
  * Welcome Page UI component, containing the styled components for the Welcome Page
  * Image component will get theimage context and resolve the value to render.
  * @param props
  */
 export const WelcomePageContent = (props) => {
-	const { webId, image, updatePhoto, name } = props;
 	const { t } = useTranslation();
-	const limit = 2100000;
 	const [ show, setShow ] = useState(true);
-	let display;
-
 	return (
 		<WelcomeWrapper data-testid="welcome-wrapper">
 			<WelcomeCard className="card">

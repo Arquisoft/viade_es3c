@@ -7,22 +7,44 @@ import i18n from "i18n";
 
 type Props = { webId: String };
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
-
 class MyRoute extends React.Component {
 	constructor({ webId }: Props) {
 		super();
 		this.state = {
-			data: null
+			data: null,
+			original: null
 		};
+		this.handleChange = this.handleChange.bind(this);
 	}
 	componentDidMount() {
 		const { webId } = this.props;
 		this._asyncRequest = viadeManager.readRoutesFromPod(webId).then((data) => {
 			this._asyncRequest = null;
-			this.setState({ data });
+			this.setState({
+				data: data,
+				original: data
+			});
 		});
 	}
 	componentWillUnmount() {}
+
+	handleChange(e) {
+		var currentList = [];
+		var newList = [];
+		if (e.target.value !== "") {
+			currentList = this.state.original;
+			newList = currentList.filter((item) => {
+				const lc = item.name.toLowerCase();
+				const filter = e.target.value.toLowerCase();
+				return lc.includes(filter);
+			});
+		} else {
+			newList = this.state.original;
+		}
+		this.setState({
+			data: newList
+		});
+	}
 
 	render(): React.ReactNode {
 		const { webId } = this.props;
@@ -35,6 +57,12 @@ class MyRoute extends React.Component {
 						<FormRenderContainer>
 							<Header data-testid="myroute-header">
 								<h1>{i18n.t("myRoutes.title")}</h1>
+								<input
+									type="text"
+									className="input"
+									onChange={this.handleChange}
+									placeholder="Search..."
+								/>
 							</Header>
 							{this.state.data.map((ruta, index) => {
 								if (ruta.points.length > 0) {

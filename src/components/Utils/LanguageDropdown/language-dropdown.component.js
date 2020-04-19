@@ -2,21 +2,6 @@ import React, { Component } from "react";
 import { Dropdown } from "@util-components";
 import { toast } from "react-toastify";
 
-const languages = {
-	en: {
-		id: "en",
-		icon: "us"
-	},
-	es: {
-		id: "es",
-		icon: "es"
-	},
-	"en-US": {
-		id: "en-US",
-		icon: "us"
-	}
-};
-
 type Props = {
 	i18n: Object,
 	t: Function

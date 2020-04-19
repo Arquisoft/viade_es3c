@@ -5,6 +5,8 @@ body,
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 }
 
 * {
@@ -14,6 +16,8 @@ body,
 body {
 	color: #666;
 	font-size: 62.5%;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 }
 
 p,

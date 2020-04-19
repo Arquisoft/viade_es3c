@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const RouteCard = styled.div`
-	background: linear-gradient(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 	margin: 15px auto;
 
 	max-width: 78% !important;
@@ -38,11 +39,14 @@ export const RouteCard = styled.div`
 
 export const RouteWrapper = styled.section`
 	display: flex;
+	input {
+		max-width: 40% !important;
+	}
 	flex: 1 0 auto;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(90deg, #67e3c0ff 0%, #046df0f0 100%);
-	background-repeat: repeat;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 	padding: 60px 0;
 `;
 export const MyRouteContainer = styled.div`
@@ -91,6 +95,8 @@ export const Header = styled.div`
 	display: flex;
 	position: relative;
 	align-items: center;
+	text-align: center;
+	display: block;
 	justify-content: center;
 	background-image: url("img/pattern-geo.png"), linear(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
 	background-repeat: repeat, no-repeat;
@@ -118,6 +124,8 @@ export const Button = styled.button`
 export const Slider = styled.div`
 	width: 100%;
 	position: relative;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 `;
 
 export const OrderList = styled.ul`

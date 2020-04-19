@@ -1,11 +1,8 @@
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import React from "react";
-import { IconLookup, IconDefinition, findIconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withTranslation } from "react-i18next";
 
 function Copyright() {
@@ -37,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Footer = (props: Props) => {
-	const { t } = props;
 	const classes = useStyles();
 
 	return (
