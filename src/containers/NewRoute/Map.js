@@ -151,6 +151,7 @@ export class MapContainer extends React.Component {
 						<Marker
 							key={marker.position.lat + marker.position.lng}
 							position={{ lat: marker.position.lat, lng: marker.position.lng }}
+							icon={"http://maps.google.com/mapfiles/ms/icons/blue.png"}
 						/>
 					);
 				})}
