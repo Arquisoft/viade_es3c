@@ -5,7 +5,7 @@ import {
   loadFeature
 } from "jest-cucumber";
 
-const feature = loadFeature("./feature/features/AddFriend.feature");
+const feature = loadFeature("./feature/features/deleteFriend.feature");
 const puppeteer = require("puppeteer");
 let browser = null;
 let page = null;
@@ -16,9 +16,9 @@ defineFeature(feature, test => {
     jest.setTimeout(12000000);
   });
 
-  test("Trying to add a friend", ({ given, when, then }) => {
+  test("Trying to delete a friend", ({ given, when, then }) => {
 
-    given("I am a user trying to add a friend", async () => {
+    given("I am a user trying to delete a friend", async () => {
       browser = await puppeteer.launch({
         headless: false
       });
@@ -73,23 +73,26 @@ defineFeature(feature, test => {
       });
     });
 
-    when("Putting his webId", async () => {
+    when("Searching him on friends page", async () => {
       await page.waitFor(500);
 
-      await page.waitForSelector("[id='friendID']", { visible: true });
-      await page.type("[id='friendID']", "https://saraagr.inrupt.net/");
+      await page.waitForFunction(
+        "document.querySelector(\"body\").innerText.includes(\"saraagr.inrupt.net/\")"
+      );
 
     });
 
-    then("Pressing the add button", async () => {
+    then("Pressing the delete button", async () => {
       await page.evaluate(() => {
-        let submit = document.getElementById("submit-friends");
-        submit.click();
+        let elements = document.getElementsByClassName('card');
+        for (let element of elements) {
+          const textContent = element.querySelector('[data-testid="friendId"]').textContent;
+          if (textContent === "saraagr.inrupt.net/") {
+            let btn = element.querySelector('#delete_friend');
+            btn.click();
+          }
+        }
       });
-      await page.waitFor(500);
-      await page.waitForFunction(
-        'document.querySelector("body").innerText.includes("saraagr.inrupt.net/")'
-      )
     });
   });
 });

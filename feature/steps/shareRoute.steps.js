@@ -5,7 +5,7 @@ import {
   loadFeature
 } from "jest-cucumber";
 
-const feature = loadFeature("./feature/features/DeleteFriend.feature");
+const feature = loadFeature("./feature/features/shareRoute.feature");
 const puppeteer = require("puppeteer");
 let browser = null;
 let page = null;
@@ -13,16 +13,15 @@ let page = null;
 defineFeature(feature, test => {
 
   beforeEach(async () => {
-    jest.setTimeout(12000000);
+    jest.setTimeout(1200000);
   });
 
-  test("Trying to delete a friend", ({ given, when, then }) => {
+  test("Trying to share a route", ({ given, when, then }) => {
 
-    given("I am a user trying to delete a friend", async () => {
+    given("I am a user trying to share a route", async () => {
       browser = await puppeteer.launch({
         headless: false
       });
-
       // login
       page = await browser.newPage();
       await page.goto("http://localhost:3000/#/login", {
@@ -43,24 +42,17 @@ defineFeature(feature, test => {
       await page.waitForNavigation({
         waitUntil: "networkidle2"
       });
-
       await page.waitForSelector("[id='username']", { visible: true });
       await page.type("[id='username']", "saragg");
-
       await page.waitFor(500);
       await page.waitForSelector("[id='password']", { visible: true });
       await page.type("[id='password']", "Prueba_123", { visible: true });
-
       await page.waitFor(500);
-
       await page.evaluate(() => {
-        let btns = [
-          ...document
-            .querySelector(".form-horizontal.login-up-form")
-            .querySelectorAll("button")
-        ];
+        let btns = [...document.querySelector(".form-horizontal.login-up-form").querySelectorAll("button")];
         btns.forEach(function(btn) {
-          if (btn.innerText === "Log In") btn.click();
+          if (btn.innerText == "Log In")
+            btn.click();
         });
       });
       await page.waitForNavigation({
@@ -68,31 +60,20 @@ defineFeature(feature, test => {
       });
       expect(page.url()).toBe("http://localhost:3000/#/welcome");
 
-      await page.goto("http://localhost:3000/#/myFriends", {
+      await page.goto("http://localhost:3000/#/myRoutes", {
         waitUntil: "networkidle2"
       });
-    });
-
-    when("Searching him on friends page", async () => {
-      await page.waitFor(500);
-
-      await page.waitForFunction(
-        "document.querySelector(\"body\").innerText.includes(\"saraagr.inrupt.net/\")"
-      );
 
     });
-
-    then("Pressing the delete button", async () => {
-      await page.evaluate(() => {
-        let elements = document.getElementsByClassName('card');
-        for (let element of elements) {
-          const textContent = element.querySelector('[data-testid="friendId"]').textContent;
-          if (textContent === "saraagr.inrupt.net/") {
-            let btn = element.querySelector('#delete_friend');
-            btn.click();
-          }
-        }
-      });
+    when("Pressing share button", async () => {
+      await page.waitForSelector("#viewFriends");
+      await page.click("#viewFriends");
     });
+
+    then("I choose the friend to share", async () => {
+      const friend = await page.waitForSelector('[data-testid="friendID"]');
+      await friend.click();
+    });
+
   });
 });
