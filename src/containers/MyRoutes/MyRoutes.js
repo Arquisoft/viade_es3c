@@ -34,7 +34,7 @@ class MyRoute extends React.Component {
 					<MyRouteContainer data-testid="myroute-container">
 						<FormRenderContainer>
 							<Header data-testid="myroute-header">
-								<h1>{i18n.t("myRoutes.title")}</h1>
+								<h1 data-testid="routeId">{i18n.t("myRoutes.title")}</h1>
 							</Header>
 							{this.state.data.map((ruta, index) => {
 								return (

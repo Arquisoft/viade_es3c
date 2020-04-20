@@ -85,7 +85,7 @@ const Notifications = ({ruta}) => {
             <List src={"user.friends"}>{
                 (item, i) =>
                     <li key={i}>{
-                        <a href="http://localhost:3000/#/myRoutes" onClick={(e) => handleSave(`${item}`, e)}>{getUserName(`${item}`)}</a>}
+                        <a data-testid="friendID" href="http://localhost:3000/#/myRoutes" onClick={(e) => handleSave(`${item}`, e)}>{getUserName(`${item}`)}</a>}
                     </li>}
             </List>
         </FriendsList>
