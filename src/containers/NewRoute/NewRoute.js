@@ -49,12 +49,6 @@ class NewRoute extends React.Component {
 		this.handleSave(event);
 	}
 
-	deleteMarkers() {
-		this.setState({
-			markers: null
-		});
-	}
-
 	async handleSave(event) {
 		if (this.title.current.value.length === 0) {
 			errorToaster(i18n.t("newRoute.errorTitle"), "ERROR");

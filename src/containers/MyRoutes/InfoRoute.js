@@ -12,6 +12,7 @@ import MultsButton from "./ViewMult";
 import i18n from "i18n";
 import { Route, Point, Multimedia } from "domain";
 import { viadeManager } from "@utils";
+import Map from "../NewRoute/Map";
 
 import {
 	Header,
@@ -24,12 +25,13 @@ import {
 	RouteForm
 } from "../NewRoute/route.style";
 
+var markersp = [];
 const InfoRoute = (props) => {
 	const { name, author, description, points, center, mult, r, uuid, error, errorMore, webID } = props;
 	const [ show, setShow ] = useState(true);
 	const [ showConfirm, setShowConfirm ] = useState(false);
 	const [ showConfirmModify, setShowConfirmModify ] = useState(false);
-
+	markersp = points;
 	if (!error) {
 		return (
 			<RouteCard className="card">
@@ -69,19 +71,53 @@ const InfoRoute = (props) => {
 					<Button id="btnModify" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
 						<FontAwesomeIcon icon="pen" className="pen-icon" />
 					</Button>
-					<Modal show={showConfirmModify} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+					<Modal
+						id="modalMod"
+						show={showConfirmModify}
+						size="lg"
+						aria-labelledby="contained-modal-title-vcenter"
+						centered
+					>
 						<Modal.Header>
-							<Modal.Title id="contained-modal-title-vcenter">{i18n.t("myRoutes.attetion")}</Modal.Title>
+							<Modal.Title id="contained-modal-title-vcenter">{i18n.t("myRoutes.modify")}</Modal.Title>
 						</Modal.Header>
 						<Modal.Body>
-							<RouteForm id="routef">
+							<RouteWrapper data-testid="route-component">
 								<DivForms>
-									<LabelInput>
+									<LabelInput id="labelMod">
 										{i18n.t("newRoute.name")}
-										<input type="text" id="route_name" name="route_name" defaultValue={name} />
+										<input
+											type="text"
+											rows="10"
+											id="route_name"
+											name="route_name"
+											defaultValue={name}
+										/>
 									</LabelInput>
 								</DivForms>
-							</RouteForm>
+								<DivForms>
+									<LabelInput id="labelMod">
+										{i18n.t("newRoute.description")}
+										<TextArea
+											type="text"
+											id="route_description"
+											name="route_description"
+											rows="10"
+											defaultValue={description}
+										/>
+									</LabelInput>
+								</DivForms>
+								<FormRenderContainer id="mapa">
+									<RouteMap
+										parentCallBack={(childData) => {
+											markersp = childData;
+										}}
+										markers={markersp}
+										center={center}
+										action={true}
+									/>
+								</FormRenderContainer>
+							</RouteWrapper>
 						</Modal.Body>
 						<Modal.Footer>
 							<Button
@@ -89,15 +125,15 @@ const InfoRoute = (props) => {
 									let route = new Route(
 										document.getElementById("route_name").value,
 										author,
-										description,
-										points,
+										document.getElementById("route_description").value,
+										markersp,
 										mult
 									);
 									ldflexHelper.deleteFile(r);
 									await viadeManager.addRoute(route, webID.webId);
-									successToaster(i18n.t("newRoute.successRoute"), i18n.t("newRoute.success"));
+									successToaster(i18n.t("newRoute.modifySuccessRoute"), i18n.t("newRoute.success"));
 									setTimeout(function() {
-										window.location.href = "#/myRoutes";
+										window.location.reload();
 									}, 1000);
 								}}
 							>

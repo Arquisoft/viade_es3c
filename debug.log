@@ -3,3 +3,10 @@
 [0331/144514.312:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0402/161840.137:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0402/181929.598:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0420/170014.377:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0420/171014.378:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0420/171014.378:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0420/171514.377:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0420/173014.382:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0420/174514.383:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0420/180014.384:ERROR:crash_report_database_win.cc(428)] unexpected header

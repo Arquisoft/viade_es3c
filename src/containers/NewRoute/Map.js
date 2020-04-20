@@ -1,7 +1,6 @@
 import { Map, GoogleApiWrapper, Marker, Polyline } from "google-maps-react";
 import React from "react";
 import update from "react-addons-update";
-import { Button } from "../MyRoutes/myroutes.style";
 
 const mapStyle = {
 	paddingBottom: "10px",

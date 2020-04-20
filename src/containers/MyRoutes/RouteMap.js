@@ -1,5 +1,7 @@
 import { Map, GoogleApiWrapper, Marker, Polyline } from "google-maps-react";
 import React from "react";
+import update from "react-addons-update";
+import { Point } from "domain";
 
 const mapStyle = {
 	width: "600px",
@@ -9,10 +11,13 @@ const mapStyle = {
 export class MapContainer extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { markers: props.markers, center: props.center };
+		this.state = { markers: props.markers, center: props.center, action: props.action };
 	}
 
-	componentWillUnmount() {}
+	sendData = () => {
+		this.props.parentCallBack(this.state.markers);
+	};
+	state = { markers: [] };
 
 	draw() {
 		let markers = [];
@@ -25,11 +30,32 @@ export class MapContainer extends React.Component {
 		return markers;
 	}
 
+	clickPoint = (event, map, clickEvent) => {
+		if (this.state.action) {
+			let { markers } = this.state;
+			markers = update(markers, {
+				$push: [ new Point(String(clickEvent.latLng.lat()), String(clickEvent.latLng.lng())) ]
+			});
+			this.setState({ markers });
+			this.sendData();
+		}
+	};
+
+	onMarkerClick = (props, marker, e) => {
+		if (this.state.action) {
+			let markers2 = props.markersList;
+			markers2.splice(props.index, 1);
+			this.setState({ markers2 });
+			this.sendData();
+		}
+	};
+
 	render() {
 		return (
 			<Map
 				google={this.props.google}
 				zoom={13}
+				onClick={this.clickPoint}
 				style={mapStyle}
 				initialCenter={{ lat: this.state.center[0], lng: this.state.center[1] }}
 				styles={[
@@ -119,6 +145,9 @@ export class MapContainer extends React.Component {
 							key={marker.latitude + marker.longitude}
 							position={{ lat: marker.latitude, lng: marker.longitude }}
 							icon={"http://maps.google.com/mapfiles/ms/icons/blue.png"}
+							markersList={this.state.markers}
+							index={marker.index}
+							onClick={this.onMarkerClick}
 						/>
 					);
 				})}
