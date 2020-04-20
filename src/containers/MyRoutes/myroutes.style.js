@@ -95,6 +95,75 @@ export const FormRenderContainer = styled.div`
 
 `;
 
+export const AutoRotatingCarouselModal = styled.div`
+	display: flex;
+	position: relative;
+	align-items: center;
+	text-align: center;
+	display: block;
+	justify-content: center;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+	padding: 10px 5px;
+	p {
+		color: white;
+	}
+	.edit-button {
+		background: rgba(255, 255, 255, 0.1);
+		border: 2px solid white;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		font-size: 1rem;
+	}
+`;
+
+export const AutoRotatingCarousel = styled.div`
+	display: flex;
+	position: relative;
+	align-items: center;
+	text-align: center;
+	display: block;
+	justify-content: center;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+	padding: 10px 5px;
+	p {
+		color: white;
+	}
+	.edit-button {
+		background: rgba(255, 255, 255, 0.1);
+		border: 2px solid white;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		font-size: 1rem;
+	}
+`;
+
+export const Slide = styled.div`
+	display: flex;
+	position: relative;
+	align-items: center;
+	text-align: center;
+	display: block;
+	justify-content: center;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+	padding: 10px 5px;
+	p {
+		color: white;
+	}
+	.edit-button {
+		background: rgba(255, 255, 255, 0.1);
+		border: 2px solid white;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		font-size: 1rem;
+	}
+`;
+
 export const Header = styled.div`
 	display: flex;
 	position: relative;
