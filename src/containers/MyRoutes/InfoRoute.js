@@ -5,7 +5,7 @@ import { RouteCard, Button } from "./myroutes.style";
 import { ldflexHelper } from "@utils";
 import { successToaster } from "@utils";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FormRenderContainer, Header } from "../MyFriends/myfriends.style";
+import { FormRenderContainer } from "../MyFriends/myfriends.style";
 import RouteMap from "./RouteMap";
 import Notifications from "../Share/NotificationHelp";
 import MultsButton from "./ViewMult";
@@ -15,12 +15,12 @@ const InfoRoute = (props) => {
 	const { name, author, description, points, center, mult, r, uuid } = props;
 	const [ show, setShow ] = useState(true);
 	const [ showConfirm, setShowConfirm ] = useState(false);
-	const [ showRoute, setShowRoute ] = useState(true);
+	//const [ showRoute, setShowRoute ] = useState(true);
 
 	return (
 		<RouteCard className="card">
-			<div>
-				<Button type="button" onClick={() => setShowConfirm(!showConfirm)}>
+			<div id="divDelete">
+				<Button id="btnDelete" type="button" onClick={() => setShowConfirm(!showConfirm)}>
 					<FontAwesomeIcon icon="trash" className="trash-icon" />
 				</Button>
 				<Modal show={showConfirm} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -51,45 +51,29 @@ const InfoRoute = (props) => {
 					</Modal.Footer>
 				</Modal>
 			</div>
-
 			<h2>{name}</h2>
 			<h3> {i18n.t("myRoutes.createdBy")} </h3>
 			<p>{author}</p>
 			<h3> {i18n.t("myRoutes.description")}</h3>
 			<p>{description}</p>
-			<div>
-				<Button id="viewRoute" onClick={() => setShowRoute(!showRoute)}>
-					{i18n.t("myRoutes.btnViewRoute")}
-				</Button>
-			</div>
-			<br />
-			<div id="button">
-				<Button id="viewFriends" onClick={() => setShow(!show)}>
+			<div id="divShare" class="btn-group">
+				<Button id="viewFriends" type="button" onClick={() => setShow(!show)}>
 					{i18n.t("myRoutes.btnShare")}
 				</Button>
-			</div>
-			<br />
-			<div>
 				<MultsButton {...{ mult, name }} />
 			</div>
-			{showRoute ? (
-				<div />
-			) : (
-				<FormRenderContainer id="mapa">
-					<RouteMap markers={points} center={center} />
-				</FormRenderContainer>
-			)}
-
 			{show ? (
 				<div />
 			) : (
-				<FormRenderContainer>
-					<Header>
-						<h1>{i18n.t("myRoutes.friends")}</h1>
-					</Header>
+				<FormRenderContainer id="shareRoute">
 					<Notifications ruta={uuid} />
 				</FormRenderContainer>
 			)}
+			<br />
+			<FormRenderContainer id="mapa">
+					<RouteMap markers={points} center={center} />
+			</FormRenderContainer>
+			<br />
 		</RouteCard>
 	);
 };
