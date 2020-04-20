@@ -84,6 +84,7 @@ class MyRoute extends React.Component {
 											uuid={ruta.getIdRoute()}
 											error={false}
 											errorMore={false}
+											webID={this.props}
 										/>
 									);
 								} else {

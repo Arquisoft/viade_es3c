@@ -10,6 +10,9 @@ import RouteMap from "./RouteMap";
 import Notifications from "../Share/NotificationHelp";
 import MultsButton from "./ViewMult";
 import i18n from "i18n";
+import { Route, Point, Multimedia } from "domain";
+import { viadeManager } from "@utils";
+
 import {
 	Header,
 	RouteWrapper,
@@ -22,7 +25,7 @@ import {
 } from "../NewRoute/route.style";
 
 const InfoRoute = (props) => {
-	const { name, author, description, points, center, mult, r, uuid, error, errorMore } = props;
+	const { name, author, description, points, center, mult, r, uuid, error, errorMore, webID } = props;
 	const [ show, setShow ] = useState(true);
 	const [ showConfirm, setShowConfirm ] = useState(false);
 	const [ showConfirmModify, setShowConfirmModify ] = useState(false);
@@ -75,44 +78,30 @@ const InfoRoute = (props) => {
 								<DivForms>
 									<LabelInput>
 										{i18n.t("newRoute.name")}
-										<input
-											type="text"
-											id="route_name"
-											name="route_name"
-											value={name}
-											onChange={(e) => {}}
-										/>
-									</LabelInput>
-									<LabelInput>
-										{" "}
-										{i18n.t("newRoute.description")}{" "}
-										<TextArea
-											type="text"
-											id="description"
-											name="description"
-											rows="10"
-											value={description}
-											onChange={(e) => {}}
-										/>{" "}
+										<input type="text" id="route_name" name="route_name" defaultValue={name} />
 									</LabelInput>
 								</DivForms>
 							</RouteForm>
 						</Modal.Body>
 						<Modal.Footer>
 							<Button
-								onClick={(e) => {
-									for (const media of mult) {
-										ldflexHelper.deleteFile(media.url);
-										ldflexHelper.deleteFile(media.ttlUrl);
-									}
+								onClick={async () => {
+									let route = new Route(
+										document.getElementById("route_name").value,
+										author,
+										description,
+										points,
+										mult
+									);
 									ldflexHelper.deleteFile(r);
-									successToaster(i18n.t("myRoutes.deletingMedia"), i18n.t("newRoute.success"));
+									await viadeManager.addRoute(route, webID.webId);
+									successToaster(i18n.t("newRoute.successRoute"), i18n.t("newRoute.success"));
 									setTimeout(function() {
-										window.location.reload();
-									}, 1500);
+										window.location.href = "#/myRoutes";
+									}, 1000);
 								}}
 							>
-								{i18n.t("myRoutes.btnDelete")}
+								{i18n.t("myRoutes.btnModify")}
 							</Button>
 							<Button onClick={() => setShowConfirmModify(!showConfirmModify)}>
 								{i18n.t("myRoutes.btnClose")}

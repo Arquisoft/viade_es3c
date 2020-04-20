@@ -22,11 +22,21 @@ export const RouteCard = styled.div`
 		font-size: 25px;
 		margin: 0 0 0px 0;
 	}
+
 	#divDelete {
 		margin-left: 550px;
 		margin-top: 18px;
 	}
 	#btnDelete {
+		font-size: 14px;
+		padding: 10px 20px;
+	}
+
+	#divModificar {
+		margin-left: 550px;
+		margin-top: 18px;
+	}
+	#btnModify {
 		font-size: 14px;
 		padding: 10px 20px;
 	}
