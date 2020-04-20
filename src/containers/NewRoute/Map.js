@@ -1,6 +1,7 @@
 import { Map, GoogleApiWrapper, Marker, Polyline } from "google-maps-react";
 import React from "react";
 import update from "react-addons-update";
+import { Button } from "../MyRoutes/myroutes.style";
 
 const mapStyle = {
 	paddingBottom: "10px",
@@ -11,7 +12,6 @@ export class MapContainer extends React.Component {
 	sendData = () => {
 		this.props.parentCallBack(this.state.markers);
 	};
-
 	state = { markers: [] };
 
 	getLocation() {
@@ -36,6 +36,7 @@ export class MapContainer extends React.Component {
 						lat: clickEvent.latLng.lat(),
 						lng: clickEvent.latLng.lng()
 					},
+					index: this.state.markers.length,
 					defaultAnimation: 2,
 					key: clickEvent.latLng.lat() + clickEvent.latLng.lng()
 				}
@@ -55,6 +56,13 @@ export class MapContainer extends React.Component {
 		}
 		return markers;
 	}
+
+	onMarkerClick = (props, marker, e) => {
+		let markers2 = props.markersList;
+		markers2.splice(props.index, 1);
+		this.setState({ markers2 });
+		this.sendData();
+	};
 
 	render() {
 		this.getLocation();
@@ -152,6 +160,9 @@ export class MapContainer extends React.Component {
 							key={marker.position.lat + marker.position.lng}
 							position={{ lat: marker.position.lat, lng: marker.position.lng }}
 							icon={"http://maps.google.com/mapfiles/ms/icons/blue.png"}
+							markersList={this.state.markers}
+							index={marker.index}
+							onClick={this.onMarkerClick}
 						/>
 					);
 				})}
