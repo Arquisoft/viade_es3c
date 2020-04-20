@@ -142,6 +142,7 @@
 		"errorDecription": "La ruta tiene que tener una descripción",
 		"errorPoints": "No se ha marcado ningún punto en el mapa",
 		"successRoute": "La ruta se ha guardado correctamente",
+		"savedFiles": "Los archivos se han guardado correctamente",
 		"success": "ÉXITO",
 		"btnMedia": "Subir foto/vídeo"
 	},

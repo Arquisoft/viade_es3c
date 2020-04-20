@@ -144,6 +144,7 @@
 		"errorDecription": "The route must have a description",
 		"errorPoints": "No point has been marked on the map",
 		"successRoute": "The route has been saved successfully",
+		"savedFiles": "The files had been saved successfully",
 		"success": "SUCCESS",
 		"btnMedia": "Upload photo/video"
 	},
