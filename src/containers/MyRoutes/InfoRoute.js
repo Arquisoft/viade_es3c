@@ -13,6 +13,7 @@ import i18n from "i18n";
 import { Route, Point, Multimedia } from "domain";
 import { viadeManager } from "@utils";
 import Map from "../NewRoute/Map";
+import Download from '@axetroy/react-download';
 
 import {
 	Header,
@@ -30,7 +31,8 @@ const InfoRoute = (props) => {
 	const { name, author, description, points, center, mult, r, uuid, error, errorMore, webID } = props;
 	const [ show, setShow ] = useState(true);
 	const [ showConfirm, setShowConfirm ] = useState(false);
-	const [ showConfirmModify, setShowConfirmModify ] = useState(false);
+	const [ showConfirmModify, setShowConfirmModify] = useState(false);
+	const [ showConfirmDownload, setShowConfirmDownload] =useState(false);
 	markersp = points;
 	if (!error) {
 		return (
@@ -39,7 +41,7 @@ const InfoRoute = (props) => {
 				<Button id="btnModify" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
 					<FontAwesomeIcon icon="pen" className="pen-icon" />
 				</Button>
-				<Button id="btnDownload" type="button">
+				<Button id="btnDownload" type="button"  onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
 					<FontAwesomeIcon icon="download" className="download-icon" />
 				</Button>
 				<Button id="btnDelete" type="button" onClick={() => setShowConfirm(!showConfirm)}>
@@ -150,6 +152,24 @@ const InfoRoute = (props) => {
 							<Button onClick={() => setShowConfirmModify(!showConfirmModify)}>
 								{i18n.t("myRoutes.btnClose")}
 							</Button>
+						</Modal.Footer>
+					</Modal>
+				</div>
+				<div id="divDownload">
+					<Modal show={showConfirmDownload} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+						<Modal.Header>
+							<Modal.Title id="contained-modal-title-vcenter">Descargar fichero</Modal.Title>
+						</Modal.Header>
+						<Modal.Body>
+							<h4>¿Quieres descargar tu ruta en un fichero?</h4>
+						</Modal.Body>
+						<Modal.Footer>
+							<Download file="test.txt" content="# hello world">
+         						 <Button>
+									Descargar
+								</Button>
+        					</Download>
+							<Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>{i18n.t("myRoutes.btnClose")}</Button>
 						</Modal.Footer>
 					</Modal>
 				</div>
