@@ -167,7 +167,9 @@
 		"friends": "My friends",
 		"viewMult": "View Multimedia",
 		"noMult": "Seems like there is no media uploaded for this route",
-		"noMultTitle": "Sorry..."
+		"noMultTitle": "Sorry...",
+		"modify": "Modify your route",
+		"btnModify": "Modify"
 	},
 	"myFriends": {
 		"title": "Add new friends",

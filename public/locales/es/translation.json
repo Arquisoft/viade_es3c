@@ -165,7 +165,9 @@
 		"friends": "Mis amigos",
 		"viewMult": "Ver archivos multimedia",
 		"noMult": "Parece que no hay archivos multimedia para esta ruta.",
-		"noMultTitle": "Vaya..."
+		"noMultTitle": "Vaya...",
+		"modify": "Modifica tu ruta",
+		"btnModify": "Modificar"
 	},
 	"myFriends": {
 		"title": "Añade nuevos amigos",
