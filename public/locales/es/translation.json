@@ -167,7 +167,11 @@
 		"noMult": "Parece que no hay archivos multimedia para esta ruta.",
 		"noMultTitle": "Vaya...",
 		"modify": "Modifica tu ruta",
-		"btnModify": "Modificar"
+		"btnModify": "Modificar",
+		"downloadTitle":"Descargar ruta",
+		"downloadSure":"¿Quieres descargar tu ruta en un fichero?",
+		"downloadP":"Pulsa descargar para guardar tu ruta en un fichero o cerrar para cancelar",
+		"downloadBtn":"Descargar"
 	},
 	"myFriends": {
 		"title": "Añade nuevos amigos",

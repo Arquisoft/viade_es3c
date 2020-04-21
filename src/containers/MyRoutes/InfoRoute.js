@@ -158,15 +158,17 @@ const InfoRoute = (props) => {
 				<div id="divDownload">
 					<Modal show={showConfirmDownload} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
 						<Modal.Header>
-							<Modal.Title id="contained-modal-title-vcenter">Descargar fichero</Modal.Title>
+							<Modal.Title id="contained-modal-title-vcenter">
+							{i18n.t("myRoutes.downloadTitle")}</Modal.Title>
 						</Modal.Header>
 						<Modal.Body>
-							<h4>¿Quieres descargar tu ruta en un fichero?</h4>
+							<h4>{i18n.t("myRoutes.downloadSure")}</h4>
+							<p>{i18n.t("myRoutes.downloadP")}</p>
 						</Modal.Body>
 						<Modal.Footer>
 							<Download file="test.txt" content="# hello world">
          						 <Button>
-									Descargar
+									{i18n.t("myRoutes.downloadBtn")}
 								</Button>
         					</Download>
 							<Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>{i18n.t("myRoutes.btnClose")}</Button>
