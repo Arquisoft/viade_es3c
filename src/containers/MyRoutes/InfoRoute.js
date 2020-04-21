@@ -166,7 +166,7 @@ const InfoRoute = (props) => {
 							<p>{i18n.t("myRoutes.downloadP")}</p>
 						</Modal.Body>
 						<Modal.Footer>
-							<Download file="test.txt" content="# hello world">
+							<Download file="ruta.ttl" content={viadeManager.getTtl(webID.webId)}>
          						 <Button>
 									{i18n.t("myRoutes.downloadBtn")}
 								</Button>

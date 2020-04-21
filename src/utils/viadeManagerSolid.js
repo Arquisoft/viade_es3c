@@ -23,3 +23,9 @@ export const addMedia = async (media, webId) => {
 export const Invitation = async (route, webId) => {
 	return await notification.handleSave(route, webId);
 };
+
+export const getTtl= async (webId)=>{
+	let file = await parsePodFiles.getTTLFile(webId);
+	console.log(file);
+	return file;
+}
