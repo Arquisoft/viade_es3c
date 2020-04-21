@@ -35,10 +35,19 @@ const InfoRoute = (props) => {
 	if (!error) {
 		return (
 			<RouteCard className="card">
+			<div id="divBtns" className="btn-group-vertical">
+				<Button id="btnModify" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
+					<FontAwesomeIcon icon="pen" className="pen-icon" />
+				</Button>
+				<Button id="btnDownload" type="button">
+					<FontAwesomeIcon icon="download" className="download-icon" />
+				</Button>
+				<Button id="btnDelete" type="button" onClick={() => setShowConfirm(!showConfirm)}>
+					<FontAwesomeIcon icon="trash" className="trash-icon" />
+				</Button>
+			</div>
 				<div id="divDelete">
-					<Button id="btnDelete" type="button" onClick={() => setShowConfirm(!showConfirm)}>
-						<FontAwesomeIcon icon="trash" className="trash-icon" />
-					</Button>
+					
 					<Modal show={showConfirm} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
 						<Modal.Header>
 							<Modal.Title id="contained-modal-title-vcenter">{i18n.t("myRoutes.attetion")}</Modal.Title>
@@ -68,9 +77,6 @@ const InfoRoute = (props) => {
 					</Modal>
 				</div>
 				<div id="divModificar">
-					<Button id="btnModify" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
-						<FontAwesomeIcon icon="pen" className="pen-icon" />
-					</Button>
 					<Modal
 						id="modalMod"
 						show={showConfirmModify}

@@ -39,9 +39,20 @@ export const RouteCard = styled.div`
 	#btnModify {
 		font-size: 14px;
 		padding: 10px 20px;
+		margin-bottom: 10px;
 	}
 	#divShare {
 		margin-left: 50px;
+	}
+	#btnDownload {
+		font-size: 14px;
+		padding: 10px 20px;
+		margin-bottom: 10px;
+	}
+	#divBtns{
+		margin-left: 560px;
+    	margin-top: 15px;
+    	margin-bottom: -140px;
 	}
 `;
 
