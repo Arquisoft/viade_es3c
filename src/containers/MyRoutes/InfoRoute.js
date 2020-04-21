@@ -83,6 +83,7 @@ const InfoRoute = (props) => {
 						</Modal.Header>
 						<Modal.Body>
 							<RouteWrapper data-testid="route-component">
+								<div>
 								<DivForms>
 									<LabelInput id="labelMod">
 										{i18n.t("newRoute.name")}
@@ -107,7 +108,8 @@ const InfoRoute = (props) => {
 										/>
 									</LabelInput>
 								</DivForms>
-								<FormRenderContainer id="mapa">
+								</div>
+								<FormRenderContainer id="mapa-modal">
 									<RouteMap
 										parentCallBack={(childData) => {
 											markersp = childData;

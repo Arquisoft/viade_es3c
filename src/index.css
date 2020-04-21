@@ -157,4 +157,12 @@ div.fade.in.modal {
 }
 #modalMod {
 	color: black;
+	width: 990px;
+	height: 650px;
 }
+
+#mapa-modal{
+	width: 999px;
+    height: 350px;
+    padding: 0px;
+  }

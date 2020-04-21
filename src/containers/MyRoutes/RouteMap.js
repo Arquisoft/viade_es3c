@@ -4,7 +4,7 @@ import update from "react-addons-update";
 import { Point } from "domain";
 
 const mapStyle = {
-	width: "600px",
+	width: "570px",
 	height: "350px"
 };
 

@@ -49,7 +49,7 @@ export const WelcomeCard = styled.div`
 	align-items: center;
 
 	input {
-		max-width: 30% !important;
+		max-width: 40% !important;
 	}
 	a {
 		text-decoration: none;

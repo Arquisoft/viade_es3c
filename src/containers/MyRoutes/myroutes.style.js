@@ -94,15 +94,13 @@ export const FormRenderContainer = styled.div`
     margin-left: 0;
   }
   #mapa{
-    width: 600px;
+    width: 570px;
     height: 350px;
     padding: 0px !IMPORTANT;
   }
   #shareRoute{
     display: contents;
 	}
-  
-
 `;
 
 export const AutoRotatingCarouselModal = styled.div`
