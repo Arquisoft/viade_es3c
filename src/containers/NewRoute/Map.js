@@ -30,7 +30,7 @@ export class MapContainer extends React.Component {
 	sendData = () => {
 		this.props.parentCallBack(this.state.markers);
 	};
-	state = { markers: [], mapCovid: [] };
+	state = { markers: [], mapCovid: [], isHeatVisible: false, isStatsVisible: false };
 
 	getLocation() {
 		if (navigator.geolocation) {
@@ -68,7 +68,11 @@ export class MapContainer extends React.Component {
 							{
 								lat: lat,
 								lng: lng,
-								weight: country.cases
+								pais: country.country,
+								casos: country.cases,
+								muertes: country.deaths,
+								recuperados: country.recovered,
+								key: this.state.markers.length
 							}
 						]
 					});
@@ -122,131 +126,153 @@ export class MapContainer extends React.Component {
 		}
 	};
 
+	handleToggle = () => {
+		this.setState({ isHeatVisible: !this.state.isHeatVisible });
+	};
+	handleToggle1 = () => {
+		this.setState({ isStatsVisible: !this.state.isStatsVisible });
+	};
+
 	render() {
 		this.getLocation();
-		if (this.state.mapCovid.length > 0) {
-			return (
-				<Map
-					google={this.props.google}
-					zoom={5}
-					style={mapStyle}
-					heatmapLibrary={true}
-					onClick={this.clickPoint}
-					center={this.state.center}
-					styles={[
-						{ elementType: "geometry", stylers: [ { color: "#242f3e" } ] },
-						{ elementType: "labels.text.stroke", stylers: [ { color: "#242f3e" } ] },
-						{ elementType: "labels.text.fill", stylers: [ { color: "#746855" } ] },
-						{
-							featureType: "administrative.locality",
-							elementType: "labels.text.fill",
-							stylers: [ { color: "#d59563" } ]
-						},
-						{
-							featureType: "poi",
-							elementType: "labels.text.fill",
-							stylers: [ { color: "#d59563" } ]
-						},
-						{
-							featureType: "poi.park",
-							elementType: "geometry",
-							stylers: [ { color: "#263c3f" } ]
-						},
-						{
-							featureType: "poi.park",
-							elementType: "labels.text.fill",
-							stylers: [ { color: "#6b9a76" } ]
-						},
-						{
-							featureType: "road",
-							elementType: "geometry",
-							stylers: [ { color: "#38414e" } ]
-						},
-						{
-							featureType: "road",
-							elementType: "geometry.stroke",
-							stylers: [ { color: "#212a37" } ]
-						},
-						{
-							featureType: "road",
-							elementType: "labels.text.fill",
-							stylers: [ { color: "#9ca5b3" } ]
-						},
-						{
-							featureType: "road.highway",
-							elementType: "geometry",
-							stylers: [ { color: "#746855" } ]
-						},
-						{
-							featureType: "road.highway",
-							elementType: "geometry.stroke",
-							stylers: [ { color: "#1f2835" } ]
-						},
-						{
-							featureType: "road.highway",
-							elementType: "labels.text.fill",
-							stylers: [ { color: "#f3d19c" } ]
-						},
-						{
-							featureType: "transit",
-							elementType: "geometry",
-							stylers: [ { color: "#2f3948" } ]
-						},
-						{
-							featureType: "transit.station",
-							elementType: "labels.text.fill",
-							stylers: [ { color: "#d59563" } ]
-						},
-						{
-							featureType: "water",
-							elementType: "geometry",
-							stylers: [ { color: "#17263c" } ]
-						},
-						{
-							featureType: "water",
-							elementType: "labels.text.fill",
-							stylers: [ { color: "#515c6d" } ]
-						},
-						{
-							featureType: "water",
-							elementType: "labels.text.stroke",
-							stylers: [ { color: "#17263c" } ]
-						}
-					]}
-				>
-					<HeatMap
-						gradient={gradient}
-						opacity={1}
-						positions={this.state.mapCovid}
-						radius={25}
-						heatmapMode={"POINTS_WEIGHT"}
-					/>
-					{this.state.mapCovid.map((point) => {
-						return (
-							<InfoWindow visible={true} position={{ lat: point.lat, lng: point.lng }}>
-								<span>{point.weight}</span>
-							</InfoWindow>
-						);
-					})}
-					{this.state.markers.map((marker) => {
-						return (
-							<Marker
-								key={marker.position.lat + marker.position.lng}
-								position={{ lat: marker.position.lat, lng: marker.position.lng }}
-								icon={"http://maps.google.com/mapfiles/ms/icons/blue.png"}
-								markersList={this.state.markers}
-								index={marker.key}
-								onClick={this.onMarkerClick}
-							/>
-						);
-					})}
 
-					<Polyline path={this.draw()} strokeColor="#01C9EA" strokeOpacity={0.8} strokeWeight={2} />
-				</Map>
-			);
-		} else {
-			return <Loader absolute />;
-		}
+		let heatMap = (
+			<HeatMap
+				visible={this.state.isHeatVisible}
+				gradient={gradient}
+				opacity={1}
+				positions={this.state.mapCovid}
+				radius={25}
+				heatmapMode={"POINTS_WEIGHT"}
+			/>
+		);
+		return (
+			<Map
+				google={this.props.google}
+				zoom={5}
+				style={mapStyle}
+				heatmapLibrary={true}
+				onClick={this.clickPoint}
+				center={this.state.center}
+				styles={[
+					{ elementType: "geometry", stylers: [ { color: "#242f3e" } ] },
+					{ elementType: "labels.text.stroke", stylers: [ { color: "#242f3e" } ] },
+					{ elementType: "labels.text.fill", stylers: [ { color: "#746855" } ] },
+					{
+						featureType: "administrative.locality",
+						elementType: "labels.text.fill",
+						stylers: [ { color: "#d59563" } ]
+					},
+					{
+						featureType: "poi",
+						elementType: "labels.text.fill",
+						stylers: [ { color: "#d59563" } ]
+					},
+					{
+						featureType: "poi.park",
+						elementType: "geometry",
+						stylers: [ { color: "#263c3f" } ]
+					},
+					{
+						featureType: "poi.park",
+						elementType: "labels.text.fill",
+						stylers: [ { color: "#6b9a76" } ]
+					},
+					{
+						featureType: "road",
+						elementType: "geometry",
+						stylers: [ { color: "#38414e" } ]
+					},
+					{
+						featureType: "road",
+						elementType: "geometry.stroke",
+						stylers: [ { color: "#212a37" } ]
+					},
+					{
+						featureType: "road",
+						elementType: "labels.text.fill",
+						stylers: [ { color: "#9ca5b3" } ]
+					},
+					{
+						featureType: "road.highway",
+						elementType: "geometry",
+						stylers: [ { color: "#746855" } ]
+					},
+					{
+						featureType: "road.highway",
+						elementType: "geometry.stroke",
+						stylers: [ { color: "#1f2835" } ]
+					},
+					{
+						featureType: "road.highway",
+						elementType: "labels.text.fill",
+						stylers: [ { color: "#f3d19c" } ]
+					},
+					{
+						featureType: "transit",
+						elementType: "geometry",
+						stylers: [ { color: "#2f3948" } ]
+					},
+					{
+						featureType: "transit.station",
+						elementType: "labels.text.fill",
+						stylers: [ { color: "#d59563" } ]
+					},
+					{
+						featureType: "water",
+						elementType: "geometry",
+						stylers: [ { color: "#17263c" } ]
+					},
+					{
+						featureType: "water",
+						elementType: "labels.text.fill",
+						stylers: [ { color: "#515c6d" } ]
+					},
+					{
+						featureType: "water",
+						elementType: "labels.text.stroke",
+						stylers: [ { color: "#17263c" } ]
+					}
+				]}
+			>
+				<div id="floating-panel">
+					<button id={"buttonCovid"} onClick={this.handleToggle}>
+						{" "}
+						Covid heatMap
+					</button>
+					<button id={"buttonCovid"} onClick={this.handleToggle1}>
+						{" "}
+						Covid stats
+					</button>
+				</div>
+				{this.state.isHeatVisible ? heatMap : null}
+
+				{this.state.mapCovid.map((point) => {
+					return (
+						<InfoWindow visible={this.state.isStatsVisible} position={{ lat: point.lat, lng: point.lng }}>
+							<h5>{point.pais}</h5>
+							<span> Cases: {point.casos}</span>
+							<span> Deaths: {point.muertes}</span>
+							<span> Recovered: {point.recuperados}</span>
+						</InfoWindow>
+					);
+				})}
+				{this.state.markers.map((marker) => {
+					return (
+						<Marker
+							key={marker.position.lat + marker.position.lng}
+							position={{ lat: marker.position.lat, lng: marker.position.lng }}
+							icon={"http://maps.google.com/mapfiles/ms/icons/blue.png"}
+							markersList={this.state.markers}
+							index={marker.key}
+							onClick={this.onMarkerClick}
+						/>
+					);
+				})}
+
+				<Polyline path={this.draw()} strokeColor="#01C9EA" strokeOpacity={0.8} strokeWeight={2} />
+			</Map>
+		);
 	}
 }
 

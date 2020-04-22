@@ -161,8 +161,24 @@ div.fade.in.modal {
 	height: 650px;
 }
 
-#mapa-modal{
+#mapa-modal {
 	width: 999px;
-    height: 350px;
-    padding: 0px;
-  }
+	height: 350px;
+	padding: 0px;
+}
+#floating-panel {
+	position: absolute;
+	top: 10px;
+	left: 35%;
+	z-index: 5;
+	background-color: transparent;
+	padding: 5px;
+	border: none;
+	text-align: center;
+	font-family: 'Roboto', 'sans-serif';
+	line-height: 30px;
+}
+
+#buttonCovid {
+	margin-left: 5px;
+}
