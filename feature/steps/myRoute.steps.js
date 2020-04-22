@@ -74,6 +74,7 @@ defineFeature(feature, test => {
 
     then('It shows the map with the route drawn', async () => {
       await page.waitForSelector('#mapa');
+      await browser.close();
     })
   });
 });

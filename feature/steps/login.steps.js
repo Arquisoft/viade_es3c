@@ -68,6 +68,7 @@ defineFeature(feature, test => {
         waitUntil: "networkidle2"
       });
       expect(page.url()).toBe("http://localhost:3000/#/welcome");
+      await browser.close();
     });
   });
 });

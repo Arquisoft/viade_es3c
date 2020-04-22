@@ -77,7 +77,7 @@ defineFeature(feature, test => {
       await page.waitFor(500);
 
       await page.waitForSelector("[id='friendID']", { visible: true });
-      await page.type("[id='friendID']", "https://saraagr.inrupt.net/");
+      await page.type("[id='friendID']", "https://saragarcia.solid.community/");
 
     });
 
@@ -88,8 +88,9 @@ defineFeature(feature, test => {
       });
       await page.waitFor(500);
       await page.waitForFunction(
-        'document.querySelector("body").innerText.includes("saraagr.inrupt.net/")'
+        'document.querySelector("body").innerText.includes("https://saragarcia.solid.community/")'
       )
+      await browser.close();
     });
   });
 });

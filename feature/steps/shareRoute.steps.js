@@ -30,7 +30,7 @@ defineFeature(feature, test => {
         timeout: 0
       });
       await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(".sc-EHOje.cffgrt", "https://saragg.solid.community/profile/card#me");
+      await page.type(".sc-EHOje.cffgrt", "https://saragarciarodri.solid.community/profile/card#me");
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function(btn) {
@@ -43,7 +43,7 @@ defineFeature(feature, test => {
         waitUntil: "networkidle2"
       });
       await page.waitForSelector("[id='username']", { visible: true });
-      await page.type("[id='username']", "saragg");
+      await page.type("[id='username']", "saragarciarodri");
       await page.waitFor(500);
       await page.waitForSelector("[id='password']", { visible: true });
       await page.type("[id='password']", "Prueba_123", { visible: true });
@@ -73,6 +73,7 @@ defineFeature(feature, test => {
     then("I choose the friend to share", async () => {
       const friend = await page.waitForSelector('[data-testid="friendID"]');
       await friend.click();
+      await browser.close();
     });
 
   });

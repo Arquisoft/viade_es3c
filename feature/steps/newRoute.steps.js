@@ -99,8 +99,9 @@ defineFeature(feature, test => {
     });
 
     then("Redirect to my routes page", async () => {
-      await page.waitFor(4000);
+      await page.waitFor(5000);
       expect(page.url()).toBe("http://localhost:3000/#/myRoutes");
+      await browser.close();
     })
 
   });
