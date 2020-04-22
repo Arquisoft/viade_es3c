@@ -16,6 +16,7 @@ const Bell = ({ unread, onClick, active }: Props) => (
     className={`bell-icon ${active ? "active" : ""}`}
     onClick={onClick}
     type="button"
+    id="notificationButton"
   >
     <div className="icon">
       {unread > 0 && <Badge badge={unread} />}
