@@ -28,7 +28,7 @@ import {
 
 var markersp = [];
 const InfoRoute = (props) => {
-	const { name, author, description, points, center, mult, r, uuid, error, errorMore, webID } = props;
+	const { name, author, description, points, center, mult, r, ttl, uuid, error, errorMore, webID } = props;
 	const [ show, setShow ] = useState(true);
 	const [ showConfirm, setShowConfirm ] = useState(false);
 	const [ showConfirmModify, setShowConfirmModify] = useState(false);
@@ -149,7 +149,10 @@ const InfoRoute = (props) => {
 							>
 								{i18n.t("myRoutes.btnModify")}
 							</Button>
-							<Button onClick={() => setShowConfirmModify(!showConfirmModify)}>
+							<Button onClick={() => {
+								
+								setShowConfirmModify(!showConfirmModify)
+							}}>
 								{i18n.t("myRoutes.btnClose")}
 							</Button>
 						</Modal.Footer>
@@ -166,7 +169,7 @@ const InfoRoute = (props) => {
 							<p>{i18n.t("myRoutes.downloadP")}</p>
 						</Modal.Body>
 						<Modal.Footer>
-							<Download file="ruta.ttl" content={viadeManager.getTtl(webID.webId)}>
+							<Download file="ruta.ttl" content={ttl}>
          						 <Button>
 									{i18n.t("myRoutes.downloadBtn")}
 								</Button>

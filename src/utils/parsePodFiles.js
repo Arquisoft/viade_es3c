@@ -97,20 +97,9 @@ export const getRoutesFromPod = async (webId) => {
 	}
 };
 
-export const getTTLFile= async (webId)=>{
-	var path = await storageHelper.getAppStorage(webId, routePath);
-	const routesFolderExists = await ldflexHelper.resourceExists(path);
-	if (!routesFolderExists) {
-		return "EMPTY";
-	} else {
-		var folder = await fc.readFolder(path);
-		if (folder.files.length <= 0) {
-			return "EMPTY";
-		} else {
-			let file = await fc.readFile(folder.files[2].url);
-			return file;
-		}
-	}
+export const getTTLFile= async (element)=>{
+	let file = await fc.readFile(element);
+	return file;
 };
 
 
