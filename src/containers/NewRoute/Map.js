@@ -1,4 +1,4 @@
-import { Map, GoogleApiWrapper, Marker, Polyline, HeatMap } from "google-maps-react";
+import { Map, GoogleApiWrapper, Marker, Polyline, HeatMap, InfoWindow } from "google-maps-react";
 import { Loader } from "@util-components";
 
 import React from "react";
@@ -10,7 +10,7 @@ const mapStyle = {
 };
 var count = 0;
 var data = [];
-const gradient = [
+var gradient = [
 	"rgba(0, 255, 255, 0)",
 	"rgba(0, 255, 255, 1)",
 	"rgba(0, 191, 255, 1)",
@@ -24,7 +24,7 @@ const gradient = [
 	"rgba(63, 0, 91, 1)",
 	"rgba(127, 0, 63, 1)",
 	"rgba(191, 0, 31, 1)",
-	"rgba(255, 0, 0, 1000)"
+	"rgba(255, 0, 0, 1)"
 ];
 export class MapContainer extends React.Component {
 	sendData = () => {
@@ -68,11 +68,7 @@ export class MapContainer extends React.Component {
 							{
 								lat: lat,
 								lng: lng,
-								weight: country.cases,
-								options: {
-									radius: 20,
-									opacity: 0.6
-								}
+								weight: country.cases
 							}
 						]
 					});
@@ -81,6 +77,7 @@ export class MapContainer extends React.Component {
 
 			this.setState({ mapCovid });
 			this.sendData();
+			console.log(data);
 		}
 	}
 
@@ -217,7 +214,20 @@ export class MapContainer extends React.Component {
 						}
 					]}
 				>
-					<HeatMap gradient={gradient} opacity={1} positions={this.state.mapCovid} radius={15} />
+					<HeatMap
+						gradient={gradient}
+						opacity={1}
+						positions={this.state.mapCovid}
+						radius={25}
+						heatmapMode={"POINTS_WEIGHT"}
+					/>
+					{this.state.mapCovid.map((point) => {
+						return (
+							<InfoWindow visible={true} position={{ lat: point.lat, lng: point.lng }}>
+								<span>{point.weight}</span>
+							</InfoWindow>
+						);
+					})}
 					{this.state.markers.map((marker) => {
 						return (
 							<Marker
