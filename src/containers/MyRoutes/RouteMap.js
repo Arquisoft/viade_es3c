@@ -44,9 +44,13 @@ export class MapContainer extends React.Component {
 	onMarkerClick = (props, marker, e) => {
 		if (this.state.action) {
 			let markers2 = props.markersList;
-			markers2.splice(props.index, 1);
-			this.setState({ markers2 });
-			this.sendData();
+			for (var i = 0; i < markers2.length; i++) {
+				if (markers2[i].key === props.index) {
+					markers2.splice(i, 1);
+					this.setState({ markers2 });
+					this.sendData();
+				}
+			}
 		}
 	};
 

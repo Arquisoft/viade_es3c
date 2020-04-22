@@ -10,20 +10,10 @@ import RouteMap from "./RouteMap";
 import Notifications from "../Share/NotificationHelp";
 import MultsButton from "./ViewMult";
 import i18n from "i18n";
-import { Route, Point, Multimedia } from "domain";
+import { Route } from "domain";
 import { viadeManager } from "@utils";
-import Map from "../NewRoute/Map";
 
-import {
-	Header,
-	RouteWrapper,
-	TextArea,
-	DivForms,
-	InputSubmit,
-	LabelInput,
-	TitleRoute,
-	RouteForm
-} from "../NewRoute/route.style";
+import { RouteWrapper, TextArea, DivForms, LabelInput } from "../NewRoute/route.style";
 
 var markersp = [];
 const InfoRoute = (props) => {
@@ -35,19 +25,18 @@ const InfoRoute = (props) => {
 	if (!error) {
 		return (
 			<RouteCard className="card">
-			<div id="divBtns" className="btn-group-vertical">
-				<Button id="btnModify" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
-					<FontAwesomeIcon icon="pen" className="pen-icon" />
-				</Button>
-				<Button id="btnDownload" type="button">
-					<FontAwesomeIcon icon="download" className="download-icon" />
-				</Button>
-				<Button id="btnDelete" type="button" onClick={() => setShowConfirm(!showConfirm)}>
-					<FontAwesomeIcon icon="trash" className="trash-icon" />
-				</Button>
-			</div>
+				<div id="divBtns" className="btn-group-vertical">
+					<Button id="btnModify" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
+						<FontAwesomeIcon icon="pen" className="pen-icon" />
+					</Button>
+					<Button id="btnDownload" type="button">
+						<FontAwesomeIcon icon="download" className="download-icon" />
+					</Button>
+					<Button id="btnDelete" type="button" onClick={() => setShowConfirm(!showConfirm)}>
+						<FontAwesomeIcon icon="trash" className="trash-icon" />
+					</Button>
+				</div>
 				<div id="divDelete">
-					
 					<Modal show={showConfirm} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
 						<Modal.Header>
 							<Modal.Title id="contained-modal-title-vcenter">{i18n.t("myRoutes.attetion")}</Modal.Title>
@@ -90,30 +79,30 @@ const InfoRoute = (props) => {
 						<Modal.Body>
 							<RouteWrapper data-testid="route-component">
 								<div>
-								<DivForms>
-									<LabelInput id="labelMod">
-										{i18n.t("newRoute.name")}
-										<input
-											type="text"
-											rows="10"
-											id="route_name"
-											name="route_name"
-											defaultValue={name}
-										/>
-									</LabelInput>
-								</DivForms>
-								<DivForms>
-									<LabelInput id="labelMod">
-										{i18n.t("newRoute.description")}
-										<TextArea
-											type="text"
-											id="route_description"
-											name="route_description"
-											rows="10"
-											defaultValue={description}
-										/>
-									</LabelInput>
-								</DivForms>
+									<DivForms>
+										<LabelInput id="labelMod">
+											{i18n.t("newRoute.name")}
+											<input
+												type="text"
+												rows="10"
+												id="route_name"
+												name="route_name"
+												defaultValue={name}
+											/>
+										</LabelInput>
+									</DivForms>
+									<DivForms>
+										<LabelInput id="labelMod">
+											{i18n.t("newRoute.description")}
+											<TextArea
+												type="text"
+												id="route_description"
+												name="route_description"
+												rows="10"
+												defaultValue={description}
+											/>
+										</LabelInput>
+									</DivForms>
 								</div>
 								<FormRenderContainer id="mapa-modal">
 									<RouteMap
