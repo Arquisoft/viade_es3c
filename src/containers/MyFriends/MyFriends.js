@@ -50,7 +50,10 @@ class MyFriends extends React.Component {
 	async handleClick(e) {
 		e.preventDefault();
 		await friendsHelper.addFriend(this.webID, this.state.friendWebID);
-		successToaster(i18n.t("myFriends.adding") + this.state.friendWebID + i18n.t("myFriends.addingList"), i18n.t("newRoute.success"));
+		successToaster(
+			i18n.t("myFriends.adding") + this.state.friendWebID + i18n.t("myFriends.addingList"),
+			i18n.t("newRoute.success")
+		);
 		setTimeout(function() {
 			window.location.reload();
 		}, 1000);
@@ -62,9 +65,19 @@ class MyFriends extends React.Component {
 				<form>
 					<label>
 						{i18n.t("myFriends.webId")}
-						<input type="text" name="webID" onChange={this.handleChange} />
+						<input
+							type="text"
+							name="webID"
+							onChange={this.handleChange}
+							placeholder={"Example: " + this.webID}
+						/>
 					</label>
-					<input type="submit" value={i18n.t("myFriends.btnAdd")} onClick={(e) => this.handleClick(e)} />
+					<input
+						id="botonaddfriends"
+						type="submit"
+						value={i18n.t("myFriends.btnAdd")}
+						onClick={(e) => this.handleClick(e)}
+					/>
 				</form>
 			</FormAddFriends>
 		);
@@ -103,7 +116,10 @@ export const getUrl = (name) => {
 
 export const removeFriend = (webIdUser, friendWebID) => {
 	friendsHelper.deleteFriend(webIdUser, friendWebID);
-	successToaster(i18n.t("myFriends.deleting") + friendWebID + i18n.t("myFriends.friendsList"), i18n.t("newRoute.success"));
+	successToaster(
+		i18n.t("myFriends.deleting") + friendWebID + i18n.t("myFriends.friendsList"),
+		i18n.t("newRoute.success")
+	);
 	setTimeout(function() {
 		window.location.reload();
 	}, 1000);

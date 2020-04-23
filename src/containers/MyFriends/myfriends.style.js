@@ -30,9 +30,14 @@ export const FormAddFriends = styled.div`
 
 	input {
 		margin: 20px;
+		max-width: 70%;
 	}
-	form{
-		text-align:center;
+
+	#botonaddfriends {
+		max-width: 20%;
+	}
+	form {
+		text-align: center;
 	}
 `;
 
@@ -55,7 +60,6 @@ export const FriendsList = styled.div`
 	a {
 		font-size: 20px;
 		font-weight: bold;
-		
 	}
 `;
 
@@ -64,8 +68,10 @@ export const RouteWrapper = styled.section`
 	flex: 1 0 auto;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(90deg, #67e3c0ff 0%, #046df0f0 100%);
-	background-repeat: repeat;
+	background: url(../img/share.png);
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
 	padding: 60px 0;
 `;
 export const MyRouteContainer = styled.div`
@@ -75,12 +81,14 @@ export const MyRouteContainer = styled.div`
 	margin: 0 20px;
 	width: 100%;
 	flex: 1 0 auto;
+	color: white;
 `;
 export const FormRenderContainer = styled.div`
 	min-height: 40px;
 	padding: 5px;
-	background: white;
-	background-repeat: repeat, no-repeat;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+	margin: 15px 20px;
 	padding: 30px 20px;
 	.inrupt-form-group {
 		border: 1px solid #c0c0c0;
@@ -95,6 +103,7 @@ export const FormRenderContainer = styled.div`
 	input {
 		margin-left: 0;
 	}
+	color: white;
 `;
 
 export const FormRenderContainerMult = styled.div`
@@ -102,6 +111,7 @@ export const FormRenderContainerMult = styled.div`
   //border: 1px solid #dae0e6;
   min-height: 40px;
   padding: 5px;
+  
   //background-image: url('img/pattern-geo.png'),
   background: LIGHTSKYBLUE;
   background-repeat: repeat, no-repeat;
@@ -136,9 +146,9 @@ export const Header = styled.div`
 	background-image: url("img/pattern-geo.png"), linear(135deg, #1cd8d2 0%, #57e2cc 30%, #93edc7 100%);
 	background-repeat: repeat, no-repeat;
 	padding: 10px 5px;
-	p {
-		color: white;
-	}
+
+	color: white;
+
 	.edit-button {
 		background: rgba(255, 255, 255, 0.1);
 		border: 2px solid white;
