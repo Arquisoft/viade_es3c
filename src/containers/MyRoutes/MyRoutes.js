@@ -81,12 +81,6 @@ class MyRoute extends React.Component {
 											center={ruta.calculateCenter()}
 											mult={ruta.multimedia}
 											r={baseUrl + routePath + ruta.getIdRoute() + ".ttl"}
-											ttl={viadeManager.getTtl(
-												baseUrl + routePath + ruta.getIdRoute() + ".ttl")
-												.then(function(value) {
-													console.log(value);
-													return value;
-												})}
 											uuid={ruta.getIdRoute()}
 											error={false}
 											errorMore={false}
