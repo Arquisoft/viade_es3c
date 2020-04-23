@@ -5,8 +5,8 @@ import friendsHelper from "./FriendsHelper";
 afterAll(cleanup);
 
 describe.only('FriendsHelp', () => {
-  var name = 'elmer';
-  var url = 'https://elmer.solid.community/';
+  var name = 'sara';
+  var url = 'https://saragg.solid.community/';
 
   it("create class FriendsHelp without crashing", () => {
     friendsHelper.addFriend(name, url);

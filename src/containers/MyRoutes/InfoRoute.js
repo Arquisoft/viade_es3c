@@ -20,7 +20,7 @@ const InfoRoute = (props) => {
 	return (
 		<RouteCard className="card">
 			<div>
-				<Button type="button" onClick={() => setShowConfirm(!showConfirm)}>
+				<Button id="infoRoute" type="button" onClick={() => setShowConfirm(!showConfirm)}>
 					<FontAwesomeIcon icon="trash" className="trash-icon" />
 				</Button>
 				<Modal show={showConfirm} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
