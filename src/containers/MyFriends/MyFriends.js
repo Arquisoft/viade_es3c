@@ -92,6 +92,7 @@ class MyFriends extends React.Component {
 							<h1>{i18n.t("myFriends.title")}</h1>
 						</Header>
 						{this.addFriends()}
+
 						<Header>
 							<h1>{i18n.t("myRoutes.friends")}</h1>
 						</Header>

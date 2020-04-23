@@ -16,7 +16,6 @@ const InfoFriends = (props) => {
 		<RouteCard className="card">
 			<a href={url}>
 				<h3>{name}</h3>
-
 				<Button id="btnDelete" type="button" onClick={(e) => handleClick(e)}>
 					<FontAwesomeIcon icon="trash" className="trash-icon" />
 				</Button>

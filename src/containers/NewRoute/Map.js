@@ -8,6 +8,13 @@ const mapStyle = {
 	paddingBottom: "10px",
 	height: "100%"
 };
+
+const infoWindowStyle = {
+	display: "block",
+	fontSize: "10px",
+	margin: 0
+};
+
 var count = 0;
 var data = [];
 var gradient = [
@@ -146,10 +153,12 @@ export class MapContainer extends React.Component {
 				heatmapMode={"POINTS_WEIGHT"}
 			/>
 		);
+
 		return (
 			<Map
 				google={this.props.google}
 				zoom={5}
+				minZoom={3}
 				style={mapStyle}
 				heatmapLibrary={true}
 				onClick={this.clickPoint}
@@ -249,11 +258,15 @@ export class MapContainer extends React.Component {
 
 				{this.state.mapCovid.map((point) => {
 					return (
-						<InfoWindow visible={this.state.isStatsVisible} position={{ lat: point.lat, lng: point.lng }}>
-							<h5>{point.pais}</h5>
-							<span> Cases: {point.casos}</span>
-							<span> Deaths: {point.muertes}</span>
-							<span> Recovered: {point.recuperados}</span>
+						<InfoWindow
+							maxWidth={100}
+							visible={this.state.isStatsVisible}
+							position={{ lat: point.lat, lng: point.lng }}
+						>
+							<h5 style={infoWindowStyle}>{point.pais}</h5>
+							<p style={infoWindowStyle}> Cases: {point.casos}</p>
+							<p style={infoWindowStyle}> Deaths: {point.muertes}</p>
+							<p style={infoWindowStyle}> Recovered: {point.recuperados}</p>
 						</InfoWindow>
 					);
 				})}

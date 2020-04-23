@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const RouteCard = styled.div`
 	background: rgb(211, 224, 227);
-
-	//margin: 15px 20px;
+	display: inline;
+	margin-top: 15px;
 	max-width: 100% !important;
 	padding: 10px !important; //temporary fix to a style guide bug
 	a {
@@ -30,9 +30,8 @@ export const RouteCard = styled.div`
 	#btnDelete {
 		font-size: 14px;
 		padding: 10px 20px;
-		margin: 10px;
+		margin-left: 0px !important;
 		box-shadow: none;
-		//margin-right: 10px;
 	}
 `;
 
@@ -65,7 +64,7 @@ export const FriendsList = styled.div`
 	align-items: center;
 	justify-content: center;
 	padding: 10px 5px;
-	margin-right: 500px;
+	margin-right: 50px;
 	border-left: groove;
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 
