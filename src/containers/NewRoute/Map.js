@@ -150,6 +150,7 @@ export class MapContainer extends React.Component {
 				opacity={1}
 				positions={this.state.mapCovid}
 				radius={25}
+				center={this.state.center}
 				heatmapMode={"POINTS_WEIGHT"}
 			/>
 		);
