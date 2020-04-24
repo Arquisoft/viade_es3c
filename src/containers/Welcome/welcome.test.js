@@ -4,8 +4,6 @@ import { HashRouter as Router } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { WelcomeComponent } from "./welcome.container";
-import * as Toaster from "../../utils/toaster";
-import { WelcomeContainer } from "./welcome.container";
 
 library.add(fas);
 
@@ -33,7 +31,4 @@ describe.only("Welcome", () => {
     expect(document.querySelector(".card")).toBeTruthy();
   });
 
-  test("register", () => {
-    return WelcomeContainer.updatePhoto("sara", "prueba", "foto").catch(e => expect(e).toMatch( Toaster.errorToaster(e.message, "Error")));
-  });
 });
