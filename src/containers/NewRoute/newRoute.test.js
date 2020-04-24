@@ -5,6 +5,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import NewRoute from "./NewRoute";
 import { getByTestId } from "@testing-library/dom";
+import * as Toaster from "../../utils/toaster";
 
 library.add(fas);
 
@@ -65,6 +66,16 @@ describe.only("NewRoute", () => {
     fireEvent.change(input_img);
 
     fireEvent.click(button_save);
+  });
+
+  test('fill form with errors', () => {
+    const nameInput = getById(container, 'route_name');
+    fireEvent.change(nameInput, {target: {value: ""}});
+    expect(Toaster.errorToaster()).toHaveBeenCalled;
+
+    const descriptionInput = getById(container, 'description');
+    fireEvent.change(descriptionInput, {target: {value: ""}});
+    expect(Toaster.errorToaster()).toHaveBeenCalled;
 
   });
 });

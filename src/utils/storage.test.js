@@ -3,6 +3,8 @@ import { cleanup } from "react-testing-library";
 import React from 'react';
 import * as ldflex from "./ldflex-helper";
 import * as Toaster from "./toaster";
+import * as notification from "./notification";
+import * as permission from "./permissions";
 
 afterAll(cleanup);
 
@@ -27,5 +29,9 @@ describe.only("Storage", () => {
       .toStrictEqual('https://saragg.solid.community/path');
   });
 
+  test('toaster', () => {
+    storage.createInitialFiles("https://saragg.solid.community/profile/card#me");
+    expect(Toaster.errorToaster()).toHaveBeenCalled;
+  });
 
 });
