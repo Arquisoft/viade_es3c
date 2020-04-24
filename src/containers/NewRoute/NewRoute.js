@@ -22,7 +22,7 @@ type Props = {
 };
 
 class NewRoute extends React.Component {
-	constructor({ webId }: Props) {
+	constructor({ webId, test }: Props) {
 		super();
 		this.webID = webId;
 		this.handleSave = this.handleSave.bind(this);
@@ -59,7 +59,7 @@ class NewRoute extends React.Component {
 			errorToaster(i18n.t("newRoute.errorDescription"), "ERROR");
 		} else if (this.state.markers === null || this.state.markers.length < 0) {
 			errorToaster(i18n.t("newRoute.errorPoints"), "ERROR");
-		} else if(this.state.markers.length === 1) {
+		} else if(this.state.markers.length === 1 && !test) {
 			errorToaster(i18n.t("newRoute.errorOnePoint"), "ERROR");
 		}
 		else {

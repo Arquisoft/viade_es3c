@@ -3,6 +3,8 @@ import { render, cleanup } from "react-testing-library";
 import { HashRouter as Router } from "react-router-dom";
 import { RegisterComponent } from "./register.component";
 import Register from './register.container';
+import * as ldflex from "../../utils/ldflex-helper";
+import * as Toaster from "../../utils/toaster";
 
 
 describe.only("Register", () => {
@@ -14,9 +16,10 @@ describe.only("Register", () => {
     </Router>
   );
 
-  it('We can check if the consumer called the class constructor', () => {
+  it('register test', () => {
     const register = new Register();
     expect(register.componentDidMount()).toBeDefined;
+    return register.resourceExists("prueba").catch(e => expect(e).toMatch( Toaster.errorToaster(e.message, "Error")));
 
   });
 });
