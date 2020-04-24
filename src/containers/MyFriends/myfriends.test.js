@@ -6,6 +6,9 @@ import {fas} from '@fortawesome/free-solid-svg-icons';
 import MyFriends from "./MyFriends";
 import InfoFriends from "./InfoFriends";
 import { act } from "react-dom/test-utils";
+import * as friends from "./MyFriends";
+import * as Toaster from "../../utils/toaster";
+import * as permission from "../../utils/permissions";
 
 library.add(fas);
 
@@ -29,8 +32,16 @@ describe.only('MyFriends', () => {
     act(() => {
       expect(container).toBeTruthy();
     });
-    const button_friends = getById(container, 'submit-friends');
-    fireEvent.click(button_friends);
   });
 
+  test('functions', () => {
+    expect(friends.getUserName("https://saragg.solid.community/profile/card#me/")).toBe("saragg/");
+    expect(friends.getUrl("https://saragg.solid.community/profile/card#me")).toBe("https://saragg.solid.community/");
+  });
+
+  test('click', () => {
+    const button_friends = getById(container, 'submit-friends');
+    fireEvent.click(button_friends);
+    (expect(Toaster.successToaster()).toHaveBeenCalled);
+  })
 });

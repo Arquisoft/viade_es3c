@@ -2,6 +2,7 @@ import React from "react";
 import { render, cleanup } from "react-testing-library";
 import { HashRouter as Router } from "react-router-dom";
 import FormModelConverter from "./converter.component";
+import * as Toaster from "../../../utils/toaster";
 
 describe.only("Form Model Converter", () => {
   afterAll(cleanup);
@@ -22,5 +23,9 @@ describe.only("Form Model Converter", () => {
     ).toBeTruthy();
     expect(getByTestId("copy-button").hasAttribute("disabled")).toBeTruthy();
     expect(getByTestId("convert-button").hasAttribute("disabled")).toBeTruthy();
+  });
+
+  test('toaster', () => {
+    (expect(Toaster.successToaster()).toHaveBeenCalled);
   });
 });
