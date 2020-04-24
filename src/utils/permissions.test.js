@@ -11,4 +11,11 @@ describe.only("Permsissions", () => {
     return permission.checkSpecificAppPermission("prueba", null).catch(e => expect(e).toMatch('error'));
     return permission.checkOrSetInboxAppendPermissions(null, "https://saragg.solid.community/profile/card#me").catch(e => expect(e).toMatch('error'));
   });
+
+
+  test('toaster', () => {
+    permission.checkOrSetInboxAppendPermissions(null, "https://saragg.solid.community/profile/card#me");
+    (expect(Toaster.successToaster()).toHaveBeenCalled);
+  });
+
 });
