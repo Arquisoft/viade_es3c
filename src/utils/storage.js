@@ -323,5 +323,3 @@ export const createInitialFiles = async (webId) => {
 		return false;
 	}
 };
-
-export const checkAndInitializeInbox = async () => "";
