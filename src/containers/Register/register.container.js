@@ -25,4 +25,5 @@ class RegisterContainer extends Component<Props, State> {
   }
 }
 
-export default RegisterContainer;
+//export default RegisterContainer;
+export {RegisterContainer};

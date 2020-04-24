@@ -8,7 +8,6 @@ import InfoFriends from "./InfoFriends";
 import { act } from "react-dom/test-utils";
 import * as friends from "./MyFriends";
 import * as Toaster from "../../utils/toaster";
-import * as permission from "../../utils/permissions";
 
 library.add(fas);
 
