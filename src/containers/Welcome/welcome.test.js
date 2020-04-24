@@ -4,7 +4,6 @@ import { HashRouter as Router } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { WelcomeComponent } from "./welcome.container";
-import WelcomeComponent from "./welcome.container";
 import * as Toaster from "../../utils/toaster";
 
 library.add(fas);
