@@ -5,6 +5,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { WelcomeComponent } from "./welcome.container";
 import * as Toaster from "../../utils/toaster";
+import { WelcomeContainer } from "./welcome.container";
 
 library.add(fas);
 
@@ -33,6 +34,6 @@ describe.only("Welcome", () => {
   });
 
   test("register", () => {
-    return welcome.updatePhoto("sara", "prueba", "foto").catch(e => expect(e).toMatch( Toaster.errorToaster(e.message, "Error")));
+    return WelcomeContainer.updatePhoto("sara", "prueba", "foto").catch(e => expect(e).toMatch( Toaster.errorToaster(e.message, "Error")));
   });
 });
