@@ -1,7 +1,13 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
 import InfoRoutes from "./InfoRoute";
-import { cleanup, queryByAttribute, render } from "react-testing-library";
+import { cleanup, queryByAttribute, render, fireEvent } from "react-testing-library";
+
+const multi = [
+  { url: ".mp3" },
+  { url: ".mp4" },
+  { url: ".ext" }
+];
 
 const props = {
   name: 'prueba',
@@ -9,7 +15,7 @@ const props = {
   description: 'esto es una prueba',
   points: null,
   center: null,
-  mult: [{}],
+  mult: multi,
   r: 'https://saragarcia.solid.community/',
   uuid: 'https://saragarcia.solid.community/'
 };
