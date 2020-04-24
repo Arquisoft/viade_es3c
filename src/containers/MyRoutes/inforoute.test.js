@@ -2,6 +2,8 @@ import React from "react";
 import { HashRouter as Router } from "react-router-dom";
 import InfoRoutes from "./InfoRoute";
 import { cleanup, queryByAttribute, render, fireEvent } from "react-testing-library";
+import MultsButton from "./ViewMult";
+import { act } from 'react-dom/test-utils';
 
 const multi = [
   { url: ".mp3" },
@@ -28,15 +30,19 @@ describe.only("InfoRoutes", () => {
 
   const { container } = render(
     <Router>
-      <InfoRoutes{...{...props}}/>
+      <InfoRoutes{...props}>
+        <MultsButton {...props} />
+      </InfoRoutes>
     </Router>
   );
 
-  test("renders without crashing", () => {
-    expect(container).toBeTruthy();
+  test("renders without crashing", async() => {
+    act(() => {
+      expect(container).toBeTruthy();
+    })
   });
 
-  test("timeline render properly", () => {
+  test("timeline render properly", async() => {
     const btinfo = getById(container, 'infoRoute');
     const btroute = getById(container, 'viewRoute');
     const btfriends = getById(container, 'viewFriends');

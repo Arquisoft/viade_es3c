@@ -23,11 +23,11 @@ describe.only("NewRoute", () => {
     </Router>
   );
 
-  test('renders without crashing', () => {
+  test('renders without crashing', async () => {
     expect(container).toBeTruthy();
   });
 
-  test('renders with styled components', () => {
+  test('renders with styled components', async () => {
     const route_wrapper = getByTestId(container, 'route-component');
     const route_header = getByTestId(container, 'route-header');
     const nameInput = getById(container, 'route_name');

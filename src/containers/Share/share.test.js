@@ -3,8 +3,8 @@ import { render, cleanup } from 'react-testing-library';
 import { HashRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { FriendsList } from "../MyFriends/myfriends.style";
 import Notifications from "./NotificationHelp"
+import { act } from 'react-dom/test-utils';
 
 library.add(fas);
 
@@ -21,7 +21,9 @@ describe.only("Share", () => {
   );
 
   test('renders without crashing', () => {
-    expect(container).toBeTruthy();
+    act(() => {
+      expect(container).toBeTruthy();
+    })
   });
 
 
