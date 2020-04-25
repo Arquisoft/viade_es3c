@@ -42,7 +42,6 @@ const AutoRotatingCarouselModal = ({
     }
 
     for (var i = 0; i < media.mult.length; i++) {
-      
       j = (<Slide
           media={getMediaComponent(media.mult[i].url)}
           mediaBackgroundStyle={{ backgroundColor: cyan[600] }}

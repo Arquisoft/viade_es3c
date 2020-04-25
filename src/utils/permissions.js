@@ -1,5 +1,6 @@
 import { AccessControlList, AppPermission } from "@inrupt/solid-react-components";
 import { errorToaster, successToaster } from "@utils";
+import i18n from "i18n";
 
 // Check that all permissions we need are set. If any are missing, this returns false
 import auth from "solid-auth-client";
@@ -94,7 +95,7 @@ export const sharing = async (webId, friendId, shareUrl) => {
 	const aclApi = new AclApi(fetch, { autoSave: true });
 	const acl = await aclApi.loadFromFileUrl(shareUrl);
 	await acl.addRule(READ, friendId);
-	successToaster("La ruta ha sido compartida", "Éxito");
+	successToaster(i18n.t("myRoutes.successShare"), i18n.t("newRoute.success"));
 };
 
 export const notSharing = async (webId, friendId, shareUrl) => {

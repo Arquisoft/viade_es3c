@@ -159,7 +159,8 @@
     "friends": "My friends",
     "viewMult": "View Multimedia",
     "noMult": "Seems like there is no media uploaded for this route",
-    "noMultTitle" :"Sorry..."
+    "noMultTitle" :"Sorry...",
+    "successShare": "The route has been shared"
   },
   "myFriends":{
     "title": "Add new friends",

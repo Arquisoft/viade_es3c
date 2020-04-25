@@ -5,6 +5,9 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {fas} from '@fortawesome/free-solid-svg-icons';
 import MyFriends from "./MyFriends";
 import InfoFriends from "./InfoFriends";
+import { act } from "react-dom/test-utils";
+import * as friends from "./MyFriends";
+import * as Toaster from "../../utils/toaster";
 
 library.add(fas);
 
@@ -15,6 +18,7 @@ const props = {
 describe.only('MyFriends', () => {
   afterAll(cleanup);
   const getById = queryByAttribute.bind(null, 'id');
+
   const {container} = render(
     <Router>
       <MyFriends {...{...props}} >
@@ -24,9 +28,19 @@ describe.only('MyFriends', () => {
   );
 
   test('renders without crashing', () => {
-    expect(container).toBeTruthy();
-    const button_friends = getById(container, 'submit-friends');
-    fireEvent.click(button_friends);
+    act(() => {
+      expect(container).toBeTruthy();
+    });
   });
 
+  test('functions', () => {
+    expect(friends.getUserName("https://saragg.solid.community/profile/card#me/")).toBe("saragg/");
+    expect(friends.getUrl("https://saragg.solid.community/profile/card#me")).toBe("https://saragg.solid.community/");
+  });
+
+  test('click', () => {
+    const button_friends = getById(container, 'submit-friends');
+    fireEvent.click(button_friends);
+    (expect(Toaster.successToaster()).toHaveBeenCalled);
+  })
 });

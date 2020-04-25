@@ -69,7 +69,7 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
 			>
 				<FontAwesomeIcon icon={currentRead ? "eye-slash" : "eye"} />
 			</MarkAsRead>
-			<Delete type="button" className="delete" onClick={() => deleteNotification(notification.path)}>
+			<Delete id="delete" type="button" className="delete" onClick={() => deleteNotification(notification.path)}>
 				<FontAwesomeIcon icon="times-circle" />
 			</Delete>
 		</Item>
