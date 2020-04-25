@@ -6,10 +6,10 @@ import {FriendsList} from "../MyFriends/myfriends.style";
 import {List} from "@solid/react";
 import {getUrl, getUserName} from "../MyFriends/MyFriends";
 import {sharing} from "../../utils/permissions";
-import Checkbox from "../Share/Checkbox"
 import i18n from "i18n";
 import {Button } from "../MyRoutes/myroutes.style";
-
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const Notifications = ({ruta}) => {
         let cadena = null;
@@ -106,7 +106,11 @@ const Notifications = ({ruta}) => {
                 (item, i) =>
                         <label key={item.key}>
                         {getUserName(`${item}`)}
-                        <Checkbox name={getUserName(`${item}`)} value={`${item}`} checked={checkedItems.get(item.name)} onChange={handleChange} />
+                        <Checkbox name={getUserName(`${item}`)}
+                                  value={`${item}`}
+                                  checked={checkedItems.get(item.name)}
+                                  onChange={handleChange} color="primary"
+                                  checkedIcon={<CheckBoxIcon fontSize="small" />}/>
                         </label>
                         }
             </List>
@@ -117,12 +121,7 @@ const Notifications = ({ruta}) => {
     );
     
     }
-
-
-
 ;
-
-
 export default Notifications;
 
 
