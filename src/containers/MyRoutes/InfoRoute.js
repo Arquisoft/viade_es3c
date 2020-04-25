@@ -14,6 +14,8 @@ import { Route } from "domain";
 import { viadeManager } from "@utils";
 import Map from "../NewRoute/Map";
 import Download from '@axetroy/react-download';
+import shareWithFriends from "../Share/NotificationHelp";
+
 
 import { RouteWrapper, TextArea, DivForms, LabelInput } from "../NewRoute/route.style";
 
@@ -191,7 +193,7 @@ const InfoRoute = (props) => {
 							<Notifications ruta={uuid}></Notifications>
 						</Modal.Body>
 						<Modal.Footer>
-						<Button onClick={(e) => Notifications.shareWithFriends(e)}>
+						<Button onClick={(e) => shareWithFriends(e)}>
                                 {i18n.t("myRoutes.btnShare")}
                             </Button>
                             <Button onClick={() => setShowFriends(!showFriends)}>
