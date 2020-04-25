@@ -73,7 +73,7 @@ export const createRouteFromData = async (folder) => {
 						points.push(point);
 					}
 				} else {
-					let ruta = new Route(name, author, description, points, multimedia);
+					let ruta = new Route(name, author, description, points, multimedia, quadStream);
 					routes.push(ruta);
 				}
 			});
@@ -97,9 +97,5 @@ export const getRoutesFromPod = async (webId) => {
 	}
 };
 
-export const getTTLFile= async (element)=>{
-	let file = await fc.readFile(element);
-	return file;
-};
 
 

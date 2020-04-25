@@ -24,13 +24,4 @@ export const Invitation = async (route, webId) => {
 	return await notification.handleSave(route, webId);
 };
 
-export const getTtl= (element)=>{
-	let file;
-	parsePodFiles.getTTLFile(element)
-	.then(function(value) {
-			file=value;
-			console.log(file);
-			return file;
-	});
 
-}

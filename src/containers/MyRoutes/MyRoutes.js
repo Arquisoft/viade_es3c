@@ -87,7 +87,7 @@ class MyRoute extends React.Component {
 											mult={ruta.multimedia}
 											r={baseUrl + routePath + ruta.getIdRoute() + ".ttl"}
 											uuid={ruta.getIdRoute()}
-											ttl={this.getTTL(baseUrl + routePath + ruta.getIdRoute() + ".ttl")}
+											ttl={ruta.content}
 											error={false}
 											errorMore={false}
 											webID={this.props}

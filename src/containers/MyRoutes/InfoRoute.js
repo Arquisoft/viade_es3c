@@ -169,13 +169,15 @@ const InfoRoute = (props) => {
 							<p>{i18n.t("myRoutes.downloadP")}</p>
 						</Modal.Body>
 						<Modal.Footer>
-							<Download file={uuid + ".ttl"} content={ttl}>
-         						 <Button>
-									{i18n.t("myRoutes.downloadBtn")}
-								</Button>
-        					</Download>
-							<Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>{i18n.t("myRoutes.btnClose")}</Button>
-						</Modal.Footer>
+                            <Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
+                                <Download file={uuid + ".ttl"} content={ttl}>
+                                    {i18n.t("myRoutes.downloadBtn")}
+                                </Download>
+                            </Button>
+                            <Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
+                                {i18n.t("myRoutes.btnClose")}
+                            </Button>
+                        </Modal.Footer>
 					</Modal>
 				</div>
 				<h2>{name}</h2>
