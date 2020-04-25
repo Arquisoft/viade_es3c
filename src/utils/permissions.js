@@ -84,7 +84,7 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
 
 export const sharing = async (webId, friendId, shareUrl) => {
 	const SolidAclUtils = require("solid-acl-utils");
-
+	console.log("Compartiendo con :" + friendId);
 	// You could also use SolidAclUtils.Permissions.READ instead of following
 	// This is just more convenient
 	const { AclApi, Permissions } = SolidAclUtils;
@@ -96,6 +96,14 @@ export const sharing = async (webId, friendId, shareUrl) => {
 	await acl.addRule(READ, friendId);
 	successToaster("La ruta ha sido compartida", "Éxito");
 };
+
+
+
+
+
+
+
+
 
 export const notSharing = async (webId, friendId, shareUrl) => {
 	const SolidAclUtils = require("solid-acl-utils");

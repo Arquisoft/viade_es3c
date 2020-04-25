@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NotificationTypes, useNotification} from '@inrupt/solid-react-components';
 import {notification} from '@utils';
 import auth from "solid-auth-client";
@@ -6,11 +6,22 @@ import {FriendsList} from "../MyFriends/myfriends.style";
 import {List} from "@solid/react";
 import {getUrl, getUserName} from "../MyFriends/MyFriends";
 import {sharing} from "../../utils/permissions";
+import Checkbox from "../Share/Checkbox"
+import i18n from "i18n";
+import {Button } from "../MyRoutes/myroutes.style";
+
 
 const Notifications = ({ruta}) => {
         let cadena = null;
 
         const {createNotification} = useNotification(cadena);
+
+        const [checkedItems, setCheckedItems] = useState(new Map());
+
+        const handleChange = (event) => {
+            setCheckedItems(checkedItems => checkedItems.set(event.target.value, event.target.checked));
+            console.log("checkedItems: ", checkedItems);
+        }
 
         useEffect(() => {
             auth.trackSession(session => {
@@ -30,7 +41,8 @@ const Notifications = ({ruta}) => {
             }
         }
 
-        function handleSave(friendWebId, e) {
+       
+        function shareRoute(friendWebId, e) {
             e.preventDefault();
             //url de la ruta será: uuid.ttl 
             let nameRoute = getUrl(cadena) + 'public/viade/routes/' + ruta + '.ttl';
@@ -50,7 +62,6 @@ const Notifications = ({ruta}) => {
                 alert("Could not share the route");
             }
         }
-
         const publish = async (createNotification, content, webId, type) => {
             try {
                 type = type || NotificationTypes.ANNOUNCE;
@@ -80,20 +91,37 @@ const Notifications = ({ruta}) => {
             }
         };
 
+        function shareWithFriends(e){
+            e.preventDefault();
+            console.log("Friends selected " + checkedItems);
+            for (var [key, value] of checkedItems) {
+                shareRoute(key, e);
+              }
+        }
+
+
     return (
         <FriendsList>
             <List src={"user.friends"}>{
                 (item, i) =>
-                    <li key={i}>{
-                        <a href="http://localhost:3000/#/myRoutes" onClick={(e) => handleSave(`${item}`, e)}>{getUserName(`${item}`)}</a>}
-                    </li>}
+                        <label key={item.key}>
+                        {getUserName(`${item}`)}
+                        <Checkbox name={getUserName(`${item}`)} value={`${item}`} checked={checkedItems.get(item.name)} onChange={handleChange} />
+                        </label>
+                        }
             </List>
+            <Button onClick={(e) => shareWithFriends(e)}>
+                                {i18n.t("myRoutes.btnShare")}
+                            </Button>
         </FriendsList>
     );
-
+    
     }
 
+
+
 ;
+
 
 export default Notifications;
 
