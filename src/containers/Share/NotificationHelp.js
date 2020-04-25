@@ -104,6 +104,13 @@ const Notifications = ({ruta}) => {
             sharing(cadena, checkedItems, nameRoute);
         }
 
+        function shareButton(){
+           return ( <Button onClick={(e) => shareWithFriends(e)}>
+                                {i18n.t("myRoutes.btnShare")}
+                            </Button>
+           );
+        }
+
     return (
         <FriendsList>
             <List src={"user.friends"}>{
@@ -122,9 +129,7 @@ const Notifications = ({ruta}) => {
                         </ul>
                         }
             </List>
-            <Button onClick={(e) => shareWithFriends(e)}>
-                                {i18n.t("myRoutes.btnShare")}
-                            </Button>
+            
         </FriendsList>
     );
     
