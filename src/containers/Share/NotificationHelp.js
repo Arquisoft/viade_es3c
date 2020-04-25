@@ -89,14 +89,7 @@ const Notifications = ({ruta}) => {
             }
         };
 
-        function shareWithFriends(e){
-            e.preventDefault();
-            console.log("Friends selected " + checkedItems);
-            for (var [key] of checkedItems) {
-                showNotifications(key, e);
-            }
-            givePermissions(checkedItems);
-        }
+        
 
         function givePermissions(){
             let nameRoute = getUrl(cadena) + 'public/viade/routes/' + ruta + '.ttl';
@@ -122,9 +115,7 @@ const Notifications = ({ruta}) => {
                         </ul>
                         }
             </List>
-            <Button onClick={(e) => shareWithFriends(e)}>
-                                {i18n.t("myRoutes.btnShare")}
-                            </Button>
+            
         </FriendsList>
     );
     
@@ -132,6 +123,14 @@ const Notifications = ({ruta}) => {
 ;
 export default Notifications;
 
+export const shareWithFriends = (e) => {
+    e.preventDefault();
+    console.log("Friends selected " + Notifications.checkedItems);
+    for (var [key] of Notifications.checkedItems) {
+        Notifications.showNotifications(key, e);
+    }
+    Notifications.givePermissions();
+}
 
 
 

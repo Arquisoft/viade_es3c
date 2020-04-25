@@ -191,6 +191,9 @@ const InfoRoute = (props) => {
 							<Notifications ruta={uuid}></Notifications>
 						</Modal.Body>
 						<Modal.Footer>
+						<Button onClick={(e) => Notifications.shareWithFriends(e)}>
+                                {i18n.t("myRoutes.btnShare")}
+                            </Button>
                             <Button onClick={() => setShowFriends(!showFriends)}>
                                 {i18n.t("myRoutes.btnClose")}
                             </Button>
