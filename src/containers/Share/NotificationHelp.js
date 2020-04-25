@@ -92,9 +92,9 @@ const Notifications = ({ruta}) => {
         function shareWithFriends(e){
             e.preventDefault();
             console.log("Friends selected " + checkedItems);
-            for (var [key, value] of checkedItems) {
+            for (var [key] of checkedItems) {
                 showNotifications(key, e);
-              }
+            }
             givePermissions(checkedItems);
         }
 

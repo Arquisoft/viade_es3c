@@ -85,7 +85,7 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
 export const sharing = async (webId, friends, shareUrl) => {
 	const SolidAclUtils = require("solid-acl-utils");
 	for (var [key, value] of friends) {
-		console.log("Compartiendo con :" + key);
+		console.log("Compartiendo con :" + key, value);
 	}
 	// You could also use SolidAclUtils.Permissions.READ instead of following
 	// This is just more convenient
@@ -95,13 +95,11 @@ export const sharing = async (webId, friends, shareUrl) => {
 	const fetch = auth.fetch.bind(auth);
 	const aclApi = new AclApi(fetch, { autoSave: true });
 	const acl = await aclApi.loadFromFileUrl(shareUrl);
-	const agents = "[";
+	
 	for (var [key, value] of friends) {
-		agents+=key + ",";
+		await acl.addRule(READ, key);
 	}
-	agents+="]";
-	console.log("Agents: " + agents);
-	await acl.addRule(READ, agents);
+	
 	successToaster("La ruta ha sido compartida", "Éxito");
 };
 
