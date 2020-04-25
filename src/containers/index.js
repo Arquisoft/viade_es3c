@@ -9,15 +9,15 @@ import MyFriends from "./MyFriends";
 import { FormModelConverter, FormModelRenderer } from "./FormModel";
 
 export {
-  Login,
-  Register,
-  RegistrationSuccess,
-  PageNotFound,
-  Welcome,
-  NewRoute,
-  MyRoutes,
-  MyFriends,
-  Profile,
-  FormModelConverter,
-  FormModelRenderer
+	Login,
+	Register,
+	RegistrationSuccess,
+	PageNotFound,
+	Welcome,
+	NewRoute,
+	MyRoutes,
+	MyFriends,
+	Profile,
+	FormModelConverter,
+	FormModelRenderer
 };

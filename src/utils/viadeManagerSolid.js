@@ -23,3 +23,5 @@ export const addMedia = async (media, webId) => {
 export const Invitation = async (route, webId) => {
 	return await notification.handleSave(route, webId);
 };
+
+

@@ -34,7 +34,7 @@ class NewRoute extends React.Component {
 			markers: null
 		};
 	}
-	
+
 	state = { markers: {}, image: {} };
 
 	callBackFunction = (childData) => {
@@ -106,12 +106,7 @@ class NewRoute extends React.Component {
 						<DivForms>
 							<LabelInput>
 								{i18n.t("newRoute.name")}{" "}
-								<input
-									type="text"
-									id="route_name"
-									name="route_name"
-									ref={this.title}
-								/>
+								<input type="text" id="route_name" name="route_name" ref={this.title} />
 							</LabelInput>
 						</DivForms>
 						<DivForms>

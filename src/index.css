@@ -5,6 +5,8 @@ body,
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 }
 
 * {
@@ -14,6 +16,8 @@ body,
 body {
 	color: #666;
 	font-size: 62.5%;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 }
 
 p,
@@ -111,6 +115,11 @@ Ends temporary react/fontawesome fix
 	display: block;
 }
 
+#searchIcon {
+	color: white;
+	margin-left: 10px;
+}
+
 .form-group > input {
 	height: 38px;
 	width: 100%;
@@ -140,4 +149,36 @@ div.fade.in.modal {
 
 .modal-dialog {
 	margin: auto;
+	color: blue;
+}
+
+#labelMod {
+	color: black;
+}
+#modalMod {
+	color: black;
+	width: 990px;
+	height: 650px;
+}
+
+#mapa-modal {
+	width: 999px;
+	height: 350px;
+	padding: 0px;
+}
+#floating-panel {
+	position: absolute;
+	top: 10px;
+	left: 35%;
+	z-index: 5;
+	background-color: transparent;
+	padding: 5px;
+	border: none;
+	text-align: center;
+	font-family: 'Roboto', 'sans-serif';
+	line-height: 30px;
+}
+
+#buttonCovid {
+	margin-left: 5px;
 }

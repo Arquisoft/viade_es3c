@@ -1,10 +1,10 @@
 const theme = {
-  colors: {},
-  viade: {
-    awaiting: "#cf6700",
-    created: "#039c40",
-    finished: "#8200a6"
-  }
+	colors: {},
+	viade: {
+		awaiting: "#ffffff",
+		created: "#ffffff",
+		finished: "#ffffff"
+	}
 };
 
 export default theme;
