@@ -10,7 +10,12 @@ export const RouteCard = styled.div`
 		text-decoration: none;
 		&:hover {
 			text-decoration: underline;
+			text-decoration-color: white;
 		}
+	}
+
+	h5 {
+		text-color: white;
 	}
 	p {
 		font-weight: bold;
@@ -100,6 +105,18 @@ export const MyRouteContainer = styled.div`
 	overflow: hidden;
 	h1 {
 		color: white;
+	}
+	#empty {
+		background-color: white;
+	}
+	#h1-empty {
+		color: grey;
+	}
+	h5 {
+		color: grey;
+	}
+	a {
+		color: grey;
 	}
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 	background: rgb(0, 77, 134);
