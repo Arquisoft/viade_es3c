@@ -10,6 +10,8 @@ import i18n from "i18n";
 import {Button } from "../MyRoutes/myroutes.style";
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Checkbox from '@material-ui/core/Checkbox';
+import { Modal } from "react-bootstrap";
+
 
 const Notifications = ({ruta}) => {
         let cadena = null;
@@ -17,6 +19,7 @@ const Notifications = ({ruta}) => {
         const {createNotification} = useNotification(cadena);
 
         const [checkedItems, setCheckedItems] = useState(new Map());
+        const [ showFriends, setShowFriends ] = useState(false);
 
         const handleChange = (event) => {
             setCheckedItems(checkedItems => checkedItems.set(event.target.value, event.target.checked));
@@ -104,14 +107,15 @@ const Notifications = ({ruta}) => {
             sharing(cadena, checkedItems, nameRoute);
         }
 
-        function shareButton(){
-           return ( <Button onClick={(e) => shareWithFriends(e)}>
-                                {i18n.t("myRoutes.btnShare")}
-                            </Button>
-           );
-        }
+        
 
     return (
+        <Modal show={showFriends} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal.Header>
+            <Modal.Title id="contained-modal-title-vcenter">
+            {i18n.t("myRoutes.friends")}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
         <FriendsList>
             <List src={"user.friends"}>{
                 (item, i) =>
@@ -131,6 +135,18 @@ const Notifications = ({ruta}) => {
             </List>
             
         </FriendsList>
+        </Modal.Body>
+        <Modal.Footer>
+        <shareButton/>
+        <Button onClick={(e) => shareWithFriends(e)}>
+                                {i18n.t("myRoutes.btnShare")}
+                            </Button>       
+            <Button onClick={() => setShowFriends(!showFriends)}>
+                {i18n.t("myRoutes.btnClose")}
+            </Button>
+        </Modal.Footer>
+    </Modal>
+       
     );
     
     }

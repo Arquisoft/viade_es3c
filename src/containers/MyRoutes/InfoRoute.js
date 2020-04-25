@@ -184,21 +184,7 @@ const InfoRoute = (props) => {
 					<MultsButton {...{ mult, name }} />
 				</div>
 				<div id="divFriends">
-					<Modal show={showFriends} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-						<Modal.Header>
-							<Modal.Title id="contained-modal-title-vcenter">
-							{i18n.t("myRoutes.friends")}</Modal.Title>
-						</Modal.Header>
-						<Modal.Body>
-							<Notifications ruta={uuid}></Notifications>
-						</Modal.Body>
-						<Modal.Footer>
-						<shareButton/>
-                            <Button onClick={() => setShowFriends(!showFriends)}>
-                                {i18n.t("myRoutes.btnClose")}
-                            </Button>
-                        </Modal.Footer>
-					</Modal>
+					<Notifications ruta={uuid}></Notifications>
 				</div>
 				<br />
 				<FormRenderContainer id="mapa">
