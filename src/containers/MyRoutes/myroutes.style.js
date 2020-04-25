@@ -5,6 +5,7 @@ export const RouteCard = styled.div`
 
 	max-width: 78% !important;
 	padding: 5px 15px !important;
+	text-align: center;
 	a {
 		text-decoration: none;
 		&:hover {
@@ -23,6 +24,27 @@ export const RouteCard = styled.div`
 		margin: 0 0 0px 0;
 	}
 
+	#containerRuta {
+		padding: 0px 25px !important;
+		a {
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		p {
+			font-weight: bold;
+			font-size: 20px;
+		}
+		h2 {
+			font-weight: bold;
+		}
+		h3 {
+			font-size: 25px;
+			margin: 0 0 0px 0;
+		}
+	}
+
 	#divDelete {
 		margin-left: 550px;
 		margin-top: 18px;
@@ -36,7 +58,7 @@ export const RouteCard = styled.div`
 		margin-left: 550px;
 		margin-top: 18px;
 	}
-	#divDownload{
+	#divDownload {
 		margin-left: 550px;
 		margin-top: 18px;
 	}
@@ -46,17 +68,17 @@ export const RouteCard = styled.div`
 		margin-bottom: 10px;
 	}
 	#divShare {
-		margin-left: 50px;
+		margin-left: 150px;
 	}
 	#btnDownload {
 		font-size: 14px;
 		padding: 10px 20px;
 		margin-bottom: 10px;
 	}
-	#divBtns{
+	#divBtns {
 		margin-left: 560px;
-    	margin-top: 15px;
-    	margin-bottom: -140px;
+		margin-top: 15px;
+		margin-bottom: -140px;
 	}
 `;
 

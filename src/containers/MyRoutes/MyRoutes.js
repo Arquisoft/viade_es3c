@@ -50,7 +50,7 @@ class MyRoute extends React.Component {
 		});
 	}
 
-	async getTTL(element){
+	async getTTL(element) {
 		let file = await viadeManager.getTtl(element);
 		return file;
 	}
@@ -91,6 +91,7 @@ class MyRoute extends React.Component {
 											error={false}
 											errorMore={false}
 											webID={this.props}
+											ruta={ruta}
 										/>
 									);
 								} else {
