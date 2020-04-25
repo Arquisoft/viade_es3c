@@ -178,11 +178,11 @@ const InfoRoute = (props) => {
 						<Modal.Footer>
 							<Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
 								<Download file={uuid + ".ttl"} content={ttl}>
-									{i18n.t("myRoutes.downloadBtn")}
+									{i18n.t("myRoutes.downloadBtnTLL")}
 								</Download>
 							</Button>
 							<Button>
-								<PrintButton id={name} label={"Save as pdf"} route={ruta} />
+								<PrintButton id={name} label={i18n.t("myRoutes.downloadBtnPDF")} route={ruta} />
 							</Button>
 							<Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
 								{i18n.t("myRoutes.btnClose")}
