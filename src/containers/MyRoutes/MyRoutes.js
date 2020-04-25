@@ -50,6 +50,11 @@ class MyRoute extends React.Component {
 		});
 	}
 
+	async getTTL(element){
+		let file = await viadeManager.getTtl(element);
+		return file;
+	}
+
 	render(): React.ReactNode {
 		const { webId } = this.props;
 		let baseUrl = webId.split("/", 3) + "/";
@@ -82,6 +87,7 @@ class MyRoute extends React.Component {
 											mult={ruta.multimedia}
 											r={baseUrl + routePath + ruta.getIdRoute() + ".ttl"}
 											uuid={ruta.getIdRoute()}
+											ttl={ruta.content}
 											error={false}
 											errorMore={false}
 											webID={this.props}

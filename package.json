@@ -4,6 +4,7 @@
 	"homepage": "https://arquisoft.github.io/viade_es3c/",
 	"private": true,
 	"dependencies": {
+		"@axetroy/react-download": "^1.1.1",
 		"@babel/preset-react": "^7.9.4",
 		"@fortawesome/fontawesome-svg-core": "^1.2.28",
 		"@fortawesome/free-brands-svg-icons": "^5.13.0",

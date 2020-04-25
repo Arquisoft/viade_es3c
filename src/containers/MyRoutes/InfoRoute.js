@@ -12,30 +12,33 @@ import MultsButton from "./ViewMult";
 import i18n from "i18n";
 import { Route } from "domain";
 import { viadeManager } from "@utils";
+import Map from "../NewRoute/Map";
+import Download from '@axetroy/react-download';
 
 import { RouteWrapper, TextArea, DivForms, LabelInput } from "../NewRoute/route.style";
 
 var markersp = [];
 const InfoRoute = (props) => {
-	const { name, author, description, points, center, mult, r, uuid, error, errorMore, webID } = props;
+	const { name, author, description, points, center, mult, r, uuid, ttl, error, errorMore, webID } = props;
 	const [ show, setShow ] = useState(true);
 	const [ showConfirm, setShowConfirm ] = useState(false);
-	const [ showConfirmModify, setShowConfirmModify ] = useState(false);
+	const [ showConfirmModify, setShowConfirmModify] = useState(false);
+	const [ showConfirmDownload, setShowConfirmDownload] =useState(false);
 	markersp = points;
 	if (!error) {
 		return (
 			<RouteCard className="card">
-				<div id="divBtns" className="btn-group-vertical">
-					<Button id="btnModify" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
-						<FontAwesomeIcon icon="pen" className="pen-icon" />
-					</Button>
-					<Button id="btnDownload" type="button">
-						<FontAwesomeIcon icon="download" className="download-icon" />
-					</Button>
-					<Button id="btnDelete" type="button" onClick={() => setShowConfirm(!showConfirm)}>
-						<FontAwesomeIcon icon="trash" className="trash-icon" />
-					</Button>
-				</div>
+			<div id="divBtns" className="btn-group-vertical">
+				<Button id="btnModify" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
+					<FontAwesomeIcon icon="pen" className="pen-icon" />
+				</Button>
+				<Button id="btnDownload" type="button"  onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
+					<FontAwesomeIcon icon="download" className="download-icon" />
+				</Button>
+				<Button id="btnDelete" type="button" onClick={() => setShowConfirm(!showConfirm)}>
+					<FontAwesomeIcon icon="trash" className="trash-icon" />
+				</Button>
+			</div>
 				<div id="divDelete">
 					<Modal show={showConfirm} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
 						<Modal.Header>
@@ -136,10 +139,35 @@ const InfoRoute = (props) => {
 							>
 								{i18n.t("myRoutes.btnModify")}
 							</Button>
-							<Button onClick={() => setShowConfirmModify(!showConfirmModify)}>
+							<Button onClick={() => {
+								
+								setShowConfirmModify(!showConfirmModify)
+							}}>
 								{i18n.t("myRoutes.btnClose")}
 							</Button>
 						</Modal.Footer>
+					</Modal>
+				</div>
+				<div id="divDownload">
+					<Modal show={showConfirmDownload} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+						<Modal.Header>
+							<Modal.Title id="contained-modal-title-vcenter">
+							{i18n.t("myRoutes.downloadTitle")}</Modal.Title>
+						</Modal.Header>
+						<Modal.Body>
+							<h4>{i18n.t("myRoutes.downloadSure")}</h4>
+							<p>{i18n.t("myRoutes.downloadP")}</p>
+						</Modal.Body>
+						<Modal.Footer>
+                            <Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
+                                <Download file={uuid + ".ttl"} content={ttl}>
+                                    {i18n.t("myRoutes.downloadBtn")}
+                                </Download>
+                            </Button>
+                            <Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
+                                {i18n.t("myRoutes.btnClose")}
+                            </Button>
+                        </Modal.Footer>
 					</Modal>
 				</div>
 				<h2>{name}</h2>

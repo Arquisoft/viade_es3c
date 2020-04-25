@@ -169,7 +169,11 @@
 		"noMult": "Seems like there is no media uploaded for this route",
 		"noMultTitle": "Sorry...",
 		"modify": "Modify your route",
-		"btnModify": "Modify"
+		"btnModify": "Modify",
+		"downloadTitle":"Download route",
+		"downloadSure":"Do you want to download your route in a file?",
+		"downloadP":"Press download to save your route in a file or close to cancel",
+		"downloadBtn":"Download"
 	},
 	"myFriends": {
 		"title": "Add new friends",
