@@ -29,7 +29,7 @@ class NewRoute extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.title = React.createRef();
-		this.descripton = React.createRef();
+		this.description = React.createRef();
 		this.state = {
 			markers: null
 		};
@@ -55,11 +55,11 @@ class NewRoute extends React.Component {
 	async handleSave(event) {
 		if (this.title.current.value.length === 0) {
 			errorToaster(i18n.t("newRoute.errorTitle"), "ERROR");
-		} else if (this.descripton.current.value.length === 0) {
+		} else if (this.description.current.value.length === 0) {
 			errorToaster(i18n.t("newRoute.errorDescription"), "ERROR");
 		} else if (this.state.markers === null || this.state.markers.length < 0) {
 			errorToaster(i18n.t("newRoute.errorPoints"), "ERROR");
-		} else if(this.state.markers.length === 1 && !test) {
+		} else if(this.state.markers.length === 1 || !test) {
 			errorToaster(i18n.t("newRoute.errorOnePoint"), "ERROR");
 		}
 		else {
@@ -87,7 +87,7 @@ class NewRoute extends React.Component {
 				var d = Date(Date.now());
 				multimedia.push(new Multimedia(url + filesMult[parseInt(j)].name, d.toString(), author, name, null));
 			}
-			let route = new Route(this.title.current.value, author, this.descripton.current.value, points, multimedia);
+			let route = new Route(this.title.current.value, author, this.description.current.value, points, multimedia);
 			await viadeManager.addRoute(route, this.webID);
 			successToaster(i18n.t("newRoute.successRoute"), i18n.t("newRoute.success"));
 			setTimeout(function() {
@@ -123,7 +123,7 @@ class NewRoute extends React.Component {
 									id="description"
 									name="description"
 									rows="10"
-									ref={this.descripton}
+									ref={this.description}
 								/>{" "}
 							</LabelInput>
 						</DivForms>

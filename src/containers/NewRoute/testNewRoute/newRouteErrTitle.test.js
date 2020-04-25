@@ -4,7 +4,6 @@ import { HashRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import NewRoute from "../NewRoute";
-import { getByTestId } from "@testing-library/dom";
 import * as Toaster from "../../../utils/toaster";
 
 library.add(fas);
@@ -12,7 +11,7 @@ library.add(fas);
 const props = {
   webId: 'https://saragarcia.solid.community/',
   title: '',
-  descripton: 'Esto es una prueba',
+  description: 'Esto es una prueba',
   test: true
 };
 

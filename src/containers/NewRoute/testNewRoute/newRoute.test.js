@@ -12,7 +12,7 @@ library.add(fas);
 const props = {
   webId: 'https://saragarcia.solid.community/',
   title: 'Prueba',
-  descripton: 'Esto es una prueba',
+  description: 'Esto es una prueba',
   test: true
 };
 
@@ -70,6 +70,6 @@ describe.only("NewRoute", () => {
 
     fireEvent.click(button_save);
 
-    expect(Toaster.successToaster()).toHaveBeenCalled;
+    expect(Toaster.errorToaster()).toHaveBeenCalled;
   });
 });

@@ -12,7 +12,7 @@ library.add(fas);
 const props = {
   webId: 'https://saragarcia.solid.community/',
   title: 'Prueba',
-  descripton: '',
+  description: '',
   test: true
 };
 
