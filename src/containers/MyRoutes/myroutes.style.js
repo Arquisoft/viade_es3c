@@ -73,7 +73,7 @@ export const RouteCard = styled.div`
 		margin-bottom: 10px;
 	}
 	#divShare {
-		margin-left: 150px;
+		margin-left: 50px;
 	}
 	#btnDownload {
 		font-size: 14px;

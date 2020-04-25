@@ -36,21 +36,21 @@ const PrintButton = ({ id, label, route }) => (
 
 					pdf = new jsPDF();
 
-					pdf.addImage(imgData, "PNG", 10, 10);
+					pdf.addImage(imgData, "PNG", 10, 10, 190, 190);
 
-					if (route.multimedia.length > 0) {
-						for (var i = 0; i < route.multimedia.length; i++) {
-							pdf.addPage();
-							var genImg = new Image();
-							genImg.setAttribute("crossOrigin", "anonymous");
-							genImg.src = route.multimedia[i].url;
+					//if (route.multimedia.length > 0) {
+					//	for (var i = 0; i < route.multimedia.length; i++) {
+					//		pdf.addPage();
+					//		var genImg = new Image();
+					//		genImg.setAttribute("crossOrigin", "anonymous");
+					//		genImg.src = route.multimedia[i].url;
 
-							pdf.addImage(genImg, "PNG", 10, 10, 190, 150);
-							pdf.text(10, 170, `${route.multimedia[i].name}`);
-							pdf.text(10, 180, `${route.multimedia[i].author}`);
-							pdf.text(10, 190, `${route.multimedia[i].date}`);
-						}
-					}
+					//		pdf.addImage(genImg, "PNG", 10, 10, 190, 150);
+					//		pdf.text(10, 170, `${route.multimedia[i].name}`);
+					//		pdf.text(10, 180, `${route.multimedia[i].author}`);
+					//		pdf.text(10, 190, `${route.multimedia[i].date}`);
+					//	}
+					//	}
 					pdf.save(`${route.name}.pdf`);
 				});
 			}}
