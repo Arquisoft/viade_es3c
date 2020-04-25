@@ -42,12 +42,10 @@ const Notifications = ({ruta}) => {
         }
 
        
-        function shareRoute(friendWebId, e) {
+        function showNotifications(friendWebId, e) {
             e.preventDefault();
             //url de la ruta será: uuid.ttl 
             let nameRoute = getUrl(cadena) + 'public/viade/routes/' + ruta + '.ttl';
-            console.log("ruta!!!!!: " + nameRoute)
-            sharing(cadena, friendWebId, nameRoute);
             try {
                 const contentNotif = {
                     title: "Route share",
@@ -95,23 +93,33 @@ const Notifications = ({ruta}) => {
             e.preventDefault();
             console.log("Friends selected " + checkedItems);
             for (var [key, value] of checkedItems) {
-                shareRoute(key, e);
+                showNotifications(key, e);
               }
+            givePermissions(checkedItems);
         }
 
+        function givePermissions(){
+            let nameRoute = getUrl(cadena) + 'public/viade/routes/' + ruta + '.ttl';
+            console.log("ruta!!!!!: " + nameRoute)
+            sharing(cadena, checkedItems, nameRoute);
+        }
 
     return (
         <FriendsList>
             <List src={"user.friends"}>{
                 (item, i) =>
-                        <label key={item.key}>
-                        {getUserName(`${item}`)}
-                        <Checkbox name={getUserName(`${item}`)}
+                <ul>
+                    <li>
+                    <Checkbox name={getUserName(`${item}`)}
                                   value={`${item}`}
                                   checked={checkedItems.get(item.name)}
                                   onChange={handleChange} color="primary"
                                   checkedIcon={<CheckBoxIcon fontSize="small" />}/>
+                        <label key={item.key}>
+                        {getUserName(`${item}`)}
                         </label>
+                        </li>
+                        </ul>
                         }
             </List>
             <Button onClick={(e) => shareWithFriends(e)}>
