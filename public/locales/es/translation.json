@@ -162,6 +162,7 @@
 		"description": "Descripción de la ruta:",
 		"btnViewRoute": "Visualizar ruta en el mapa",
 		"btnShare": "Compartir ruta con...",
+		"btnShareRoute": "Compartir",
 		"friends": "Mis amigos",
 		"viewMult": "Ver archivos multimedia",
 		"noMult": "Parece que no hay archivos multimedia para esta ruta.",

@@ -105,12 +105,6 @@ export const sharing = async (webId, friends, shareUrl) => {
 
 
 
-
-
-
-
-
-
 export const notSharing = async (webId, friendId, shareUrl) => {
 	const SolidAclUtils = require("solid-acl-utils");
 
