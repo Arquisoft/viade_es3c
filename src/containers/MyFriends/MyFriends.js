@@ -93,13 +93,10 @@ class MyFriends extends React.Component {
 				<MyRouteContainer>
 					<FormRenderContainer>
 						<Header>
-							<h1>{i18n.t("myFriends.title")}</h1>
+							<h1>{i18n.t("myFriends.friends")}</h1>
 						</Header>
 						{this.addFriends()}
-
-						<Header>
-							<h1>{i18n.t("myRoutes.friends")}</h1>
-						</Header>
+						<hr />
 						{this.getList()}
 					</FormRenderContainer>
 				</MyRouteContainer>

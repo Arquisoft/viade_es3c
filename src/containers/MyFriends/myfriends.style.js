@@ -4,7 +4,7 @@ export const RouteCard = styled.div`
 	background: rgb(211, 224, 227);
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
-	display: inline;
+	display: flex;
 	margin-top: 15px;
 	max-width: 100% !important;
 	padding: 10px !important; //temporary fix to a style guide bug
@@ -23,7 +23,7 @@ export const RouteCard = styled.div`
 	}
 	h3 {
 		font-weight: bold;
-		font-size: 35px;
+		font-size: 20px;
 		display: inline;
 		margin: 10px;
 		text-align: center;
@@ -43,13 +43,13 @@ export const FormAddFriends = styled.div`
 
 	input {
 		margin-top: 20px;
-		max-width: 80%;
+		max-width: 55%;
 	}
 	color: grey;
 
 	#botonaddfriends {
 		max-width: 20%;
-		margin-left: 10px;
+		margin-left: 20px;
 	}
 	form {
 		text-align: center;
