@@ -95,7 +95,7 @@ export const RouteWrapper = styled.section`
 	flex: 1 0 auto;
 	align-items: center;
 	justify-content: center;
-	background: url("../img/misrutas.png");
+	background: url("./img/misrutas.png");
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
