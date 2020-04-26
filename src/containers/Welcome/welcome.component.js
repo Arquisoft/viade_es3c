@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { WelcomeWrapper, WelcomeCard, WelcomeCardCovid, ButtonInfo } from "./welcome.style";
+import { WelcomeWrapper, WelcomeCard, ButtonInfo } from "./welcome.style";
 import { Modal } from "react-bootstrap";
 import i18n from "i18n";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

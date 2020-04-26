@@ -175,9 +175,15 @@ div.fade.in.modal {
 }
 
 #modalCovid {
+	position: fixed;
+	width: 1000%;
+	height: 1000%;
 	color: rgb(0, 77, 134) ;
-	width: 990px;
-	height: 250px;
+	top: 10%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
 }
 
 
