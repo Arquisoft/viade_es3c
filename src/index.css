@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
 html,
 body,
 #root {
@@ -5,6 +7,8 @@ body,
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 }
 
 * {
@@ -14,6 +18,8 @@ body,
 body {
 	color: #666;
 	font-size: 62.5%;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 }
 
 p,
@@ -111,6 +117,11 @@ Ends temporary react/fontawesome fix
 	display: block;
 }
 
+#searchIcon {
+	color: white;
+	margin-left: 10px;
+}
+
 .form-group > input {
 	height: 38px;
 	width: 100%;
@@ -140,4 +151,62 @@ div.fade.in.modal {
 
 .modal-dialog {
 	margin: auto;
+	color: rgb(0, 77, 134) ;
 }
+
+.modal-dialog h4 {
+	
+	color: rgb(0, 77, 134) ;
+}
+#imgCovid {
+	max-width: 300px ;
+	max-height:150px;
+	margin-left: 25%;
+	align-items:center;
+}
+
+#labelMod {
+	color: rgb(0, 77, 134) ;
+}
+#modalMod {
+	color: rgb(0, 77, 134) ;
+	width: 990px;
+	height: 500px;
+}
+
+#modalCovid {
+	position: fixed;
+	width: 1000%;
+	height: 1000%;
+	color: rgb(0, 77, 134) ;
+	top: 10%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+
+#mapa-modal {
+	width: 999px;
+	height: 350px;
+	padding: 0px;
+}
+#floating-panel {
+	position: absolute;
+	top: 10px;
+	left: 35%;
+	z-index: 5;
+	background-color: transparent;
+	padding: 5px;
+	border: none;
+	text-align: center;
+	font-family: 'Roboto', 'sans-serif';
+	line-height: 30px;
+}
+
+#buttonCovid {
+	margin-left: 5px;
+}
+
+

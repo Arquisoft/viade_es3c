@@ -3,15 +3,18 @@ import { render, cleanup, queryByAttribute, fireEvent } from 'react-testing-libr
 import { HashRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import NewRoute from "./NewRoute";
+import NewRoute from "../NewRoute";
 import { getByTestId } from "@testing-library/dom";
+import * as Toaster from "../../../utils/toaster";
 
 library.add(fas);
 
 const props = {
   webId: 'https://saragarcia.solid.community/',
-  test: true
+  title: 'Prueba',
+  description: 'Esto es una prueba'
 };
+
 
 describe.only("NewRoute", () => {
   afterAll(cleanup);
@@ -22,11 +25,11 @@ describe.only("NewRoute", () => {
     </Router>
   );
 
-  test('renders without crashing', () => {
+  test('renders without crashing', async () => {
     expect(container).toBeTruthy();
   });
 
-  test('renders with styled components', () => {
+  test('renders with styled components', async () => {
     const route_wrapper = getByTestId(container, 'route-component');
     const route_header = getByTestId(container, 'route-header');
     const nameInput = getById(container, 'route_name');
@@ -65,5 +68,7 @@ describe.only("NewRoute", () => {
     fireEvent.change(input_img);
 
     fireEvent.click(button_save);
+
+    expect(Toaster.errorToaster()).toHaveBeenCalled;
   });
 });

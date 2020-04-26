@@ -1,22 +1,15 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
+import { Button } from "./myroutes.style";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { cyan } from "@material-ui/core/colors";
+import { blueGrey } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
+import {PlayerDiv} from "./myroutes.style"
 // eslint-disable-next-line
-import { Player } from "video-react";
 import i18n from "i18n";
 
 const getMediaComponent = (url) => {
   if (url.includes('.mp4')) {
-    return (<Player
-      playsInline
-      poster="/assets/poster.png"
-      src={url}
-      fluid={false}
-      width={640}
-      height={360}
-    />)
+    return (<PlayerDiv><video autoplay controls src={url} width="640" height="380"></video></PlayerDiv>)
   } else {
     return <img id="img" src={url} width={640}
     height={360} alt={"Media for the route"}/>
@@ -37,9 +30,9 @@ const AutoRotatingCarouselModal = ({
        j = (<Slide
           media={ <img id="img" src={"img/illustration-noresults.png"} 
           width={640} height={360} alt={"No media for this route"} />}
-          mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
+          mediaBackgroundStyle={{ backgroundColor: blueGrey[50] }}
           key={Date.now()}
-          style={{ backgroundColor: cyan[400] }}
+          style={{ backgroundColor: blueGrey[600] }}
           title={i18n.t("myRoutes.noMultTitle")}
           subtitle={i18n.t("myRoutes.noMult")}
         />)
@@ -47,11 +40,10 @@ const AutoRotatingCarouselModal = ({
     }
 
     for (var i = 0; i < media.mult.length; i++) {
-      
       j = (<Slide
           media={getMediaComponent(media.mult[i].url)}
-          mediaBackgroundStyle={{ backgroundColor: cyan[600] }}
-          style={{ backgroundColor: cyan[400] }}
+          mediaBackgroundStyle={{ backgroundColor: blueGrey[50] }}
+          style={{ backgroundColor: blueGrey[600] }}
            title={media.name}
             key={media.mult[parseInt(i)].date}
           subtitle={media.mult[parseInt(i)].date}

@@ -2,9 +2,10 @@ import React from "react";
 import Uploader from "./uploader.component";
 import { useTranslation } from "react-i18next";
 import { ImageWrapper } from "./multimedia.style";
-import { errorToaster } from "@utils";
+import { errorToaster, successToaster } from "@utils";
 import { ButtonUploader } from "../../components/ButtonUploader/button-uploader.component";
 import { useWebId } from "@solid/react";
+import i18n from "i18n";
 
 export const MultimediaPageContent = (props) => {
 	const { webId } = props;
@@ -16,7 +17,7 @@ export const MultimediaPageContent = (props) => {
 		<ImageWrapper>
 			<Uploader
 				{...{
-					fileBase: w && w.split("/profile")[0] + "/public/viade/rawMedia",
+					fileBase: w && w.split("/profile")[0] + "/viade/rawMedia",
 					limitFiles: 10,
 					limitSize: limit,
 					accept: "jpg,jpeg,png,mp3,mov,mp4,avi",
@@ -32,7 +33,11 @@ export const MultimediaPageContent = (props) => {
 							errorToaster(error.statusText, t("welcome.errorTitle"));
 						}
 					},
-					onComplete: (uploadedFiles) => {},
+					onComplete: (uploadedFiles) => {
+						if (uploadedFiles) {
+							successToaster(i18n.t("newRoute.savedFiles"), i18n.t("newRoute.success"));
+						}
+					},
 					render: (props) => (
 						<ButtonUploader
 							{...{

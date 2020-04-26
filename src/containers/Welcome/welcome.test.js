@@ -30,4 +30,5 @@ describe.only("Welcome", () => {
     expect(getByTestId("welcome-wrapper")).toBeTruthy();
     expect(document.querySelector(".card")).toBeTruthy();
   });
+
 });

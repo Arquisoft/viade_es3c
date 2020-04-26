@@ -36,7 +36,7 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
    */
 
 	const opCurrentRead = !currentRead;
-	const defaultImage = "img/icon/empty-profile.svg";
+	const defaultImage = "img/icon/empty.svg";
 	const actorImage =
 		notification && notification.actor && notification.actor.image ? notification.actor.image : defaultImage;
 	return (
@@ -69,7 +69,7 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
 			>
 				<FontAwesomeIcon icon={currentRead ? "eye-slash" : "eye"} />
 			</MarkAsRead>
-			<Delete type="button" className="delete" onClick={() => deleteNotification(notification.path)}>
+			<Delete id="delete" type="button" className="delete" onClick={() => deleteNotification(notification.path)}>
 				<FontAwesomeIcon icon="times-circle" />
 			</Delete>
 		</Item>

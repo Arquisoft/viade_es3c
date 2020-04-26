@@ -4,7 +4,7 @@ At this section we will show the execution architecture of our system including 
 
 === Infrastructure
 
-image::deployment_07.PNG[Deployment view diagram]
+image::.\images\deployment_07.PNG[Deployment view diagram]
 
 [options="header"]
 |===

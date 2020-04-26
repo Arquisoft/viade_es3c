@@ -26,3 +26,4 @@ class RegisterContainer extends Component<Props, State> {
 }
 
 export default RegisterContainer;
+

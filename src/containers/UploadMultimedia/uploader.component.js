@@ -88,6 +88,7 @@ class Uploader extends Component<Props> {
 		// We read each file and upload to POD using Base64
 		for await (const file of files) {
 			const reader = new FileReader();
+			// eslint-disable-next-line
 			let suffix = false;
 
 			/* eslint no-loop-func: 0 */
@@ -113,10 +114,11 @@ class Uploader extends Component<Props> {
 						throw new SolidError(errorsText.unsupported, "file", 415);
 					}
 
-					const newFileName = this.renameFile(file, suffix);
+					var newFileName = file.name;
+					newFileName = newFileName.replace(/ /g, "");
 
 					// Get destination file url
-					const destinationUri = `${fileBase}/${encodeURIComponent(file.name)}`;
+					const destinationUri = `${fileBase}/${encodeURIComponent(newFileName)}`;
 
 					// Send file on Base64 to server using fetch from solid-auth-client
 					const response = await auth.fetch(destinationUri, {
