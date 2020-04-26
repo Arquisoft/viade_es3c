@@ -64,7 +64,7 @@ const InfoRoute = (props) => {
 							>
 								{i18n.t("myRoutes.btnDelete")}
 							</Button>
-							<Button onClick={() => setShowConfirm(!showConfirm)}>{i18n.t("myRoutes.btnClose")}</Button>
+							<Button id="closeDelete" onClick={() => setShowConfirm(!showConfirm)}>{i18n.t("myRoutes.btnClose")}</Button>
 						</Modal.Footer>
 					</Modal>
 				</div>

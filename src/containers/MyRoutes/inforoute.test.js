@@ -43,7 +43,16 @@ describe.only("InfoRoutes", () => {
   });
 
   test("click button", async() => {
-    const btfriends = getById(container, 'viewFriends');
-    fireEvent.click(btfriends);
+    const btModify = getById(container, 'btnModify');
+    fireEvent.click(btModify);
+
+    const btDownload = getById(container, 'btnDownload');
+    fireEvent.click(btDownload);
+
+    const btDelete = getById(container, 'btnDelete');
+    fireEvent.click(btDelete);
+
+    const btFriends = getById(container, 'viewFriends')
+    fireEvent.click(btFriends);
   });
 });
