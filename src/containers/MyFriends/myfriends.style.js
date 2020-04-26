@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const RouteCard = styled.div`
 	background: rgb(211, 224, 227);
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+
 	display: inline;
 	margin-top: 15px;
 	max-width: 100% !important;
@@ -40,12 +42,14 @@ export const FormAddFriends = styled.div`
 	justify-content: center;
 
 	input {
-		margin: 20px;
-		max-width: 70%;
+		margin-top: 20px;
+		max-width: 80%;
 	}
+	color: grey;
 
 	#botonaddfriends {
 		max-width: 20%;
+		margin-left: 10px;
 	}
 	form {
 		text-align: center;
@@ -76,6 +80,7 @@ export const FriendsList = styled.div`
 
 export const RouteWrapper = styled.section`
 	display: flex;
+
 	flex: 1 0 auto;
 	align-items: center;
 	justify-content: center;
@@ -88,6 +93,8 @@ export const RouteWrapper = styled.section`
 export const MyRouteContainer = styled.div`
 	background-color: rgb(211, 224, 227);
 	max-width: 900px;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+
 	margin: 0 20px;
 	width: 100%;
 	flex: 1 0 auto;

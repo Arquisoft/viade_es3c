@@ -5,6 +5,7 @@ import {
 	MyRouteContainer,
 	FormRenderContainer,
 	Friends,
+	Button,
 	FormAddFriends
 } from "./myfriends.style";
 import { List } from "@solid/react";
@@ -12,6 +13,7 @@ import InfoFriends from "./InfoFriends";
 import friendsHelper from "./FriendsHelper";
 import { successToaster, errorToaster } from "@utils";
 import i18n from "i18n";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Props = { webId: String };
 
@@ -75,13 +77,11 @@ class MyFriends extends React.Component {
 							onChange={this.handleChange}
 							placeholder={"Example: " + this.webID}
 						/>
+
+						<Button id="botonaddfriends" type="button" onClick={(e) => this.handleClick(e)}>
+							<FontAwesomeIcon icon="user-plus" className="user-plus-icon" />
+						</Button>
 					</label>
-					<input
-						id="botonaddfriends"
-						type="submit"
-						value={i18n.t("myFriends.btnAdd")}
-						onClick={(e) => this.handleClick(e)}
-					/>
 				</form>
 			</FormAddFriends>
 		);
