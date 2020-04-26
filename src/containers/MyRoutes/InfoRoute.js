@@ -120,7 +120,7 @@ const InfoRoute = (props) => {
 							</RouteWrapper>
 						</Modal.Body>
 						<Modal.Footer>
-							<Button
+							<Button id="saveModify"
 								onClick={async () => {
 									let route = new Route(
 										document.getElementById("route_name").value,
@@ -139,7 +139,7 @@ const InfoRoute = (props) => {
 							>
 								{i18n.t("myRoutes.btnModify")}
 							</Button>
-							<Button
+							<Button id="closeModify"
 								onClick={() => {
 									setShowConfirmModify(!showConfirmModify);
 								}}

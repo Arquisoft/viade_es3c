@@ -5,7 +5,7 @@ import {
   loadFeature,
 } from 'jest-cucumber';
 
-const feature = loadFeature('./feature/features/myRoute.feature');
+const feature = loadFeature('./feature/features/editMyRoute.feature');
 const puppeteer = require('puppeteer');
 let browser = null;
 let page = null;
@@ -16,9 +16,9 @@ defineFeature(feature, test => {
     jest.setTimeout(1200000);
   });
 
-  test('Trying to view a route', ({ given, when, then }) => {
+  test('Trying to edit a route', ({ given, when, then }) => {
     
-    given('I am a user trying to view my routes', async () => {
+    given('I am a user trying to edit one of my routes', async () => {
       browser = await puppeteer.launch({
         headless: false
       });
@@ -69,16 +69,18 @@ defineFeature(feature, test => {
       await page.waitForSelector('#mapa');
     });
 
-    when('Pressing multimedia button', async () => {
-      await page.waitForSelector('#mult');
-      await page.click('#mult');
+    when('Pressing edit button', async () => {
+      await page.waitForSelector('#btnModify');
+      await page.click('#btnModify');
     });
 
-    then('It shows the photo I had uploaded', async () => {
-      await page.waitForSelector('#img');
-      await page.waitForFunction(
-        'document.querySelector("body").innerText.includes("azul")'
-      )
+    then('I edit the route and save it', async () => {
+      await page.waitForSelector("[id='route_name']", { visible: true });
+      await page.type("[id='route_name']", "azulin");
+
+      await page.waitForSelector('#saveModify');
+      await page.click('#closeModify');
+
       await browser.close();
     })
   });
