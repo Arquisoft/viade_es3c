@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-//import Button from "@material-ui/core/Button";
 import { Button } from "./myroutes.style";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { blueGrey } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
 import {PlayerDiv} from "./myroutes.style"
 // eslint-disable-next-line
-import { Player } from "video-react";
 import i18n from "i18n";
 
 const getMediaComponent = (url) => {

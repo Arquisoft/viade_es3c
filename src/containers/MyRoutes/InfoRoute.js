@@ -5,7 +5,7 @@ import { RouteCard, Button } from "./myroutes.style";
 import { ldflexHelper } from "@utils";
 import { successToaster } from "@utils";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FormRenderContainer, FriendsList } from "../MyFriends/myfriends.style";
+import { FormRenderContainer } from "../MyFriends/myfriends.style";
 import RouteMap from "./RouteMap";
 import Notifications from "../Share/NotificationHelp";
 import MultsButton from "./ViewMult";

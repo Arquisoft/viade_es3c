@@ -20,7 +20,7 @@ class FriendsHelper {
 	async getName(webId) {
 		const doc = await fetchDocument(webId);
 		const me = doc.getSubject(webId);
-		const name = me.getString(foaf.name);
+		me.getString(foaf.name);
 	}
 }
 const friendsHelper = new FriendsHelper();
