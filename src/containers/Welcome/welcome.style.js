@@ -16,28 +16,58 @@ export const WelcomeWrapper = styled.section`
 			font-size: 1.9rem;
 		}
 	}
+	#imgCovid {
+		max-width: 5em;
+		max-height: 5em;
+		margin: auto;
+	}
+`;
+export const ButtonInfo = styled.button`
+	font-size: 30px;
+	box-shadow: none !important;
+	border-color: transparent !important;
+	background: transparent !important;
+	margin-right: 10px;
+	padding: 1px;
 `;
 
 export const WelcomeCard = styled.div`
-	background: rgb(0, 77, 134);
-	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+	background: transparent !important;
+
+	box-shadow: none !important;
 	opacity: 0.9;
+	h5 {
+		font-size: 25px;
+		font-family: 'Work Sans', sans-serif;
+	}
+
 	h5,
 	h6,
 	ul li {
-		color: white;
+		color: grey;
 		text-align: center;
 		margin: 10px;
+		font-family: 'Work Sans', sans-serif;
+		font-size: 20px;
 	}
 	margin-top: 50px;
 	margin-left: 75%;
 	#more {
 		text-align: center;
 	}
-	#ubicaciones {
+
+	#imgCovid {
 		max-width: 5em;
 		max-height: 5em;
 		margin: auto;
+	}
+	#covid {
+		margin-right: 75%;
+	}
+	#ubicaciones {
+		max-width: 2em;
+		max-height: 2em;
+		margin: 10px;
 	}
 	img {
 		max-width: 80% !important;

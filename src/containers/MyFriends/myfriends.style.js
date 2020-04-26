@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const RouteCard = styled.div`
 	background: rgb(211, 224, 227);
-	display: inline;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 	margin-top: 15px;
+	margin-bottom: 15px;
 	max-width: 100% !important;
 	padding: 10px !important; //temporary fix to a style guide bug
 	a {
@@ -21,17 +22,22 @@ export const RouteCard = styled.div`
 	}
 	h3 {
 		font-weight: bold;
-		font-size: 35px;
+		font-size: 15px;
 		display: inline;
-		margin: 10px;
-		text-align: center;
-		justify: center;
+		margin: 25px;
+		align: left;
 	}
 	#btnDelete {
-		font-size: 14px;
-		padding: 10px 20px;
-		margin-left: 0px !important;
+		font-size: 12px;
+		border: none;
+		background: transparent;
+
 		box-shadow: none;
+		position: absolute;
+		margin-left: 45%;
+
+		bottom: 25px;
+		top: 2px;
 	}
 `;
 
@@ -40,28 +46,32 @@ export const FormAddFriends = styled.div`
 	justify-content: center;
 
 	input {
-		margin: 20px;
+		margin-top: 20px;
 		max-width: 70%;
 	}
+	color: grey;
 
 	#botonaddfriends {
 		max-width: 20%;
+		margin-left: 20px;
 	}
 	form {
 		text-align: center;
+		align: center;
 	}
 `;
 
 export const Friends = styled.div`
 	display: flex;
 	justify-content: center;
-	height: 600px;
+	height: 50%;
+	overflow-y: scroll;
 `;
 
 export const FriendsList = styled.div`
 	display: flex;
 	position: relative;
-	align-items: center;
+	align-text: left;
 	justify-content: center;
 	padding: 10px 5px;
 	margin-right: 50px;
@@ -76,6 +86,7 @@ export const FriendsList = styled.div`
 
 export const RouteWrapper = styled.section`
 	display: flex;
+
 	flex: 1 0 auto;
 	align-items: center;
 	justify-content: center;
@@ -88,6 +99,8 @@ export const RouteWrapper = styled.section`
 export const MyRouteContainer = styled.div`
 	background-color: rgb(211, 224, 227);
 	max-width: 900px;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+
 	margin: 0 20px;
 	width: 100%;
 	flex: 1 0 auto;
@@ -172,7 +185,7 @@ export const Header = styled.div`
 
 export const Button = styled.button`
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-	padding: 8px 10px;
+
 	font-size: 15px;
 	margin-right: 30px;
 `;

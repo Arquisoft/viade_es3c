@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
 html,
 body,
 #root {
@@ -156,6 +158,11 @@ div.fade.in.modal {
 	
 	color: rgb(0, 77, 134) ;
 }
+#imgCovid {
+	max-width: 100% ;
+	max-height:100%;
+	margin: auto;
+}
 
 #labelMod {
 	color: rgb(0, 77, 134) ;
@@ -165,6 +172,7 @@ div.fade.in.modal {
 	width: 990px;
 	height: 650px;
 }
+
 
 #mapa-modal {
 	width: 999px;
@@ -187,3 +195,5 @@ div.fade.in.modal {
 #buttonCovid {
 	margin-left: 5px;
 }
+
+
