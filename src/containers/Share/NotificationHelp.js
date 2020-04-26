@@ -127,7 +127,7 @@ const Notifications = ({ ruta, show, setshow }) => {
 				</FriendsList>
 			</Modal.Body>
 			<Modal.Footer>
-				<Button onClick={(e) => shareWithFriends(e)}>{i18n.t("myRoutes.btnShareRoute")}</Button>
+				<Button id="btshare" onClick={(e) => shareWithFriends(e)}>{i18n.t("myRoutes.btnShareRoute")}</Button>
 				<Button onClick={() => setshow(!show)}>{i18n.t("myRoutes.btnClose")}</Button>
 			</Modal.Footer>
 		</Modal>

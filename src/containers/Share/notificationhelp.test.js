@@ -1,18 +1,25 @@
 import React from 'react';
-import { render, cleanup } from 'react-testing-library';
+import { render, cleanup, queryByAttribute, fireEvent } from 'react-testing-library';
 import { HashRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import List from "@material-ui/core/List";
-import { FriendsList } from "../MyFriends/myfriends.style";
+import Notifications from "./NotificationHelp";
 
 library.add(fas);
 
+const props = {
+  ruta: "rutaprueba",
+  show: true,
+  setshow: true
+};
+
+
 describe.only("NotificationHelp", () => {
   afterAll(cleanup);
+  const getById = queryByAttribute.bind(null, "id");
   const { container } = render(
     <Router>
-      <FriendsList/>
+      <Notifications {...{props}}/>
     </Router>
   );
 
