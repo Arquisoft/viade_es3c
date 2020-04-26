@@ -159,8 +159,8 @@ div.fade.in.modal {
 	color: rgb(0, 77, 134) ;
 }
 #imgCovid {
-	max-width: 400px ;
-	max-height:200px;
+	max-width: 300px ;
+	max-height:150px;
 	margin-left: 25%;
 	align-items:center;
 }

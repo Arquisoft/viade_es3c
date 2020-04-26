@@ -9,6 +9,8 @@ const PrintButton = ({ id, label, route }) => (
 		<div
 			className="pa2 ba bw1 b--black bg-yellow black-90 br2 dib pointer dim shadow-1"
 			onClick={() => {
+				document.getElementById("divShare").style.visibility = "hidden";
+
 				const input = document.getElementById(id);
 				var pdf = null;
 
@@ -48,6 +50,7 @@ const PrintButton = ({ id, label, route }) => (
 						pdf.save(`${route.name}.pdf`);
 					}
 				});
+				document.getElementById("divShare").style.visibility = "visible";
 			}}
 		>
 			{label}
