@@ -53,6 +53,7 @@ export const WelcomeCard = styled.div`
 	@media only screen and (max-width: 900px) {
 		max-width: 40% !important;
 		margin-top: 5px;
+		background: white !important;
 		margin-left: 50%;
 		h5,
 		h6,

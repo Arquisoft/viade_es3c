@@ -148,6 +148,7 @@ export const RouteWrapper = styled.section`
 	padding: 60px 0;
 	@media only screen and (max-width: 900px) {
 		padding: auto;
+
 		h5,
 		h6,
 		ul li {
@@ -166,19 +167,19 @@ export const MyRouteContainer = styled.div`
 
 	margin: 20px 20px;
 	width: 100%;
-	flex: 1 0 auto;
+
 	color: white;
 	margin-right: 30%;
 	@media only screen and (max-width: 900px) {
-		max-width: 50% !important;
-		margin-top: 5px;
-
+		box-shadow: none;
+		margin: 0 auto !important;
+		width: 250px;
 		h5,
 		h6,
 		ul li {
 			color: grey;
 			text-align: center;
-			margin: auto;
+			margin: 0px;
 			font-family: 'Work Sans', sans-serif;
 			font-size: 10px;
 		}

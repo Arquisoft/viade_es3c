@@ -164,6 +164,7 @@ export class MapContainer extends React.Component {
 				heatmapLibrary={true}
 				onClick={this.clickPoint}
 				center={this.state.center}
+				gestureHandling={"cooperative"}
 				styles={[
 					{ elementType: "geometry", stylers: [ { color: "#242f3e" } ] },
 					{ elementType: "labels.text.stroke", stylers: [ { color: "#242f3e" } ] },

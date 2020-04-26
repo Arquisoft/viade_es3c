@@ -225,10 +225,15 @@ and (max-width: 1605px)
 		margin: auto;
 	}
 
+	#floating-panel {
+		top: 50px;
+		left: 0px;
+		
+	}
 	#imgCovid {
 		max-width: 300px ;
 		max-height:200px;
-		margin-left: 30%;
+		margin:auto;
 		align-items:center;
 	}
 	body {
