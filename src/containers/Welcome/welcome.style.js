@@ -38,7 +38,7 @@ export const WelcomeCard = styled.div`
 	opacity: 0.9;
 	h5 {
 		font-size: 25px;
-		font-family: Arial, Helvetica, sans-serif;
+		font-family: 'Work Sans', sans-serif;
 	}
 
 	h5,
@@ -47,6 +47,8 @@ export const WelcomeCard = styled.div`
 		color: grey;
 		text-align: center;
 		margin: 10px;
+		font-family: 'Work Sans', sans-serif;
+		font-size: 20px;
 	}
 	margin-top: 50px;
 	margin-left: 75%;
@@ -63,9 +65,9 @@ export const WelcomeCard = styled.div`
 		margin-right: 75%;
 	}
 	#ubicaciones {
-		max-width: 5em;
-		max-height: 5em;
-		margin: auto;
+		max-width: 2em;
+		max-height: 2em;
+		margin: 10px;
 	}
 	img {
 		max-width: 80% !important;

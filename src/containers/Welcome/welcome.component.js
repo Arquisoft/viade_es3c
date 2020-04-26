@@ -25,8 +25,10 @@ export const WelcomePageContent = (props) => {
 	return (
 		<WelcomeWrapper data-testid="welcome-wrapper">
 			<WelcomeCard className="card">
-				<h5>{t("welcome.welcome")}</h5>
-				<img id="ubicaciones" src="img/ubicaciones.png" alt="more" />
+				<h5>
+					{t("welcome.welcome")}
+					<img id="ubicaciones" src="img/ubicaciones.png" alt="more" />
+				</h5>
 				<h5>{t("welcome.welcomeSub")}</h5>
 
 				<ButtonInfo id="info" onClick={() => setShow(!show)}>
@@ -37,6 +39,7 @@ export const WelcomePageContent = (props) => {
 						className="info-circle-icon"
 					/>
 				</ButtonInfo>
+				<hr />
 				{show ? (
 					<div />
 				) : (
