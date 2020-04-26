@@ -169,9 +169,10 @@
 		"modify": "Modify your route",
 		"btnModify": "Modify",
 		"downloadTitle":"Download route",
-		"downloadSure":"Do you want to download your route in a file?",
-		"downloadP":"Press download to save your route in a file or close to cancel",
-		"downloadBtn":"Download"
+		"downloadSure":"In what format do you want to download the route?",
+		"downloadP":"You can download your route in ttl format or in pdf format",
+		"downloadBtnTLL":"Download ttl file",
+		"downloadBtnPDF":"Download pdf file"
 	},
 	"myFriends": {
 		"title": "Add new friends",

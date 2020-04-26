@@ -170,9 +170,10 @@
 		"modify": "Modifica tu ruta",
 		"btnModify": "Modificar",
 		"downloadTitle":"Descargar ruta",
-		"downloadSure":"¿Quieres descargar tu ruta en un fichero?",
-		"downloadP":"Pulsa descargar para guardar tu ruta en un fichero o cerrar para cancelar",
-		"downloadBtn":"Descargar"
+		"downloadSure":"¿En qué formato deseas descargar la ruta?",
+		"downloadP":"Puedes descargar tu ruta en formato ttl o en formato pdf",
+		"downloadBtnTLL":"Descargar archivo tll",
+		"downloadBtnPDF":"Descargar archivo pdf"
 	},
 	"myFriends": {
 		"title": "Añade nuevos amigos",

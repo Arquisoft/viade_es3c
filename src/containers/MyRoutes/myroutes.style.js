@@ -5,11 +5,17 @@ export const RouteCard = styled.div`
 
 	max-width: 78% !important;
 	padding: 5px 15px !important;
+	text-align: center;
 	a {
 		text-decoration: none;
 		&:hover {
 			text-decoration: underline;
+			text-decoration-color: white;
 		}
+	}
+
+	h5 {
+		text-color: white;
 	}
 	p {
 		font-weight: bold;
@@ -21,6 +27,27 @@ export const RouteCard = styled.div`
 	h3 {
 		font-size: 25px;
 		margin: 0 0 0px 0;
+	}
+
+	#containerRuta {
+		padding: 0px 25px !important;
+		a {
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		p {
+			font-weight: bold;
+			font-size: 20px;
+		}
+		h2 {
+			font-weight: bold;
+		}
+		h3 {
+			font-size: 25px;
+			margin: 0 0 0px 0;
+		}
 	}
 
 	#divDelete {
@@ -36,7 +63,7 @@ export const RouteCard = styled.div`
 		margin-left: 550px;
 		margin-top: 18px;
 	}
-	#divDownload{
+	#divDownload {
 		margin-left: 550px;
 		margin-top: 18px;
 	}
@@ -53,10 +80,10 @@ export const RouteCard = styled.div`
 		padding: 10px 20px;
 		margin-bottom: 10px;
 	}
-	#divBtns{
+	#divBtns {
 		margin-left: 560px;
-    	margin-top: 15px;
-    	margin-bottom: -140px;
+		margin-top: 15px;
+		margin-bottom: -140px;
 	}
 `;
 
@@ -78,6 +105,18 @@ export const MyRouteContainer = styled.div`
 	overflow: hidden;
 	h1 {
 		color: white;
+	}
+	#empty {
+		background-color: white;
+	}
+	#h1-empty {
+		color: grey;
+	}
+	h5 {
+		color: grey;
+	}
+	a {
+		color: grey;
 	}
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 	background: rgb(0, 77, 134);

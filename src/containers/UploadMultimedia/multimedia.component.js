@@ -17,7 +17,7 @@ export const MultimediaPageContent = (props) => {
 		<ImageWrapper>
 			<Uploader
 				{...{
-					fileBase: w && w.split("/profile")[0] + "/public/viade/rawMedia",
+					fileBase: w && w.split("/profile")[0] + "/viade/rawMedia",
 					limitFiles: 10,
 					limitSize: limit,
 					accept: "jpg,jpeg,png,mp3,mov,mp4,avi",

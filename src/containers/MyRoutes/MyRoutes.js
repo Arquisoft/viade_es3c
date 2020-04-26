@@ -50,7 +50,7 @@ class MyRoute extends React.Component {
 		});
 	}
 
-	async getTTL(element){
+	async getTTL(element) {
 		let file = await viadeManager.getTtl(element);
 		return file;
 	}
@@ -91,6 +91,7 @@ class MyRoute extends React.Component {
 											error={false}
 											errorMore={false}
 											webID={this.props}
+											ruta={ruta}
 										/>
 									);
 								} else {
@@ -113,9 +114,9 @@ class MyRoute extends React.Component {
 				return (
 					<RouteWrapper data-testid="route-component">
 						<MyRouteContainer data-testid="myroute-container">
-							<FormRenderContainer>
+							<FormRenderContainer id="empty">
 								<Header data-testid="myroute-header">
-									<h1>{i18n.t("myRoutes.title")}</h1>
+									<h1 id="h1-empty">{i18n.t("myRoutes.title")}</h1>{" "}
 								</Header>
 								<h5 align="center">
 									{i18n.t("myRoutes.noRoutes")}
