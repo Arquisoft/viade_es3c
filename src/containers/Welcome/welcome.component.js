@@ -1,14 +1,27 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { WelcomeWrapper, WelcomeCard } from "./welcome.style";
+import { WelcomeWrapper, WelcomeCard, WelcomeCardCovid } from "./welcome.style";
+import { Modal } from "react-bootstrap";
+import i18n from "i18n";
+import { Button } from "../MyRoutes/myroutes.style";
+
 /**
  * Welcome Page UI component, containing the styled components for the Welcome Page
  * Image component will get theimage context and resolve the value to render.
  * @param props
  */
+var count = 0;
+
 export const WelcomePageContent = (props) => {
 	const { t } = useTranslation();
 	const [ show, setShow ] = useState(true);
+	const [ showPopUp, setShowPopUp ] = useState(false);
+	if (count === 0) {
+		setTimeout(() => {
+			setShowPopUp(true);
+		}, 2000);
+		count = 1;
+	}
 	return (
 		<WelcomeWrapper data-testid="welcome-wrapper">
 			<WelcomeCard className="card">
@@ -16,6 +29,7 @@ export const WelcomePageContent = (props) => {
 				<img id="ubicaciones" src="img/ubicaciones.png" alt="more" />
 				<h5>{t("welcome.welcomeSub")}</h5>
 				<input id="showMore" type="button" onClick={() => setShow(!show)} value={t("welcome.knowMore")} />
+
 				{show ? (
 					<div />
 				) : (
@@ -31,6 +45,28 @@ export const WelcomePageContent = (props) => {
 					</div>
 				)}
 			</WelcomeCard>
+
+			<div id="divCovid">
+				<Modal show={showPopUp} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+					<Modal.Header>
+						<Modal.Title id="contained-modal-title-vcenter">{i18n.t("myRoutes.covidWarning")}</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<p>{i18n.t("myRoutes.textCovid")}</p>
+						<img id="imgCovid" src="img/covid.png" alt="Covid-19" />
+					</Modal.Body>
+					<Modal.Footer>
+						<Button
+							onClick={() => {
+								setShowPopUp(false);
+								count = 1;
+							}}
+						>
+							{i18n.t("myRoutes.btnClose")}
+						</Button>
+					</Modal.Footer>
+				</Modal>
+			</div>
 		</WelcomeWrapper>
 	);
 };

@@ -172,7 +172,9 @@
 		"downloadSure": "In what format do you want to download the route?",
 		"downloadP": "You can download your route in ttl format or in pdf format",
 		"downloadBtnTLL": "Download ttl file",
-		"downloadBtnPDF": "Download pdf file"
+		"downloadBtnPDF": "Download pdf file",
+		"textCovid": "Due to the Covid-19 health crisis we do not recommend to visit or travel to areas with a high risk of contagious. From Viade Es3c we want to make more easy to spot this areas and we implemented in our maps an option to show the actual number of cases by area in order to make easier to plan your routes.",
+		"covidWarning": "Attention! Covid-19 "
 	},
 	"myFriends": {
 		"title": "Add new friends",

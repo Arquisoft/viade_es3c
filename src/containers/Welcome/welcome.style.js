@@ -16,6 +16,11 @@ export const WelcomeWrapper = styled.section`
 			font-size: 1.9rem;
 		}
 	}
+	#imgCovid {
+		max-width: 5em;
+		max-height: 5em;
+		margin: auto;
+	}
 `;
 
 export const WelcomeCard = styled.div`
@@ -33,6 +38,15 @@ export const WelcomeCard = styled.div`
 	margin-left: 75%;
 	#more {
 		text-align: center;
+	}
+
+	#imgCovid {
+		max-width: 5em;
+		max-height: 5em;
+		margin: auto;
+	}
+	#covid {
+		margin-right: 75%;
 	}
 	#ubicaciones {
 		max-width: 5em;
