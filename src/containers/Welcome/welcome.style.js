@@ -3,7 +3,7 @@ import { media } from "../../utils";
 
 export const WelcomeWrapper = styled.section`
 	width: 100%;
-	background: url(../img/welcome_image.jpeg);
+	background: url("../img/welcome_image.jpeg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
