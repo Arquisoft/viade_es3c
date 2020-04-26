@@ -7,8 +7,37 @@ export const RouteCard = styled.div`
 	margin-bottom: 15px;
 	max-width: 100% !important;
 	padding: 10px !important; //temporary fix to a style guide bug
+	@media only screen and (max-width: 900px) {
+		max-width: 100% !important;
+		background: none;
+		h5,
+		h6,
+		a,
+		ul li {
+			color: grey;
+			text-align: center;
+			margin: auto;
+			background: none;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 10px;
+		}
+
+		#btnDelete {
+			font-size: 8px;
+			border: none;
+			background: transparent;
+
+			box-shadow: none;
+			position: absolute;
+			margin-left: 45%;
+
+			bottom: 25px;
+			top: 2px;
+		}
+	}
 	a {
 		text-decoration: none;
+
 		&:hover {
 			text-decoration: underline;
 			text-decoration-color: rgb(211, 224, 227);
@@ -59,6 +88,28 @@ export const FormAddFriends = styled.div`
 		text-align: center;
 		align: center;
 	}
+	@media only screen and (max-width: 900px) {
+		padding: auto;
+		h5,
+		h6,
+		ul li {
+			color: grey;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 10px;
+		}
+
+		input {
+			max-width: 100%;
+		}
+		color: grey;
+
+		#botonaddfriends {
+			margin: 10px auto;
+			padding: auto;
+		}
+	}
 `;
 
 export const Friends = styled.div`
@@ -95,17 +146,43 @@ export const RouteWrapper = styled.section`
 	background-attachment: fixed;
 	background-size: cover;
 	padding: 60px 0;
+	@media only screen and (max-width: 900px) {
+		padding: auto;
+		h5,
+		h6,
+		ul li {
+			color: grey;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 10px;
+		}
+	}
 `;
 export const MyRouteContainer = styled.div`
 	background-color: rgb(211, 224, 227);
 	max-width: 900px;
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
-	margin: 0 20px;
+	margin: 20px 20px;
 	width: 100%;
 	flex: 1 0 auto;
 	color: white;
-	margin-right: 50%;
+	margin-right: 30%;
+	@media only screen and (max-width: 900px) {
+		max-width: 50% !important;
+		margin-top: 5px;
+
+		h5,
+		h6,
+		ul li {
+			color: grey;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 10px;
+		}
+	}
 `;
 export const FormRenderContainer = styled.div`
 	min-height: 40px;
@@ -128,6 +205,21 @@ export const FormRenderContainer = styled.div`
 		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 	}
 	color: white;
+
+	@media only screen and (max-width: 900px) {
+		margin-top: 5px;
+		margin: auto;
+		padding: auto;
+		h5,
+		h6,
+		ul li {
+			color: grey;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 10px;
+		}
+	}
 `;
 
 export const FormRenderContainerMult = styled.div`
@@ -149,6 +241,21 @@ export const FormRenderContainerMult = styled.div`
   input {
     margin-left: 0;
   }
+
+  @media only screen and (max-width: 900px) {
+		margin-top: 5px;
+		margin: auto;
+		padding: auto;
+		h5,
+		h6,
+		ul li {
+			color: grey;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 10px;
+		}
+	}
 `;
 
 export const DivSlider = styled.div`
@@ -180,6 +287,20 @@ export const Header = styled.div`
 		right: 20px;
 		top: 20px;
 		font-size: 1rem;
+	}
+	@media only screen and (max-width: 900px) {
+		margin-top: 5px;
+		margin: auto;
+		padding: auto;
+		h5,
+		h6,
+		ul li {
+			color: grey;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 10px;
+		}
 	}
 `;
 
