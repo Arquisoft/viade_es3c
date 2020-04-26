@@ -22,6 +22,5 @@ describe.only('MyFriends', () => {
 
   test('renders without crashing', () => {
     expect(container).toBeTruthy();
-    fireEvent.click(delete_friend);
   });
 });

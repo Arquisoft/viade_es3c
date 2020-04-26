@@ -39,8 +39,6 @@ describe.only('MyFriends', () => {
   });
 
   test('click', () => {
-    const button_friends = getById(container, 'submit-friends');
-    fireEvent.click(button_friends);
     (expect(Toaster.successToaster()).toHaveBeenCalled);
   })
 });
