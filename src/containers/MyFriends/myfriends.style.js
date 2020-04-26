@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const RouteCard = styled.div`
 	background: rgb(211, 224, 227);
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-
-	display: flex;
 	margin-top: 15px;
 	max-width: 100% !important;
 	padding: 10px !important; //temporary fix to a style guide bug
@@ -23,17 +21,21 @@ export const RouteCard = styled.div`
 	}
 	h3 {
 		font-weight: bold;
-		font-size: 20px;
+		font-size: 15px;
 		display: inline;
-		margin: 10px;
-		text-align: center;
-		justify: center;
+		margin: 25px;
+		align: left;
 	}
 	#btnDelete {
-		font-size: 14px;
-		padding: 10px 20px;
-		margin-left: 0px !important;
+		font-size: 12px;
+		border: none;
+		background: transparent;
+
 		box-shadow: none;
+		position: absolute;
+		margin-left: 45%;
+		bottom: 25px;
+		top: 2px;
 	}
 `;
 
@@ -43,7 +45,7 @@ export const FormAddFriends = styled.div`
 
 	input {
 		margin-top: 20px;
-		max-width: 55%;
+		max-width: 70%;
 	}
 	color: grey;
 
@@ -53,19 +55,21 @@ export const FormAddFriends = styled.div`
 	}
 	form {
 		text-align: center;
+		align: center;
 	}
 `;
 
 export const Friends = styled.div`
 	display: flex;
 	justify-content: center;
-	height: 600px;
+	height: 50%px;
+	overflow-y: scroll;
 `;
 
 export const FriendsList = styled.div`
 	display: flex;
 	position: relative;
-	align-items: center;
+	align-text: left;
 	justify-content: center;
 	padding: 10px 5px;
 	margin-right: 50px;

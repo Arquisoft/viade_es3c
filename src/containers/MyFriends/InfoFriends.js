@@ -13,12 +13,14 @@ const InfoFriends = (props) => {
 
 	return (
 		<RouteCard className="card">
-			<a href={url}>
-				<h3>{name}</h3>
-				<Button id="btnDelete" type="button" onClick={(e) => handleClick(e)}>
-					<FontAwesomeIcon icon="trash" className="trash-icon" />
-				</Button>
-			</a>
+			<div id="itemAmigo">
+				<a href={url}>
+					<h3>{name}</h3>
+				</a>
+			</div>
+			<Button id="btnDelete" type="button" onClick={(e) => handleClick(e)}>
+				<FontAwesomeIcon icon="user-minus" className="user-minus-icon" onClick={(e) => handleClick(e)} />
+			</Button>
 		</RouteCard>
 	);
 };
