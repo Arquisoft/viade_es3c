@@ -13,6 +13,6 @@ describe("Notification class domain", () => {
     expect(notification.description === "prueba notificacion");
     expect(notification.points === points);
     expect(notification.receptor === "saray");
-    expect(notification.getIdRoute() === "prueba_sara");
+    expect(notification.getRouteId() === "prueba_sara");
   });
 });

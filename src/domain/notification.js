@@ -14,7 +14,7 @@ export default class Notification {
       this.points = points;
     }
   
-    getIdRoute() {
+    getRouteId() {
       return `${this.name}_${this.author}`;
     }
   }

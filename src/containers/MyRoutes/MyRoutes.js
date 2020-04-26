@@ -4,11 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Header, RouteWrapper, MyRouteContainer, FormRenderContainer } from "./myroutes.style";
 import InfoRoute from "./InfoRoute";
-import { viadeManager } from "@utils";
+
 import i18n from "i18n";
+import * as viadeManager from "../../utils/viadeManagerSolid";
 
 type Props = { webId: String };
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
+
 class MyRoute extends React.Component {
 	constructor({ webId }: Props) {
 		super();
@@ -51,10 +53,10 @@ class MyRoute extends React.Component {
 		});
 	}
 
-	async getTTL(element) {
+	/*async getTTL(element) {
 		let file = await viadeManager.getTtl(element);
 		return file;
-	}
+	}*/
 
 	render(): React.ReactNode {
 		const { webId } = this.props;
