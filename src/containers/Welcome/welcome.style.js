@@ -22,16 +22,25 @@ export const WelcomeWrapper = styled.section`
 		margin: auto;
 	}
 `;
+export const ButtonInfo = styled.button`
+	font-size: 30px;
+	box-shadow: none !important;
+	border-color: transparent !important;
+	background: transparent !important;
+	margin-right: 10px;
+	padding: 1px;
+`;
 
 export const WelcomeCard = styled.div`
-	background: rgb(230, 234, 235);
-	background: linear-gradient(
-		180deg,
-		rgba(230, 234, 235, 1) 0%,
-		rgba(230, 234, 235, 1) 35%,
-		rgba(230, 234, 235, 1) 100%
-	);
+	background: transparent !important;
+
+	box-shadow: none !important;
 	opacity: 0.9;
+	h5 {
+		font-size: 25px;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
 	h5,
 	h6,
 	ul li {

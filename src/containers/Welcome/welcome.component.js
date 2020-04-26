@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { WelcomeWrapper, WelcomeCard, WelcomeCardCovid } from "./welcome.style";
+import { WelcomeWrapper, WelcomeCard, WelcomeCardCovid, ButtonInfo } from "./welcome.style";
 import { Modal } from "react-bootstrap";
 import i18n from "i18n";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "../MyRoutes/myroutes.style";
-
 /**
  * Welcome Page UI component, containing the styled components for the Welcome Page
  * Image component will get theimage context and resolve the value to render.
@@ -28,8 +28,15 @@ export const WelcomePageContent = (props) => {
 				<h5>{t("welcome.welcome")}</h5>
 				<img id="ubicaciones" src="img/ubicaciones.png" alt="more" />
 				<h5>{t("welcome.welcomeSub")}</h5>
-				<input id="showMore" type="button" onClick={() => setShow(!show)} value={t("welcome.knowMore")} />
 
+				<ButtonInfo id="info" onClick={() => setShow(!show)}>
+					<FontAwesomeIcon
+						title={t("welcome.knowMore")}
+						data-toggle="tooltip"
+						icon="info-circle"
+						className="info-circle-icon"
+					/>
+				</ButtonInfo>
 				{show ? (
 					<div />
 				) : (
