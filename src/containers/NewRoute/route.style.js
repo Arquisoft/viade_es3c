@@ -4,11 +4,33 @@ export const RouteWrapper = styled.section`
 	display: flex;
 	flex: 1 0 auto;
 	flex-direction: row;
-	background-color: #ffffff;
+	@media only screen and (max-width: 900px) {
+		padding: auto;
+		
+		display: flex;
+		align:center;
+		flex-direction: column;
+		max-width: 100%;
+		height: 20px;
+		h5,
+		h6,
+		p,
+		ul li {
+			color: white;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 12px;
+		}
+
+		input {
+			max-width: 100%;
+		}
+		
 `;
 
 export const Header = styled.div`
-	max-width: 17%;
+	max-width: 100%;
 	align-items: top;
 	justify-content: center;
 	background: rgb(0, 77, 134);
@@ -32,7 +54,23 @@ export const Button = styled.button`
 
 export const TextArea = styled.textarea`resize: none;`;
 
-export const DivForms = styled.div`margin: 1em;`;
+export const DivForms = styled.div`margin: 1em;@media only screen and (max-width: 900px) {
+		align-text:center;		
+		max-width: 100%;
+		h5,
+		h6,
+		p,
+		ul li {
+			color: white;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 12px;
+		}
+		input {
+			margin:auto;
+			max-width: 100%;
+		}`;
 
 export const InputSubmit = styled.input`float: right;`;
 
@@ -52,6 +90,39 @@ export const DivMin = styled.div``;
 
 export const InputFile = styled.input``;
 
-export const DivDivisor = styled.div`padding: 30px 20px;`;
+export const DivDivisor = styled.div`padding: 30px 20px;@media only screen and (max-width: 900px) {
+		align-text:center;		
+		max-width: 100%;
+		h5,
+		h6,
+		p,
+		ul li {
+			color: white;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 12px;
+		}
+		input {
+			margin:auto;
+			max-width: 100%;
+		}`;
 
-export const RouteForm = styled.form`margin-bottom: 1em;`;
+export const RouteForm = styled.form`max-width: 100%;
+@media only screen and (max-width: 900px) {
+		align-text:center;		
+		max-width: 100%;
+		h5,
+		h6,
+		p,
+		ul li {
+			color: white;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 12px;
+		}
+		input {
+			margin:auto;
+			max-width: 100%;
+		}`;

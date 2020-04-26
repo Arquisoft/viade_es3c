@@ -143,6 +143,7 @@ class NewRoute extends React.Component {
 						/>
 					</DivForms>
 				</Header>
+
 				<Map parentCallBack={this.callBackFunction} zoom={13} />
 			</RouteWrapper>
 		);
