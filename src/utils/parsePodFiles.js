@@ -4,7 +4,6 @@ import rutaShape from "@contexts/route-shape.json";
 import mediaShape from "@contexts/media-shape.json";
 import auth from "solid-auth-client";
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
-const auth = require("solid-auth-client");
 const FC = require("solid-file-client");
 const fc = new FC(auth);
 const N3 = require("n3");

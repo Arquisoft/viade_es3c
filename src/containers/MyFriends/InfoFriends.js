@@ -1,7 +1,6 @@
 import React from "react";
-import { RouteCard, ButtonDelete, Button } from "./myfriends.style";
+import { RouteCard, Button } from "./myfriends.style";
 import { removeFriend } from "./MyFriends";
-import i18n from "i18n";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const InfoFriends = (props) => {

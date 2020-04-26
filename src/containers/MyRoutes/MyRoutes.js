@@ -35,6 +35,7 @@ class MyRoute extends React.Component {
 		var newList = [];
 		if (e.target.value !== "") {
 			currentList = this.state.original;
+			// eslint-disable-next-line
 			newList = currentList.filter((item) => {
 				if (item.name !== undefined) {
 					const lc = item.name.toLowerCase();

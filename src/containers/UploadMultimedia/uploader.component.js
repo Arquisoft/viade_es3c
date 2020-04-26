@@ -88,6 +88,7 @@ class Uploader extends Component<Props> {
 		// We read each file and upload to POD using Base64
 		for await (const file of files) {
 			const reader = new FileReader();
+			// eslint-disable-next-line
 			let suffix = false;
 
 			/* eslint no-loop-func: 0 */

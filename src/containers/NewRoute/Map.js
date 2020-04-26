@@ -1,5 +1,4 @@
 import { Map, GoogleApiWrapper, Marker, Polyline, HeatMap, InfoWindow } from "google-maps-react";
-import { Loader } from "@util-components";
 
 import React from "react";
 import update from "react-addons-update";
@@ -64,8 +63,10 @@ export class MapContainer extends React.Component {
 		if (!this.state.mapCovid.length > 0 && data.data.length > 0 && count === 0) {
 			count = 1;
 			let mapCovid = this.state.mapCovid;
+			// eslint-disable-next-line
 			const geoJson = {
 				type: "FeatureCollection",
+				// eslint-disable-next-line
 				features: data.data.map((country = {}) => {
 					const { countryInfo = {} } = country;
 					const { lat, long: lng } = countryInfo;

@@ -2,10 +2,6 @@ import React from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
-const auth = require("solid-auth-client");
-const FC = require("solid-file-client");
-const fc = new FC(auth);
-
 const PrintButton = ({ id, label, route }) => (
 	<div className="tc mb4 mt2">
 		<div id="myMm" style={{ height: "1mm" }} />
@@ -33,6 +29,7 @@ const PrintButton = ({ id, label, route }) => (
 							genImg.setAttribute("crossOrigin", "anonymous");
 							var r = route.multimedia[i];
 							promises.push(
+								// eslint-disable-next-line
 								route.multimedia[i].data.then((blob) => {
 									genImg.src = URL.createObjectURL(blob);
 									pdf.addImage(genImg, "PNG", 10, 10, 190, 180);

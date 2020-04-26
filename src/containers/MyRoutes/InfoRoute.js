@@ -12,7 +12,6 @@ import MultsButton from "./ViewMult";
 import i18n from "i18n";
 import { Route } from "domain";
 import { viadeManager } from "@utils";
-import Map from "../NewRoute/Map";
 import Download from "@axetroy/react-download";
 import PrintButton from "../../components/PrintButton";
 
@@ -21,7 +20,7 @@ import { RouteWrapper, TextArea, DivForms, LabelInput } from "../NewRoute/route.
 var markersp = [];
 const InfoRoute = (props) => {
 	const { name, author, description, points, center, mult, r, uuid, ttl, error, errorMore, webID, ruta } = props;
-	const [ show, setShow ] = useState(true);
+	const [ showFriends, setShowFriends ] = useState(false);
 	const [ showConfirm, setShowConfirm ] = useState(false);
 	const [ showConfirmModify, setShowConfirmModify ] = useState(false);
 	const [ showConfirmDownload, setShowConfirmDownload ] = useState(false);
@@ -188,18 +187,15 @@ const InfoRoute = (props) => {
 					<h3> {i18n.t("myRoutes.description")}</h3>
 					<p>{description}</p>
 					<div id="divShare" className="btn-group">
-						<Button id="viewFriends" type="button" onClick={() => setShow(!show)}>
+						<Button id="viewFriends" type="button" onClick={() => setShowFriends(!showFriends)}>
 							{i18n.t("myRoutes.btnShare")}
 						</Button>
 						<MultsButton {...{ mult, name }} />
 					</div>
-					{show ? (
-						<div />
-					) : (
-						<FormRenderContainer id="shareRoute">
-							<Notifications ruta={uuid} />
-						</FormRenderContainer>
-					)}
+					<div id="divFriends">
+						<Notifications ruta={uuid} show={showFriends} setshow={setShowFriends} />
+					</div>
+
 					<br />
 					<FormRenderContainer id="mapa">
 						<RouteMap markers={points} center={center} />

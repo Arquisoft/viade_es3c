@@ -27,7 +27,6 @@ const Notifications = ({ ruta, show, setshow }) => {
 		auth.trackSession((session) => {
 			if (session) {
 				cadena = session.webId;
-				console.log(cadena);
 			}
 		});
 	});
@@ -36,7 +35,6 @@ const Notifications = ({ ruta, show, setshow }) => {
 		try {
 			await createNotification(content, to, type, license);
 		} catch (error) {
-			console.log(error);
 			alert("Error: RouteConst > sendNotification");
 		}
 	}
@@ -44,7 +42,7 @@ const Notifications = ({ ruta, show, setshow }) => {
 	function showNotifications(friendWebId, e) {
 		e.preventDefault();
 		//url de la ruta será: uuid.ttl
-		let nameRoute = getUrl(cadena) + "public/viade/routes/" + ruta + ".ttl";
+		let nameRoute = getUrl(cadena) + "viade/routes/" + ruta + ".ttl";
 		try {
 			const contentNotif = {
 				title: "Route share",
@@ -55,7 +53,6 @@ const Notifications = ({ ruta, show, setshow }) => {
 			};
 			publish(sendNotification, contentNotif, friendWebId, NotificationTypes.OFFER);
 		} catch (error) {
-			console.log(error);
 			alert("Could not share the route");
 		}
 	}
@@ -85,7 +82,6 @@ const Notifications = ({ ruta, show, setshow }) => {
 			}
 			return true;
 		} catch (e) {
-			console.error(e);
 			return false;
 		}
 	};
@@ -100,8 +96,7 @@ const Notifications = ({ ruta, show, setshow }) => {
 	}
 
 	function givePermissions() {
-		let nameRoute = getUrl(cadena) + "public/viade/routes/" + ruta + ".ttl";
-		console.log("ruta!!!!!: " + nameRoute);
+		let nameRoute = getUrl(cadena) + "viade/routes/" + ruta + ".ttl";
 		sharing(cadena, checkedItems, nameRoute);
 	}
 
@@ -114,7 +109,7 @@ const Notifications = ({ ruta, show, setshow }) => {
 				<FriendsList>
 					<List src={"user.friends"}>
 						{(item, i) => (
-							<ul>
+							<ul key={i}>
 								<li>
 									<Checkbox
 										name={getUserName(`${item}`)}
@@ -132,7 +127,6 @@ const Notifications = ({ ruta, show, setshow }) => {
 				</FriendsList>
 			</Modal.Body>
 			<Modal.Footer>
-				<shareButton />
 				<Button onClick={(e) => shareWithFriends(e)}>{i18n.t("myRoutes.btnShare")}</Button>
 				<Button onClick={() => setshow(!show)}>{i18n.t("myRoutes.btnClose")}</Button>
 			</Modal.Footer>

@@ -149,14 +149,19 @@ div.fade.in.modal {
 
 .modal-dialog {
 	margin: auto;
-	color: blue;
+	color: rgb(0, 77, 134) ;
+}
+
+.modal-dialog h4 {
+	
+	color: rgb(0, 77, 134) ;
 }
 
 #labelMod {
-	color: black;
+	color: rgb(0, 77, 134) ;
 }
 #modalMod {
-	color: black;
+	color: rgb(0, 77, 134) ;
 	width: 990px;
 	height: 650px;
 }
