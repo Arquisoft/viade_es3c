@@ -11,18 +11,17 @@ import {
 	TitleRoute,
 	RouteForm
 } from "./route.style";
-import { Route, Point, Multimedia } from "domain";
+import { Route, Point, Multimedia } from "../../domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
 import i18n from "i18n";
-import * as viadeManager from "../../utils/storage";
+import * as viadeManager from "../../utils/viadeManagerSolid";
 
 type Props = {
-	webId: String,
-	test: boolean
+	webId: String
 };
 
 class NewRoute extends React.Component {
-	constructor({ webId, test }: Props) {
+	constructor({ webId }: Props) {
 		super();
 		this.webID = webId;
 		this.handleSave = this.handleSave.bind(this);
