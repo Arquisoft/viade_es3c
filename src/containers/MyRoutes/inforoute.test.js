@@ -42,13 +42,8 @@ describe.only("InfoRoutes", () => {
     })
   });
 
-  test("timeline render properly", async() => {
-    const btinfo = getById(container, 'infoRoute');
-    const btroute = getById(container, 'viewRoute');
+  test("click button", async() => {
     const btfriends = getById(container, 'viewFriends');
-
-    fireEvent.click(btinfo);
-    fireEvent.click(btroute);
     fireEvent.click(btfriends);
   });
 });

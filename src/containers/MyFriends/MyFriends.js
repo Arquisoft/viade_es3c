@@ -5,13 +5,15 @@ import {
 	MyRouteContainer,
 	FormRenderContainer,
 	Friends,
+	Button,
 	FormAddFriends
 } from "./myfriends.style";
 import { List } from "@solid/react";
 import InfoFriends from "./InfoFriends";
 import friendsHelper from "./FriendsHelper";
-import { successToaster } from "@utils";
+import { successToaster, errorToaster } from "@utils";
 import i18n from "i18n";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Props = { webId: String };
 
@@ -49,11 +51,18 @@ class MyFriends extends React.Component {
 
 	async handleClick(e) {
 		e.preventDefault();
-		await friendsHelper.addFriend(this.webID, this.state.friendWebID);
-		successToaster(i18n.t("myFriends.adding") + this.state.friendWebID + i18n.t("myFriends.addingList"), i18n.t("newRoute.success"));
-		setTimeout(function() {
-			window.location.reload();
-		}, 1000);
+		if (this.state.friendWebID !== "") {
+			await friendsHelper.addFriend(this.webID, this.state.friendWebID);
+			successToaster(
+				i18n.t("myFriends.adding") + this.state.friendWebID + i18n.t("myFriends.addingList"),
+				i18n.t("newRoute.success")
+			);
+			setTimeout(function() {
+				window.location.reload();
+			}, 1000);
+		} else {
+			errorToaster(i18n.t("myFriends.webId"));
+		}
 	}
 
 	addFriends() {
@@ -62,9 +71,17 @@ class MyFriends extends React.Component {
 				<form>
 					<label>
 						{i18n.t("myFriends.webId")}
-						<input type="text" name="webID" onChange={this.handleChange} />
+						<input
+							type="text"
+							name="webID"
+							onChange={this.handleChange}
+							placeholder={"Example: " + this.webID}
+						/>
+
+						<Button id="botonaddfriends" type="button" onClick={(e) => this.handleClick(e)}>
+							<FontAwesomeIcon icon="user-plus" className="user-plus-icon" />
+						</Button>
 					</label>
-					<input type="submit" id="submit-friends" value={i18n.t("myFriends.btnAdd")} onClick={(e) => this.handleClick(e)} />
 				</form>
 			</FormAddFriends>
 		);
@@ -76,12 +93,10 @@ class MyFriends extends React.Component {
 				<MyRouteContainer>
 					<FormRenderContainer>
 						<Header>
-							<h1>{i18n.t("myFriends.title")}</h1>
+							<h1>{i18n.t("myFriends.friends")}</h1>
 						</Header>
 						{this.addFriends()}
-						<Header>
-							<h1>{i18n.t("myRoutes.friends")}</h1>
-						</Header>
+						<hr />
 						{this.getList()}
 					</FormRenderContainer>
 				</MyRouteContainer>
@@ -103,7 +118,10 @@ export const getUrl = (name) => {
 
 export const removeFriend = (webIdUser, friendWebID) => {
 	friendsHelper.deleteFriend(webIdUser, friendWebID);
-	successToaster(i18n.t("myFriends.deleting") + friendWebID + i18n.t("myFriends.friendsList"), i18n.t("newRoute.success"));
+	successToaster(
+		i18n.t("myFriends.deleting") + friendWebID + i18n.t("myFriends.friendsList"),
+		i18n.t("newRoute.success")
+	);
 	setTimeout(function() {
 		window.location.reload();
 	}, 1000);

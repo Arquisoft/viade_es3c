@@ -12,13 +12,13 @@ The system will have three main elements which communicate each others:
     * PODS: they will storage information's users.
     * Viade: the app will communicate with users and pods.
 
-image::05-builidng-block-view_1.jpeg[]
+image::.\images\05-builidng-block-view_1.jpeg[]
 
 === Whitebox Overall System
 
 
 
-image::05-building-block-view_2.jpg[]
+image::.\images\05-building-block-view_2.jpg[]
 
 *Level 1*
 

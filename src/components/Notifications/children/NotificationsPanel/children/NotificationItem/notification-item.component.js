@@ -36,7 +36,7 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
    */
 
 	const opCurrentRead = !currentRead;
-	const defaultImage = "img/icon/empty-profile.svg";
+	const defaultImage = "img/icon/empty.svg";
 	const actorImage =
 		notification && notification.actor && notification.actor.image ? notification.actor.image : defaultImage;
 	return (

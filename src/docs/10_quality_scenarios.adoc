@@ -4,7 +4,7 @@
 
 [role="arc42help"]
 
-image:qualitytree.png[]
+image:.\images\qualitytree.png[]
 
 
 === Quality Scenarios

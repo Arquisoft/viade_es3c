@@ -9,10 +9,10 @@ let page = null;
 
 defineFeature(feature, test => {
   beforeEach(async () => {
-    jest.setTimeout(200000000);
+    jest.setTimeout(12000000);
   });
 
-  test("Trying to log in", ({ given, when, and, then }) => {
+  test("Trying to log in", async ({ given, when, and, then }) => {
     given("I am a user trying to log in", async () => {
       browser = await puppeteer.launch({
         headless: false
@@ -20,38 +20,34 @@ defineFeature(feature, test => {
 
       page = await browser.newPage();
       await page.goto("http://localhost:3000/#/login", {
-        waitUntil: "networkidle2"
+        waitUntil: "load",
+        // Remove the timeout
+        timeout: 0
       });
     });
 
     when("Putting my webId", async () => {
       await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(
-        ".sc-EHOje.cffgrt",
-        "https://saragarcia.solid.community/profile/card#me"
-      );
+      await page.type(".sc-EHOje.cffgrt", "https://saragg.solid.community/profile/card#me");
 
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function(btn) {
-          if (btn.innerText === "Iniciar sesión") {
+          if (btn.innerText == "Iniciar sesión") {
             btn.click();
           }
-        });
-      });
 
-      await page.waitForNavigation({
-        waitUntil: "networkidle2"
+        });
       });
     });
 
     and("Fill out the form", async () => {
       await page.waitForSelector("[id='username']", { visible: true });
-      await page.type("[id='username']", "saraGarcia");
+      await page.type("[id='username']", "saragg");
 
       await page.waitFor(500);
       await page.waitForSelector("[id='password']", { visible: true });
-      await page.type("[id='password']", "Labra_123456", { visible: true });
+      await page.type("[id='password']", "Prueba_123", { visible: true });
 
       await page.waitFor(500);
 
@@ -71,8 +67,8 @@ defineFeature(feature, test => {
       await page.waitForNavigation({
         waitUntil: "networkidle2"
       });
-
-      expect(page.url()).toBe("http://localhost:3000/viade_es3c/#/welcome");
+      expect(page.url()).toBe("http://localhost:3000/#/welcome");
+      await browser.close();
     });
   });
 });

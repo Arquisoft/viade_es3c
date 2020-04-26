@@ -1,4 +1,6 @@
-import { storageHelper, parsePodFiles, notification } from "@utils";
+import { notification } from "@utils";
+import * as parsePodFiles from "./parsePodFiles";
+import * as storageHelper from "./storage";
 
 export const iniciateStructure = async (webId) => {
 	return await storageHelper.createInitialFiles(webId);
@@ -23,3 +25,5 @@ export const addMedia = async (media, webId) => {
 export const Invitation = async (route, webId) => {
 	return await notification.handleSave(route, webId);
 };
+
+
