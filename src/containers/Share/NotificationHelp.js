@@ -93,6 +93,7 @@ const Notifications = ({ ruta, show, setshow }) => {
 			showNotifications(key, e);
 		}
 		givePermissions(checkedItems);
+		setshow(!show);
 	}
 
 	function givePermissions() {
