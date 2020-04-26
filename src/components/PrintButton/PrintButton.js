@@ -44,6 +44,8 @@ const PrintButton = ({ id, label, route }) => (
 						}
 
 						Promise.all(promises).then((e) => pdf.save(`${route.name}.pdf`));
+					} else {
+						pdf.save(`${route.name}.pdf`);
 					}
 				});
 			}}

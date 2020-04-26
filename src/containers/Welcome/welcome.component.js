@@ -57,7 +57,13 @@ export const WelcomePageContent = (props) => {
 			</WelcomeCard>
 
 			<div id="divCovid">
-				<Modal show={showPopUp} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+				<Modal
+					id="modalCovid"
+					show={showPopUp}
+					size="lg"
+					aria-labelledby="contained-modal-title-vcenter"
+					centered
+				>
 					<Modal.Header>
 						<Modal.Title id="contained-modal-title-vcenter">{i18n.t("myRoutes.covidWarning")}</Modal.Title>
 					</Modal.Header>

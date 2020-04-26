@@ -160,8 +160,8 @@ div.fade.in.modal {
 }
 #imgCovid {
 	max-width: 400px ;
-	max-height:400px;
-	margin-left: 20%;
+	max-height:200px;
+	margin-left: 25%;
 	align-items:center;
 }
 
@@ -171,7 +171,13 @@ div.fade.in.modal {
 #modalMod {
 	color: rgb(0, 77, 134) ;
 	width: 990px;
-	height: 650px;
+	height: 500px;
+}
+
+#modalMod {
+	color: rgb(0, 77, 134) ;
+	width: 990px;
+	height: 300px;
 }
 
 
