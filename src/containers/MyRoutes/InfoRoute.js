@@ -171,7 +171,11 @@ const InfoRoute = (props) => {
 									{i18n.t("myRoutes.downloadBtnTLL")}
 								</Download>
 							</Button>
-							<Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
+							<Button
+								onClick={() => {
+									setShowConfirmDownload(!showConfirmDownload);
+								}}
+							>
 								<PrintButton id={name} label={i18n.t("myRoutes.downloadBtnPDF")} route={ruta} />
 							</Button>
 							<Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
