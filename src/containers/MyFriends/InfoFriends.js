@@ -19,7 +19,7 @@ const InfoFriends = (props) => {
 				</a>
 			</div>
 			<Button id="btnDelete" type="button" onClick={(e) => handleClick(e)}>
-				<FontAwesomeIcon icon="user-minus" className="user-minus-icon" onClick={(e) => handleClick(e)} />
+				<FontAwesomeIcon icon="user-minus" className="user-minus-icon" />
 			</Button>
 		</RouteCard>
 	);
