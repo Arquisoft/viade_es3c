@@ -109,6 +109,7 @@ const InfoRoute = (props) => {
 								</div>
 								<FormRenderContainer id="mapa-modal">
 									<RouteMap
+										id="mapa-modal"
 										parentCallBack={(childData) => {
 											markersp = childData;
 										}}
