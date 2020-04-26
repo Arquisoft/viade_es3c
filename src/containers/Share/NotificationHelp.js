@@ -42,7 +42,7 @@ const Notifications = ({ ruta, show, setshow }) => {
 	function showNotifications(friendWebId, e) {
 		e.preventDefault();
 		//url de la ruta será: uuid.ttl
-		let nameRoute = getUrl(cadena) + "viade/routes/" + ruta + ".ttl";
+		let nameRoute = getUrl(cadena) + "private/viade/routes/" + ruta + ".ttl";
 		try {
 			const contentNotif = {
 				title: "Route share",
@@ -96,7 +96,7 @@ const Notifications = ({ ruta, show, setshow }) => {
 	}
 
 	function givePermissions() {
-		let nameRoute = getUrl(cadena) + "viade/routes/" + ruta + ".ttl";
+		let nameRoute = getUrl(cadena) + "private/viade/routes/" + ruta + ".ttl";
 		sharing(cadena, checkedItems, nameRoute);
 	}
 

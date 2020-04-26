@@ -12,8 +12,8 @@ class Share extends React.Component {
 
 	permit(friend, route, autor) {
 		//https://sonialavandera.solid.community/profile/card#me
-		//https://sonialavandera.solid.community/viade/Prueba_sonialavandera.ttl
-		let nameRoute = getUrl(this.webID) + "viade/" + route + "_" + autor + ".ttl";
+		//https://sonialavandera.solid.community/private/viade/Prueba_sonialavandera.ttl
+		let nameRoute = getUrl(this.webID) + "private/viade/" + route + "_" + autor + ".ttl";
 		sharing(this.webID, friend, nameRoute);
 		alert("Ruta: " + route + " compartida con " + friend);
 	}
