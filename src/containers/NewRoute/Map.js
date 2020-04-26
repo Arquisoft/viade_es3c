@@ -89,7 +89,6 @@ export class MapContainer extends React.Component {
 
 			this.setState({ mapCovid });
 			this.sendData();
-			console.log(data);
 		}
 	}
 

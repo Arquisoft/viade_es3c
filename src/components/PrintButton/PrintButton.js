@@ -2,15 +2,14 @@ import React from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
-const PrintButton = ({ id, label, route }) => (
+const PrintButton = ({ id, label, route, hid }) => (
 	<div className="tc mb4 mt2">
 		<div id="myMm" style={{ height: "1mm" }} />
 
 		<div
 			className="pa2 ba bw1 b--black bg-yellow black-90 br2 dib pointer dim shadow-1"
 			onClick={() => {
-				document.getElementById("divShare").style.visibility = "hidden";
-
+				document.getElementById(hid).style.visibility = "hidden";
 				const input = document.getElementById(id);
 				var pdf = null;
 
@@ -22,7 +21,7 @@ const PrintButton = ({ id, label, route }) => (
 				}).then((canvas) => {
 					var imgData = canvas.toDataURL("image/png", 1.0);
 					pdf = new jsPDF();
-					pdf.addImage(imgData, "PNG", 10, 10, 190, 190);
+					pdf.addImage(imgData, "PNG", 20, 20, 160, 200);
 					if (route.multimedia.length > 0) {
 						pdf.addPage();
 						const promises = [];
@@ -50,7 +49,7 @@ const PrintButton = ({ id, label, route }) => (
 						pdf.save(`${route.name}.pdf`);
 					}
 				});
-				document.getElementById("divShare").style.visibility = "visible";
+				document.getElementById(hid).style.visibility = "visible";
 			}}
 		>
 			{label}
