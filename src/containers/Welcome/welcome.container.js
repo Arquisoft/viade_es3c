@@ -5,7 +5,7 @@ import { WelcomePageContent } from "./welcome.component";
 import { successToaster, errorToaster } from "@utils";
 import { viadeManager } from "@utils";
 
-const defaultProfilePhoto = "img/icon/empty-profile.svg";
+const defaultProfilePhoto = "img/icon/empty.svg";
 
 /**
  * Container component for the Welcome Page, containing example of how to fetch data from a POD

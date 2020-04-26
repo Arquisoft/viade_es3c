@@ -16,21 +16,15 @@ export const NavigationItems = [
   },
   {
     id: "myRoutes",
-    icon: "img/icon/planning.svg",
+    icon: "img/icon/love.svg",
     label: "navBar.myRoutes",
     to: "/myRoutes"
   },
   {
     id: "myFriends",
-    icon: "img/friends.svg",
+    icon: "img/icon/friends.svg",
     label: "navBar.myFriends",
     to: "/myFriends"
-  },
-  {
-    id: "profile",
-    icon: "img/icon/user.svg",
-    label: "navBar.profile",
-    to: "/profile"
   }
 ];
 
