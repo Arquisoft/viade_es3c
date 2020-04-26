@@ -4,7 +4,7 @@ import rutaShape from "@contexts/route-shape.json";
 import mediaShape from "@contexts/media-shape.json";
 import auth from "solid-auth-client";
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
-//const auth = require("solid-auth-cli");
+const auth = require("solid-auth-client");
 const FC = require("solid-file-client");
 const fc = new FC(auth);
 const N3 = require("n3");
@@ -74,7 +74,7 @@ export const createRouteFromData = async (folder) => {
 						points.push(point);
 					}
 				} else {
-					let ruta = new Route(name, author, description, points, multimedia);
+					let ruta = new Route(name, author, description, points, multimedia, quadStream);
 					routes.push(ruta);
 				}
 			});

@@ -34,7 +34,7 @@ class NewRoute extends React.Component {
 			markers: null
 		};
 	}
-	
+
 	state = { markers: {}, image: {} };
 
 	callBackFunction = (childData) => {
@@ -81,11 +81,20 @@ class NewRoute extends React.Component {
 			const multimedia = [];
 			let filesFolder = document.getElementsByClassName("file-uploader--input");
 			let filesMult = filesFolder[0].files;
-			let url = this.webID.replace("profile/card#me", "public/viade/rawMedia/");
+			let url = this.webID.replace("profile/card#me", "viade/rawMedia/");
 			for (let j = 0; j < filesMult.length; j++) {
 				let name = filesMult[parseInt(j)].name.split(".")[0];
+				name = name.replace(/ /g, "");
 				var d = Date(Date.now());
-				multimedia.push(new Multimedia(url + filesMult[parseInt(j)].name, d.toString(), author, name, null));
+				multimedia.push(
+					new Multimedia(
+						url + filesMult[parseInt(j)].name.replace(/ /g, ""),
+						d.toString(),
+						author,
+						name,
+						null
+					)
+				);
 			}
 			let route = new Route(this.title.current.value, author, this.description.current.value, points, multimedia);
 			await viadeManager.addRoute(route, this.webID);
@@ -106,12 +115,7 @@ class NewRoute extends React.Component {
 						<DivForms>
 							<LabelInput>
 								{i18n.t("newRoute.name")}{" "}
-								<input
-									type="text"
-									id="route_name"
-									name="route_name"
-									ref={this.title}
-								/>
+								<input type="text" id="route_name" name="route_name" ref={this.title} />
 							</LabelInput>
 						</DivForms>
 						<DivForms>

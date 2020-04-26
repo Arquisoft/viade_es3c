@@ -5,7 +5,8 @@ import { fetchDocument } from 'tripledoc';
 class FriendsHelper {
 
     async addFriend(webId, friendWebId) {
-        await ldflex[webId].knows.add(ldflex[friendWebId]);
+        if(webId!==friendWebId && friendWebId!=="")
+            await ldflex[webId].knows.add(ldflex[friendWebId]);
     }
 
     async deleteFriend(webId, friendWebId) {

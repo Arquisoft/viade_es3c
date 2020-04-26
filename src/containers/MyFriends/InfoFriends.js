@@ -1,7 +1,8 @@
 import React from "react";
-import { RouteCard, ButtonDelete } from "./myfriends.style";
+import { RouteCard, ButtonDelete, Button } from "./myfriends.style";
 import { removeFriend } from "./MyFriends";
 import i18n from "i18n";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const InfoFriends = (props) => {
 	const { name, url, webidUser, webidFriend } = props;
@@ -13,9 +14,12 @@ const InfoFriends = (props) => {
 
 	return (
 		<RouteCard className="card">
-			<h3 data-testid="friendId">{name}</h3>
-			<p>{i18n.t("myFriends.perfil")} {url}</p>
-			<ButtonDelete id="delete_friend" onClick={(e) => handleClick(e)}>{i18n.t("myFriends.delete")}</ButtonDelete>
+			<a href={url}>
+				<h3>{name}</h3>
+				<Button id="btnDelete" type="button" onClick={(e) => handleClick(e)}>
+					<FontAwesomeIcon icon="trash" className="trash-icon" />
+				</Button>
+			</a>
 		</RouteCard>
 	);
 };

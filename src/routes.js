@@ -15,6 +15,7 @@ import {
 import NewRoute from "./containers/NewRoute";
 import MyRoutes from "./containers/MyRoutes";
 import MyFriends from "./containers/MyFriends";
+import Footer from "./components/Footer";
 
 const privateRoutes = [
 	{
@@ -68,6 +69,7 @@ const Routes = () => (
 				<PrivateLayout path="/" routes={privateRoutes} />
 				<Redirect to="/404" />
 			</Switch>
+			<Footer />
 		</Fragment>
 	</Router>
 );
