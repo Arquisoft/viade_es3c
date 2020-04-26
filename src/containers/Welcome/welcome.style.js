@@ -24,13 +24,18 @@ export const WelcomeWrapper = styled.section`
 `;
 
 export const WelcomeCard = styled.div`
-	background: rgb(0, 77, 134);
-	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+	background: rgb(230, 234, 235);
+	background: linear-gradient(
+		180deg,
+		rgba(230, 234, 235, 1) 0%,
+		rgba(230, 234, 235, 1) 35%,
+		rgba(230, 234, 235, 1) 100%
+	);
 	opacity: 0.9;
 	h5,
 	h6,
 	ul li {
-		color: white;
+		color: grey;
 		text-align: center;
 		margin: 10px;
 	}
