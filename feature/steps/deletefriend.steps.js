@@ -77,7 +77,7 @@ defineFeature(feature, test => {
       await page.waitFor(500);
 
       await page.waitForFunction(
-        "document.querySelector(\"body\").innerText.includes(\"https://saraagr.inrupt.net/\")"
+        "document.querySelector(\"body\").innerText.includes(\"saraagr.inrupt.net/\")"
       );
 
     });
@@ -87,7 +87,7 @@ defineFeature(feature, test => {
         let elements = document.getElementsByClassName('card');
         for (let element of elements) {
           const textContent = element.querySelector('[data-testid="friendId"]').textContent;
-          if (textContent === "saraagr.inrupt.net/") {
+          if (textContent === "elmer") {
             let btn = element.querySelector('#delete_friend');
             btn.click();
           }

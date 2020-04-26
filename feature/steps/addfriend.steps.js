@@ -68,6 +68,7 @@ defineFeature(feature, test => {
       });
       expect(page.url()).toBe("http://localhost:3000/#/welcome");
 
+
       await page.goto("http://localhost:3000/#/myFriends", {
         waitUntil: "networkidle2"
       });
@@ -83,10 +84,9 @@ defineFeature(feature, test => {
 
     then("Pressing the add button", async () => {
       await page.evaluate(() => {
-        let submit = document.getElementById("submit-friends");
+        let submit = document.getElementById("botonaddfriends");
         submit.click();
       });
-      await page.waitFor(500);
       await page.waitForFunction(
         'document.querySelector("body").innerText.includes("https://saragarcia.solid.community/")'
       )

@@ -78,7 +78,7 @@ function MultsButton(params, name) {
   const matches = useMediaQuery("(max-width:600px)");
   return (
     <>
-      <Button onClick={handleClick}>{i18n.t("myRoutes.viewMult")}</Button>
+      <Button id="mult" onClick={handleClick}>{i18n.t("myRoutes.viewMult")}</Button>
       <AutoRotatingCarouselModal
         isMobile={matches}
         handleOpen={handleOpen}

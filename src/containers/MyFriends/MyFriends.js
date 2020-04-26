@@ -72,6 +72,7 @@ class MyFriends extends React.Component {
 					<label>
 						{i18n.t("myFriends.webId")}
 						<input
+							id="friendID"
 							type="text"
 							name="webID"
 							onChange={this.handleChange}
