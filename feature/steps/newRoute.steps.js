@@ -73,7 +73,7 @@ defineFeature(feature, test => {
       const path = require("path");
       const imgPath = path.relative(
         process.cwd(),
-        __dirname + "/pajaritos.jpg"
+        __dirname + "../../../public/img/covid.png"
       );
       const input_img = await page.$("[id='input-img']");
       await input_img.uploadFile(imgPath);

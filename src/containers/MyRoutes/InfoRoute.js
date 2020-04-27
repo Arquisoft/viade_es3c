@@ -64,7 +64,7 @@ const InfoRoute = (props) => {
 							>
 								{i18n.t("myRoutes.btnDelete")}
 							</Button>
-							<Button onClick={() => setShowConfirm(!showConfirm)}>{i18n.t("myRoutes.btnClose")}</Button>
+							<Button id="closeDelete" onClick={() => setShowConfirm(!showConfirm)}>{i18n.t("myRoutes.btnClose")}</Button>
 						</Modal.Footer>
 					</Modal>
 				</div>
@@ -121,7 +121,7 @@ const InfoRoute = (props) => {
 							</RouteWrapper>
 						</Modal.Body>
 						<Modal.Footer>
-							<Button
+							<Button id="saveModify"
 								onClick={async () => {
 									let route = new Route(
 										document.getElementById("route_name").value,
@@ -140,7 +140,7 @@ const InfoRoute = (props) => {
 							>
 								{i18n.t("myRoutes.btnModify")}
 							</Button>
-							<Button
+							<Button id="closeModify"
 								onClick={() => {
 									setShowConfirmModify(!showConfirmModify);
 								}}

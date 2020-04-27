@@ -1,7 +1,7 @@
 import { v5 as uuidv5 } from "uuid";
 const auth = require("solid-auth-client");
 const FC = require("solid-file-client");
-const fc = new FC(auth);
+
 export default class Multimedia {
 	webId = "";
 
@@ -20,6 +20,7 @@ export default class Multimedia {
 	}
 
 	get data() {
+		const fc = new FC(auth);
 		return Promise.resolve(fc.readFile(this.url));
 	}
 }
