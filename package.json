@@ -73,7 +73,9 @@
 		"styled-components": "^4.1.3",
 		"tripledoc": "^4.3.4",
 		"uuid": "^7.0.3",
-		"video-react": "^0.14.1"
+		"video-react": "^0.14.1",
+      "expect": "latest",
+		"prop-types": "latest"
 	},
 	"scripts": {
 		"start": "node scripts/start.js",

@@ -54,12 +54,9 @@ class NewRoute extends React.Component {
 	async handleSave(event) {
 		if (this.title.current.value.length === 0) {
 			errorToaster(i18n.t("newRoute.errorTitle"), "ERROR");
-			console.log("entro title");
 		} else if (this.description.current.value.length === 0) {
-			console.log("entro desc");
 			errorToaster(i18n.t("newRoute.errorDescription"), "ERROR");
 		} else if (this.state.markers === null || this.state.markers.length < 0) {
-			console.log("entro <0 o null");
 			errorToaster(i18n.t("newRoute.errorPoints"), "ERROR");
 		} else if (this.state.markers.length === 1) {
 			errorToaster(i18n.t("newRoute.errorOnePoint"), "ERROR");
