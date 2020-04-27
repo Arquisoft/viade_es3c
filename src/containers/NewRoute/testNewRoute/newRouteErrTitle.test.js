@@ -9,9 +9,7 @@ import * as Toaster from "../../../utils/toaster";
 library.add(fas);
 
 const props = {
-  webId: 'https://saragarcia.solid.community/',
-  title: '',
-  description: 'Esto es una prueba'
+  webId: 'https://saragarcia.solid.community/'
 };
 
 
@@ -35,6 +33,7 @@ describe.only("NewRoute", () => {
       </Router>
     );
     const button_save = getById(container, 'save_route');
+
     fireEvent.click(button_save);
     expect(Toaster.errorToaster()).toHaveBeenCalled;
   });

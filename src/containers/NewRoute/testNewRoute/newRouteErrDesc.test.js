@@ -4,17 +4,13 @@ import { HashRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import NewRoute from "../NewRoute";
-import { getByTestId } from "@testing-library/dom";
 import * as Toaster from "../../../utils/toaster";
 
 library.add(fas);
 
 const props = {
-  webId: 'https://saragarcia.solid.community/',
-  title: 'Prueba',
-  description: ''
+  webId: 'https://saragarcia.solid.community/'
 };
-
 
 describe.only("NewRoute", () => {
   afterAll(cleanup);
@@ -35,8 +31,15 @@ describe.only("NewRoute", () => {
         <NewRoute {... {props}}/>
       </Router>
     );
+    const nameInput = getById(container, 'route_name');
+    fireEvent.change(nameInput, {target: {value: "prueba"}});
+
+    const descriptionInput = getById(container, 'description');
+    fireEvent.change(descriptionInput, {target: {value: ""}});
+
     const button_save = getById(container, 'save_route');
     fireEvent.click(button_save);
+
     expect(Toaster.errorToaster()).toHaveBeenCalled;
   });
 });

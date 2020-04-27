@@ -4,17 +4,17 @@ import { HashRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import NewRoute from "../NewRoute";
-import { getByTestId } from "@testing-library/dom";
 import * as Toaster from "../../../utils/toaster";
+import { mount } from 'enzyme';
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+configure({ adapter: new Adapter() });
 
 library.add(fas);
 
 const props = {
-  webId: 'https://saragarcia.solid.community/',
-  title: 'Prueba',
-  description: 'Esto es una prueba'
+  webId: 'https://saragarcia.solid.community/'
 };
-
 
 describe.only("NewRoute", () => {
   afterAll(cleanup);
@@ -29,23 +29,7 @@ describe.only("NewRoute", () => {
     expect(container).toBeTruthy();
   });
 
-  test('renders with styled components', async () => {
-    const route_wrapper = getByTestId(container, 'route-component');
-    const route_header = getByTestId(container, 'route-header');
-    const nameInput = getById(container, 'route_name');
-    const descriptionInput = getById(container, 'description');
-    const input_img = getById(container, 'input-img');
-    const button_save = getById(container, 'save_route');
-
-    expect(route_wrapper).not.toBe(null);
-    expect(route_header).not.toBe(null);
-    expect(nameInput).not.toBe(null);
-    expect(descriptionInput).not.toBe(null);
-    expect(button_save).not.toBe(null);
-    expect(input_img).not.toBe(null);
-  });
-
-  test('fill form', () => {
+  test('trying to create a route without marks', () => {
     const nameInput = getById(container, 'route_name');
     const descriptionInput = getById(container, 'description');
     const button_save = getById(container, 'save_route');
@@ -67,8 +51,17 @@ describe.only("NewRoute", () => {
     });
     fireEvent.change(input_img);
 
+    const markers = [
+      { position: { lat: 43.354831, lng: -5.851303 } },
+      { position: { lat: 43.35644, lng: -5.854693 } },
+      { position: { lat: 43.361836, lng: -5.850547 } }
+    ];
+
+    let wrapper;
+    wrapper = mount(<NewRoute {... {props}}/>);
+    wrapper.setState({ markers : markers });
     fireEvent.click(button_save);
 
-    expect(Toaster.errorToaster()).toHaveBeenCalled;
+    expect(Toaster.successToaster()).toHaveBeenCalled;
   });
 });

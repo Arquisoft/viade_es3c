@@ -4,7 +4,6 @@ import InfoRoutes from "./InfoRoute";
 import { cleanup, queryByAttribute, render, fireEvent } from "react-testing-library";
 import MultsButton from "./ViewMult";
 import { act } from 'react-dom/test-utils';
-
 const multi = [
   { url: ".mp3" },
   { url: ".mp4" },
@@ -52,7 +51,7 @@ describe.only("InfoRoutes", () => {
     const btDelete = getById(container, 'btnDelete');
     fireEvent.click(btDelete);
 
-    const btFriends = getById(container, 'viewFriends')
+    const btFriends = getById(container, 'viewFriends');
     fireEvent.click(btFriends);
   });
 });
