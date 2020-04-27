@@ -9,9 +9,9 @@ The app is deployed at https://arquisoft.github.io/viade_es3c/ which also contai
 ## About us
 We are the ES3C group:
 
-* Tania Mato Martínez
-* Sara García Rodríguez
-* Sonia Garía Lavandera
-* Gema Rico Pozas
-* Guillermo de Leiva Martínez
-* Javier Pontón González
+*  Tania Mato Martínez
+*  Sara García Rodríguez
+*  Sonia Garía Lavandera
+*  Gema Rico Pozas
+*  Guillermo de Leiva Martínez
+*  Javier Pontón González
