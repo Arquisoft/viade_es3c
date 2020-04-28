@@ -125,6 +125,18 @@ export const MyRouteContainer = styled.div`
 	margin: 0 20px;
 	width: 100%;
 	flex: 1 0 auto;
+
+	@media only screen and (max-width: 940px) {
+		max-width: 600px;
+	}
+
+	@media only screen and (max-width: 633px) {
+		max-width: 400px;
+	}
+
+	@media only screen and (max-width: 425px) {
+		max-width: 270px;
+	}
 `;
 export const FormRenderContainer = styled.div`
   border: 1px solid #dae0e6;
