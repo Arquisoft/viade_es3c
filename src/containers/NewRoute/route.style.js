@@ -52,7 +52,12 @@ export const Button = styled.button`
 	}
 `;
 
-export const TextArea = styled.textarea`resize: none;`;
+export const TextArea = styled.textarea`
+resize: none;
+@media only screen and (max-width: 900px) {
+	width: 100%;
+}
+`;
 
 export const DivForms = styled.div`margin: 1em;@media only screen and (max-width: 900px) {
 		align-text:center;		
@@ -74,7 +79,12 @@ export const DivForms = styled.div`margin: 1em;@media only screen and (max-width
 
 export const InputSubmit = styled.input`float: right;`;
 
-export const LabelInput = styled.label`color: white;`;
+export const LabelInput = styled.label`
+color: white; 
+@media only screen and (max-width: 900px) {
+	width: 100%;
+}
+`;
 
 export const TitleRoute = styled.h3`
 	text-align: center;
