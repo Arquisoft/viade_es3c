@@ -159,9 +159,9 @@ div.fade.in.modal {
 	color: rgb(0, 77, 134) ;
 }
 #imgCovid {
-	max-width: 300px ;
-	max-height:150px;
-	margin-left: 25%;
+	max-width: 500px ;
+	max-height:400px;
+	margin-left: 15%;
 	align-items:center;
 }
 
@@ -208,5 +208,62 @@ div.fade.in.modal {
 #buttonCovid {
 	margin-left: 5px;
 }
+
+@media only screen   
+  
+and (max-width: 1605px)  
+{ 
+	#modalCovid {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		color: rgb(0, 77, 134) ;
+		top: 10%;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+	}
+
+	#floating-panel {
+		top: 50px;
+		left: 0px;
+		
+	}
+	#imgCovid {
+		max-width: 300px ;
+		max-height:200px;
+		margin:auto;
+		align-items:center;
+	}
+	body {
+		color: #666;
+		font-size: 30%;
+		background: rgb(0, 77, 134);
+		background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+	}
+	p,
+	a,
+	div {
+		font-size: 12px;
+	}
+
+	.link,
+.link-button {
+	color: #449df5;
+	font-family: Raleway;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.75px;
+	line-height: 10px;
+	text-align: center;
+	text-decoration: none;
+	padding: 0;
+}
+
+
+
+
+  }
 
 

@@ -64,7 +64,7 @@ const InfoRoute = (props) => {
 							>
 								{i18n.t("myRoutes.btnDelete")}
 							</Button>
-							<Button onClick={() => setShowConfirm(!showConfirm)}>{i18n.t("myRoutes.btnClose")}</Button>
+							<Button id="closeDelete" onClick={() => setShowConfirm(!showConfirm)}>{i18n.t("myRoutes.btnClose")}</Button>
 						</Modal.Footer>
 					</Modal>
 				</div>
@@ -109,6 +109,7 @@ const InfoRoute = (props) => {
 								</div>
 								<FormRenderContainer id="mapa-modal">
 									<RouteMap
+										id="mapa-modal"
 										parentCallBack={(childData) => {
 											markersp = childData;
 										}}
@@ -172,7 +173,12 @@ const InfoRoute = (props) => {
 								</Download>
 							</Button>
 							<Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
-								<PrintButton id={name} label={i18n.t("myRoutes.downloadBtnPDF")} route={ruta} />
+								<PrintButton
+									id={name}
+									label={i18n.t("myRoutes.downloadBtnPDF")}
+									route={ruta}
+									hid={uuid}
+								/>
 							</Button>
 							<Button onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
 								{i18n.t("myRoutes.btnClose")}
@@ -186,7 +192,7 @@ const InfoRoute = (props) => {
 					<p>{author}</p>
 					<h3> {i18n.t("myRoutes.description")}</h3>
 					<p>{description}</p>
-					<div id="divShare" className="btn-group">
+					<div id={uuid} className="btn-group">
 						<Button id="viewFriends" type="button" onClick={() => setShowFriends(!showFriends)}>
 							{i18n.t("myRoutes.btnShare")}
 						</Button>

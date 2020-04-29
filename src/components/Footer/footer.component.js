@@ -37,8 +37,8 @@ const Footer = (props: Props) => {
 	const classes = useStyles();
 
 	return (
-		<div className={classes.root}>
-			<footer className={classes.footer}>
+		<div className={classes.root} id="footerViade">
+			<footer className={classes.footer} id="footerViade">
 				<Container maxWidth="sm">
 					<Typography variant="body1">ViadeEs3c</Typography>
 					<Copyright />
