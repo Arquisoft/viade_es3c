@@ -231,9 +231,10 @@ and (max-width: 1605px)
 		
 	}
 	#imgCovid {
+		display:block;
+		margin:auto;
 		max-width: 300px ;
 		max-height:200px;
-		margin:auto;
 		align-items:center;
 	}
 	body {
