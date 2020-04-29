@@ -113,6 +113,7 @@ const Notifications = ({ ruta, show, setshow }) => {
 							<ul key={i}>
 								<li>
 									<Checkbox
+										id={getUserName(`${item}`)}
 										name={getUserName(`${item}`)}
 										value={`${item}`}
 										checked={checkedItems.get(item.name)}
@@ -128,7 +129,7 @@ const Notifications = ({ ruta, show, setshow }) => {
 				</FriendsList>
 			</Modal.Body>
 			<Modal.Footer>
-				<Button onClick={(e) => shareWithFriends(e)}>{i18n.t("myRoutes.btnShareRoute")}</Button>
+				<Button id="shareRoute" onClick={(e) => shareWithFriends(e)}>{i18n.t("myRoutes.btnShareRoute")}</Button>
 				<Button onClick={() => setshow(!show)}>{i18n.t("myRoutes.btnClose")}</Button>
 			</Modal.Footer>
 		</Modal>
