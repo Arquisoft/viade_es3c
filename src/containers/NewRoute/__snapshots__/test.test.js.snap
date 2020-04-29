@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewRoute should match the snapshot 1`] = `
+<styled.section
+  data-testid="route-component"
+>
+  <styled.div
+    data-testid="route-header"
+  >
+    <styled.h3>
+      newRoute.title
+    </styled.h3>
+    <styled.form
+      id="routef"
+    >
+      <styled.div>
+        <styled.label>
+          newRoute.name
+           
+          <input
+            id="route_name"
+            name="route_name"
+            type="text"
+          />
+        </styled.label>
+      </styled.div>
+      <styled.div>
+        <styled.label>
+           
+          newRoute.description
+           
+          <styled.textarea
+            id="description"
+            name="description"
+            rows="10"
+            type="text"
+          />
+           
+        </styled.label>
+      </styled.div>
+    </styled.form>
+    <styled.div>
+      <MultimediaComponent
+        id="input-img"
+        image=""
+        webId="[undefined]"
+      />
+    </styled.div>
+    <styled.div>
+      <styled.input
+        form="routef"
+        id="save_route"
+        onClick={[Function]}
+        type="submit"
+        value="newRoute.btnSave"
+      />
+    </styled.div>
+  </styled.div>
+  <Wrapper
+    parentCallBack={[Function]}
+    zoom={13}
+  />
+</styled.section>
+`;
