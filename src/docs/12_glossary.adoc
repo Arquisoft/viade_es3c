@@ -14,6 +14,7 @@
 | RDFlib | It is a Python library for working with RDF.The library contains parsers/serializers for almost all of the known RDF serielizations, such as RDF/XML, Turtle, N-Triples, & JSON-LD. 
 | SOLID    | Solid is a new project led by Prof. Tim Berners-Lee, inventor of the World Wide Web. The project aims to radically change the  way Web applications work today, resulting in true data ownership as well as improved privacy.
 | Solid-File-Client | It is a JavaScript library with high-level methods to create, read, and manage files and folders.
+| Solid-acl-utils | It is a js library for working with acl files. It allows you to add/change/remove permissions of files and folders in solid pods.
 | Travis | It is a hosted continuous integration service used to build and test software projects hosted at GitHub and Bitbucket.
 | Turtle | It is a syntax and file format for expressing data in the Resource Description Framework (RDF) data model. Turtle syntax is similar to that of SPARQL, an RDF query language. It is a common data format for storing RDF data, along with N-Triples, JSON-LD and RDF/XML.
 |====================

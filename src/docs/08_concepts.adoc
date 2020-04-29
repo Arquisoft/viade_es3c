@@ -11,7 +11,7 @@ We have some components in the containers folder: MyFriends that would allow add
 Our domain diagram has three entities: one of them is the route that has a series of points and multimedia files. We also have the Point class that has the attributes longitude and latitude and the Multimedia class that counts on giving us information about the author, the date, the name, the url and the path they belong to since they are saved from that way in the pod the path will have a reference to the media files.
 Next, we can see this domain model
 
-image::.\images\08_Concepts_Entity_Diagram.png["Domain model"]
+image::08_Concepts_Entity_Diagram.png["Domain model"]
 
 === Design patterns
 Although we said that we would analyze this section more carefully later, we do not believe that we have used any specific design pattern. 
@@ -21,7 +21,7 @@ Something we are sure about is the arquitecture of our project. We are going to 
 On the one hand, we want to use 3-layers pattern. This pattern will allow to separate the presentation of the application, business where we have the logic and the persistence which in our case we will store the information of each user in its pod.
 Regarding the n-layer pattern, we could say that in some cases it was difficult to separate the business layer from persistence, since in some cases it did not require excessive complexity to obtain the data, for example in the case of friends. In this case, we use some React components that allow showing friends in the interface, but in the case of Routes it is much more complicated and it is necessary to obtain and parse those routes from the pod and then use a manager as an intermediate class as a service. that allows us to list those routes in the front. In other cases, such as adding or removing friends, we do use an intermediate class that allows us to remove and add them, but in this case we do not make a difference between the service layer and the persistence layer.
 
-image::.\images\08_Concepts_Patterns.png["3-layers pattern. In develop"]
+image::08_Concepts_Patterns.png["3-layers pattern. In develop"]
 
 In addition, we are using React js to develop viade that also have its patterns. Content-container pattern is one of the React´s pattern and it consist on divide the component into two components: one component is responsible for obtaining the information - the container - and another component shows the information that is passed through its properties - the content. 
 

@@ -12,7 +12,7 @@ allowing them to send it to the SOLID application.
 
 
 .Use case
-image::.\images\use_case.png[]
+image::use_case.png[]
 The communication is done throught the user´s pods. Anytime a user wants to store a route, or access to one
 his petition is communicated to their pod, and then he is able to access one of their routes, or the one
 their friends are sharing with them.
@@ -72,6 +72,6 @@ capable of working with SOLID and allowing SOLID users to save their routes and 
 with friends in a safe way, the base part of the applicacion is gonna be done using REACT, while
 the communication is done using SOLID and its pods.
 
-image::.\images\bussines_context.png[]
+image::bussines_context.png[]
 
 ****
