@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
 html,
 body,
@@ -151,25 +150,24 @@ div.fade.in.modal {
 
 .modal-dialog {
 	margin: auto;
-	color: rgb(0, 77, 134) ;
+	color: rgb(0, 77, 134);
 }
 
 .modal-dialog h4 {
-	
-	color: rgb(0, 77, 134) ;
+	color: rgb(0, 77, 134);
 }
 #imgCovid {
-	max-width: 500px ;
-	max-height:400px;
+	max-width: 500px;
+	max-height: 400px;
 	margin-left: 15%;
-	align-items:center;
+	align-items: center;
 }
 
 #labelMod {
-	color: rgb(0, 77, 134) ;
+	color: rgb(0, 77, 134);
 }
 #modalMod {
-	color: rgb(0, 77, 134) ;
+	color: rgb(0, 77, 134);
 	width: 990px;
 	height: 500px;
 }
@@ -178,14 +176,13 @@ div.fade.in.modal {
 	position: fixed;
 	width: 1000%;
 	height: 1000%;
-	color: rgb(0, 77, 134) ;
+	color: rgb(0, 77, 134);
 	top: 10%;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	margin: auto;
 }
-
 
 #mapa-modal {
 	width: 999px;
@@ -209,15 +206,12 @@ div.fade.in.modal {
 	margin-left: 5px;
 }
 
-@media only screen   
-  
-and (max-width: 1605px)  
-{ 
+@media only screen and (max-width: 1605px) {
 	#modalCovid {
 		position: fixed;
 		width: 100%;
 		height: 100%;
-		color: rgb(0, 77, 134) ;
+		color: rgb(0, 77, 134);
 		top: 10%;
 		left: 0;
 		right: 0;
@@ -228,14 +222,13 @@ and (max-width: 1605px)
 	#floating-panel {
 		top: 50px;
 		left: 0px;
-		
 	}
 	#imgCovid {
-		display:block;
-		margin:auto;
-		max-width: 300px ;
-		max-height:200px;
-		align-items:center;
+		display: block;
+		margin: auto;
+		max-width: 300px;
+		max-height: 200px;
+		align-items: center;
 	}
 	body {
 		color: #666;
@@ -250,21 +243,15 @@ and (max-width: 1605px)
 	}
 
 	.link,
-.link-button {
-	color: #449df5;
-	font-family: Raleway;
-	font-size: 10px;
-	font-weight: 600;
-	letter-spacing: 0.75px;
-	line-height: 10px;
-	text-align: center;
-	text-decoration: none;
-	padding: 0;
+	.link-button {
+		color: #449df5;
+		font-family: Raleway;
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.75px;
+		line-height: 10px;
+		text-align: center;
+		text-decoration: none;
+		padding: 0;
+	}
 }
-
-
-
-
-  }
-
-
