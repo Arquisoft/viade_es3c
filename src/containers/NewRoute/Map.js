@@ -36,7 +36,7 @@ export class MapContainer extends React.Component {
 	sendData = () => {
 		this.props.parentCallBack(this.state.markers);
 	};
-	state = { markers: [], mapCovid: [], isHeatVisible: false, isStatsVisible: false };
+	state = { markers: [], mapCovid: [], isHeatVisible: false, activeMarker: null, showInfoWindow: false };
 
 	getLocation() {
 		if (navigator.geolocation) {
@@ -136,8 +136,18 @@ export class MapContainer extends React.Component {
 	handleToggle = () => {
 		this.setState({ isHeatVisible: !this.state.isHeatVisible });
 	};
-	handleToggle1 = () => {
-		this.setState({ isStatsVisible: !this.state.isStatsVisible });
+	handleMouseOver = (props, marker, e) => {
+		this.setState({
+			activeMarker: marker,
+			showInfoWindow: true
+		});
+	};
+
+	handleMouseExit = (props, marker, e) => {
+		this.setState({
+			activeMarker: null,
+			showInfoWindow: false
+		});
 	};
 
 	render() {
@@ -147,6 +157,7 @@ export class MapContainer extends React.Component {
 			<HeatMap
 				visible={this.state.isHeatVisible}
 				gradient={gradient}
+				icon={"http://maps.google.com/mapfiles/ms/icons/blue.png"}
 				opacity={1}
 				positions={this.state.mapCovid}
 				radius={25}
@@ -251,27 +262,35 @@ export class MapContainer extends React.Component {
 						{" "}
 						Covid heatMap
 					</button>
-					<button id={"buttonCovid"} onClick={this.handleToggle1}>
-						{" "}
-						Covid stats
-					</button>
 				</div>
 				{this.state.isHeatVisible ? heatMap : null}
 
 				{this.state.mapCovid.map((point) => {
 					return (
-						<InfoWindow
-							maxWidth={100}
-							visible={this.state.isStatsVisible}
+						<Marker
 							position={{ lat: point.lat, lng: point.lng }}
-						>
-							<h5 style={infoWindowStyle}>{point.pais}</h5>
-							<p style={infoWindowStyle}> Cases: {point.casos}</p>
-							<p style={infoWindowStyle}> Deaths: {point.muertes}</p>
-							<p style={infoWindowStyle}> Recovered: {point.recuperados}</p>
-						</InfoWindow>
+							index={point.key + Date.now()}
+							c={point}
+							cursor={"hand"}
+							icon={"green_MarkerE.png"}
+							onMouseover={this.handleMouseOver}
+							onMouseout={this.handleMouseExit}
+						/>
 					);
 				})}
+				{this.state.showInfoWindow ? (
+					<InfoWindow
+						marker={this.state.activeMarker}
+						visible={this.state.showInfoWindow && this.state.isHeatVisible}
+						maxWidth={100}
+					>
+						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.pais}</h5>
+						<p style={infoWindowStyle}> Cases: {this.state.activeMarker.c.casos}</p>
+						<p style={infoWindowStyle}> Deaths: {this.state.activeMarker.c.muertes}</p>
+						<p style={infoWindowStyle}> Recovered: {this.state.activeMarker.c.recuperados}</p>
+					</InfoWindow>
+				) : null}
+
 				{this.state.markers.map((marker) => {
 					return (
 						<Marker
