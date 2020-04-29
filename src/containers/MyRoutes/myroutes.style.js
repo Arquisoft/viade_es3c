@@ -95,7 +95,7 @@ export const RouteWrapper = styled.section`
 	flex: 1 0 auto;
 	align-items: center;
 	justify-content: center;
-	background: url(../img/misrutas.png);
+	background: url("img/misrutas.png");
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
@@ -125,6 +125,23 @@ export const MyRouteContainer = styled.div`
 	margin: 0 20px;
 	width: 100%;
 	flex: 1 0 auto;
+
+	@media only screen and (max-width: 940px) {
+		max-width: 600px;
+	}
+
+	@media only screen and (max-width: 633px) {
+		max-width: 400px;
+	}
+
+	@media only screen and (max-width: 425px) {
+		max-width: 350px;
+	}
+
+	@media only screen and (max-width: 365px) {
+		max-width: 280px;
+	}
+
 `;
 export const FormRenderContainer = styled.div`
   border: 1px solid #dae0e6;
