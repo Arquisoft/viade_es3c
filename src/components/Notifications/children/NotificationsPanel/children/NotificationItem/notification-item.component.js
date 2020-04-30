@@ -3,7 +3,7 @@ import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Item, Body, Message, Meta, MarkAsRead, Delete, Img } from "./notification-item.style";
 import { getUserName, getPathShareRoutes } from "../../../../../../containers/MyFriends/MyFriends";
-import { createDocumentWithTurtle, fetchLdflexDocument } from "../../../../../../utils/ldflex-helper";
+import { createDocumentWithTurtle } from "../../../../../../utils/ldflex-helper";
 import auth from "solid-auth-client";
 
 const FC = require("solid-file-client");
@@ -30,12 +30,13 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
 		async () => {
 			if (notification.target) {
 				await markAsRead(notification.path, notification.id);
-				const sharedFilePath = getPathShareRoutes(notification.target) + notification.id + ".ttl";
-				//var content = await fetchLdflexDocument(notification.object);
+				var name = notification.object.split("/");
+				name = name[name.length - 1];
+				console.log(name);
+				const sharedFilePath = getPathShareRoutes(notification.target) + name;
+
 				var content = await fc.readFile(notification.object);
-				console.log(content);
 				await createDocumentWithTurtle(sharedFilePath, content);
-				//window.location = notification.object;
 			}
 		},
 		[ notification ]

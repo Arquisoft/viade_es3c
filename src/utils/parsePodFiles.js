@@ -107,15 +107,10 @@ export const getRoutesSharedFromPod = async (webId) => {
 		return "EMPTY";
 	} else {
 		var folder = await fc.readFolder(path);
-		var folder1 = [];
-		for (const file of folder.files) {
-			var a = await ldflexHelper.fetchLdflexDocument(file.url);
-			console.log(a);
-		}
-		if (folder1.length <= 0) {
+		if (folder.files.length <= 0) {
 			return "EMPTY";
 		} else {
-			return createRouteFromData(folder1);
+			return await createRouteFromData(folder.files);
 		}
 	}
 };
