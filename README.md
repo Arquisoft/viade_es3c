@@ -36,6 +36,24 @@ This project shows the work carried out in the Software Architecture course proj
 ## Roadmap
 See the open [issues](https://github.com/Arquisoft/viade_es3c/issues) for a list of proposed features (and known issues). Also, you can check our [project](https://github.com/Arquisoft/viade_es3c/projects/1) kanban tab.
 
+## Getting Started
+Before starting any development work you will need a local copy of the ViadeEs3c repository.
+```
+> git clone -b https://github.com/Arquisoft/viade_es3c.git
+
+```
+### Installing
+
+```
+npm install
+```
+
+
+### Running
+```
+npm start
+```
+
 ## Acknowledgments
 * [html2canvas](https://github.com/niklasvh/html2canvas)
 * [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
