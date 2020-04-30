@@ -16,7 +16,7 @@ export const addRoute = async (route, webId) => {
 };
 
 export const readRoutesFromPod = async (webId) => {
-	return await parsePodFiles.getRoutesFromPod(webId);
+	return await parsePodFiles.getRoutesSharedFromPod(webId);
 };
 
 export const addMedia = async (media, webId) => {
@@ -25,5 +25,3 @@ export const addMedia = async (media, webId) => {
 export const Invitation = async (route, webId) => {
 	return await notification.handleSave(route, webId);
 };
-
-
