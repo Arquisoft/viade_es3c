@@ -45,7 +45,6 @@ describe.only("Ldflex", () => {
     expect(ldflex.resourceExists("prueba")).toBeTruthy;
     expect(ldflex.discoverInbox("prueba")).toBeTruthy;
     expect(ldflex.getLinkedInbox("prueba")).toBeTruthy;
-  })
-
+  });
 
 });

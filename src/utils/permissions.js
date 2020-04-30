@@ -84,9 +84,6 @@ export const checkOrSetInboxAppendPermissions = async (inboxPath, webId) => {
 
 export const sharing = async (webId, friends, shareUrl) => {
 	const SolidAclUtils = require("solid-acl-utils");
-	for (var [ key, value ] of friends) {
-		console.log("Compartiendo con :" + key, value);
-	}
 	// You could also use SolidAclUtils.Permissions.READ instead of following
 	// This is just more convenient
 	const { AclApi, Permissions } = SolidAclUtils;

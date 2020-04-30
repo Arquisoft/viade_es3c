@@ -20,7 +20,6 @@ const Notifications = ({ ruta, show, setshow }) => {
 
 	const handleChange = (event) => {
 		setCheckedItems((checkedItems) => checkedItems.set(event.target.value, event.target.checked));
-		console.log("checkedItems: ", checkedItems);
 	};
 
 	useEffect(() => {
@@ -88,7 +87,6 @@ const Notifications = ({ ruta, show, setshow }) => {
 
 	function shareWithFriends(e) {
 		e.preventDefault();
-		console.log("Friends selected " + checkedItems);
 		for (var [ key ] of checkedItems) {
 			showNotifications(key, e);
 		}

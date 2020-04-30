@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, from "react";
 import { render, cleanup, queryByAttribute, fireEvent } from "react-testing-library";
 import { HashRouter as Router } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -7,10 +7,9 @@ import NewRoute from "./NewRoute";
 import * as Toaster from "../../utils/toaster";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-
-configure({ adapter: new Adapter() });
-import { shallow } from "enzyme";
+import { configure } from "enzyme";
 import Map from "./Map";
+import { shallow } from "enzyme/build";
 
 configure({ adapter: new Adapter() });
 
@@ -144,8 +143,6 @@ describe.only("NewRoute", () => {
       const img = new File(["(⌐□_□)"], "img.png", {
         type: "image/png"
       });
-
-      console.log(wrapper.state().markers);
     });
 
     let mockSubmit;

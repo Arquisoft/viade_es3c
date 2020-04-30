@@ -7,6 +7,7 @@ const PrintButton = ({ id, label, route, hid }) => (
 		<div id="myMm" style={{ height: "1mm" }} />
 
 		<div
+			id="print"
 			className="pa2 ba bw1 b--black bg-yellow black-90 br2 dib pointer dim shadow-1"
 			onClick={() => {
 				document.getElementById(hid).style.visibility = "hidden";

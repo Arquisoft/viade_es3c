@@ -38,7 +38,6 @@ class NewRoute extends React.Component {
 
 	callBackFunction = (childData) => {
 		this.setState({ markers: childData });
-		console.log("state: " + this.state);
 	};
 
 	componentWillUnmount() {}
