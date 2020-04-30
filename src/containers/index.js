@@ -5,6 +5,8 @@ import Welcome from "./Welcome";
 import Profile from "./Profile";
 import NewRoute from "./NewRoute";
 import MyRoutes from "./MyRoutes";
+import MySharedRoutes from "./MySharedRoutes";
+
 import MyFriends from "./MyFriends";
 import { FormModelConverter, FormModelRenderer } from "./FormModel";
 
@@ -16,6 +18,7 @@ export {
 	Welcome,
 	NewRoute,
 	MyRoutes,
+	MySharedRoutes,
 	MyFriends,
 	Profile,
 	FormModelConverter,
