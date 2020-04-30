@@ -1,5 +1,6 @@
 import { Map, GoogleApiWrapper, Marker, Polyline, HeatMap, InfoWindow } from "google-maps-react";
-
+import * as Papa from "papaparse";
+import { MarkerClusterer } from "@react-google-maps/api";
 import React from "react";
 import update from "react-addons-update";
 import axios from "axios";
@@ -13,6 +14,32 @@ const infoWindowStyle = {
 	fontSize: "10px",
 	margin: 0
 };
+
+var locations = [
+	{ lat: -31.56391, lng: 147.154312 },
+	{ lat: -33.718234, lng: 150.363181 },
+	{ lat: -33.727111, lng: 150.371124 },
+	{ lat: -33.848588, lng: 151.209834 },
+	{ lat: -33.851702, lng: 151.216968 },
+	{ lat: -34.671264, lng: 150.863657 },
+	{ lat: -35.304724, lng: 148.662905 },
+	{ lat: -36.817685, lng: 175.699196 },
+	{ lat: -36.828611, lng: 175.790222 },
+	{ lat: -37.75, lng: 145.116667 },
+	{ lat: -37.759859, lng: 145.128708 },
+	{ lat: -37.765015, lng: 145.133858 },
+	{ lat: -37.770104, lng: 145.143299 },
+	{ lat: -37.7737, lng: 145.145187 },
+	{ lat: -37.774785, lng: 145.137978 },
+	{ lat: -37.819616, lng: 144.968119 },
+	{ lat: -38.330766, lng: 144.695692 },
+	{ lat: -39.927193, lng: 175.053218 },
+	{ lat: -41.330162, lng: 174.865694 },
+	{ lat: -42.734358, lng: 147.439506 },
+	{ lat: -42.734358, lng: 147.501315 },
+	{ lat: -42.735258, lng: 147.438 },
+	{ lat: -43.999792, lng: 170.463352 }
+];
 
 var count = 0;
 var data = [];
@@ -52,11 +79,16 @@ export class MapContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		this._asyncRequest = axios.get("https://corona.lmao.ninja/v2/countries").then((response) => {
-			this._asyncRequest = null;
-			data = response;
-			this.iniciateMarkers();
-		});
+		this._asyncRequest = axios
+			.get("https://raw.githubusercontent.com/microsoft/Bing-COVID-19-Data/master/data/Bing-COVID19-Data.csv")
+			.then((response) => {
+				this._asyncRequest = null;
+				data = Papa.parse(response.data);
+				data = data.data;
+				console.log(data);
+				this.setState({ mapCovid: data });
+				//this.iniciateMarkers();
+			});
 	}
 
 	iniciateMarkers() {
@@ -68,18 +100,12 @@ export class MapContainer extends React.Component {
 				type: "FeatureCollection",
 				// eslint-disable-next-line
 				features: data.data.map((country = {}) => {
-					const { countryInfo = {} } = country;
-					const { lat, long: lng } = countryInfo;
-
 					mapCovid = update(mapCovid, {
 						$push: [
 							{
-								lat: lat,
-								lng: lng,
-								pais: country.country,
-								casos: country.cases,
-								muertes: country.deaths,
-								recuperados: country.recovered,
+								lat: country[8],
+								lng: country[9],
+
 								key: this.state.markers.length
 							}
 						]
@@ -152,19 +178,6 @@ export class MapContainer extends React.Component {
 
 	render() {
 		this.getLocation();
-
-		let heatMap = (
-			<HeatMap
-				visible={this.state.isHeatVisible}
-				gradient={gradient}
-				icon={"http://maps.google.com/mapfiles/ms/icons/blue.png"}
-				opacity={1}
-				positions={this.state.mapCovid}
-				radius={25}
-				center={this.state.center}
-				heatmapMode={"POINTS_WEIGHT"}
-			/>
-		);
 
 		return (
 			<Map
@@ -263,33 +276,12 @@ export class MapContainer extends React.Component {
 						Covid heatMap
 					</button>
 				</div>
-				{this.state.isHeatVisible ? heatMap : null}
 
-				{this.state.mapCovid.map((point) => {
-					return (
-						<Marker
-							position={{ lat: point.lat, lng: point.lng }}
-							index={point.key + Date.now()}
-							c={point}
-							cursor={"hand"}
-							icon={"green_MarkerE.png"}
-							onMouseover={this.handleMouseOver}
-							onMouseout={this.handleMouseExit}
-						/>
-					);
-				})}
-				{this.state.showInfoWindow ? (
-					<InfoWindow
-						marker={this.state.activeMarker}
-						visible={this.state.showInfoWindow && this.state.isHeatVisible}
-						maxWidth={100}
-					>
-						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.pais}</h5>
-						<p style={infoWindowStyle}> Cases: {this.state.activeMarker.c.casos}</p>
-						<p style={infoWindowStyle}> Deaths: {this.state.activeMarker.c.muertes}</p>
-						<p style={infoWindowStyle}> Recovered: {this.state.activeMarker.c.recuperados}</p>
-					</InfoWindow>
-				) : null}
+				<MarkerClusterer>
+					{locations.map((marker) => {
+						return <Marker key={marker.lat + marker.lat} position={{ lat: marker.lat, lng: marker.lng }} />;
+					})}
+				</MarkerClusterer>
 
 				{this.state.markers.map((marker) => {
 					return (
@@ -303,7 +295,6 @@ export class MapContainer extends React.Component {
 						/>
 					);
 				})}
-
 				<Polyline path={this.draw()} strokeColor="#01C9EA" strokeOpacity={0.8} strokeWeight={2} />
 			</Map>
 		);
