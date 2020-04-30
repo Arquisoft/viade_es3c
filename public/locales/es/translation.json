@@ -191,7 +191,7 @@
 		"webId": "Introduce el webID del usuario que desees añadir a tu lista de amigos"
 	},
 	"uploadRoute": {
-		"title": "Subir ruta con GeoJSON",
+		"title": "Subir ruta",
 		"name": "Nombre de la ruta:",
 		"description": "Descripción de la ruta:",
 		"btnSave": "Guardar",

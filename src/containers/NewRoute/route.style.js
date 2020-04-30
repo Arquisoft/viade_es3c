@@ -45,9 +45,8 @@ export const Input = styled.input`margin: 5px;`;
 export const Button = styled.button`
 	max-width: 128px;
 	display: inline-block;
-
 	&:first-child {
-		margin-right: 10px;
+		margin: 10px;
 	}
 `;
 

@@ -5,15 +5,18 @@ import {
   Label,
   RouteWrapper,
   RouteContainer,
-  UpdateRouteForm,
+  TextArea,
+  DivForms,
   Grid,
-  TextArea
+  Form,
+  GridButton
 } from "./uploadRoute.style";
 import Button from "@material-ui/core/Button";
 import i18n from "i18n";
 import { Point, Route } from "../../domain";
 import { errorToaster, successToaster } from "../../utils";
 import * as viadeManager from "../../utils/viadeManagerSolid";
+import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
 
 type Props = {
   webId: String
@@ -58,16 +61,16 @@ const UploadRoute = ({ webId }: Props) => {
     features = geoObject.features;
     if (features.length === 1) {
       if (features[0].geometry.type === "LineString") {
-      var coordinates = features[0].geometry.coordinates;
-      for (var i = 0; i < coordinates.length; i++) {
-        points.push(
-          new Point(
-            coordinates[i][0], coordinates[i][1]
-          )
-        );
+        var coordinates = features[0].geometry.coordinates;
+        for (var i = 0; i < coordinates.length; i++) {
+          points.push(
+            new Point(
+              coordinates[i][0], coordinates[i][1]
+            )
+          );
+        }
       }
     }
-  }
   }
 
 
@@ -77,7 +80,7 @@ const UploadRoute = ({ webId }: Props) => {
       errorToaster(i18n.t("uploadRoute.errorTitle"), "ERROR");
     } else if (description.length === 0) {
       errorToaster(i18n.t("uploadRoute.errorDescription"), "ERROR");
-    } else if(geojson === "") {
+    } else if (geojson === "") {
       errorToaster(i18n.t("uploadRoute.noFile"), "ERROR");
     } else {
       parserGeoJSON(geojson);
@@ -106,27 +109,39 @@ const UploadRoute = ({ webId }: Props) => {
         <Header data-testid="route-header">
           <h1>{i18n.t("uploadRoute.title")}</h1>
         </Header>
-        <UpdateRouteForm>
+        <Form>
+          <Grid>
+            <DivForms>
+              <Label>   {i18n.t("uploadRoute.name")}
+                <Input type="text" data-testid="route_name" onChange={handleTitleChange} size="70"/>
+              </Label>
+            </DivForms>
+
+            <DivForms>
+              <Label>   {i18n.t("uploadRoute.description")}
+                <TextArea type="text" data-testid="route_description"
+                          name="description" rows="5"
+                          onChange={handleDescriptionChange}/>
+              </Label>
+            </DivForms>
+          </Grid>
 
           <Grid>
-            <Label>   {i18n.t("uploadRoute.name")}
-              <Input type="text" data-testid="route_name" onChange={handleTitleChange}/>
-            </Label>
-
-            <Label>   {i18n.t("uploadRoute.description")}
-              <TextArea type="text" data-testid="route_description"
-                        name="description" rows="5"
-                        onChange={handleDescriptionChange}/>
-            </Label>
-
             <Label>{i18n.t("uploadRoute.uploadFile")}
               <Input type="file" ref={file} onChange={handleUpload} data-testid="input-file"/>
             </Label>
 
-            <Button data-testid="bt-save" onClick={handleSave} block> {i18n.t("uploadRoute.btnSave")} </Button>
           </Grid>
 
-        </UpdateRouteForm>
+          <DivForms>
+            <MultimediaComponent id={"input-img"} webId={`[${webId}]`} image=""/>
+          </DivForms>
+
+          <GridButton>
+            <Button data-testid="bt-save" onClick={handleSave}> {i18n.t("uploadRoute.btnSave")} </Button>
+          </GridButton>
+
+        </Form>
       </RouteContainer>
     </RouteWrapper>
   );
