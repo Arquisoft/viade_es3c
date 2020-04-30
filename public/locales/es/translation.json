@@ -196,13 +196,14 @@
 		"description": "Descripción de la ruta:",
 		"btnSave": "Guardar",
 		"errorTitle": "La ruta tiene que tener un título",
-		"errorDecription": "La ruta tiene que tener una descripción",
-		"errorPoints": "No se ha marcado ningún punto en el mapa",
+		"errorDescription": "La ruta tiene que tener una descripción",
 		"successRoute": "La ruta se ha guardado correctamente",
 		"savedFiles": "Los archivos se han guardado correctamente",
 		"success": "ÉXITO",
 		"btnMedia": "Subir foto/vídeo",
-		"uploadFile": "Subir fichero: "
+		"uploadFile": "Subir fichero: ",
+		"errorFile": "El fichero no es válido",
+		"noFile": "Debe subir un fihero"
 	},
 	"viade": {
 		"title": "Viade",

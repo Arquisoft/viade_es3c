@@ -58,40 +58,44 @@ const UploadRoute = ({ webId }: Props) => {
     features = geoObject.features;
     if (features.length === 1) {
       if (features[0].geometry.type === "LineString") {
-        var coordinates = features[0].geometry.coordinates;
-        for (var i = 0; i < coordinates.length; i++) {
-          points.push(
-            new Point(
-              coordinates[i][0], coordinates[i][1]
-            )
-          );
-        }
+      var coordinates = features[0].geometry.coordinates;
+      for (var i = 0; i < coordinates.length; i++) {
+        points.push(
+          new Point(
+            coordinates[i][0], coordinates[i][1]
+          )
+        );
       }
     }
+  }
   }
 
 
   function handleSave(event) {
 
-    parserGeoJSON(geojson);
-
     if (title.length === 0) {
       errorToaster(i18n.t("uploadRoute.errorTitle"), "ERROR");
     } else if (description.length === 0) {
       errorToaster(i18n.t("uploadRoute.errorDescription"), "ERROR");
+    } else if(geojson === "") {
+      errorToaster(i18n.t("uploadRoute.noFile"), "ERROR");
     } else {
-      let author = webID.replace("https://", "");
-      author = author.replace(".solid.community/profile/card#me", "");
-      author = author.replace(".inrupt.net/profile/card#me", "");
+      parserGeoJSON(geojson);
+      if (points.length === 0) {
+        errorToaster(i18n.t("uploadRoute.errorFile"), "ERROR");
+      } else {
+        let author = webID.replace("https://", "");
+        author = author.replace(".solid.community/profile/card#me", "");
+        author = author.replace(".inrupt.net/profile/card#me", "");
 
-      let url = webID.replace("profile/card#me", "private/viade/rawMedia/");
-      let route = new Route(title, author, description, points, "");
+        let route = new Route(title, author, description, points, "");
 
-      viadeManager.addRoute(route, webID);
-      successToaster(i18n.t("uploadRoute.successRoute"), i18n.t("uploadRoute.success"));
-      setTimeout(function() {
-        window.location.href = "#/myRoutes";
-      }, 1000);
+        viadeManager.addRoute(route, webID);
+        successToaster(i18n.t("uploadRoute.successRoute"), i18n.t("uploadRoute.success"));
+        setTimeout(function() {
+          window.location.href = "#/myRoutes";
+        }, 1000);
+      }
     }
     event.preventDefault();
   }
