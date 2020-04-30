@@ -3,12 +3,11 @@ import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Item, Body, Message, Meta, MarkAsRead, Delete, Img } from "./notification-item.style";
 import { getUserName, getPathShareRoutes } from "../../../../../../containers/MyFriends/MyFriends";
-import {
-	createDocumentWithTurtle,
-	fetchLdflexDocument,
-	createNonExistentDocument
-} from "../../../../../../utils/ldflex-helper";
+import { createDocumentWithTurtle, fetchLdflexDocument } from "../../../../../../utils/ldflex-helper";
+import auth from "solid-auth-client";
 
+const FC = require("solid-file-client");
+const fc = new FC(auth);
 type Props = {
 	notification: Object,
 	markAsRead: Function,
@@ -32,8 +31,10 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
 			if (notification.target) {
 				await markAsRead(notification.path, notification.id);
 				const sharedFilePath = getPathShareRoutes(notification.target) + notification.id + ".ttl";
-				var content = fetchLdflexDocument(notification.object);
-				await createNonExistentDocument(sharedFilePath, notification);
+				//var content = await fetchLdflexDocument(notification.object);
+				var content = await fc.readFile(notification.object);
+				console.log(content);
+				await createDocumentWithTurtle(sharedFilePath, content);
 				//window.location = notification.object;
 			}
 		},
