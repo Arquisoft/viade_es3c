@@ -10,14 +10,18 @@ image:.\images\qualitytree.png[]
 === Quality Scenarios
 
 [role="arc42help"]
-.Testability/Coverage
-By the use of tests and multiples case scenarios, we can try to test as many scenarios as possible
 
 .Maintainability
 By creating a good early design and structure of the app we will ensure its maintainability in the future.
 
-.Efficiency
-By creating a good design and using good programming structures we will ensure that our app is efficient
 
-.Accesibility
+.Usability
 By creating a simple and easy to understand interface with as many helps to the user as possible we will ensure that our app is usable from the most experienced user to the most novice.
+
+
+.Modularity
+Our design follows the 
+
+.Compatibility 
+
+.
