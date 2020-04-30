@@ -71,6 +71,7 @@ class NewRoute extends React.Component {
 					)
 				);
 			}
+			console.log(points);
 
 			let author = this.webID.replace("https://", "");
 			author = author.replace(".solid.community/profile/card#me", "");
@@ -131,8 +132,8 @@ class NewRoute extends React.Component {
 						</DivForms>
 					</RouteForm>
 					<DivForms>
-						<MultimediaComponent id={"input-img"} webId={`[${this.webId}]`} image="" />
-					</DivForms>
+					<MultimediaComponent id={"input-img"} webId={`[${this.webId}]`} image="" />
+				</DivForms>
 					<DivForms>
 						<InputSubmit
 							type="submit"

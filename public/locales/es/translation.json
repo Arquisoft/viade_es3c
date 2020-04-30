@@ -53,6 +53,7 @@
 		"newRoute": "Nueva ruta",
 		"myRoutes": "Mis rutas",
 		"myFriends": "Mis amigos",
+		"uploadRoute": "Subir ruta",
 		"formModelRender": "Form Model Render",
 		"formModelConvert": "Form Model Convert",
 		"text-editor": "Editor de Textos",
@@ -188,6 +189,20 @@
 		"addingList": "a tu lista de amigos",
 		"btnAdd": "Añadir",
 		"webId": "Introduce el webID del usuario que desees añadir a tu lista de amigos"
+	},
+	"uploadRoute": {
+		"title": "Subir ruta con GeoJSON",
+		"name": "Nombre de la ruta:",
+		"description": "Descripción de la ruta:",
+		"btnSave": "Guardar",
+		"errorTitle": "La ruta tiene que tener un título",
+		"errorDecription": "La ruta tiene que tener una descripción",
+		"errorPoints": "No se ha marcado ningún punto en el mapa",
+		"successRoute": "La ruta se ha guardado correctamente",
+		"savedFiles": "Los archivos se han guardado correctamente",
+		"success": "ÉXITO",
+		"btnMedia": "Subir foto/vídeo",
+		"uploadFile": "Subir fichero: "
 	},
 	"viade": {
 		"title": "Viade",
