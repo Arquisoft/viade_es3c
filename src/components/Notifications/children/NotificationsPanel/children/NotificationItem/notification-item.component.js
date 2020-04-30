@@ -32,9 +32,7 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
 				await markAsRead(notification.path, notification.id);
 				var name = notification.object.split("/");
 				name = name[name.length - 1];
-				console.log(name);
 				const sharedFilePath = getPathShareRoutes(notification.target) + name;
-
 				var content = await fc.readFile(notification.object);
 				await createDocumentWithTurtle(sharedFilePath, content);
 			}
