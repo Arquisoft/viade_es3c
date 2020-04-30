@@ -11,7 +11,7 @@ const mediaPath = process.env.REACT_APP_VIADE_ES3C_MEDIA_PATH;
 const rawMediaPath = process.env.REACT_APP_VIADE_ES3C_RAWMEDIA_PATH;
 const settingsPath = process.env.REACT_APP_VIADE_ES3C_SETTINGS_PATH;
 const inboxPath = process.env.REACT_APP_VIADE_ES3C_INBOX_PATH;
-const sharedPath = process.env.REACT_APP_VIADE_ES3C_SHARED_ROUTES_PATH;
+const sharedPath = process.env.REACT_APP_VIADE_ES3C_SHARED_PATH;
 
 const N3 = require("n3");
 const { DataFactory } = N3;
@@ -255,7 +255,6 @@ export const createInitialFiles = async (webId) => {
 		const settingsUrl = await getAppStorage(webId, settingsPath);
 		const settingsInboxUrl = await getAppStorage(webId, inboxPath);
 		const sharedUrl = await getAppStorage(webId, sharedPath);
-
 
 		// Set up various paths relative to the viade URL
 		const dataFilePath = `${settingsUrl}data.ttl`;
