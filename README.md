@@ -37,11 +37,11 @@ This project shows the work carried out in the Software Architecture course proj
 See the open [issues](https://github.com/Arquisoft/viade_es3c/issues) for a list of proposed features (and known issues). Also, you can check our [project](https://github.com/Arquisoft/viade_es3c/projects/1) kanban tab.
 
 ## Acknowledgments
-* [html2canvas](https://github.com/niklasvh/html2canvas).
-* [FontAwesome](https://github.com/FortAwesome/Font-Awesome).
-* [jspfd](https://github.com/MrRio/jsPDF).
-* [AutoRotatingCarrousel](https://github.com/TeamWertarbyte/material-auto-rotating-carousel).
-* [PapaParse](https://github.com/mholt/PapaParse).
+* [html2canvas](https://github.com/niklasvh/html2canvas)
+* [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
+* [jspfd](https://github.com/MrRio/jsPDF)
+* [AutoRotatingCarrousel](https://github.com/TeamWertarbyte/material-auto-rotating-carousel)
+* [PapaParse](https://github.com/mholt/PapaParse)
 * [Covid Data Track](https://github.com/microsoft/Bing-COVID-19-Data/tree/master/data)
 
 
