@@ -1,4 +1,4 @@
-import React, from "react";
+import React from "react";
 import { render, cleanup, queryByAttribute, fireEvent } from "react-testing-library";
 import { HashRouter as Router } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -7,7 +7,6 @@ import NewRoute from "./NewRoute";
 import * as Toaster from "../../utils/toaster";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import { configure } from "enzyme";
 import Map from "./Map";
 import { shallow } from "enzyme/build";
 
