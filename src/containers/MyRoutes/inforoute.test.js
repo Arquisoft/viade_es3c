@@ -5,10 +5,6 @@ import { cleanup, queryByAttribute, render, fireEvent } from "react-testing-libr
 import MultsButton from "./ViewMult";
 import { act } from 'react-dom/test-utils';
 
-var sinon = require('sinon');
-var React = require('react');
-var Modal = require('react-bootstrap').Modal;
-
 const multi = [
   { url: ".mp3" },
   { url: ".mp4" },
