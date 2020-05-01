@@ -1,6 +1,5 @@
 import { Map, GoogleApiWrapper, Marker, Polyline, HeatMap, InfoWindow } from "google-maps-react";
 import * as Papa from "papaparse";
-import { MarkerClusterer } from "@react-google-maps/api";
 import React from "react";
 import update from "react-addons-update";
 import axios from "axios";
@@ -14,32 +13,6 @@ const infoWindowStyle = {
 	fontSize: "10px",
 	margin: 0
 };
-
-var locations = [
-	{ lat: -31.56391, lng: 147.154312 },
-	{ lat: -33.718234, lng: 150.363181 },
-	{ lat: -33.727111, lng: 150.371124 },
-	{ lat: -33.848588, lng: 151.209834 },
-	{ lat: -33.851702, lng: 151.216968 },
-	{ lat: -34.671264, lng: 150.863657 },
-	{ lat: -35.304724, lng: 148.662905 },
-	{ lat: -36.817685, lng: 175.699196 },
-	{ lat: -36.828611, lng: 175.790222 },
-	{ lat: -37.75, lng: 145.116667 },
-	{ lat: -37.759859, lng: 145.128708 },
-	{ lat: -37.765015, lng: 145.133858 },
-	{ lat: -37.770104, lng: 145.143299 },
-	{ lat: -37.7737, lng: 145.145187 },
-	{ lat: -37.774785, lng: 145.137978 },
-	{ lat: -37.819616, lng: 144.968119 },
-	{ lat: -38.330766, lng: 144.695692 },
-	{ lat: -39.927193, lng: 175.053218 },
-	{ lat: -41.330162, lng: 174.865694 },
-	{ lat: -42.734358, lng: 147.439506 },
-	{ lat: -42.734358, lng: 147.501315 },
-	{ lat: -42.735258, lng: 147.438 },
-	{ lat: -43.999792, lng: 170.463352 }
-];
 
 var count = 0;
 var data = [];
@@ -63,7 +36,14 @@ export class MapContainer extends React.Component {
 	sendData = () => {
 		this.props.parentCallBack(this.state.markers);
 	};
-	state = { markers: [], mapCovid: [], isHeatVisible: false, activeMarker: null, showInfoWindow: false };
+	state = {
+		markers: [],
+		mapCovid: [],
+		currentZoom: null,
+		isHeatVisible: false,
+		activeMarker: null,
+		showInfoWindow: false
+	};
 
 	getLocation() {
 		if (navigator.geolocation) {
@@ -82,37 +62,59 @@ export class MapContainer extends React.Component {
 		this._asyncRequest = axios
 			.get("https://raw.githubusercontent.com/microsoft/Bing-COVID-19-Data/master/data/Bing-COVID19-Data.csv")
 			.then((response) => {
+				data = null;
 				this._asyncRequest = null;
-				data = Papa.parse(response.data);
+				var config = {
+					header: true
+				};
+				data = Papa.parse(response.data, config);
 				data = data.data;
-				console.log(data);
-				this.setState({ mapCovid: data });
-				//this.iniciateMarkers();
+				this.iniciateMarkers();
 			});
+	}
+	formatDate(date) {
+		var d = new Date(date),
+			month = "" + (d.getMonth() + 1),
+			day = "" + d.getDate(),
+			year = d.getFullYear();
+
+		if (month.length < 2) month = "0" + month;
+		if (day.length < 2) day = "0" + day;
+
+		return [ year, month, day ].join("-");
 	}
 
 	iniciateMarkers() {
-		if (!this.state.mapCovid.length > 0 && data.data.length > 0 && count === 0) {
+		if (!this.state.mapCovid.length > 0 && data.length > 0 && count === 0) {
 			count = 1;
+			var d = new Date();
+			d.setDate(d.getDate() - 2);
 			let mapCovid = this.state.mapCovid;
+			var ids = [];
 			// eslint-disable-next-line
 			const geoJson = {
 				type: "FeatureCollection",
 				// eslint-disable-next-line
-				features: data.data.map((country = {}) => {
-					mapCovid = update(mapCovid, {
-						$push: [
-							{
-								lat: country[8],
-								lng: country[9],
-
-								key: this.state.markers.length
-							}
-						]
-					});
+				features: data.map((country = {}) => {
+					if (this.formatDate(d) === this.formatDate(country.Updated)) {
+						mapCovid = update(mapCovid, {
+							$push: [
+								{
+									lat: country.Latitude,
+									lng: country.Longitude,
+									recuperados: country.Recovered,
+									muertes: country.Deaths,
+									casos: country.Confirmed,
+									country_p: country.Country_Region,
+									region: country.AdminRegion1,
+									city: country.AdminRegion2,
+									updated: country.Updated
+								}
+							]
+						});
+					}
 				})
 			};
-
 			this.setState({ mapCovid });
 			this.sendData();
 		}
@@ -169,7 +171,14 @@ export class MapContainer extends React.Component {
 		});
 	};
 
-	handleMouseExit = (props, marker, e) => {
+	handleZoom = (props, map, e) => {
+		this.setState({
+			currentZoom: map.zoom
+		});
+		console.log(this.state.currentZoom);
+	};
+
+	close = () => {
 		this.setState({
 			activeMarker: null,
 			showInfoWindow: false
@@ -178,12 +187,23 @@ export class MapContainer extends React.Component {
 
 	render() {
 		this.getLocation();
-
+		let heatMap = (
+			<HeatMap
+				visible={this.state.isHeatVisible}
+				gradient={gradient}
+				opacity={1}
+				positions={this.state.mapCovid}
+				radius={25}
+				center={this.state.center}
+				heatmapMode={"POINTS_WEIGHT"}
+			/>
+		);
 		return (
 			<Map
 				google={this.props.google}
 				zoom={5}
 				minZoom={3}
+				onZoomChanged={this.handleZoom}
 				style={mapStyle}
 				heatmapLibrary={true}
 				onClick={this.clickPoint}
@@ -276,12 +296,37 @@ export class MapContainer extends React.Component {
 						Covid heatMap
 					</button>
 				</div>
+				{this.state.isHeatVisible ? heatMap : null}
 
-				<MarkerClusterer>
-					{locations.map((marker) => {
-						return <Marker key={marker.lat + marker.lat} position={{ lat: marker.lat, lng: marker.lng }} />;
-					})}
-				</MarkerClusterer>
+				{this.state.mapCovid.map((point) => {
+					return (
+						<Marker
+							position={{ lat: point.lat, lng: point.lng }}
+							c={point}
+							cursor={"hand"}
+							icon={"http://maps.google.com/mapfiles/ms/icons/red.png"}
+							visible={this.state.currentZoom >= 8 && this.state.isHeatVisible}
+							onMouseover={this.handleMouseOver}
+							key={point.key}
+							tracksViewChanges={false}
+						/>
+					);
+				})}
+				{this.state.showInfoWindow ? (
+					<InfoWindow
+						marker={this.state.activeMarker}
+						visible={this.state.showInfoWindow && this.state.isHeatVisible}
+						maxWidth={120}
+						onClose={this.close}
+					>
+						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.country_p + "-"}</h5>
+						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.region + "-"}</h5>
+						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.city}</h5>
+						<p style={infoWindowStyle}> Cases: {this.state.activeMarker.c.casos}</p>
+						<p style={infoWindowStyle}> Deaths: {this.state.activeMarker.c.muertes}</p>
+						<p style={infoWindowStyle}> Recovered: {this.state.activeMarker.c.recuperados}</p>
+					</InfoWindow>
+				) : null}
 
 				{this.state.markers.map((marker) => {
 					return (
