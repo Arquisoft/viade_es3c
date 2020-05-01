@@ -186,7 +186,10 @@ export const MyRouteContainer = styled.div`
 	}
 `;
 export const FormRenderContainer = styled.div`
-margin: 0;
+margin-left: 8%;
+text-align: center;
+
+
 
 `;
 

@@ -4,10 +4,10 @@ import update from "react-addons-update";
 import { Point } from "domain";
 
 const mapStyle = {
-	position: "absolute",
-	float: "left",
-	"max-width": "85%",
-	"height": "40%"
+	witdh: "570px",
+	height: "270px",
+	maxWidth: "70%",
+	maxHeight: "50%"
 };
 
 export class MapContainer extends React.Component {

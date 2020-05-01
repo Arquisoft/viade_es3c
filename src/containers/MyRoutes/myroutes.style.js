@@ -16,8 +16,8 @@ export const RouteCard = styled.div`
 
 	
 	
-	@media only screen and (max-width: 521px) {
-		max-width: 100%;
+	@media only screen and (max-width: 533px) {
+		
 	}
 	
 	
@@ -26,6 +26,8 @@ export const RouteCard = styled.div`
 
 export const SpecialDiv = styled.div` 
 widht:75%;
+text-align: center;
+
 `;
 export const DivBtns = styled.div` 
 width: 100%;
