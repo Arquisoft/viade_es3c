@@ -27,16 +27,16 @@ export const RouteContainer = styled.div`
 `;
 
 export const Header = styled.div`
-	display: flex;
-	position: relative;
+  position: relative;
 	max-width: 100%;
-	align-items: top;
+	align-items: center;
 	justify-content: center;
 	background: rgb(4, 69, 143);
-
+  margin: auto
 	padding: 30px 60px;
-	h1 {
+	h1, h2 {
 		color: white;
+		text-align: center;
 	}
 `;
 
