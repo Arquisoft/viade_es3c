@@ -19,6 +19,10 @@ export const readRoutesFromPod = async webId => {
   return await parsePodFiles.getRoutesFromPod(webId);
 };
 
+export const readRoutesSharedFromPod = async (webId) => {
+	return await parsePodFiles.getRoutesSharedFromPod(webId);
+};
+
 export const addMedia = async (media, webId) => {
   return await storageHelper.addMedia(webId, media);
 };
