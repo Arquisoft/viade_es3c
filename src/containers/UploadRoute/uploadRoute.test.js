@@ -111,7 +111,7 @@ describe.only("NewRoute", () => {
     const geojson = '{"type": "FeatureCollection","features": [{"type": "Feature","properties": {},"geometry": {"type": "LineString","coordinates": [[28.10302734375,52.81604319154934],[27.83935546875,50.12057809796008],[29.860839843749996,49.296471602658066],[29.5751953125,51.876490970614775],[31.904296874999996,51.16556659836182],[31.3330078125,49.710272582105695]]}}]}';
     const file = new File([geojson], "prueba.geojson");
     Object.defineProperty(fileInput, "files", {value: [file]});
-    //fireEvent.change(fileInput);
+    fireEvent.change(fileInput);
 
     //fireEvent.click(button_save);
   });
