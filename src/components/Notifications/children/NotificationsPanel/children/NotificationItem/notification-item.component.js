@@ -31,10 +31,7 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
 		},
 		[ notification ]
 	);
-	/**
-   * @TODO: send boolean to pod like boolean and not string
-   */
-
+	
 	const opCurrentRead = !currentRead;
 	const defaultImage = "img/icon/empty.svg";
 	const actorImage =
