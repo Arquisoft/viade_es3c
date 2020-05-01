@@ -133,7 +133,7 @@ const UploadRoute = ({ webId }: Props) => {
 
             <Grid>
               <Label>{i18n.t("uploadRoute.uploadFile")}
-                <Input type="file" ref={file} onChange={handleUpload} data-testid="input-file"/>
+                <Input type="file" ref={file} onChange={handleUpload} data-testid="file-input"/>
               </Label>
             </Grid>
 
