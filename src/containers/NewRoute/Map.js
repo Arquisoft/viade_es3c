@@ -335,7 +335,7 @@ export class MapContainer extends React.Component {
 							c={point}
 							cursor={"hand"}
 							icon={"http://maps.google.com/mapfiles/ms/icons/red.png"}
-							visible={this.state.currentZoom >= 8 && this.isHeatVisible}
+							visible={this.state.currentZoom >= 8 && this.state.isHeatVisible}
 							onMouseover={this.handleMouseOver}
 							key={point.key}
 							tracksViewChanges={false}
@@ -345,7 +345,7 @@ export class MapContainer extends React.Component {
 				{this.state.showInfoWindow ? (
 					<InfoWindow
 						marker={this.state.activeMarker}
-						visible={this.state.showInfoWindow}
+						visible={this.state.showInfoWindow && this.state.isHeatVisible}
 						maxWidth={120}
 						onClose={this.close}
 					>
