@@ -6,7 +6,6 @@ import RouteMap from "./RouteMap";
 import MultsButton from "./ViewMult";
 import i18n from "i18n";
 
-var markersp = [];
 const InfoRoute = (props) => {
 	const { name, author, description, points, center, mult, error, errorMore } = props;
 
