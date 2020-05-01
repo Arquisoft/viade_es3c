@@ -6,6 +6,7 @@ import Profile from "./Profile";
 import NewRoute from "./NewRoute";
 import MyRoutes from "./MyRoutes";
 import MyFriends from "./MyFriends";
+import UploadRoute from "./UploadRoute";
 import { FormModelConverter, FormModelRenderer } from "./FormModel";
 
 export {
@@ -17,6 +18,7 @@ export {
 	NewRoute,
 	MyRoutes,
 	MyFriends,
+	UploadRoute,
 	Profile,
 	FormModelConverter,
 	FormModelRenderer

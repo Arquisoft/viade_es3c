@@ -5,14 +5,14 @@ export const WelcomeWrapper = styled.section`
   width: 100%;
   background: linear-gradient(90deg, #67e3c0ff 0%, #046df0f0 100%);
   background-repeat: repeat;
-  padding: 50px 0;
+  padding: 20px 0;
   h3 {
     color: #ffffff;
     span {
       font-weight: bold;
     }
     a {
-      font-size: 1.9rem;
+      font-size: 2rem;
     }
   }
 `;
