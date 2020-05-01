@@ -1,20 +1,12 @@
 import React, { useState } from "react";
-import {
-  RouteWrapper,
-  RouteContainer,
-  Header,
-  Form,
-  Grid,
-  Label,
-  Input,
-  TextArea
-} from "./uploadRoute.style";
+import { RouteWrapper, RouteContainer, Header, Form, Grid, Label, Input, TextArea } from "./uploadRoute.style";
 import Button from "@material-ui/core/Button";
 import i18n from "i18n";
-import { Multimedia, Point, Route } from "../../domain";
+import { Multimedia, Route } from "../../domain";
 import { errorToaster, successToaster } from "../../utils";
 import * as viadeManager from "../../utils/viadeManagerSolid";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
+import { ParserFile } from "../../utils/parserFile";
 
 type Props = {
   webId: String
@@ -25,9 +17,24 @@ const UploadRoute = ({ webId }: Props) => {
     const webID = webId;
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [routeFile, setRouteFile] = useState(null);
+    const [fileToParse, setFileToParse] = useState("");
     let file = React.createRef();
-    let geojson = "";
     let points = [];
+
+    const parser = new ParserFile();
+
+    function chooseParser(file) {
+      let type = routeFile.name.split(".").pop();
+      console.log(type);
+      if (type === "geojson") {
+        points = parser.parserGeoJSON(file);
+      } else if (type === "gpx") {
+        points = parser.parserGPX(file);
+      } else {
+        errorToaster(i18n.t("uploadRoute.typeFile"), "ERROR");
+      }
+    }
 
     function handleTitleChange(event) {
       event.preventDefault();
@@ -40,37 +47,18 @@ const UploadRoute = ({ webId }: Props) => {
     }
 
     function loaded(file) {
-      geojson = file.target.result.toString();
-      console.log(geojson);
+      setFileToParse(file.target.result.toString());
     }
 
     function handleUpload(event) {
       event.preventDefault();
       if (file.current.files.length > 0) {
+        setRouteFile(file.current.files[0]);
         var reader = new FileReader();
         reader.readAsText(file.current.files[0]);
         reader.onload = loaded;
       }
     }
-
-    function parserGeoJSON(file) {
-      var geoObject = JSON.parse(file);
-      var features;
-      features = geoObject.features;
-      if (features.length === 1) {
-        if (features[0].geometry.type === "LineString") {
-          var coordinates = features[0].geometry.coordinates;
-          for (var i = 0; i < coordinates.length; i++) {
-            points.push(
-              new Point(
-                coordinates[i][0], coordinates[i][1]
-              )
-            );
-          }
-        }
-      }
-    }
-
 
     function handleSave(event) {
       if (title.length === 0) {
@@ -78,8 +66,8 @@ const UploadRoute = ({ webId }: Props) => {
       } else if (description.length === 0) {
         errorToaster(i18n.t("uploadRoute.errorDescription"), "ERROR");
       } else {
-        parserGeoJSON(geojson);
-        if (geojson === "") {
+        chooseParser(fileToParse);
+        if (fileToParse === "") {
           errorToaster(i18n.t("uploadRoute.noFile"), "ERROR");
         } else {
           if (points.length === 0) {
@@ -116,10 +104,9 @@ const UploadRoute = ({ webId }: Props) => {
             }, 1000);
           }
         }
+        event.preventDefault();
       }
-      event.preventDefault();
     }
-
     ;
 
     return (
@@ -127,6 +114,7 @@ const UploadRoute = ({ webId }: Props) => {
         <RouteContainer>
           <Header data-testid="route-header">
             <h1>{i18n.t("uploadRoute.title")}</h1>
+            <h2>{i18n.t("uploadRoute.files")}</h2>
           </Header>
           <Form>
 
@@ -141,7 +129,7 @@ const UploadRoute = ({ webId }: Props) => {
                           onChange={handleDescriptionChange}/>
               </Label>
 
-                <MultimediaComponent id={"input-img"} webId={`[${webId}]`} image=""/>
+              <MultimediaComponent id={"input-img"} webId={`[${webId}]`} image=""/>
             </Grid>
 
             <Grid>
@@ -157,8 +145,6 @@ const UploadRoute = ({ webId }: Props) => {
         </RouteContainer>
       </RouteWrapper>
     );
-
-
   }
 ;
 

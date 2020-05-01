@@ -202,7 +202,8 @@
 		"btnMedia": "Upload photo/video",
 		"uploadFile": "Upload a file:",
 		"errorFile": "The file is not valid",
-		"noFile": "You must upload a file"
+		"noFile": "You must upload a file GeoJSON or GPX",
+		"files": "GeoJSON or GPX"
 	},
 	"viade": {
 		"viade": "Viade",

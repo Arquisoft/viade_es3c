@@ -203,7 +203,9 @@
 		"btnMedia": "Subir foto/vídeo",
 		"uploadFile": "Subir fichero:",
 		"errorFile": "El fichero no es válido",
-		"noFile": "Debe subir un fihero"
+		"noFile": "Debe subir un fihero geoJSON o GPX",
+		"typeFile": "Formato no soportado",
+		"files": "GeoJSON o GPX"
 	},
 	"viade": {
 		"title": "Viade",
