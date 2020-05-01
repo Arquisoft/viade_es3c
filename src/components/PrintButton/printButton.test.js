@@ -8,7 +8,7 @@ const getById = queryByAttribute.bind(null, "id");
 
 const { container, getByText } = render(
   <PrintButton>
-    <div className="tc mb4 mt2"/>
+    <div className="tc mb4 mt2" />
   </PrintButton>
 );
 

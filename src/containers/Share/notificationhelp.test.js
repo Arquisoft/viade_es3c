@@ -23,7 +23,7 @@ describe.only("NotificationHelp", () => {
     </Router>
   );
 
-  test('renders without crashing', () => {
+  test("renders without crashing", () => {
     expect(container).toBeTruthy();
   });
 });

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal } from "react-bootstrap";
-import { RouteCard, Button } from "./myroutes.style";
+import { RouteCard, Button, SpecialDiv, DivBtns } from "./myroutes.style";
 import { ldflexHelper } from "@utils";
 import { successToaster } from "@utils";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -14,7 +14,13 @@ import { Route } from "domain";
 import { viadeManager } from "@utils";
 import Download from "@axetroy/react-download";
 import PrintButton from "../../components/PrintButton";
-import { RouteWrapper, TextArea, DivForms, LabelInput } from "../NewRoute/route.style";
+
+import {
+  RouteWrapper,
+  TextArea,
+  DivForms,
+  LabelInput
+} from "../NewRoute/route.style";
 
 var markersp = [];
 
@@ -29,8 +35,7 @@ const InfoRoute = (props) => {
 	if (!error) {
 		return (
 			<RouteCard className="card" id="card">
-
-				<div id="divBtns" className="btn-group-vertical">
+				<DivBtns id="divBtns" >
 					<Button id="btnModify" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
 						<FontAwesomeIcon icon="pen" className="pen-icon" />
 					</Button>
@@ -40,8 +45,7 @@ const InfoRoute = (props) => {
 					<Button id="btnDelete" type="button" onClick={() => setShowConfirm(!showConfirm)}>
 						<FontAwesomeIcon icon="trash" className="trash-icon" />
 					</Button>
-				</div>
-
+				</DivBtns>
 				<div id="divDelete">
 					<Modal 	id="modalDel" show={showConfirm} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
 						<Modal.Header>
@@ -126,7 +130,7 @@ const InfoRoute = (props) => {
 							</RouteWrapper>
 						</Modal.Body>
 						<Modal.Footer>
-							<Button
+							<Button id="saveModify"
 								onClick={async () => {
 									let route = new Route(
 										document.getElementById("route_name").value,
@@ -145,7 +149,7 @@ const InfoRoute = (props) => {
 							>
 								{i18n.t("myRoutes.btnModify")}
 							</Button>
-							<Button
+							<Button id="closeModify"
 								onClick={() => {
 									setShowConfirmModify(!showConfirmModify);
 								}}
@@ -191,13 +195,13 @@ const InfoRoute = (props) => {
 						</Modal.Footer>
 					</Modal>
 				</div>
-				<div id={name}>
+				<SpecialDiv id={name}>
 					<h2>{name}</h2>
 					<h3> {i18n.t("myRoutes.createdBy")} </h3>
 					<p>{author}</p>
 					<h3> {i18n.t("myRoutes.description")}</h3>
 					<p>{description}</p>
-					<div id={uuid} className="btn-group">
+					<div id={uuid} >
 						<Button id="viewFriends" type="button" onClick={() => setShowFriends(!showFriends)}>
 							{i18n.t("myRoutes.btnShare")}
 						</Button>
@@ -212,7 +216,7 @@ const InfoRoute = (props) => {
 						<RouteMap markers={points} center={center} />
 					</FormRenderContainer>
 					<br />
-				</div>
+				</SpecialDiv>
 			</RouteCard>
 		);
 	} else {

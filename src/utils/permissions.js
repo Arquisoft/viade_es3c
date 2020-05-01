@@ -87,14 +87,14 @@ export const sharing = async (webId, friends, shareUrl) => {
 	// You could also use SolidAclUtils.Permissions.READ instead of following
 	// This is just more convenient
 	const { AclApi, Permissions } = SolidAclUtils;
-	const { READ } = Permissions;
+	const { READ, WRITE } = Permissions;
 	// Passing it the fetch from solid-auth-client
 	const fetch = auth.fetch.bind(auth);
 	const aclApi = new AclApi(fetch, { autoSave: true });
 	const acl = await aclApi.loadFromFileUrl(shareUrl);
 	// eslint-disable-next-line
 	for (var [ key, value ] of friends) {
-		await acl.addRule(READ, key);
+		await acl.addRule([ READ, WRITE ], key);
 	}
 
 	successToaster("La ruta ha sido compartida", "Éxito");

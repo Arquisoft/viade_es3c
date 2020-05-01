@@ -1,9 +1,6 @@
 import "jest";
 
-import {
-  defineFeature,
-  loadFeature
-} from "jest-cucumber";
+import { defineFeature, loadFeature } from "jest-cucumber";
 
 const feature = loadFeature("./feature/features/notification.feature");
 const puppeteer = require("puppeteer");
@@ -11,13 +8,11 @@ let browser = null;
 let page = null;
 
 defineFeature(feature, test => {
-
   beforeEach(async () => {
     jest.setTimeout(1200000);
   });
 
   test("Receive a notification", ({ given, when, then }) => {
-
     given("I am a user who has received a notification", async () => {
       browser = await puppeteer.launch({
         headless: false
@@ -30,7 +25,10 @@ defineFeature(feature, test => {
         timeout: 0
       });
       await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(".sc-EHOje.cffgrt", "https://saragg.solid.community/profile/card#me");
+      await page.type(
+        ".sc-EHOje.cffgrt",
+        "https://saragrz.solid.community/profile/card#me"
+      );
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function(btn) {
@@ -43,16 +41,19 @@ defineFeature(feature, test => {
         waitUntil: "networkidle2"
       });
       await page.waitForSelector("[id='username']", { visible: true });
-      await page.type("[id='username']", "saragg");
+      await page.type("[id='username']", "saragrz");
       await page.waitFor(500);
       await page.waitForSelector("[id='password']", { visible: true });
       await page.type("[id='password']", "Prueba_123", { visible: true });
       await page.waitFor(500);
       await page.evaluate(() => {
-        let btns = [...document.querySelector(".form-horizontal.login-up-form").querySelectorAll("button")];
+        let btns = [
+          ...document
+            .querySelector(".form-horizontal.login-up-form")
+            .querySelectorAll("button")
+        ];
         btns.forEach(function(btn) {
-          if (btn.innerText == "Log In")
-            btn.click();
+          if (btn.innerText == "Log In") btn.click();
         });
       });
       await page.waitForNavigation({
@@ -65,30 +66,29 @@ defineFeature(feature, test => {
       await page.waitForSelector("#mobile");
       await page.click("#mobile");
 
-      await page.waitFor(3000);
+      await page.waitFor(4000);
 
       await page.evaluate(() => {
-        let btns = [...document.querySelector(".sc-hZSUBg.eiKapK").querySelectorAll("button")];
-        btns.forEach(function(btn) {
-            btn.click();
-        });
+        document.querySelector("#notificationButton").click();
       });
-      await page.waitFor(5000);
+      await page.waitFor(6000);
     });
 
     then("I will see the route shared at pod", async () => {
-
-      await page.waitForSelector(".sc-eTuwsz.cNYhVu");
+      await page.waitForSelector(".sc-hrWEMg.glJa");
       await page.evaluate(() => {
-        let btns = [...document.querySelector(".sc-eTuwsz.cNYhVu").querySelectorAll("strong")];
+        let btns = [
+          ...document
+            .querySelector(".sc-hrWEMg.glJa")
+            .querySelectorAll("strong")
+        ];
         btns.forEach(function(btn) {
           btn.click();
         });
       });
-      await page.waitFor(3000);
+      await page.waitFor(5000);
       await page.evaluate(() => window.find("latitude"));
       await browser.close();
     });
-
   });
 });

@@ -1,9 +1,6 @@
 import "jest";
 
-import {
-  defineFeature,
-  loadFeature
-} from "jest-cucumber";
+import { defineFeature, loadFeature } from "jest-cucumber";
 
 const feature = loadFeature("./feature/features/addFriend.feature");
 const puppeteer = require("puppeteer");
@@ -11,13 +8,11 @@ let browser = null;
 let page = null;
 
 defineFeature(feature, test => {
-
   beforeEach(async () => {
     jest.setTimeout(12000000);
   });
 
   test("Trying to add a friend", ({ given, when, then }) => {
-
     given("I am a user trying to add a friend", async () => {
       browser = await puppeteer.launch({
         headless: false
@@ -31,7 +26,10 @@ defineFeature(feature, test => {
         timeout: 0
       });
       await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(".sc-EHOje.cffgrt", "https://saragg.solid.community/profile/card#me");
+      await page.type(
+        ".sc-EHOje.cffgrt",
+        "https://saragg.solid.community/profile/card#me"
+      );
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function(btn) {
@@ -78,18 +76,16 @@ defineFeature(feature, test => {
 
       await page.waitForSelector("[id='friendID']", { visible: true });
       await page.type("[id='friendID']", "https://saragarcia.solid.community/");
-
     });
 
     then("Pressing the add button", async () => {
       await page.evaluate(() => {
-        let submit = document.getElementById("submit-friends");
+        let submit = document.getElementById("botonaddfriends");
         submit.click();
       });
-      await page.waitFor(500);
       await page.waitForFunction(
         'document.querySelector("body").innerText.includes("https://saragarcia.solid.community/")'
-      )
+      );
       await browser.close();
     });
   });

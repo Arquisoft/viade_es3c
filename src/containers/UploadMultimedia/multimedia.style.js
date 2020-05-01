@@ -5,20 +5,21 @@ export const WelcomeWrapper = styled.section`
   width: 100%;
   background: linear-gradient(90deg, #67e3c0ff 0%, #046df0f0 100%);
   background-repeat: repeat;
-  padding: 50px 0;
+  padding: 20px 0;
   h3 {
     color: #ffffff;
     span {
       font-weight: bold;
     }
     a {
-      font-size: 1.9rem;
+      font-size: 2rem;
     }
   }
 `;
 
 export const DivForms = styled.div`
   margin-bottom: 0;
+  display: inline;
 `;
 
 export const WelcomeCard = styled.div`
@@ -128,7 +129,7 @@ export const WelcomeProfile = styled.div`
       background-color:#D0D0D0;
       top:0;
     }
-  `}
+  `};
 `;
 
 export const ImageWrapper = styled.div`

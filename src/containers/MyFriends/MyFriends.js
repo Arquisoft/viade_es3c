@@ -72,6 +72,7 @@ class MyFriends extends React.Component {
 					<label>
 						{i18n.t("myFriends.webId")}
 						<input
+							id="friendID"
 							type="text"
 							name="webID"
 							onChange={this.handleChange}
@@ -109,6 +110,12 @@ export const getUserName = (name) => {
 	let author = name.replace("https://", "");
 	author = author.replace(".solid.community/profile/card#me", "");
 	author = author.replace(".inrupt.net/profile/card#me", "");
+	return author;
+};
+
+export const getPathShareRoutes = (name) => {
+	let author = name.replace("profile/card#me", "private/viade/shared/");
+	console.log(author);
 	return author;
 };
 

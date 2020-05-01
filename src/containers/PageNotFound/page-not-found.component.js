@@ -16,9 +16,7 @@ const PageNotFound = () => {
   return (
     <PageNotFoundWrapper>
       <PageNotFoundContent>
-        <img src="img/404.svg" alt="404" />
-        <h3>{t("notFound.title")}</h3>
-        <p>{t("notFound.content")}</p>
+        <img src="img/404.png" alt="404" />
         <div>
           <Link to="/" className="ids-link">
             {t("notFound.redirectButton")}

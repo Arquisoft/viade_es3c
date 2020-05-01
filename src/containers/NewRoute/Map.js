@@ -1,8 +1,9 @@
 import { Map, GoogleApiWrapper, Marker, Polyline, HeatMap, InfoWindow } from "google-maps-react";
-
+import * as Papa from "papaparse";
 import React from "react";
 import update from "react-addons-update";
 import axios from "axios";
+
 const mapStyle = {
 	paddingBottom: "10px",
 	height: "100%"
@@ -13,9 +14,11 @@ const infoWindowStyle = {
 	fontSize: "10px",
 	margin: 0
 };
+var heatMap = [];
 
 var count = 0;
 var data = [];
+var dataActualizada = [];
 var gradient = [
 	"rgba(0, 255, 255, 0)",
 	"rgba(0, 255, 255, 1)",
@@ -36,7 +39,14 @@ export class MapContainer extends React.Component {
 	sendData = () => {
 		this.props.parentCallBack(this.state.markers);
 	};
-	state = { markers: [], mapCovid: [], isHeatVisible: false, isStatsVisible: false };
+	state = {
+		markers: [],
+		mapCovid: [],
+		currentZoom: null,
+		isHeatVisible: false,
+		activeMarker: null,
+		showInfoWindow: false
+	};
 
 	getLocation() {
 		if (navigator.geolocation) {
@@ -52,42 +62,89 @@ export class MapContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		this._asyncRequest = axios.get("https://corona.lmao.ninja/v2/countries").then((response) => {
-			this._asyncRequest = null;
-			data = response;
-			this.iniciateMarkers();
-		});
+		this._asyncRequest = axios
+			.get("https://raw.githubusercontent.com/microsoft/Bing-COVID-19-Data/master/data/Bing-COVID19-Data.csv")
+			.then((response) => {
+				data = null;
+				this._asyncRequest = null;
+				var config = {
+					header: true
+				};
+				data = Papa.parse(response.data, config);
+				data = data.data;
+
+				var region = this.groupByArray(data, "AdminRegion2");
+				// eslint-disable-next-line
+				region.map((country = {}) => {
+					dataActualizada.push(country.values[country.values.length - 1]);
+				});
+
+				var region2 = this.groupByArray(data, "AdminRegion1");
+				// eslint-disable-next-line
+				region2.map((country = {}) => {
+					dataActualizada.push(country.values[country.values.length - 1]);
+				});
+
+				var pais = this.groupByArray(data, "Country_Region");
+				// eslint-disable-next-line
+				pais.map((country = {}) => {
+					dataActualizada.push(country.values[country.values.length - 1]);
+				});
+
+				this.iniciateMarkers();
+			});
+	}
+
+	componentWillUnmount() {
+		dataActualizada = [];
+		data = [];
+		heatMap = [];
+		count = 0;
+	}
+
+	groupByArray(xs, key) {
+		return xs.reduce(function(rv, x) {
+			let v = key instanceof Function ? key(x) : x[key];
+			let el = rv.find((r) => r && r.key === v);
+			if (el) {
+				el.values.push(x);
+			} else {
+				rv.push({ key: v, values: [ x ] });
+			}
+			return rv;
+		}, []);
 	}
 
 	iniciateMarkers() {
-		if (!this.state.mapCovid.length > 0 && data.data.length > 0 && count === 0) {
-			count = 1;
+		if (!this.state.mapCovid.length > 0 && dataActualizada.length > 0 && count === 0) {
 			let mapCovid = this.state.mapCovid;
 			// eslint-disable-next-line
 			const geoJson = {
 				type: "FeatureCollection",
 				// eslint-disable-next-line
-				features: data.data.map((country = {}) => {
-					const { countryInfo = {} } = country;
-					const { lat, long: lng } = countryInfo;
-
-					mapCovid = update(mapCovid, {
-						$push: [
-							{
-								lat: lat,
-								lng: lng,
-								pais: country.country,
-								casos: country.cases,
-								muertes: country.deaths,
-								recuperados: country.recovered,
-								key: this.state.markers.length
-							}
-						]
-					});
+				features: dataActualizada.map((country = {}) => {
+					if (country.Latitude && country.Longitude) {
+						mapCovid = update(mapCovid, {
+							$push: [
+								{
+									lat: country.Latitude,
+									lng: country.Longitude,
+									recuperados: country.Recovered,
+									muertes: country.Deaths,
+									casos: country.Confirmed,
+									country_p: country.Country_Region,
+									region: country.AdminRegion1,
+									city: country.AdminRegion2,
+									updated: country.Updated
+								}
+							]
+						});
+					}
 				})
 			};
-
 			this.setState({ mapCovid });
+			count = 1;
+
 			this.sendData();
 		}
 	}
@@ -136,34 +193,52 @@ export class MapContainer extends React.Component {
 	handleToggle = () => {
 		this.setState({ isHeatVisible: !this.state.isHeatVisible });
 	};
-	handleToggle1 = () => {
-		this.setState({ isStatsVisible: !this.state.isStatsVisible });
+	handleMouseOver = (props, marker, e) => {
+		this.setState({
+			activeMarker: marker,
+			showInfoWindow: true
+		});
+	};
+
+	handleZoom = (props, map, e) => {
+		this.setState({
+			currentZoom: map.zoom
+		});
+		console.log(this.state.currentZoom);
+	};
+
+	close = () => {
+		this.setState({
+			activeMarker: null,
+			showInfoWindow: false
+		});
 	};
 
 	render() {
 		this.getLocation();
 
-		let heatMap = (
+		heatMap = (
 			<HeatMap
 				visible={this.state.isHeatVisible}
 				gradient={gradient}
 				opacity={1}
 				positions={this.state.mapCovid}
-				radius={25}
+				radius={20}
 				center={this.state.center}
 				heatmapMode={"POINTS_WEIGHT"}
 			/>
 		);
-
 		return (
 			<Map
 				google={this.props.google}
 				zoom={5}
 				minZoom={3}
+				onZoomChanged={this.handleZoom}
 				style={mapStyle}
 				heatmapLibrary={true}
 				onClick={this.clickPoint}
 				center={this.state.center}
+				gestureHandling={"cooperative"}
 				styles={[
 					{ elementType: "geometry", stylers: [ { color: "#242f3e" } ] },
 					{ elementType: "labels.text.stroke", stylers: [ { color: "#242f3e" } ] },
@@ -250,27 +325,39 @@ export class MapContainer extends React.Component {
 						{" "}
 						Covid heatMap
 					</button>
-					<button id={"buttonCovid"} onClick={this.handleToggle1}>
-						{" "}
-						Covid stats
-					</button>
 				</div>
 				{this.state.isHeatVisible ? heatMap : null}
 
 				{this.state.mapCovid.map((point) => {
 					return (
-						<InfoWindow
-							maxWidth={100}
-							visible={this.state.isStatsVisible}
+						<Marker
 							position={{ lat: point.lat, lng: point.lng }}
-						>
-							<h5 style={infoWindowStyle}>{point.pais}</h5>
-							<p style={infoWindowStyle}> Cases: {point.casos}</p>
-							<p style={infoWindowStyle}> Deaths: {point.muertes}</p>
-							<p style={infoWindowStyle}> Recovered: {point.recuperados}</p>
-						</InfoWindow>
+							c={point}
+							cursor={"hand"}
+							icon={"http://maps.google.com/mapfiles/ms/icons/red.png"}
+							visible={this.state.currentZoom >= 8 && this.state.isHeatVisible}
+							onMouseover={this.handleMouseOver}
+							key={point.key}
+							tracksViewChanges={false}
+						/>
 					);
 				})}
+				{this.state.showInfoWindow ? (
+					<InfoWindow
+						marker={this.state.activeMarker}
+						visible={this.state.showInfoWindow && this.state.isHeatVisible}
+						maxWidth={120}
+						onClose={this.close}
+					>
+						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.country_p}</h5>
+						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.region}</h5>
+						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.city}</h5>
+						<p style={infoWindowStyle}> Cases: {this.state.activeMarker.c.casos}</p>
+						<p style={infoWindowStyle}> Deaths: {this.state.activeMarker.c.muertes}</p>
+						<p style={infoWindowStyle}> Recovered: {this.state.activeMarker.c.recuperados}</p>
+					</InfoWindow>
+				) : null}
+
 				{this.state.markers.map((marker) => {
 					return (
 						<Marker
@@ -283,7 +370,6 @@ export class MapContainer extends React.Component {
 						/>
 					);
 				})}
-
 				<Polyline path={this.draw()} strokeColor="#01C9EA" strokeOpacity={0.8} strokeWeight={2} />
 			</Map>
 		);

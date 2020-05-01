@@ -17,27 +17,27 @@ import { Toaster } from "./App.styled";
 library.add(fas);
 library.add(faGithub);
 const App = () => (
-	<Suspense fallback={<Loader />}>
-		<ThemeProvider theme={theme}>
-			<Fragment>
-				<Routes />
-				<Toaster
-					{...{
-						autoClose: 3000,
-						position: toast.POSITION.TOP_CENTER,
-						newestOnTop: true,
-						closeOnClick: true,
-						pauseOnVisibilityChange: true,
-						draggable: true,
-						className: "solid-toaster-container",
-						toastClassName: "solid-toaster",
-						bodyClassName: "solid-toaster-body",
-						transition: Slide
-					}}
-				/>
-			</Fragment>
-		</ThemeProvider>
-	</Suspense>
+  <Suspense fallback={<Loader />}>
+    <ThemeProvider theme={theme}>
+      <Fragment>
+        <Routes />
+        <Toaster
+          {...{
+            autoClose: 3000,
+            position: toast.POSITION.TOP_CENTER,
+            newestOnTop: true,
+            closeOnClick: true,
+            pauseOnVisibilityChange: true,
+            draggable: true,
+            className: "solid-toaster-container",
+            toastClassName: "solid-toaster",
+            bodyClassName: "solid-toaster-body",
+            transition: Slide
+          }}
+        />
+      </Fragment>
+    </ThemeProvider>
+  </Suspense>
 );
 
 export default App;

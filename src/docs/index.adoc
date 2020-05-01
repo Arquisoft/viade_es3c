@@ -3,7 +3,7 @@
 //
 // ====================================
 
-= image:LogoASW.png[arc42] ViaDe 0
+= image:LogoASW.png[arc42] ViaDe ES3C
 // toc-title definition MUST follow document title without blank line!
 :toc: left
 :toc-title: Table of Contents
