@@ -22,7 +22,7 @@ export const NavigationItems = [
 	},
 	{
 		id: "mySharedRoutes",
-		icon: "img/icon/love.svg",
+		icon: "img/icon/shared.svg",
 		label: "navBar.mySharedRoutes",
 		to: "/mySharedRoutes"
 	},
