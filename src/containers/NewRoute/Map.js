@@ -3,7 +3,6 @@ import * as Papa from "papaparse";
 import React from "react";
 import update from "react-addons-update";
 import axios from "axios";
-import { Loader } from "@util-components";
 
 const mapStyle = {
 	paddingBottom: "10px",
@@ -75,17 +74,19 @@ export class MapContainer extends React.Component {
 				data = data.data;
 
 				var region = this.groupByArray(data, "AdminRegion2");
-
+				// eslint-disable-next-line
 				region.map((country = {}) => {
 					dataActualizada.push(country.values[country.values.length - 1]);
 				});
 
 				var region2 = this.groupByArray(data, "AdminRegion1");
+				// eslint-disable-next-line
 				region2.map((country = {}) => {
 					dataActualizada.push(country.values[country.values.length - 1]);
 				});
 
 				var pais = this.groupByArray(data, "Country_Region");
+				// eslint-disable-next-line
 				pais.map((country = {}) => {
 					dataActualizada.push(country.values[country.values.length - 1]);
 				});
@@ -334,7 +335,7 @@ export class MapContainer extends React.Component {
 							c={point}
 							cursor={"hand"}
 							icon={"http://maps.google.com/mapfiles/ms/icons/red.png"}
-							visible={this.state.currentZoom >= 8 && this.isHeatVisible}
+							visible={this.state.currentZoom >= 8 && this.state.isHeatVisible}
 							onMouseover={this.handleMouseOver}
 							key={point.key}
 							tracksViewChanges={false}
@@ -344,7 +345,7 @@ export class MapContainer extends React.Component {
 				{this.state.showInfoWindow ? (
 					<InfoWindow
 						marker={this.state.activeMarker}
-						visible={this.state.showInfoWindow}
+						visible={this.state.showInfoWindow && this.state.isHeatVisible}
 						maxWidth={120}
 						onClose={this.close}
 					>

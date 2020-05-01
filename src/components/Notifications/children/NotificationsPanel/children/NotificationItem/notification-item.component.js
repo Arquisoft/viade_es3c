@@ -35,6 +35,7 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
 				const sharedFilePath = getPathShareRoutes(notification.target) + name;
 				var content = await fc.readFile(notification.object);
 				await createDocumentWithTurtle(sharedFilePath, content);
+				window.location = "#/mySharedRoutes";
 			}
 		},
 		[ notification ]

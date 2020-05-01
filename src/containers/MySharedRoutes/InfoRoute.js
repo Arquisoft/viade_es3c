@@ -1,27 +1,14 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Modal } from "react-bootstrap";
-import { RouteCard, Button } from "./myroutes.style";
-import { ldflexHelper } from "@utils";
-import { successToaster } from "@utils";
+import React from "react";
+import { RouteCard } from "./myroutes.style";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FormRenderContainer } from "../MyFriends/myfriends.style";
 import RouteMap from "./RouteMap";
-import Notifications from "../Share/NotificationHelp";
 import MultsButton from "./ViewMult";
 import i18n from "i18n";
-import { Route } from "domain";
-import { viadeManager } from "@utils";
-import Download from "@axetroy/react-download";
-import PrintButton from "../../components/PrintButton";
 
-import { RouteWrapper, TextArea, DivForms, LabelInput } from "../NewRoute/route.style";
-
-var markersp = [];
 const InfoRoute = (props) => {
-	const { name, author, description, points, center, mult, r, uuid, ttl, error, errorMore, webID, ruta } = props;
+	const { name, author, description, points, center, mult, error, errorMore } = props;
 
-	markersp = points;
 	if (!error) {
 		return (
 			<RouteCard className="card" id="card">
