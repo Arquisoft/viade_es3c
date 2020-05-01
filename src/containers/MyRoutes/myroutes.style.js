@@ -14,77 +14,25 @@ export const RouteCard = styled.div`
 		}
 	}
 
-	h5 {
-		text-color: white;
+	
+	
+	@media only screen and (max-width: 533px) {
+		
 	}
-	p {
-		font-weight: bold;
-		font-size: 20px;
-	}
-	h2 {
-		font-weight: bold;
-	}
-	h3 {
-		font-size: 25px;
-		margin: 0 0 0px 0;
-	}
+	
+	
+	
+`;
 
-	#containerRuta {
-		padding: 0px 25px !important;
-		a {
-			text-decoration: none;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-		p {
-			font-weight: bold;
-			font-size: 20px;
-		}
-		h2 {
-			font-weight: bold;
-		}
-		h3 {
-			font-size: 25px;
-			margin: 0 0 0px 0;
-		}
-	}
+export const SpecialDiv = styled.div` 
+widht:75%;
+text-align: center;
 
-	#divDelete {
-		margin-left: 550px;
-		margin-top: 18px;
-	}
-	#btnDelete {
-		font-size: 14px;
-		padding: 10px 20px;
-	}
-
-	#divModificar {
-		margin-left: 550px;
-		margin-top: 18px;
-	}
-	#divDownload {
-		margin-left: 550px;
-		margin-top: 18px;
-	}
-	#btnModify {
-		font-size: 14px;
-		padding: 10px 20px;
-		margin-bottom: 10px;
-	}
-	#divShare {
-		margin-left: 50px;
-	}
-	#btnDownload {
-		font-size: 14px;
-		padding: 10px 20px;
-		margin-bottom: 10px;
-	}
-	#divBtns {
-		margin-left: 560px;
-		margin-top: 15px;
-		margin-bottom: -140px;
-	}
+`;
+export const DivBtns = styled.div` 
+width: 100%;
+display: inline-block;
+margin: 20px 0px;
 `;
 
 export const RouteWrapper = styled.section`
@@ -123,24 +71,16 @@ export const MyRouteContainer = styled.div`
 	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 	max-width: 900px;
 	margin: 0 20px;
-	width: 100%;
+	
 	flex: 1 0 auto;
 
 	@media only screen and (max-width: 940px) {
-		max-width: 600px;
+		max-width: 100%;
 	}
 
-	@media only screen and (max-width: 633px) {
-		max-width: 400px;
-	}
+	
 
-	@media only screen and (max-width: 425px) {
-		max-width: 350px;
-	}
-
-	@media only screen and (max-width: 365px) {
-		max-width: 280px;
-	}
+	
 
 `;
 export const FormRenderContainer = styled.div`
@@ -171,6 +111,32 @@ export const FormRenderContainer = styled.div`
   }
   #shareRoute{
     display: contents;
+	}
+
+	@media only screen and (max-width: 940px) {
+		#mapa{
+			width: 100px;
+		  }
+	}
+
+	@media only screen and (max-width: 633px) {
+		#mapa{
+			width: 100px;
+
+		  }
+	}
+
+	@media only screen and (max-width: 425px) {
+		#mapa{
+			width: 100px;
+	
+		  }
+	}
+
+	@media only screen and (max-width: 365px) {
+		#mapa{
+			width: 100px;
+		  }
 	}
 `;
 
