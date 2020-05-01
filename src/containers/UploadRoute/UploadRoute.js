@@ -25,8 +25,8 @@ const UploadRoute = ({ webId }: Props) => {
     const webID = webId;
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [geojson, setGeojson] = useState("");
     let file = React.createRef();
-    let geojson = "";
     let points = [];
 
     function handleTitleChange(event) {
@@ -40,8 +40,7 @@ const UploadRoute = ({ webId }: Props) => {
     }
 
     function loaded(file) {
-      geojson = file.target.result.toString();
-      console.log(geojson);
+      setGeojson(file.target.result.toString());
     }
 
     function handleUpload(event) {
@@ -77,50 +76,47 @@ const UploadRoute = ({ webId }: Props) => {
         errorToaster(i18n.t("uploadRoute.errorTitle"), "ERROR");
       } else if (description.length === 0) {
         errorToaster(i18n.t("uploadRoute.errorDescription"), "ERROR");
+      } else if (geojson === "") {
+        errorToaster(i18n.t("uploadRoute.noFile"), "ERROR");
       } else {
         parserGeoJSON(geojson);
-        if (geojson === "") {
-          errorToaster(i18n.t("uploadRoute.noFile"), "ERROR");
+        if (points.length === 0) {
+          errorToaster(i18n.t("uploadRoute.errorFile"), "ERROR");
         } else {
-          if (points.length === 0) {
-            errorToaster(i18n.t("uploadRoute.errorFile"), "ERROR");
-          } else {
-            let author = webID.replace("https://", "");
-            author = author.replace(".solid.community/profile/card#me", "");
-            author = author.replace(".inrupt.net/profile/card#me", "");
+          let author = webID.replace("https://", "");
+          author = author.replace(".solid.community/profile/card#me", "");
+          author = author.replace(".inrupt.net/profile/card#me", "");
 
-            const multimedia = [];
-            let filesFolder = document.getElementsByClassName("file-uploader--input");
-            let filesMult = filesFolder[0].files;
-            let url = webID.replace("profile/card#me", "private/viade/rawMedia/");
-            for (let j = 0; j < filesMult.length; j++) {
-              let name = filesMult[parseInt(j)].name.split(".")[0];
-              name = name.replace(/ /g, "");
-              var d = Date(Date.now());
-              multimedia.push(
-                new Multimedia(
-                  url + filesMult[parseInt(j)].name.replace(/ /g, ""),
-                  d.toString(),
-                  author,
-                  name,
-                  null
-                )
-              );
-            }
-
-            let route = new Route(title, author, description, points, multimedia);
-            viadeManager.addRoute(route, webID);
-            successToaster(i18n.t("uploadRoute.successRoute"), i18n.t("uploadRoute.success"));
-            setTimeout(function() {
-              window.location.href = "#/myRoutes";
-            }, 1000);
+          const multimedia = [];
+          let filesFolder = document.getElementsByClassName("file-uploader--input");
+          let filesMult = filesFolder[0].files;
+          let url = webID.replace("profile/card#me", "private/viade/rawMedia/");
+          for (let j = 0; j < filesMult.length; j++) {
+            let name = filesMult[parseInt(j)].name.split(".")[0];
+            name = name.replace(/ /g, "");
+            var d = Date(Date.now());
+            multimedia.push(
+              new Multimedia(
+                url + filesMult[parseInt(j)].name.replace(/ /g, ""),
+                d.toString(),
+                author,
+                name,
+                null
+              )
+            );
           }
+
+          let route = new Route(title, author, description, points, multimedia);
+          viadeManager.addRoute(route, webID);
+          successToaster(i18n.t("uploadRoute.successRoute"), i18n.t("uploadRoute.success"));
+          setTimeout(function() {
+            window.location.href = "#/myRoutes";
+          }, 1000);
         }
       }
       event.preventDefault();
-    }
+    };
 
-    ;
 
     return (
       <RouteWrapper data-testid="route-wrapper">
@@ -141,7 +137,7 @@ const UploadRoute = ({ webId }: Props) => {
                           onChange={handleDescriptionChange}/>
               </Label>
 
-                <MultimediaComponent id={"input-img"} webId={`[${webId}]`} image=""/>
+              <MultimediaComponent id={"input-img"} webId={`[${webId}]`} image=""/>
             </Grid>
 
             <Grid>
