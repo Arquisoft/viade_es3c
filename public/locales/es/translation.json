@@ -57,6 +57,7 @@
 		"mySharedRoutes": "Mis rutas compartidas",
 
 		"myFriends": "Mis amigos",
+		"uploadRoute": "Subir ruta",
 		"formModelRender": "Form Model Render",
 		"formModelConvert": "Form Model Convert",
 		"text-editor": "Editor de Textos",
@@ -192,6 +193,21 @@
 		"addingList": "a tu lista de amigos",
 		"btnAdd": "Añadir",
 		"webId": "Introduce el webID del usuario que desees añadir a tu lista de amigos"
+	},
+	"uploadRoute": {
+		"title": "Subir ruta",
+		"name": "Nombre de la ruta:",
+		"description": "Descripción de la ruta:",
+		"btnSave": "Guardar",
+		"errorTitle": "La ruta tiene que tener un título",
+		"errorDescription": "La ruta tiene que tener una descripción",
+		"successRoute": "La ruta se ha guardado correctamente",
+		"savedFiles": "Los archivos se han guardado correctamente",
+		"success": "ÉXITO",
+		"btnMedia": "Subir foto/vídeo",
+		"uploadFile": "Subir fichero:",
+		"errorFile": "El fichero no es válido",
+		"noFile": "Debe subir un fihero"
 	},
 	"viade": {
 		"title": "Viade",

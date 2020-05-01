@@ -12,7 +12,7 @@ export const NavigationItems = [
 		id: "newRoute",
 		icon: "img/icon/route.svg",
 		label: "navBar.newRoute",
-		to: "/route"
+		to: "/newRoute"
 	},
 	{
 		id: "myRoutes",
@@ -31,7 +31,14 @@ export const NavigationItems = [
 		icon: "img/icon/friends.svg",
 		label: "navBar.myFriends",
 		to: "/myFriends"
+	},
+	{
+		id: "uploadRoute",
+		icon: "img/icon/upload.svg",
+		label: "navBar.uploadRoute",
+		to: "/uploadRoute"
 	}
+
 ];
 
 export const ProfileOptions = [

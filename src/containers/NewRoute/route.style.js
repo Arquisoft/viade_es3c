@@ -25,8 +25,7 @@ export const RouteWrapper = styled.section`
 
 		input {
 			max-width: 100%;
-		}
-		
+		}	
 `;
 
 export const Header = styled.div`

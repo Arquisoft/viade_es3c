@@ -10,12 +10,13 @@ import {
 	RegistrationSuccess,
 	Profile,
 	FormModelConverter,
-	FormModelRenderer
+	FormModelRenderer,
+	NewRoute,
+	MyRoutes,
+	MySharedRoutes,
+	MyFriends,
+	UploadRoute
 } from "./containers";
-import NewRoute from "./containers/NewRoute";
-import MyRoutes from "./containers/MyRoutes";
-import MySharedRoutes from "./containers/MySharedRoutes";
-import MyFriends from "./containers/MyFriends";
 import Footer from "./components/Footer";
 
 const privateRoutes = [
@@ -26,7 +27,7 @@ const privateRoutes = [
 	},
 	{
 		id: "route",
-		path: "/route",
+		path: "/newRoute",
 		component: NewRoute
 	},
 	{
@@ -46,7 +47,11 @@ const privateRoutes = [
 		path: "/myFriends",
 		component: MyFriends
 	},
-
+	{
+		id:"uploadRoute",
+		path: "/uploadRoute",
+		component: UploadRoute
+	},
 	{
 		id: "profile",
 		path: "/profile",

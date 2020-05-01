@@ -57,6 +57,7 @@
 
 		"myFriends": "My friends",
 		"newRoute": "New route",
+		"uploadRoute": "Upload route",
 		"formModelRender": "Form Model Render",
 		"formModelConvert": "Form Model Convert",
 		"text-editor": "Text Editor",
@@ -191,6 +192,21 @@
 		"addingList": "to your friends list",
 		"btnAdd": "Add",
 		"webId": "Enter the webID of the user you want to add to your friends list"
+	},
+	"uploadRoute": {
+		"title": "Upload route",
+		"name": "Name of the route:",
+		"description": "Description of the route:",
+		"btnSave": "Save",
+		"errorTitle": "The route must have a title",
+		"errorDescription": "The route must have a description",
+		"successRoute": "The route has been saved successfully",
+		"savedFiles": "Los archivos se han guardado correctamente",
+		"success": "SUCCESS",
+		"btnMedia": "Upload photo/video",
+		"uploadFile": "Upload a file:",
+		"errorFile": "The file is not valid",
+		"noFile": "You must upload a file"
 	},
 	"viade": {
 		"viade": "Viade",
