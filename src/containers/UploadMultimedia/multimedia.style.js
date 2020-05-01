@@ -19,6 +19,7 @@ export const WelcomeWrapper = styled.section`
 
 export const DivForms = styled.div`
   margin-bottom: 0;
+  display: inline;
 `;
 
 export const WelcomeCard = styled.div`
@@ -128,7 +129,7 @@ export const WelcomeProfile = styled.div`
       background-color:#D0D0D0;
       top:0;
     }
-  `}
+  `};
 `;
 
 export const ImageWrapper = styled.div`

@@ -12,7 +12,7 @@ allowing them to send it to the SOLID application.
 
 
 .Use case
-image::.\images\use_case.png[]
+image::use_case.png[]
 The communication is done throught the user´s pods. Anytime a user wants to store a route, or access to one
 his petition is communicated to their pod, and then he is able to access one of their routes, or the one
 their friends are sharing with them.
@@ -25,7 +25,7 @@ This section shows a representation of the communication partners and stakeholde
 offering a more easy to understand graphical view of the business, and later explain more indepth
 in the technical context.
 
-image::.\images\bussines_context.png[]
+
 
 [cols="^.^2,^.^3,^.^3"] [cols=3*,options="header"]
 .Application context
@@ -58,20 +58,7 @@ image::.\images\bussines_context.png[]
 
 
 
-=== Business Context
 
-[role="arc42help"]
-****
-This section shows a representation of the communication partners and stakeholders of our system,
-offering a more easy to understand graphical view of the business, and later explain more indepth
-in the technical context.
-
-.Use case
-image::.\images\use_case.png[]
-The communication is done throught the user´s pods. Anytime a user wants to store a route, or access to one
-his petition is communicated to their pod, and then he is able to access one of their routes, or the one
-their friends are sharing with them.
-****
 
 
 
@@ -84,4 +71,7 @@ the main idea is building an applicacion working with the technologies we mentio
 capable of working with SOLID and allowing SOLID users to save their routes and sharing them
 with friends in a safe way, the base part of the applicacion is gonna be done using REACT, while
 the communication is done using SOLID and its pods.
+
+image::bussines_context.png[]
+
 ****

@@ -1,14 +1,16 @@
 import React from "react";
 import Map from "./Map";
 import { errorToaster, successToaster } from "@utils";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   Header,
   RouteWrapper,
   TextArea,
   DivForms,
-  InputSubmit,
   LabelInput,
   TitleRoute,
+  Button,
   RouteForm
 } from "./route.style";
 import { Route, Point, Multimedia } from "../../domain";
@@ -38,12 +40,11 @@ class NewRoute extends React.Component {
 
   state = { markers: {}, image: {} };
 
-  callBackFunction = (childData) => {
+  callBackFunction = childData => {
     this.setState({ markers: childData });
   };
 
-  componentWillUnmount() {
-  }
+  componentWillUnmount() {}
 
   handleChange(event) {
     this.setState({ value: event.target.value });
@@ -74,7 +75,6 @@ class NewRoute extends React.Component {
           )
         );
       }
-      console.log(points);
 
       let author = this.webID.replace("https://", "");
       author = author.replace(".solid.community/profile/card#me", "");
@@ -83,7 +83,10 @@ class NewRoute extends React.Component {
       const multimedia = [];
       let filesFolder = document.getElementsByClassName("file-uploader--input");
       let filesMult = filesFolder[0].files;
-      let url = this.webID.replace("profile/card#me", "private/viade/rawMedia/");
+      let url = this.webID.replace(
+        "profile/card#me",
+        "private/viade/rawMedia/"
+      );
       for (let j = 0; j < filesMult.length; j++) {
         let name = filesMult[parseInt(j)].name.split(".")[0];
         name = name.replace(/ /g, "");
@@ -98,9 +101,18 @@ class NewRoute extends React.Component {
           )
         );
       }
-      let route = new Route(this.title.current.value, author, this.description.current.value, points, multimedia);
+      let route = new Route(
+        this.title.current.value,
+        author,
+        this.description.current.value,
+        points,
+        multimedia
+      );
       await viadeManager.addRoute(route, this.webID);
-      successToaster(i18n.t("newRoute.successRoute"), i18n.t("newRoute.success"));
+      successToaster(
+        i18n.t("newRoute.successRoute"),
+        i18n.t("newRoute.success")
+      );
       setTimeout(function() {
         window.location.href = "#/myRoutes";
       }, 1000);
@@ -117,7 +129,12 @@ class NewRoute extends React.Component {
             <DivForms>
               <LabelInput>
                 {i18n.t("newRoute.name")}{" "}
-                <input type="text" id="route_name" name="route_name" ref={this.title}/>
+                <input
+                  type="text"
+                  id="route_name"
+                  name="route_name"
+                  ref={this.title}
+                />
               </LabelInput>
             </DivForms>
             <DivForms>
@@ -135,20 +152,29 @@ class NewRoute extends React.Component {
             </DivForms>
           </RouteForm>
           <DivForms>
-            <MultimediaComponent id={"input-img"} webId={`[${this.webId}]`} image=""/>
-          </DivForms>
-          <DivForms>
-            <InputSubmit
-              type="submit"
-              id="save_route"
-              value={i18n.t("newRoute.btnSave")}
-              form="routef"
-              onClick={this.handleSubmit}
+            <MultimediaComponent
+              id="input-img"
+              webId={`[${this.webId}]`}
+              image=""
             />
+            <hr />
+            <Button
+              id="save_route"
+              form="routef"
+              type="submit"
+              onClick={e => this.handleSubmit(e)}
+            >
+              <FontAwesomeIcon
+                icon="save"
+                className="save-icon"
+                title={i18n.t("newRoute.btnSave")}
+              />
+              {"	" + i18n.t("newRoute.btnSave")}
+            </Button>
           </DivForms>
         </Header>
 
-        <Map parentCallBack={this.callBackFunction} zoom={13}/>
+        <Map parentCallBack={this.callBackFunction} zoom={13} />
       </RouteWrapper>
     );
   }

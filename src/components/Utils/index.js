@@ -19,5 +19,5 @@ export {
   Loader,
   Input,
   Toaster,
-  Select,
+  Select
 };

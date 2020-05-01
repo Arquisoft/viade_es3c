@@ -16,6 +16,10 @@ import {
 	MyFriends,
 	UploadRoute
 } from "./containers";
+import NewRoute from "./containers/NewRoute";
+import MyRoutes from "./containers/MyRoutes";
+import MySharedRoutes from "./containers/MySharedRoutes";
+import MyFriends from "./containers/MyFriends";
 import Footer from "./components/Footer";
 
 const privateRoutes = [
@@ -33,6 +37,12 @@ const privateRoutes = [
 		id: "myRoutes",
 		path: "/myRoutes",
 		component: MyRoutes
+	},
+
+	{
+		id: "mySharedRoutes",
+		path: "/mySharedRoutes",
+		component: MySharedRoutes
 	},
 
 	{

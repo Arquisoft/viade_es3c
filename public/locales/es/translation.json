@@ -18,7 +18,9 @@
 		"errorGrantingAccess": "Había un error al dar acceso a tu documento. Por favor, intenta de nuevo.",
 		"saved": "Tu documento ha sido guardado al pod.",
 		"notEditable": "(no editable)",
-		"notSharable": "(logéate y carga undocumento en tu própio pod para poder dar acceso)"
+		"notSharable": "(logéate y carga un documento en tu própio pod para poder dar acceso)",
+		"noNotifications": "No tienes notificaciones",
+		"title": "NOTIFICACIONES"
 	},
 	"login": {
 		"title": "Hola! Bienvenido a Viade.",

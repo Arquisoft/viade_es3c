@@ -15,4 +15,3 @@ describe.only("FriendsHelp", () => {
     friendsHelper.getName(name);
   });
 });
-

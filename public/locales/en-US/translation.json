@@ -18,7 +18,9 @@
 		"errorGrantingAccess": "There was an error giving access to your file, please try again.",
 		"saved": "Your file was saved successfully.",
 		"notEditable": "(not editable)",
-		"notSharable": "(log in and load a doc on your own pod to give others access)"
+		"notSharable": "(log in and load a doc on your own pod to give others access)",
+		"noNotifications": "You have no notifications",
+		"title": "NOTIFICATIONS"
 	},
 	"login": {
 		"title": "Hi! Welcome to Solid.",
