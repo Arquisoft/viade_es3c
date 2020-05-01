@@ -53,6 +53,8 @@
 		"logOut": "Log out",
 		"profile": "Profile",
 		"myRoutes": "My routes",
+		"mySharedRoutes": "My shared routes",
+
 		"myFriends": "My friends",
 		"newRoute": "New route",
 		"formModelRender": "Form Model Render",

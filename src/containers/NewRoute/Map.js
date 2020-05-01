@@ -3,7 +3,6 @@ import * as Papa from "papaparse";
 import React from "react";
 import update from "react-addons-update";
 import axios from "axios";
-import { Loader } from "@util-components";
 
 const mapStyle = {
 	paddingBottom: "10px",
@@ -75,17 +74,19 @@ export class MapContainer extends React.Component {
 				data = data.data;
 
 				var region = this.groupByArray(data, "AdminRegion2");
-
+				// eslint-disable-next-line
 				region.map((country = {}) => {
 					dataActualizada.push(country.values[country.values.length - 1]);
 				});
 
 				var region2 = this.groupByArray(data, "AdminRegion1");
+				// eslint-disable-next-line
 				region2.map((country = {}) => {
 					dataActualizada.push(country.values[country.values.length - 1]);
 				});
 
 				var pais = this.groupByArray(data, "Country_Region");
+				// eslint-disable-next-line
 				pais.map((country = {}) => {
 					dataActualizada.push(country.values[country.values.length - 1]);
 				});
