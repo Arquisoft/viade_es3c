@@ -5,7 +5,6 @@ afterAll(cleanup);
 
 describe.only("Invited", () => {
   test("invite", async () => {
-
     expect(
       Invite.invite("https://saragg.solid.community/profile/card#me", null)
     ).toBe(`@prefix inv: <>.
@@ -16,7 +15,6 @@ describe.only("Invited", () => {
         rdfs:label "Notification";
         rdfs:comment "saragg has share their route with you";
         as:object <null>.
-    `
-    );
+    `);
   });
 });

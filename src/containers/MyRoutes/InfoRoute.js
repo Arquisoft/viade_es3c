@@ -15,7 +15,12 @@ import { viadeManager } from "@utils";
 import Download from "@axetroy/react-download";
 import PrintButton from "../../components/PrintButton";
 
-import { RouteWrapper, TextArea, DivForms, LabelInput } from "../NewRoute/route.style";
+import {
+  RouteWrapper,
+  TextArea,
+  DivForms,
+  LabelInput
+} from "../NewRoute/route.style";
 
 var markersp = [];
 const InfoRoute = (props) => {

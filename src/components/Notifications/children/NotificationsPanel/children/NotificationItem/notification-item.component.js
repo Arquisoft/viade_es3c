@@ -2,8 +2,12 @@ import React, { useCallback } from "react";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Item, Body, Message, Meta, MarkAsRead, Delete, Img } from "./notification-item.style";
-import { getUserName } from "../../../../../../containers/MyFriends/MyFriends";
+import { getUserName, getPathShareRoutes } from "../../../../../../containers/MyFriends/MyFriends";
+import { createDocumentWithTurtle } from "../../../../../../utils/ldflex-helper";
+import auth from "solid-auth-client";
 
+const FC = require("solid-file-client");
+const fc = new FC(auth);
 type Props = {
 	notification: Object,
 	markAsRead: Function,
@@ -26,7 +30,12 @@ const NotificationItem = ({ notification, markAsRead, children, deleteNotificati
 		async () => {
 			if (notification.target) {
 				await markAsRead(notification.path, notification.id);
-				window.location = notification.object;
+				var name = notification.object.split("/");
+				name = name[name.length - 1];
+				const sharedFilePath = getPathShareRoutes(notification.target) + name;
+				var content = await fc.readFile(notification.object);
+				await createDocumentWithTurtle(sharedFilePath, content);
+				window.location = "#/mySharedRoutes";
 			}
 		},
 		[ notification ]

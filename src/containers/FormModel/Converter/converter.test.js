@@ -25,7 +25,7 @@ describe.only("Form Model Converter", () => {
     expect(getByTestId("convert-button").hasAttribute("disabled")).toBeTruthy();
   });
 
-  test('toaster', () => {
-    (expect(Toaster.successToaster()).toHaveBeenCalled);
+  test("toaster", () => {
+    expect(Toaster.successToaster()).toHaveBeenCalled;
   });
 });

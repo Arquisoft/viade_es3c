@@ -4,18 +4,14 @@ import Notifications from "./notification-list.component";
 
 afterAll(cleanup);
 
-const nots = [
-  { n: { n1: "n1"} }
-];
+const nots = [{ n: { n1: "n1" } }];
 
 const Props = {
-  notifications: nots,
+  notifications: nots
 };
 
 describe.only("Notification list", () => {
-  const { container } = render(
-    <Notifications {...{Props}}/>
-  );
+  const { container } = render(<Notifications {...{ Props }} />);
 
   it("renders without crashing", () => {
     expect(container).toBeTruthy();
