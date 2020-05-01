@@ -28,7 +28,10 @@ defineFeature(feature, test => {
 
     when("Putting my webId", async () => {
       await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(".sc-EHOje.cffgrt", "https://saragg.solid.community/profile/card#me");
+      await page.type(
+        ".sc-EHOje.cffgrt",
+        "https://saragg.solid.community/profile/card#me"
+      );
 
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
@@ -36,7 +39,6 @@ defineFeature(feature, test => {
           if (btn.innerText == "Iniciar sesión") {
             btn.click();
           }
-
         });
       });
     });
