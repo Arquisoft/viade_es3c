@@ -35,7 +35,7 @@ const NotificationList = ({
       </List>
     ) : (
       <NoNotifications className="empty-list">
-       {i18n.t("notifications.noNotifications")}
+        {i18n.t("notifications.noNotifications")}
       </NoNotifications>
     )}
   </Fragment>
