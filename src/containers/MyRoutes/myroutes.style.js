@@ -46,39 +46,8 @@ export const RouteCard = styled.div`
 			margin: 0 0 0px 0;
 		}
 	}
-	#divDelete {
-		margin-left: 550px;
-		margin-top: 18px;
-	}
-	#btnDelete {
-		font-size: 14px;
-		padding: 10px 20px;
-	}
-	#divModificar {
-		margin-left: 550px;
-		margin-top: 18px;
-	}
-	#divDownload {
-		margin-left: 550px;
-		margin-top: 18px;
-	}
-	#btnModify {
-		font-size: 14px;
-		padding: 10px 20px;
-		margin-bottom: 10px;
-	}
-	#divShare {
+	#viewFriends {
 		margin-left: 50px;
-	}
-	#btnDownload {
-		font-size: 14px;
-		padding: 10px 20px;
-		margin-bottom: 10px;
-	}
-	#divBtns {
-		margin-left: 560px;
-		margin-top: 15px;
-		margin-bottom: -140px;
 	}
 `;
 
