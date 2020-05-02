@@ -1,8 +1,8 @@
 import React from "react";
 import { render, cleanup } from "react-testing-library";
 import { HashRouter as Router } from "react-router-dom";
-import RouteMap from "./RouteMap";
-import { MapContainer } from "../NewRoute/Map";
+import RouteMap from "../RouteMap";
+import { MapContainer } from "../../NewRoute/Map";
 import { Map } from "google-maps-react";
 
 const props = {

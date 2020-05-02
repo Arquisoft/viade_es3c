@@ -3,11 +3,11 @@ import { render, cleanup, queryByAttribute, fireEvent } from "react-testing-libr
 import { HashRouter as Router } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import NewRoute from "./NewRoute";
-import * as Toaster from "../../utils/toaster";
+import NewRoute from "../NewRoute";
+import * as Toaster from "../../../utils/toaster";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import Map from "./Map";
+import Map from "../Map";
 import { shallow } from "enzyme/build";
 
 configure({ adapter: new Adapter() });

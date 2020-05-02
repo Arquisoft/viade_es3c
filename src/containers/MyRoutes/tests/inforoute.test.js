@@ -1,13 +1,13 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
-import InfoRoutes from "./InfoRoute";
+import InfoRoutes from "../InfoRoute";
 import {
   cleanup,
   queryByAttribute,
   render,
   fireEvent
 } from "react-testing-library";
-import MultsButton from "./ViewMult";
+import MultsButton from "../ViewMult";
 import { act } from "react-dom/test-utils";
 
 const multi = [{ url: ".mp3" }, { url: ".mp4" }, { url: ".ext" }];

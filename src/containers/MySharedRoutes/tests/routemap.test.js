@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
 import { HashRouter as Router } from 'react-router-dom';
-import RouteMap from "./RouteMap";
+import MapContainer from "../RouteMap";
 
 const props = {
   markers : [
@@ -15,7 +15,7 @@ describe.only('RouteMap', () => {
   afterAll(cleanup);
   const { container } = render(
     <Router>
-      <RouteMap {...{props}}/>
+      <MapContainer {...{props}}/>
     </Router>
   );
 

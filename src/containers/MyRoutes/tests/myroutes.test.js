@@ -1,6 +1,6 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
-import MySharedRoutes from "./MySharedRoutes";
+import MyRoute from "../MyRoutes";
 import { cleanup, queryByAttribute, render } from "react-testing-library";
 
 const props = {
@@ -13,7 +13,7 @@ describe.only("MyRoutes", () => {
   const getById = queryByAttribute.bind(null, "id");
   const { container } = render(
     <Router>
-      <MySharedRoutes {...{ ...props }} />
+      <MyRoute {...{ ...props }} />
     </Router>
   );
 

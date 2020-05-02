@@ -3,8 +3,8 @@ import { render, cleanup, queryByAttribute, fireEvent } from "react-testing-libr
 import { HashRouter as Router } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import UploadRoute from "./UploadRoute";
-import * as Toaster from "../../utils/toaster";
+import UploadRoute from "../UploadRoute";
+import * as Toaster from "../../../utils/toaster";
 import { configure } from "enzyme";
 import { getByTestId } from "@testing-library/dom";
 import Adapter from "enzyme-adapter-react-16";
@@ -31,37 +31,7 @@ describe.only("NewRoute", () => {
     expect(container).toBeTruthy();
   });
 
-  test("trying to create a route without a title", () => {
-    render(
-      <Router>
-        <UploadRoute {...{ props }}/>
-      </Router>
-    );
-    const button_save = getByTestId(container, "bt-save");
-
-    fireEvent.click(button_save);
-    expect(Toaster.errorToaster()).toHaveBeenCalled;
-  });
-
-  test("trying to create a route without a description", () => {
-    render(
-      <Router>
-        <UploadRoute {...{ props }}/>
-      </Router>
-    );
-    const nameInput = getByTestId(container, "route_name");
-    fireEvent.change(nameInput, { target: { value: "prueba" } });
-
-    const descriptionInput = getByTestId(container, "route_description");
-    fireEvent.change(descriptionInput, { target: { value: "" } });
-
-    const button_save = getByTestId(container, "bt-save");
-    fireEvent.click(button_save);
-
-    expect(Toaster.errorToaster()).toHaveBeenCalled;
-  });
-
-  test("Trying to upload a Route with any file", () => {
+  test("Trying to upload a Route with geojson", () => {
 
     const nameInput = getByTestId(container, "route_name");
     const descriptionInput = getByTestId(container, "route_description");
@@ -81,8 +51,8 @@ describe.only("NewRoute", () => {
     });
 
     const fileInput = getByTestId(container, "file-input");
-    const anyfile = 'prueba any file'
-    const file = new File([anyfile], "prueba.txt");
+    const geojson = '{"type": "FeatureCollection","features": [{"type": "Feature","properties": {},"geometry": {"type": "LineString","coordinates": [[28.10302734375,52.81604319154934],[27.83935546875,50.12057809796008],[29.860839843749996,49.296471602658066],[29.5751953125,51.876490970614775],[31.904296874999996,51.16556659836182],[31.3330078125,49.710272582105695]]}}]}';
+    const file = new File([geojson], "prueba.geojson");
 
     Object.defineProperty(fileInput, "files", { value: [file] });
     fireEvent.change(fileInput);

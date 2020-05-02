@@ -3,8 +3,8 @@ import { render, cleanup, queryByAttribute, fireEvent } from "react-testing-libr
 import { HashRouter as Router } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import UploadRoute from "./UploadRoute";
-import * as Toaster from "../../utils/toaster";
+import UploadRoute from "../UploadRoute";
+import * as Toaster from "../../../utils/toaster";
 import { configure } from "enzyme";
 import { getByTestId } from "@testing-library/dom";
 import Adapter from "enzyme-adapter-react-16";

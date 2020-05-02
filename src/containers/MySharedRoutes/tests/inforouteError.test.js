@@ -1,8 +1,8 @@
 import React from "react";
 import { HashRouter as Router } from "react-router-dom";
-import InfoRoutes from "./InfoRoute";
+import InfoRoutes from "../InfoRoute";
 import { cleanup, queryByAttribute, render, fireEvent } from "react-testing-library";
-import MultsButton from "./ViewMult";
+import MultsButton from "../ViewMult";
 import { act } from 'react-dom/test-utils';
 
 const multi = [
@@ -18,15 +18,13 @@ const props = {
   points: null,
   center: null,
   mult: multi,
-  r: 'https://saragarcia.solid.community/',
-  uuid: 'https://saragarcia.solid.community/'
+  error: true,
+  errorMore: ""
 };
 
 
 describe.only("InfoRoutes", () => {
   afterAll(cleanup);
-
-  const getById = queryByAttribute.bind(null, 'id');
 
   const { container } = render(
     <Router>
