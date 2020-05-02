@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Modal, DropdownButton, Dropdown } from "react-bootstrap";
-import { RouteCard, Button, SpecialDiv, DivBtns } from "./myroutes.style";
+import { Modal, DropdownButton } from "react-bootstrap";
+import { RouteCard, Button } from "./myroutes.style";
 import { ldflexHelper } from "@utils";
 import { successToaster } from "@utils";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -43,7 +43,13 @@ const InfoRoute = (props) => {
 				</DropdownButton>
 
 				<div id="divDelete">
-					<Modal 	id="modalDel" show={showConfirm} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+					<Modal
+						id="modalDel"
+						show={showConfirm}
+						size="lg"
+						aria-labelledby="contained-modal-title-vcenter"
+						centered
+					>
 						<Modal.Header>
 							<Modal.Title id="contained-modal-title-vcenter">{i18n.t("myRoutes.attetion")}</Modal.Title>
 						</Modal.Header>

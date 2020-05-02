@@ -140,7 +140,8 @@ const UploadRoute = ({ webId }: Props) => {
 						</Label>
 					</Grid>
 				</Form>
-				<MultimediaComponent id={"input-img"} id="butonMedia" webId={`[${webId}]`} image="" />
+
+				<MultimediaComponent id={"butonMedia"} webId={`[${webId}]`} image={""} />
 				<hr />
 				<Button data-testid="bt-save" id="butonSave" onClick={handleSave}>
 					{i18n.t("uploadRoute.btnSave")}
