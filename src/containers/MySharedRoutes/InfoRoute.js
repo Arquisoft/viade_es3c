@@ -10,7 +10,6 @@ const InfoRoute = (props) => {
 	const { name, author, description, points, center, mult, error, errorMore } = props;
 
 	if (!error) {
-		console.log(error);
 		return (
 			<RouteCard className="card" id="card">
 				<div id={name}>

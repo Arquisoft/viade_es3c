@@ -20,7 +20,11 @@ const props = {
   center: null,
   mult: multi,
   r: "https://saragarcia.solid.community/",
-  uuid: "https://saragarcia.solid.community/"
+  uuid: "https://saragarcia.solid.community/",
+  error: true,
+  errorMore: "",
+  webId : "https://saragarcia.solid.community/",
+  ruta: ""
 };
 
 describe.only("InfoRoutes", () => {
@@ -40,19 +44,5 @@ describe.only("InfoRoutes", () => {
     act(() => {
       expect(container).toBeTruthy();
     });
-  });
-
-  test("click button", async () => {
-    const btModify = getById(container, "btnModify");
-    fireEvent.click(btModify);
-
-    const btDownload = getById(container, "btnDownload");
-    fireEvent.click(btDownload);
-
-    const btDelete = getById(container, "btnDelete");
-    fireEvent.click(btDelete);
-
-    const btFriends = getById(container, "viewFriends");
-    fireEvent.click(btFriends);
   });
 });
