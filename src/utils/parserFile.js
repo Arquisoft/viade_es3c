@@ -5,7 +5,6 @@ export class ParserFile {
   points = [];
 
   parserGeoJSON(file) {
-    console.log(file);
     var geoObject = JSON.parse(file);
     var features;
     features = geoObject.features;

@@ -18,6 +18,7 @@ import PrintButton from "../../components/PrintButton";
 import { RouteWrapper, TextArea, DivForms, LabelInput } from "../NewRoute/route.style";
 
 var markersp = [];
+
 const InfoRoute = (props) => {
 	const { name, author, description, points, center, mult, r, uuid, ttl, error, errorMore, webID, ruta } = props;
 	const [ showFriends, setShowFriends ] = useState(false);
@@ -25,6 +26,7 @@ const InfoRoute = (props) => {
 	const [ showConfirmModify, setShowConfirmModify ] = useState(false);
 	const [ showConfirmDownload, setShowConfirmDownload ] = useState(false);
 	markersp = points;
+
 	if (!error) {
 		return (
 			<RouteCard className="card" id="card">
@@ -41,7 +43,7 @@ const InfoRoute = (props) => {
 				</DropdownButton>
 
 				<div id="divDelete">
-					<Modal show={showConfirm} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+					<Modal 	id="modalDel" show={showConfirm} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
 						<Modal.Header>
 							<Modal.Title id="contained-modal-title-vcenter">{i18n.t("myRoutes.attetion")}</Modal.Title>
 						</Modal.Header>
@@ -51,6 +53,7 @@ const InfoRoute = (props) => {
 						</Modal.Body>
 						<Modal.Footer>
 							<Button
+								id="btDelete"
 								onClick={(e) => {
 									for (const media of mult) {
 										ldflexHelper.deleteFile(media.url);
@@ -71,6 +74,7 @@ const InfoRoute = (props) => {
 						</Modal.Footer>
 					</Modal>
 				</div>
+
 				<div id="divModificar">
 					<Modal
 						id="modalMod"

@@ -43,7 +43,7 @@ export const Tabs = ({ list, click, activeName }: Props) => {
       {list &&
         list.map(tab => (
           <Tab key={tab.path}>
-            <button
+            <button id="tab"
               onClick={() => filterByName(tab.inboxName)}
               type="button"
               className={active === tab.inboxName ? "active" : ""}
