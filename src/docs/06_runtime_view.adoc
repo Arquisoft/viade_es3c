@@ -26,6 +26,13 @@ For each route you can see: name, author, description, the points of the route o
 
 image::06_runtime_view_My_Routes.png[My Routes diagram]
 
+=== Upload geojson files
+
+
+=== Upload gpx files
+
+
+
 === My Friends
 This part of the application allows you to view the list of the user's friends in session. It is also possible to add and remove friends. After these two actions, the page where the friends are seen will be reloaded, allowing us to see the update of the list of our friends. 
 
@@ -51,3 +58,5 @@ image::06_runtime_view_Share_Routes.png[Share routes diagram]
 We can see the routes that users shared with us by clicking on the shared routes option in the navigation menu. 
 
 image::06_runtime_view_See_Shared_Routes.png[View shared routes with me diagram]
+
+
