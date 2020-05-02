@@ -70,6 +70,7 @@ defineFeature(feature, test => {
     });
 
     when('Pressing multimedia button', async () => {
+      await page.waitFor(500);
       await page.waitForSelector('#mult');
       await page.click('#mult');
     });
