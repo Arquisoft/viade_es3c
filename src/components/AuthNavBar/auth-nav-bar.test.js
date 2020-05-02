@@ -5,15 +5,15 @@ import AuthNavBar from "./auth-nav-bar.component";
 import * as Toaster from "../../utils/toaster";
 
 describe.only("AuthNavBar", () => {
-	afterAll(cleanup);
+  afterAll(cleanup);
 
-	const { container } = render(
-		<Router>
-			<AuthNavBar t={(key) => key} />
-		</Router>
-	);
+  const { container } = render(
+    <Router>
+      <AuthNavBar t={key => key} />
+    </Router>
+  );
 
-	test("renders without crashing", () => {
-		expect(container).toBeTruthy();
-	});
+  test("renders without crashing", () => {
+    expect(container).toBeTruthy();
+  });
 });

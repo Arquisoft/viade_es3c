@@ -10,10 +10,10 @@
 | Node.js | It is a JavaScript execution environment oriented to asynchronous events, Node.js is designed to build scalable network applications.
 | Notation3 or N3 | It it is more commonly known, is a shorthand non-XML serialization of Resource Description Framework models, designed with human-readability in mind: N3 is much more compact and readable than XML RDF notation.
 | POD | A user has a kind of box in which each of the users stores their data in these boxes, when the user connects to the Internet he can manage the data to which a website has access.
-| RDF | It is a family of World Wide Web Consortium (W3C) specifications originally designed as a metadata data model. 
-| RDFlib | It is a Python library for working with RDF.The library contains parsers/serializers for almost all of the known RDF serielizations, such as RDF/XML, Turtle, N-Triples, & JSON-LD. 
+| RDF | It is a family of World Wide Web Consortium (W3C) specifications originally designed as a metadata data model.
 | SOLID    | Solid is a new project led by Prof. Tim Berners-Lee, inventor of the World Wide Web. The project aims to radically change the  way Web applications work today, resulting in true data ownership as well as improved privacy.
 | Solid-File-Client | It is a JavaScript library with high-level methods to create, read, and manage files and folders.
+| Solid-acl-utils | It is a js library for working with acl files. It allows you to add/change/remove permissions of files and folders in solid pods.
 | Travis | It is a hosted continuous integration service used to build and test software projects hosted at GitHub and Bitbucket.
 | Turtle | It is a syntax and file format for expressing data in the Resource Description Framework (RDF) data model. Turtle syntax is similar to that of SPARQL, an RDF query language. It is a common data format for storing RDF data, along with N-Triples, JSON-LD and RDF/XML.
 |====================

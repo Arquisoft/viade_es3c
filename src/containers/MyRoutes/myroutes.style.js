@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const RouteCard = styled.div`
 	margin: 15px auto;
-
 	max-width: 78% !important;
 	padding: 5px 15px !important;
 	text-align: center;
@@ -13,7 +12,6 @@ export const RouteCard = styled.div`
 			text-decoration-color: white;
 		}
 	}
-
 	h5 {
 		text-color: white;
 	}
@@ -28,7 +26,6 @@ export const RouteCard = styled.div`
 		font-size: 25px;
 		margin: 0 0 0px 0;
 	}
-
 	#containerRuta {
 		padding: 0px 25px !important;
 		a {
@@ -49,41 +46,8 @@ export const RouteCard = styled.div`
 			margin: 0 0 0px 0;
 		}
 	}
-
-	#divDelete {
-		margin-left: 550px;
-		margin-top: 18px;
-	}
-	#btnDelete {
-		font-size: 14px;
-		padding: 10px 20px;
-	}
-
-	#divModificar {
-		margin-left: 550px;
-		margin-top: 18px;
-	}
-	#divDownload {
-		margin-left: 550px;
-		margin-top: 18px;
-	}
-	#btnModify {
-		font-size: 14px;
-		padding: 10px 20px;
-		margin-bottom: 10px;
-	}
-	#divShare {
+	#viewFriends {
 		margin-left: 50px;
-	}
-	#btnDownload {
-		font-size: 14px;
-		padding: 10px 20px;
-		margin-bottom: 10px;
-	}
-	#divBtns {
-		margin-left: 560px;
-		margin-top: 15px;
-		margin-bottom: -140px;
 	}
 `;
 
@@ -95,7 +59,7 @@ export const RouteWrapper = styled.section`
 	flex: 1 0 auto;
 	align-items: center;
 	justify-content: center;
-	background: url(../img/misrutas.png);
+	background: url("img/misrutas.png");
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
@@ -139,11 +103,9 @@ export const FormRenderContainer = styled.div`
     background-color: #f9f9f9;
     margin: 15px 0;
   }
-
   .input-wrap {
     margin: 0;
   }
-
   input {
     margin-left: 0;
   }
@@ -269,12 +231,10 @@ export const OrderList = styled.ul`
 	top: 0;
 	left: 0;
 	padding: 15px 50px;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
 	text-align: center;
 	color: #fff;
 	z-index: 1;
@@ -307,10 +267,8 @@ export const Left = styled.div`
 	position: absolute;
 	top: 0;
 	height: 100%;
-
 	display: flex;
 	align-items: center;
-
 	color: #fff;
 	font-size: 35px;
 	cursor: pointer;
@@ -322,10 +280,8 @@ export const Right = styled.div`
 	position: absolute;
 	top: 0;
 	height: 100%;
-
 	display: flex;
 	align-items: center;
-
 	color: #fff;
 	font-size: 35px;
 	cursor: pointer;
@@ -335,5 +291,4 @@ export const Right = styled.div`
 export const PlayerDiv = styled.div`
       max-height=30px
       max-width=30px
-
 `;

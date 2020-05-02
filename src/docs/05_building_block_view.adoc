@@ -12,13 +12,13 @@ The system will have three main elements which communicate each others:
     * PODS: they will storage information's users.
     * Viade: the app will communicate with users and pods.
 
-image::.\images\05-builidng-block-view_1.jpeg[]
+image::05-builidng-block-view_1.jpeg[]
 
 === Whitebox Overall System
 
 
 
-image::.\images\05-building-block-view_2.jpg[]
+image::05-building-block-view_2.jpg[]
 
 *Level 1*
 
@@ -44,9 +44,13 @@ This level contains all the functionality of the script index.js.
 [cols="1,2" options="header"]
 |===
 | **Name** | **Responsibility**
-| Route | Saves all the information of a route such as its coordinates, date, kilometers..
-| GPS | Given a route, it will shows its route on a map.
-| PodUtilities.js | It's used to communicate with the user's pod.
+| Route | Saves all the information of a route such as its coordinates, name, description, author...
+| ViadeManager.js | Communicate with Storage.js as a service. 
+| ParsePodFiles.js | To parser files .ttl.
+| Storage.js       | Save routes. 
+| FriendsHelper.js | Add and delete friends using LDFlex. 
+| NotificationHelper.js | Send notifications when a route is shared. 
+| ldflex-helper.js      | Manage folders and files 
 | LogInManager.js | Contains the relative functionality at the beginning of the user's session.
 |===
 

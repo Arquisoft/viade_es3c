@@ -7,7 +7,6 @@ import InfoRoute from "./InfoRoute";
 import i18n from "i18n";
 import * as viadeManager from "../../utils/viadeManagerSolid";
 
-
 type Props = { webId: String };
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
 
@@ -118,7 +117,7 @@ class MyRoute extends React.Component {
 								</Header>
 								<h5 align="center">
 									{i18n.t("myRoutes.noRoutes")}
-									<a href={"#/route"}> {i18n.t("myRoutes.here")}</a>
+									<a href={"#/newRoute"}> {i18n.t("myRoutes.here")}</a>
 								</h5>
 							</FormRenderContainer>
 						</MyRouteContainer>
