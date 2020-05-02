@@ -43,11 +43,11 @@ image::06_runtime_view_Deleting_Friends.png[Deleting Friends diagram]
 
 
 === Share routes
-Our application allow us to share a route with some friends. When you visualize the routes, each route has a button where you can select the friends who you want to share the route with.  
+Our application allow us to share a route with some friends. When you visualize the routes, each route has a button where you can select the friends who you want to share the route with.
 
 image::06_runtime_view_Share_Routes.png[Share routes diagram]
 
 === See shared routes with me
 We can see the routes that users shared with us by clicking on the shared routes option in the navigation menu. 
 
-image::06_runtime_view_See_Shared_Routes.png[Share routes diagram]
+image::06_runtime_view_See_Shared_Routes.png[View shared routes with me diagram]
