@@ -4,24 +4,25 @@
 
 [role="arc42help"]
 
-image:.\images\qualitytree.png[]
+image::qualitytree.png[]
 
 
 === Quality Scenarios
 
 [role="arc42help"]
 
-.Maintainability
-By creating a good early design and structure of the app we will ensure its maintainability in the future.
-
-
 .Usability
-By creating a simple and easy to understand interface with as many helps to the user as possible we will ensure that our app is usable from the most experienced user to the most novice.
-
+We try to carry out a usable application design. This is reduced to following the principles of web usability, maintaining constant navigation and not forcing users to learn new ways for navigation in the different parts of the application. We also try not to abuse the animation as this could tire your eyes and become overwhelming. 
+In addition to find out if it is also usable we resorted to the completion of a questionnaire that we sent to different people to test the app and tell us what their opinion was
 
 .Modularity
-Our design follows the 
+We try to create a modular interface, that is, that each part of the application is a unique component that can have 0 or more within it and that each one takes care of its own functionality, which will allow our application be more maintainable and adaptable to change.
 
 .Compatibility 
+we wanted to create an app that could be viewed and worked with on different devices from computers to mobiles following the adaptive web design
 
-.
+.Interoperability
+We believe that viade is interoperable with other applications since we follow the specification determined in viadeSpec. Although it may not be interoperable with all applications, we believe that with a part of them it will be. 
+
+.Accesibility
+To test the accessibility of our application, we decided to contact people who may have problems viewing it due to some type of disability.
