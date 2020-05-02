@@ -30,17 +30,17 @@ const InfoRoute = (props) => {
 	if (!error) {
 		return (
 			<RouteCard className="card" id="card">
-				<DropdownButton data-testid="operationmenu" drop="down" id="dropdown">
-					<Button id="drop" type="button" data-testid="btnModify" onClick={() => setShowConfirmModify(!showConfirmModify)}>
+				<div id="divBtns" className="btn-group-vertical">
+					<Button id="btnModify" data-testid="btnModify" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
 						<FontAwesomeIcon icon="pen" className="pen-icon" />
 					</Button>
-					<Button id="drop" type="button" data-testid="btnDownload" onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
+					<Button id="btnDownload" data-testid="btnDownload" type="button" onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
 						<FontAwesomeIcon icon="download" className="download-icon" />
 					</Button>
-					<Button id="drop" type="button" data-testid="btnDelete" onClick={() => setShowConfirm(!showConfirm)}>
+					<Button id="btnDelete" data-testid="btnDelete" type="button" onClick={() => setShowConfirm(!showConfirm)}>
 						<FontAwesomeIcon icon="trash" className="trash-icon" />
 					</Button>
-				</DropdownButton>
+				</div>
 
 				<div id="divDelete">
 					<Modal

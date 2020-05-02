@@ -48,13 +48,6 @@ describe.only("InfoRoutes", () => {
 
   test("click button", async () => {
 
-    /*const dropdown = getByTestId(container, 'operationmenu');
-    expect(dropdown.toHaveAttribute('aria-expanded', 'false'));
-
-    fireEvent.click(dropdown);
-
-    expect(dropdown).toHaveAttribute('aria-expanded', 'true');
-
     const btModify = getByTestId(container, "btnModify");
     fireEvent.click(btModify);
 
@@ -66,8 +59,5 @@ describe.only("InfoRoutes", () => {
 
     const btFriends = getByTestId(container, "viewFriends");
     fireEvent.click(btFriends);
-
-    const btMult = getByTestId(container, "mult");
-    fireEvent.click(btFriends);*/
   });
 });
