@@ -2,6 +2,8 @@ import React from "react";
 import { HashRouter as Router } from "react-router-dom";
 import MyRoute from "../MyRoutes";
 import { cleanup, queryByAttribute, render } from "react-testing-library";
+import { shallow } from "enzyme/build";
+import NewRoute from "../../NewRoute/tests/newRoute.test";
 
 const props = {
   webId: "https://saragg.solid.community/"

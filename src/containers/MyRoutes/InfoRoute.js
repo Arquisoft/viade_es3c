@@ -30,7 +30,7 @@ const InfoRoute = (props) => {
 	if (!error) {
 		return (
 			<RouteCard className="card" id="card">
-				<DropdownButton data-testid="operationmenu" drop="down">
+				<DropdownButton data-testid="operationmenu" drop="down" id="dropdown">
 					<Button id="drop" type="button" data-testid="btnModify" onClick={() => setShowConfirmModify(!showConfirmModify)}>
 						<FontAwesomeIcon icon="pen" className="pen-icon" />
 					</Button>
