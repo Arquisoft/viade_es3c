@@ -20,7 +20,11 @@ export const RouteContainer = styled.div`
 	margin: 0px 30px;
 	width: 100%;
 	flex: 1 0 auto;
-	#save_route {
+	#butonSave {
+		margin: 10px;
+		margin-left: 350px;
+	}
+	#butonMedia {
 		margin: 10px;
 		margin-left: 350px;
 	}
