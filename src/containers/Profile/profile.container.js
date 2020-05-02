@@ -1,19 +1,8 @@
 import React, { Fragment, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FormModel } from "@inrupt/solid-react-components";
-import { successToaster, errorToaster } from "../../utils";
 import { Loader } from "@util-components";
-import {
-	Header,
-	ProfileContainer,
-	ProfileWrapper,
-	FormRenderContainer,
-	AutoSaveNotification,
-	WebId
-} from "./profile.style";
+import { Header, ProfileContainer, ProfileWrapper, FormRenderContainer, WebId } from "./profile.style";
 import { Image } from "./components";
-import { AutoSaveSpinner } from "@components";
 
 const defaultProfilePhoto = "img/icon/empty.svg";
 
@@ -27,26 +16,8 @@ const defaultProfilePhoto = "img/icon/empty.svg";
 type Props = { webId: String };
 
 const Profile = ({ webId }: Props) => {
-	const { t } = useTranslation();
+	// eslint-disable-next-line
 	const [ isLoading, setIsLoading ] = useState(false);
-
-	const onError = (e) => {
-		if (e.message.toString().indexOf("Validation failed") < 0) {
-			errorToaster(t("formLanguage.renderer.formNotLoaded"), t("notifications.error"), {
-				label: t("errorFormRender.link.label"),
-				href: t("errorFormRender.link.href")
-			});
-			setIsLoading(false);
-		}
-	};
-
-	const onDelete = () => {
-		successToaster(t("formLanguage.renderer.fieldDeleted"), t("notifications.success"));
-	};
-
-	const onAddNewField = () => {
-		successToaster(t("formLanguage.renderer.fieldAdded"), t("notifications.success"));
-	};
 
 	return (
 		<ProfileWrapper data-testid="profile-component">
