@@ -30,14 +30,14 @@ const InfoRoute = (props) => {
 	if (!error) {
 		return (
 			<RouteCard className="card" id="card">
-				<DropdownButton id="operationmenu" drop="down">
-					<Button id="drop" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
+				<DropdownButton data-testid="operationmenu" drop="down">
+					<Button id="drop" type="button" data-testid="btnModify" onClick={() => setShowConfirmModify(!showConfirmModify)}>
 						<FontAwesomeIcon icon="pen" className="pen-icon" />
 					</Button>
-					<Button id="drop" type="button" onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
+					<Button id="drop" type="button" data-testid="btnDownload" onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
 						<FontAwesomeIcon icon="download" className="download-icon" />
 					</Button>
-					<Button id="drop" type="button" onClick={() => setShowConfirm(!showConfirm)}>
+					<Button id="drop" type="button" data-testid="btnDelete" onClick={() => setShowConfirm(!showConfirm)}>
 						<FontAwesomeIcon icon="trash" className="trash-icon" />
 					</Button>
 				</DropdownButton>
@@ -208,7 +208,7 @@ const InfoRoute = (props) => {
 					<h3> {i18n.t("myRoutes.description")}</h3>
 					<p>{description}</p>
 					<div id={uuid}>
-						<Button id="viewFriends" type="button" onClick={() => setShowFriends(!showFriends)}>
+						<Button data-testid="viewFriends" type="button" onClick={() => setShowFriends(!showFriends)}>
 							{i18n.t("myRoutes.btnShare")}
 						</Button>
 						<MultsButton {...{ mult, name }} />

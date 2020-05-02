@@ -62,7 +62,7 @@ class RegisterComponent extends Component<Props, State> {
 		const { providers, t } = this.props;
 
 		return (
-			<RegisterWrapper data-testid="register-wrapper">
+			<RegisterWrapper id="register-wrapper" data-testid="register-wrapper">
 				<CenterContainer>
 					<form onSubmit={this.onSubmit}>
 						<RegisterPanel className="register-panel">
