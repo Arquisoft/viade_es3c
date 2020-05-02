@@ -13,7 +13,7 @@ image::QualityScenarios.png[]
 
 .Usability
 We try to carry out a usable application design. This is reduced to following the principles of web usability, maintaining constant navigation and not forcing users to learn new ways for navigation in the different parts of the application. We also try not to abuse the animation as this could tire your eyes and become overwhelming. 
-In addition to find out if it is also usable we resorted to the completion of a questionnaire that we sent to different people to test the app and tell us what their opinion was
+In addition to find out if it is also usable we resorted to the completion of a questionnaire that we sent to different people to test the app and tell us what their opinion was.
 
 .Modularity
 We try to create a modular interface, that is, that each part of the application is a unique component that can have 0 or more within it and that each one takes care of its own functionality, which will allow our application be more maintainable and adaptable to change.
