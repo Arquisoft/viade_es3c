@@ -8,8 +8,6 @@ import * as Toaster from "../../utils/toaster";
 import { configure } from "enzyme";
 import { getByTestId } from "@testing-library/dom";
 import Adapter from "enzyme-adapter-react-16";
-import {setHookState} from "./MockUtil";
-const reactMock = require('react');
 
 configure({ adapter: new Adapter() });
 
@@ -63,7 +61,7 @@ describe.only("NewRoute", () => {
     expect(Toaster.errorToaster()).toHaveBeenCalled;
   });
 
-  test("Trying to upload a Route", () => {
+  test("Trying to upload a Route with geojson", () => {
 
     const nameInput = getByTestId(container, "route_name");
     const descriptionInput = getByTestId(container, "route_description");
@@ -91,14 +89,8 @@ describe.only("NewRoute", () => {
     Object.defineProperty(container, "file", { value: file });
     fireEvent.change(container);
 
-    /*reactMock.useState = setHookState({
-      title: "prueba",
-      description: "prueba",
-      routeFile: file,
-      fileToParse: geojson
-    })*/
-
     fireEvent.click(button_save);
   });
+
 })
 ;
