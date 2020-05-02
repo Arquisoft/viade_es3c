@@ -15,16 +15,4 @@ describe.only("Register", () => {
   test("renders without crashing", () => {
     expect(container).toBeTruthy();
   });
-
-  test("renders with styled components", () => {
-    expect(getByTestId("register-wrapper")).toBeTruthy();
-    expect(getByTestId("panel-header")).toBeTruthy();
-    expect(document.querySelector(".register-panel")).toBeTruthy();
-    expect(document.querySelector(".panel-body")).toBeTruthy();
-    expect(document.querySelector(".actions")).toBeTruthy();
-  });
-
-  test("renders title properly", () => {
-    expect(getByTestId("title")).toBeTruthy();
-  });
 });

@@ -216,163 +216,270 @@ export class MapContainer extends React.Component {
 
 	render() {
 		this.getLocation();
+		if (this.state.mapCovid.length > 0) {
+			heatMap = (
+				<HeatMap
+					visible={this.state.isHeatVisible}
+					gradient={gradient}
+					opacity={1}
+					positions={this.state.mapCovid}
+					radius={20}
+					center={this.state.center}
+					heatmapMode={"POINTS_WEIGHT"}
+				/>
+			);
+			return (
+				<Map
+					google={this.props.google}
+					zoom={5}
+					minZoom={3}
+					onZoomChanged={this.handleZoom}
+					style={mapStyle}
+					heatmapLibrary={true}
+					onClick={this.clickPoint}
+					center={this.state.center}
+					gestureHandling={"cooperative"}
+					styles={[
+						{ elementType: "geometry", stylers: [ { color: "#242f3e" } ] },
+						{ elementType: "labels.text.stroke", stylers: [ { color: "#242f3e" } ] },
+						{ elementType: "labels.text.fill", stylers: [ { color: "#746855" } ] },
+						{
+							featureType: "administrative.locality",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#d59563" } ]
+						},
+						{
+							featureType: "poi",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#d59563" } ]
+						},
+						{
+							featureType: "poi.park",
+							elementType: "geometry",
+							stylers: [ { color: "#263c3f" } ]
+						},
+						{
+							featureType: "poi.park",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#6b9a76" } ]
+						},
+						{
+							featureType: "road",
+							elementType: "geometry",
+							stylers: [ { color: "#38414e" } ]
+						},
+						{
+							featureType: "road",
+							elementType: "geometry.stroke",
+							stylers: [ { color: "#212a37" } ]
+						},
+						{
+							featureType: "road",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#9ca5b3" } ]
+						},
+						{
+							featureType: "road.highway",
+							elementType: "geometry",
+							stylers: [ { color: "#746855" } ]
+						},
+						{
+							featureType: "road.highway",
+							elementType: "geometry.stroke",
+							stylers: [ { color: "#1f2835" } ]
+						},
+						{
+							featureType: "road.highway",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#f3d19c" } ]
+						},
+						{
+							featureType: "transit",
+							elementType: "geometry",
+							stylers: [ { color: "#2f3948" } ]
+						},
+						{
+							featureType: "transit.station",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#d59563" } ]
+						},
+						{
+							featureType: "water",
+							elementType: "geometry",
+							stylers: [ { color: "#17263c" } ]
+						},
+						{
+							featureType: "water",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#515c6d" } ]
+						},
+						{
+							featureType: "water",
+							elementType: "labels.text.stroke",
+							stylers: [ { color: "#17263c" } ]
+						}
+					]}
+				>
+					<div id="floating-panel">
+						<button id={"buttonCovid"} onClick={this.handleToggle}>
+							{" "}
+							Covid heatMap
+						</button>
+					</div>
+					{this.state.isHeatVisible ? heatMap : null}
 
-		heatMap = (
-			<HeatMap
-				visible={this.state.isHeatVisible}
-				gradient={gradient}
-				opacity={1}
-				positions={this.state.mapCovid}
-				radius={20}
-				center={this.state.center}
-				heatmapMode={"POINTS_WEIGHT"}
-			/>
-		);
-		return (
-			<Map
-				google={this.props.google}
-				zoom={5}
-				minZoom={3}
-				onZoomChanged={this.handleZoom}
-				style={mapStyle}
-				heatmapLibrary={true}
-				onClick={this.clickPoint}
-				center={this.state.center}
-				gestureHandling={"cooperative"}
-				styles={[
-					{ elementType: "geometry", stylers: [ { color: "#242f3e" } ] },
-					{ elementType: "labels.text.stroke", stylers: [ { color: "#242f3e" } ] },
-					{ elementType: "labels.text.fill", stylers: [ { color: "#746855" } ] },
-					{
-						featureType: "administrative.locality",
-						elementType: "labels.text.fill",
-						stylers: [ { color: "#d59563" } ]
-					},
-					{
-						featureType: "poi",
-						elementType: "labels.text.fill",
-						stylers: [ { color: "#d59563" } ]
-					},
-					{
-						featureType: "poi.park",
-						elementType: "geometry",
-						stylers: [ { color: "#263c3f" } ]
-					},
-					{
-						featureType: "poi.park",
-						elementType: "labels.text.fill",
-						stylers: [ { color: "#6b9a76" } ]
-					},
-					{
-						featureType: "road",
-						elementType: "geometry",
-						stylers: [ { color: "#38414e" } ]
-					},
-					{
-						featureType: "road",
-						elementType: "geometry.stroke",
-						stylers: [ { color: "#212a37" } ]
-					},
-					{
-						featureType: "road",
-						elementType: "labels.text.fill",
-						stylers: [ { color: "#9ca5b3" } ]
-					},
-					{
-						featureType: "road.highway",
-						elementType: "geometry",
-						stylers: [ { color: "#746855" } ]
-					},
-					{
-						featureType: "road.highway",
-						elementType: "geometry.stroke",
-						stylers: [ { color: "#1f2835" } ]
-					},
-					{
-						featureType: "road.highway",
-						elementType: "labels.text.fill",
-						stylers: [ { color: "#f3d19c" } ]
-					},
-					{
-						featureType: "transit",
-						elementType: "geometry",
-						stylers: [ { color: "#2f3948" } ]
-					},
-					{
-						featureType: "transit.station",
-						elementType: "labels.text.fill",
-						stylers: [ { color: "#d59563" } ]
-					},
-					{
-						featureType: "water",
-						elementType: "geometry",
-						stylers: [ { color: "#17263c" } ]
-					},
-					{
-						featureType: "water",
-						elementType: "labels.text.fill",
-						stylers: [ { color: "#515c6d" } ]
-					},
-					{
-						featureType: "water",
-						elementType: "labels.text.stroke",
-						stylers: [ { color: "#17263c" } ]
-					}
-				]}
-			>
-				<div id="floating-panel">
-					<button id={"buttonCovid"} onClick={this.handleToggle}>
-						{" "}
-						Covid heatMap
-					</button>
-				</div>
-				{this.state.isHeatVisible ? heatMap : null}
+					{this.state.mapCovid.map((point) => {
+						return (
+							<Marker
+								position={{ lat: point.lat, lng: point.lng }}
+								c={point}
+								cursor={"hand"}
+								icon={"http://maps.google.com/mapfiles/ms/icons/red.png"}
+								visible={this.state.currentZoom >= 8 && this.state.isHeatVisible}
+								onMouseover={this.handleMouseOver}
+								tracksViewChanges={false}
+							/>
+						);
+					})}
+					{this.state.showInfoWindow ? (
+						<InfoWindow
+							marker={this.state.activeMarker}
+							visible={this.state.showInfoWindow && this.state.isHeatVisible}
+							maxWidth={120}
+							onClose={this.close}
+						>
+							<h5 style={infoWindowStyle}>{this.state.activeMarker.c.country_p}</h5>
+							<h5 style={infoWindowStyle}>{this.state.activeMarker.c.region}</h5>
+							<h5 style={infoWindowStyle}>{this.state.activeMarker.c.city}</h5>
+							<p style={infoWindowStyle}> Cases: {this.state.activeMarker.c.casos}</p>
+							<p style={infoWindowStyle}> Deaths: {this.state.activeMarker.c.muertes}</p>
+							<p style={infoWindowStyle}> Recovered: {this.state.activeMarker.c.recuperados}</p>
+						</InfoWindow>
+					) : null}
 
-				{this.state.mapCovid.map((point) => {
-					return (
-						<Marker
-							position={{ lat: point.lat, lng: point.lng }}
-							c={point}
-							cursor={"hand"}
-							icon={"http://maps.google.com/mapfiles/ms/icons/red.png"}
-							visible={this.state.currentZoom >= 8 && this.state.isHeatVisible}
-							onMouseover={this.handleMouseOver}
-							key={point.key}
-							tracksViewChanges={false}
-						/>
-					);
-				})}
-				{this.state.showInfoWindow ? (
-					<InfoWindow
-						marker={this.state.activeMarker}
-						visible={this.state.showInfoWindow && this.state.isHeatVisible}
-						maxWidth={120}
-						onClose={this.close}
-					>
-						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.country_p}</h5>
-						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.region}</h5>
-						<h5 style={infoWindowStyle}>{this.state.activeMarker.c.city}</h5>
-						<p style={infoWindowStyle}> Cases: {this.state.activeMarker.c.casos}</p>
-						<p style={infoWindowStyle}> Deaths: {this.state.activeMarker.c.muertes}</p>
-						<p style={infoWindowStyle}> Recovered: {this.state.activeMarker.c.recuperados}</p>
-					</InfoWindow>
-				) : null}
-
-				{this.state.markers.map((marker) => {
-					return (
-						<Marker
-							key={marker.position.lat + marker.position.lng}
-							position={{ lat: marker.position.lat, lng: marker.position.lng }}
-							icon={"http://maps.google.com/mapfiles/ms/icons/blue.png"}
-							markersList={this.state.markers}
-							index={marker.key}
-							onClick={this.onMarkerClick}
-						/>
-					);
-				})}
-				<Polyline path={this.draw()} strokeColor="#01C9EA" strokeOpacity={0.8} strokeWeight={2} />
-			</Map>
-		);
+					{this.state.markers.map((marker) => {
+						return (
+							<Marker
+								key={marker.position.lat + marker.position.lng}
+								position={{ lat: marker.position.lat, lng: marker.position.lng }}
+								icon={"http://maps.google.com/mapfiles/ms/icons/blue.png"}
+								markersList={this.state.markers}
+								index={marker.key}
+								onClick={this.onMarkerClick}
+							/>
+						);
+					})}
+					<Polyline path={this.draw()} strokeColor="#01C9EA" strokeOpacity={0.8} strokeWeight={2} />
+				</Map>
+			);
+		} else {
+			return (
+				<Map
+					google={this.props.google}
+					zoom={5}
+					minZoom={3}
+					onZoomChanged={this.handleZoom}
+					style={mapStyle}
+					onClick={this.clickPoint}
+					center={this.state.center}
+					gestureHandling={"cooperative"}
+					styles={[
+						{ elementType: "geometry", stylers: [ { color: "#242f3e" } ] },
+						{ elementType: "labels.text.stroke", stylers: [ { color: "#242f3e" } ] },
+						{ elementType: "labels.text.fill", stylers: [ { color: "#746855" } ] },
+						{
+							featureType: "administrative.locality",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#d59563" } ]
+						},
+						{
+							featureType: "poi",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#d59563" } ]
+						},
+						{
+							featureType: "poi.park",
+							elementType: "geometry",
+							stylers: [ { color: "#263c3f" } ]
+						},
+						{
+							featureType: "poi.park",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#6b9a76" } ]
+						},
+						{
+							featureType: "road",
+							elementType: "geometry",
+							stylers: [ { color: "#38414e" } ]
+						},
+						{
+							featureType: "road",
+							elementType: "geometry.stroke",
+							stylers: [ { color: "#212a37" } ]
+						},
+						{
+							featureType: "road",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#9ca5b3" } ]
+						},
+						{
+							featureType: "road.highway",
+							elementType: "geometry",
+							stylers: [ { color: "#746855" } ]
+						},
+						{
+							featureType: "road.highway",
+							elementType: "geometry.stroke",
+							stylers: [ { color: "#1f2835" } ]
+						},
+						{
+							featureType: "road.highway",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#f3d19c" } ]
+						},
+						{
+							featureType: "transit",
+							elementType: "geometry",
+							stylers: [ { color: "#2f3948" } ]
+						},
+						{
+							featureType: "transit.station",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#d59563" } ]
+						},
+						{
+							featureType: "water",
+							elementType: "geometry",
+							stylers: [ { color: "#17263c" } ]
+						},
+						{
+							featureType: "water",
+							elementType: "labels.text.fill",
+							stylers: [ { color: "#515c6d" } ]
+						},
+						{
+							featureType: "water",
+							elementType: "labels.text.stroke",
+							stylers: [ { color: "#17263c" } ]
+						}
+					]}
+				>
+					{this.state.markers.map((marker) => {
+						return (
+							<Marker
+								key={marker.position.lat + marker.position.lng}
+								position={{ lat: marker.position.lat, lng: marker.position.lng }}
+								icon={"http://maps.google.com/mapfiles/ms/icons/blue.png"}
+								markersList={this.state.markers}
+								index={marker.key}
+								onClick={this.onMarkerClick}
+							/>
+						);
+					})}
+					<Polyline path={this.draw()} strokeColor="#01C9EA" strokeOpacity={0.8} strokeWeight={2} />
+				</Map>
+			);
+		}
 	}
 }
 

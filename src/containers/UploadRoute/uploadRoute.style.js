@@ -11,6 +11,27 @@ export const RouteWrapper = styled.section`
 	background-attachment: fixed;
 	background-size: cover;
 	padding: 60px 0;
+	@media only screen and (max-width: 900px) {
+		align-text: center;
+		max-width: 100%;
+		h5,
+		h6,
+		p,
+		ul li {
+			color: white;
+			text-align: center;
+			margin: auto;
+			font-family: 'Work Sans', sans-serif;
+			font-size: 12px;
+		}
+		input {
+			margin: auto;
+			max-width: 100%;
+		}
+		#butonSave {
+			margin-left: 40% !important;
+		}
+	}
 `;
 
 export const RouteContainer = styled.div`
@@ -20,7 +41,11 @@ export const RouteContainer = styled.div`
 	margin: 0px 30px;
 	width: 100%;
 	flex: 1 0 auto;
-	#save_route {
+	#butonSave {
+		margin: 10px;
+		margin-left: 350px;
+	}
+	#butonMedia {
 		margin: 10px;
 		margin-left: 350px;
 	}
