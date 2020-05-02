@@ -6,12 +6,13 @@ const PrintButton = ({ id, label, route, hid }) => (
   <div className="tc mb4 mt2">
     <div id="myMm" style={{ height: "1mm" }} />
 
-    <div
-      className="pa2 ba bw1 b--black bg-yellow black-90 br2 dib pointer dim shadow-1"
-      onClick={() => {
-        document.getElementById(hid).style.visibility = "hidden";
-        const input = document.getElementById(id);
-        var pdf = null;
+		<div
+			id="print"
+			className="pa2 ba bw1 b--black bg-yellow black-90 br2 dib pointer dim shadow-1"
+			onClick={() => {
+				document.getElementById(hid).style.visibility = "hidden";
+				const input = document.getElementById(id);
+				var pdf = null;
 
         html2canvas(input, {
           backgroundColor: null,

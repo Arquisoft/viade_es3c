@@ -18,7 +18,7 @@ const UploadRoute = ({ webId }: Props) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [routeFile, setRouteFile] = useState(null);
-    const [fileToParse, setFileToParse] = useState("");
+    const [fileToParse, setFileToParse] = useState();
     let file = React.createRef();
     let points = [];
 
@@ -28,9 +28,18 @@ const UploadRoute = ({ webId }: Props) => {
       let type = routeFile.name.split(".").pop();
       console.log(type);
       if (type === "geojson") {
-        points = parser.parserGeoJSON(file);
+        try {
+          points = parser.parserGeoJSON(file);
+        } catch {
+          console.log("Error al parsear goejson");
+        }
+
       } else if (type === "gpx") {
-        points = parser.parserGPX(file);
+        try {
+          points = parser.parserGPX(file);
+        } catch {
+          console.log("Error al parsear gpx");
+        }
       } else {
         errorToaster(i18n.t("uploadRoute.typeFile"), "ERROR");
       }
@@ -40,6 +49,7 @@ const UploadRoute = ({ webId }: Props) => {
       event.preventDefault();
       setTitle(event.target.value);
     }
+
     function handleDescriptionChange(event) {
       event.preventDefault();
       setDescription(event.target.value);
@@ -49,7 +59,7 @@ const UploadRoute = ({ webId }: Props) => {
       setFileToParse(file.target.result.toString());
     }
 
-    function handleUpload(event)  {
+    function handleUpload(event) {
       event.preventDefault();
       if (file.current.files.length > 0) {
         setRouteFile(file.current.files[0]);
@@ -133,7 +143,7 @@ const UploadRoute = ({ webId }: Props) => {
 
             <Grid>
               <Label>{i18n.t("uploadRoute.uploadFile")}
-                <Input type="file" ref={file} onChange={handleUpload} data-testid="input-file"/>
+                <Input type="file" ref={file} onChange={handleUpload} data-testid="file-input"/>
               </Label>
             </Grid>
 

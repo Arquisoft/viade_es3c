@@ -1,7 +1,8 @@
 import React from "react";
 import { sharing } from "../../utils/permissions";
-import { getUrl, getUserName } from "../MyFriends/MyFriends";
+import { getUrl} from "../MyFriends/MyFriends";
 import Notifications from "./NotificationHelp";
+
 type Props = { webId: String };
 
 class Share extends React.Component {
