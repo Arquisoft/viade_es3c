@@ -44,7 +44,7 @@ describe.only("NewRoute", () => {
     expect(descriptionInput.value).toEqual("esto es una prueba");
 
     const fileInput = getByTestId(container, "file-input");
-    const gpx = new File(['<?xml version="1.0" encoding="UTF-8"?>\n' +
+    /*const gpx = new File(['<?xml version="1.0" encoding="UTF-8"?>\n' +
       '<gpx creator="StravaGPX Android" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" xmlns="http://www.topografix.com/GPX/1/1">\n' +
       ' <metadata>\n' +
       '  <time>2019-05-11T18:16:59Z</time>\n' +
@@ -79,11 +79,50 @@ describe.only("NewRoute", () => {
       '   </trkpt>\n' +
       '  </trkseg>\n' +
       ' </trk>\n' +
-      '</gpx>'], "prueba.gpx");
+      '</gpx>'], "prueba.gpx");*/
 
-    Object.defineProperty(fileInput, "files", { value: [gpx] });
+    const gpx = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+      '<gpx creator="StravaGPX Android" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" xmlns="http://www.topografix.com/GPX/1/1">\n' +
+      ' <metadata>\n' +
+      '  <time>2019-05-11T18:16:59Z</time>\n' +
+      ' </metadata>\n' +
+      ' <trk>\n' +
+      '  <name>Atletismo al anochecer</name>\n' +
+      '  <type>9</type>\n' +
+      '  <trkseg>\n' +
+      '   <trkpt lat="43.3614310" lon="-5.8551880">\n' +
+      '    <ele>255.5</ele>\n' +
+      '    <time>2019-05-11T18:16:59Z</time>\n' +
+      '   </trkpt>\n' +
+      '   <trkpt lat="43.3614120" lon="-5.8551590">\n' +
+      '    <ele>255.5</ele>\n' +
+      '    <time>2019-05-11T18:17:13Z</time>\n' +
+      '   </trkpt>\n' +
+      '   <trkpt lat="43.3613890" lon="-5.8551320">\n' +
+      '    <ele>255.5</ele>\n' +
+      '    <time>2019-05-11T18:17:15Z</time>\n' +
+      '   </trkpt>\n' +
+      '   <trkpt lat="43.3613530" lon="-5.8550940">\n' +
+      '    <ele>255.5</ele>\n' +
+      '    <time>2019-05-11T18:17:17Z</time>\n' +
+      '   </trkpt>\n' +
+      '   <trkpt lat="43.3613220" lon="-5.8550790">\n' +
+      '    <ele>255.5</ele>\n' +
+      '    <time>2019-05-11T18:17:18Z</time>\n' +
+      '   </trkpt>\n' +
+      '   <trkpt lat="43.3612880" lon="-5.8550680">\n' +
+      '    <ele>255.5</ele>\n' +
+      '    <time>2019-05-11T18:17:19Z</time>\n' +
+      '   </trkpt>\n' +
+      '  </trkseg>\n' +
+      ' </trk>\n' +
+      '</gpx>'
+
+    const file = new File([gpx], "prueba.gpx");
+
+    Object.defineProperty(fileInput, "files", { value: [file] });
     fireEvent.change(fileInput);
-    Object.defineProperty(container, "file", { value: gpx });
+    Object.defineProperty(container, "file", { value: file });
     fireEvent.change(container);
 
     fireEvent.click(button_save);
