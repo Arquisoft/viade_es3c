@@ -2,7 +2,7 @@ import "jest";
 
 import { defineFeature, loadFeature } from "jest-cucumber";
 
-const feature = loadFeature('./feature/features/newRoute.feature');
+const feature = loadFeature('./feature/features/uploadRoute.feature');
 const puppeteer = require('puppeteer');
 let browser = null;
 let page = null;
@@ -12,8 +12,8 @@ defineFeature(feature, test => {
     jest.setTimeout(2000000);
   });
 
-  test("Trying to create a route", ({ given, when, and, then }) => {
-    given("I am a user trying to create a route", async () => {
+  test("Trying to upload a route with a file", ({ given, when, and, then }) => {
+    given("I am a user trying to create a route with a geojson fle", async () => {
       browser = await puppeteer.launch({
         headless: false
       });
@@ -25,7 +25,7 @@ defineFeature(feature, test => {
         timeout: 0
       });
       await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(".sc-EHOje.cffgrt", "https://saragr.inrupt.net/profile/card#me");
+      await page.type(".sc-EHOje.cffgrt", "https://saragg.solid.community/profile/card#me");
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function(btn) {
@@ -38,7 +38,7 @@ defineFeature(feature, test => {
         waitUntil: "networkidle2"
       });
       await page.waitForSelector("[id='username']", { visible: true });
-      await page.type("[id='username']", "saragr");
+      await page.type("[id='username']", "saragg");
       await page.waitFor(500);
       await page.waitForSelector("[id='password']", { visible: true });
       await page.type("[id='password']", "Prueba_123", { visible: true });
@@ -58,17 +58,17 @@ defineFeature(feature, test => {
       });
       expect(page.url()).toBe("http://localhost:3000/#/welcome");
 
-      await page.goto("http://localhost:3000/#/newRoute", {
+      await page.goto("http://localhost:3000/#/uploadRoute", {
         waitUntil: "networkidle2"
       });
     });
 
-    when("Fill out the form", async () => {
-      await page.waitForSelector("[id='route_name']", { visible: true });
-      await page.type("[id='route_name']", "pruebaRuta");
+    when("Fill out the form of upload route view", async () => {
+      await page.waitForSelector("[data-testid='route_name']", { visible: true });
+      await page.type("[data-testid='route_name']", "pruebaRutaFichero");
 
-      await page.waitForSelector("[id='description']", { visible: true });
-      await page.type("[id='description']", "Esto es una prueba");
+      await page.waitForSelector("[data-testid='route_description']", { visible: true });
+      await page.type("[data-testid='route_description']", "Esto es una prueba de geojson");
 
       const path = require("path");
       const imgPath = path.relative(
@@ -83,22 +83,22 @@ defineFeature(feature, test => {
       await page.waitFor(1000);
     });
 
-    and('Putting the markers', async () => {
-      await page.mouse.move(500, 500);
-      await page.mouse.down({ button: "left" });
-      await page.mouse.up({ button: "left" });
-      await page.waitFor(1000);
-      await page.mouse.move(520, 500);
-      await page.mouse.down({button: 'left'});
-      await page.mouse.up({button: 'left'});
+    and('Upload the file and save route', async () => {
+
+      const path = require('path');
+      const filepath = path.relative(process.cwd(), __dirname + '/map.geojson');
+      const input_file = await page.$("[data-testid='file-input']");
+      await input_file.uploadFile(filepath);
+      await input_file.evaluate(upload => upload.dispatchEvent(new Event('change', {bubbles: true})));
+      await page.waitFor(2000);
 
       await page.evaluate(() => {
-        let submit = document.getElementById("save_route");
+        let submit = document.getElementById("butonSave");
         submit.click();
       });
     });
 
-    then("Redirect to my routes page", async () => {
+    then("It shows the route I had crated at my routes", async () => {
       await page.waitFor(5000);
       expect(page.url()).toBe("http://localhost:3000/#/myRoutes");
       await browser.close();

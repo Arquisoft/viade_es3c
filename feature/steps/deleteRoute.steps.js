@@ -5,7 +5,7 @@ import {
   loadFeature,
 } from 'jest-cucumber';
 
-const feature = loadFeature('./feature/features/editMyRoute.feature');
+const feature = loadFeature('./feature/features/deleteRoute.feature');
 const puppeteer = require('puppeteer');
 let browser = null;
 let page = null;
@@ -16,9 +16,9 @@ defineFeature(feature, test => {
     jest.setTimeout(1200000);
   });
 
-  test('Trying to edit a route', ({ given, when, then }) => {
+  test('Trying to delete a route', ({ given, when, then }) => {
     
-    given('I am a user trying to edit one of my routes', async () => {
+    given('I am a user trying to delete one of my routes', async () => {
       browser = await puppeteer.launch({
         headless: false
       });
@@ -30,7 +30,7 @@ defineFeature(feature, test => {
         timeout: 0
       });
       await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(".sc-EHOje.cffgrt", "https://saragrz.solid.community/profile/card#me");
+      await page.type(".sc-EHOje.cffgrt", "https://aliceprueba.solid.community/profile/card#me");
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function (btn) {
@@ -43,10 +43,10 @@ defineFeature(feature, test => {
         waitUntil: 'networkidle2'
       });
       await page.waitForSelector("[id='username']", {visible: true});
-      await page.type("[id='username']", "saragrz");
+      await page.type("[id='username']", "aliceprueba");
       await page.waitFor(500);
       await page.waitForSelector("[id='password']", {visible: true});
-      await page.type("[id='password']", "Prueba_123", {visible: true});
+      await page.type("[id='password']", "Alice_prueba123", {visible: true});
       await page.waitFor(500);
       await page.evaluate(() => {
         let btns = [...document.querySelector(".form-horizontal.login-up-form").querySelectorAll("button")];
@@ -69,18 +69,14 @@ defineFeature(feature, test => {
       await page.waitForSelector('#mapa');
     });
 
-    when('Pressing edit button', async () => {
-      await page.waitForSelector('#btnModify');
-      await page.click('#btnModify');
+    when('Pressing delete button', async () => {
+      await page.waitForSelector('#btnDelete');
+      await page.click('#btnDelete');
     });
 
-    then('I edit the route and save it', async () => {
-      await page.waitForSelector("[id='route_name']", { visible: true });
-      await page.type("[id='route_name']", "azulin");
-
-      await page.waitForSelector('#saveModify');
-      await page.click('#closeModify');
-
+    then('Confirm the elimination', async () => {
+      await page.waitForSelector('#btDelete');
+      await page.click('#btDelete');
       await browser.close();
     })
   });
