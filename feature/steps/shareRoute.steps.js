@@ -1,19 +1,24 @@
 import "jest";
 
-import { defineFeature, loadFeature } from "jest-cucumber";
+import {
+  defineFeature,
+  loadFeature
+} from "jest-cucumber";
 
-const feature = loadFeature("./feature/features/myRoute.feature");
+const feature = loadFeature("./feature/features/shareRoute.feature");
 const puppeteer = require("puppeteer");
 let browser = null;
 let page = null;
 
 defineFeature(feature, test => {
+
   beforeEach(async () => {
     jest.setTimeout(1200000);
   });
 
-  test("Trying to view a route", ({ given, when, then }) => {
-    given("I am a user trying to view my routes", async () => {
+  test("Trying to share a route", ({ given, when, then }) => {
+
+    given("I am a user trying to share a route", async () => {
       browser = await puppeteer.launch({
         headless: false
       });
@@ -25,10 +30,7 @@ defineFeature(feature, test => {
         timeout: 0
       });
       await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(
-        ".sc-EHOje.cffgrt",
-        "https://saragrz.solid.community/profile/card#me"
-      );
+      await page.type(".sc-EHOje.cffgrt", "https://saragarciarodri.solid.community/profile/card#me");
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function(btn) {
@@ -41,19 +43,16 @@ defineFeature(feature, test => {
         waitUntil: "networkidle2"
       });
       await page.waitForSelector("[id='username']", { visible: true });
-      await page.type("[id='username']", "saragrz");
+      await page.type("[id='username']", "saragarciarodri");
       await page.waitFor(500);
       await page.waitForSelector("[id='password']", { visible: true });
       await page.type("[id='password']", "Prueba_123", { visible: true });
       await page.waitFor(500);
       await page.evaluate(() => {
-        let btns = [
-          ...document
-            .querySelector(".form-horizontal.login-up-form")
-            .querySelectorAll("button")
-        ];
+        let btns = [...document.querySelector(".form-horizontal.login-up-form").querySelectorAll("button")];
         btns.forEach(function(btn) {
-          if (btn.innerText == "Log In") btn.click();
+          if (btn.innerText == "Log In")
+            btn.click();
         });
       });
       await page.waitForNavigation({
@@ -65,23 +64,33 @@ defineFeature(feature, test => {
         waitUntil: "networkidle2"
       });
 
-      await page.waitFor(500);
-
-      await page.waitForSelector("#mapa");
+    });
+    when("Pressing share button", async () => {
+      await page.waitFor(1000);
+      await page.waitForSelector('#viewFriends');
+      await page.click('#viewFriends');
+      await page.evaluate(() => {
+        let btns = [...document.querySelector(".btn-group").querySelectorAll("button")];
+        btns.forEach(function(btn) {
+          if (btn.innerText == "Compartir ruta con...")
+            btn.click();
+        });
+      });
     });
 
-    when('Pressing multimedia button', async () => {
-      await page.waitFor(500);
-      await page.waitForSelector('#mult');
-      await page.click('#mult');
+  then("I choose the friend to share", async () => {
+    await page.waitFor(500);
+    await page.evaluate(() => {
+      document.querySelector("#saragg").click();
+      document.querySelector("#saragrz").click();
     });
-
-    then("It shows the photo I had uploaded", async () => {
-      await page.waitForSelector("#img");
-      await page.waitForFunction(
-        'document.querySelector("body").innerText.includes("parisina")'
-      );
-      await browser.close();
+    await page.evaluate(() => {
+      document.querySelector("#shareRoute").click();
     });
+    await page.waitFor(500);
+    await browser.close();
   });
+
 });
+})
+;

@@ -1,22 +1,28 @@
 import "jest";
 
-import { defineFeature, loadFeature } from "jest-cucumber";
+import {
+  defineFeature,
+  loadFeature
+} from "jest-cucumber";
 
-const feature = loadFeature("./feature/features/myRoute.feature");
+const feature = loadFeature("./feature/features/addFriend.feature");
 const puppeteer = require("puppeteer");
 let browser = null;
 let page = null;
 
 defineFeature(feature, test => {
+
   beforeEach(async () => {
-    jest.setTimeout(1200000);
+    jest.setTimeout(12000000);
   });
 
-  test("Trying to view a route", ({ given, when, then }) => {
-    given("I am a user trying to view my routes", async () => {
+  test("Trying to add a friend", ({ given, when, then }) => {
+
+    given("I am a user trying to add a friend", async () => {
       browser = await puppeteer.launch({
         headless: false
       });
+
       // login
       page = await browser.newPage();
       await page.goto("http://localhost:3000/#/login", {
@@ -25,10 +31,7 @@ defineFeature(feature, test => {
         timeout: 0
       });
       await page.waitForSelector(".sc-EHOje.cffgrt");
-      await page.type(
-        ".sc-EHOje.cffgrt",
-        "https://saragrz.solid.community/profile/card#me"
-      );
+      await page.type(".sc-EHOje.cffgrt", "https://saragg.solid.community/profile/card#me");
       await page.evaluate(() => {
         let btns = [...document.querySelectorAll("button")];
         btns.forEach(function(btn) {
@@ -40,12 +43,16 @@ defineFeature(feature, test => {
       await page.waitForNavigation({
         waitUntil: "networkidle2"
       });
+
       await page.waitForSelector("[id='username']", { visible: true });
-      await page.type("[id='username']", "saragrz");
+      await page.type("[id='username']", "saragg");
+
       await page.waitFor(500);
       await page.waitForSelector("[id='password']", { visible: true });
       await page.type("[id='password']", "Prueba_123", { visible: true });
+
       await page.waitFor(500);
+
       await page.evaluate(() => {
         let btns = [
           ...document
@@ -53,7 +60,7 @@ defineFeature(feature, test => {
             .querySelectorAll("button")
         ];
         btns.forEach(function(btn) {
-          if (btn.innerText == "Log In") btn.click();
+          if (btn.innerText === "Log In") btn.click();
         });
       });
       await page.waitForNavigation({
@@ -61,26 +68,28 @@ defineFeature(feature, test => {
       });
       expect(page.url()).toBe("http://localhost:3000/#/welcome");
 
-      await page.goto("http://localhost:3000/#/myRoutes", {
+
+      await page.goto("http://localhost:3000/#/myFriends", {
         waitUntil: "networkidle2"
       });
-
-      await page.waitFor(500);
-
-      await page.waitForSelector("#mapa");
     });
 
-    when('Pressing multimedia button', async () => {
+    when("Putting his webId", async () => {
       await page.waitFor(500);
-      await page.waitForSelector('#mult');
-      await page.click('#mult');
+
+      await page.waitForSelector("[id='friendID']", { visible: true });
+      await page.type("[id='friendID']", "https://saragarcia.solid.community/");
+
     });
 
-    then("It shows the photo I had uploaded", async () => {
-      await page.waitForSelector("#img");
+    then("Pressing the add button", async () => {
+      await page.evaluate(() => {
+        let submit = document.getElementById("botonaddfriends");
+        submit.click();
+      });
       await page.waitForFunction(
-        'document.querySelector("body").innerText.includes("parisina")'
-      );
+        'document.querySelector("body").innerText.includes("https://saragarcia.solid.community/")'
+      )
       await browser.close();
     });
   });
