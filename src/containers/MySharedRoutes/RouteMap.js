@@ -4,8 +4,8 @@ import update from "react-addons-update";
 import { Point } from "domain";
 
 const mapStyle = {
-	width: "570px",
-	height: "350px"
+	width: "500px",
+	height: "300px"
 };
 
 export class MapContainer extends React.Component {
