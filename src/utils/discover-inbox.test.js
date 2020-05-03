@@ -7,11 +7,9 @@ import Discover from "./discover-inbox";
 library.add(fas);
 
 describe.only("Discover", () => {
-  afterAll(cleanup);
+	afterAll(cleanup);
 
-  test("call function", () => {
-    expect(Discover.fetch_inbox("prueba")).toMatchObject(
-      new Promise(function(resolve, reject) {})
-    );
-  });
+	test("call function", () => {
+		expect(Discover.fetch_inbox("prueba")).toMatchObject(new Promise(function(resolve, reject) {}));
+	});
 });

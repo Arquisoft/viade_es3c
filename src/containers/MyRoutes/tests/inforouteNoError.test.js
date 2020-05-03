@@ -3,12 +3,13 @@ import { HashRouter as Router } from "react-router-dom";
 import InfoRoutes from "../InfoRoute";
 import {
   cleanup,
-  queryByAttribute,
   render,
   fireEvent
 } from "react-testing-library";
 import MultsButton from "../ViewMult";
 import { act } from "react-dom/test-utils";
+import { getByTestId } from "@testing-library/dom";
+import { DropdownButton } from "react-bootstrap";
 
 const multi = [{ url: ".mp3" }, { url: ".mp4" }, { url: ".ext" }];
 
@@ -30,11 +31,10 @@ const props = {
 describe.only("InfoRoutes", () => {
   afterAll(cleanup);
 
-  const getById = queryByAttribute.bind(null, "id");
-
   const { container } = render(
     <Router>
       <InfoRoutes {...props}>
+        <DropdownButton aria-expanded="true"/>
         <MultsButton {...props} />
       </InfoRoutes>
     </Router>
@@ -47,16 +47,17 @@ describe.only("InfoRoutes", () => {
   });
 
   test("click button", async () => {
-    const btModify = getById(container, "btnModify");
+
+    const btModify = getByTestId(container, "btnModify");
     fireEvent.click(btModify);
 
-    const btDownload = getById(container, "btnDownload");
+    const btDownload = getByTestId(container, "btnDownload");
     fireEvent.click(btDownload);
 
-    const btDelete = getById(container, "btnDelete");
+    const btDelete = getByTestId(container, "btnDelete");
     fireEvent.click(btDelete);
 
-    const btFriends = getById(container, "viewFriends");
+    const btFriends = getByTestId(container, "viewFriends");
     fireEvent.click(btFriends);
   });
 });

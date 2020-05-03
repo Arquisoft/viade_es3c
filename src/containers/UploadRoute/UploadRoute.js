@@ -27,9 +27,20 @@ const UploadRoute = ({ webId }: Props) => {
 		let type = routeFile.name.split(".").pop();
 		console.log(type);
 		if (type === "geojson") {
-			points = parser.parserGeoJSON(file);
+			try {
+				points = parser.parserGeoJSON(file);
+			} catch {
+				console.log("Error en geojson");
+			}
+
 		} else if (type === "gpx") {
-			points = parser.parserGPX(file);
+			try{
+				points = parser.parserGPX(file);
+			}
+			catch {
+				console.log("Error en gpx");
+			}
+
 		} else {
 			errorToaster(i18n.t("uploadRoute.typeFile"), "ERROR");
 		}
@@ -136,7 +147,7 @@ const UploadRoute = ({ webId }: Props) => {
 					<Grid>
 						<Label>
 							{i18n.t("uploadRoute.uploadFile")}
-							<Input type="file" ref={file} onChange={handleUpload} data-testid="input-file" />
+							<Input type="file" ref={file} onChange={handleUpload} data-testid="file-input" />
 						</Label>
 					</Grid>
 				</Form>

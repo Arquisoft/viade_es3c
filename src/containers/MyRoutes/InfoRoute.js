@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Modal, DropdownButton } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { RouteCard, Button } from "./myroutes.style";
 import { ldflexHelper } from "@utils";
 import { successToaster } from "@utils";
@@ -30,17 +30,32 @@ const InfoRoute = (props) => {
 	if (!error) {
 		return (
 			<RouteCard className="card" id="card">
-				<DropdownButton id="operationmenu" drop="down">
-					<Button id="drop" type="button" onClick={() => setShowConfirmModify(!showConfirmModify)}>
+				<div id="divBtns" className="btn-group-vertical">
+					<Button
+						id="btnModify"
+						data-testid="btnModify"
+						type="button"
+						onClick={() => setShowConfirmModify(!showConfirmModify)}
+					>
 						<FontAwesomeIcon icon="pen" className="pen-icon" />
 					</Button>
-					<Button id="drop" type="button" onClick={() => setShowConfirmDownload(!showConfirmDownload)}>
+					<Button
+						id="btnDownload"
+						data-testid="btnDownload"
+						type="button"
+						onClick={() => setShowConfirmDownload(!showConfirmDownload)}
+					>
 						<FontAwesomeIcon icon="download" className="download-icon" />
 					</Button>
-					<Button id="drop" type="button" onClick={() => setShowConfirm(!showConfirm)}>
+					<Button
+						id="btnDelete"
+						data-testid="btnDelete"
+						type="button"
+						onClick={() => setShowConfirm(!showConfirm)}
+					>
 						<FontAwesomeIcon icon="trash" className="trash-icon" />
 					</Button>
-				</DropdownButton>
+				</div>
 
 				<div id="divDelete">
 					<Modal
@@ -208,7 +223,7 @@ const InfoRoute = (props) => {
 					<h3> {i18n.t("myRoutes.description")}</h3>
 					<p>{description}</p>
 					<div id={uuid}>
-						<Button id="viewFriends" type="button" onClick={() => setShowFriends(!showFriends)}>
+						<Button data-testid="viewFriends" type="button" onClick={() => setShowFriends(!showFriends)}>
 							{i18n.t("myRoutes.btnShare")}
 						</Button>
 						<MultsButton {...{ mult, name }} />
