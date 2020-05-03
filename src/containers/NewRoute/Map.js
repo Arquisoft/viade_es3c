@@ -1,6 +1,6 @@
 import {
   Map,
-  googleApiWrapper,
+  GoogleApiWrapper,
   Marker,
   Polyline,
   HeatMap,
@@ -346,7 +346,7 @@ export class MapContainer extends React.Component {
   }
 }
 
-export default googleApiWrapper({
+export default GoogleApiWrapper({
   apiKey: "AIzaSyB3kcMOsEbg2unbt5yGvqw4HxNlSLE-U00",
   libraries: ["visualization"]
 })(MapContainer);

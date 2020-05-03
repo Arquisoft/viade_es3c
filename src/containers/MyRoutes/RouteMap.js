@@ -1,4 +1,4 @@
-import { Map, googleApiWrapper, Marker, Polyline } from "google-maps-react";
+import { Map, GoogleApiWrapper, Marker, Polyline } from "google-maps-react";
 import React from "react";
 import update from "react-addons-update";
 import { Point } from "domain";
@@ -179,6 +179,6 @@ export class MapContainer extends React.Component {
   }
 }
 
-export default googleApiWrapper({
+export default GoogleApiWrapper({
   apiKey: "AIzaSyB3kcMOsEbg2unbt5yGvqw4HxNlSLE-U00"
 })(MapContainer);
