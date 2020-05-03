@@ -92,8 +92,6 @@ Ends temporary react/fontawesome fix
   text-decoration: none;
 }
 
-
-
 .form-group {
   text-align: left;
   margin: 12px 0;
@@ -229,12 +227,12 @@ div.fade.in.modal {
 	right: 0;
 	bottom: 0;
 	margin: auto;
-	}
+  }
 
   #floating-panel {
 	top: 50px;
 	left: 0px;
-	}
+  }
 
   #imgCovid {
 	display: block;
@@ -242,7 +240,7 @@ div.fade.in.modal {
 	max-width: 300px;
 	max-height: 200px;
 	align-items: center;
-	}
+  }
 
   body {
 	color: #666;
@@ -255,7 +253,7 @@ div.fade.in.modal {
   a,
   div {
 	font-size: 12px;
-	}
+  }
 
   .link,
   .link-button {
@@ -267,6 +265,5 @@ div.fade.in.modal {
 	line-height: 10px;
 	text-align: center;
 	text-decoration: none;
-	padding: 0;
-	}
+  }
 }
