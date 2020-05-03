@@ -7,12 +7,10 @@ import Loader from "./Loader";
 import Input from "./Input";
 import Toaster from "./ToasterNotification/toaster.component";
 import Select from "./Select";
-import ConfirmationDialog from "./ConfirmationDialog";
 
 export {
 	GradientBackground,
 	CenterContainer,
-	ConfirmationDialog,
 	Panel,
 	Dropdown,
 	Badge,
