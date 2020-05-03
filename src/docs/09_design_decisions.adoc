@@ -34,4 +34,4 @@
 * Using solid-auth-client for perfoming autenticate requests to SOLID pods.
 * Using solid-auth-client and ledflex libraries to make notifications when sharing routes and sending them to the user´s inbox.
 * Using bootstrap to make style sheets and give the app and good visual design.
-* Covid-19
+* Using the microsoft Bing-COVID-19-Data repository excel we parse it using the Papa Parser library and converted to json, we filter it for date and we show the latest release.
