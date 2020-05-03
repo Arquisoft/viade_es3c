@@ -20,7 +20,7 @@ image::05-builidng-block-view_0.png[Level 0]
 
 At a first place, there are two main modules, Viade and Solid Server. All Viade's components communicate with Solid Sever.
 
-image::05-builidng-block-view_1.png[Level 1]
+image::05-builidng-block-view_01.png[Level 1]
 
 *_Contained building blocks_*
 
@@ -36,7 +36,7 @@ image::05-builidng-block-view_1.png[Level 1]
 In this level there is the main view,
 In this level you will find all the containers which the user will interact.
 
-image::05-builidng-block-view_2.png[Level 2]
+image::05-builidng-block-view_02.png[Level 2]
 
 *_Contained building blocks_*
 
@@ -57,7 +57,7 @@ image::05-builidng-block-view_2.png[Level 2]
 
 This is the lowest level. It provides us the necessary logic to communicate with user's pod.
 
-image::05-builidng-block-view_3.png[Level 3]
+image::05-builidng-block-view_03.png[Level 3]
 
 *_Contained building blocks_*
 

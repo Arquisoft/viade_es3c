@@ -2,8 +2,6 @@
 == Risks and Technical Debts
 
 
-[role="arc42help"]
-
 The main problem in the development of the application is working with a new technology that isn´t very extended. This collides with the lack of time
 
 [options="header"]

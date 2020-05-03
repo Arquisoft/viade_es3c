@@ -2,15 +2,10 @@
 == Quality Tree
 
 
-[role="arc42help"]
-
 image::QualityScenarios.png[]
 
 
 === Quality Scenarios
-
-[role="arc42help"]
-
 
 
 .Usability

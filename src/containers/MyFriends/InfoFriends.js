@@ -14,10 +14,7 @@ const InfoFriends = (props) => {
 	return (
 		<RouteCard className="card">
 			<div id="itemAmigo">
-				<a href={url}>
-					<h3 data-testid="friendId">{name}</h3>
-				</a>
-			</div>
+					<h3 data-testid="friendId">{name}</h3>			</div>
 			<Button id="btnDelete" type="button" onClick={(e) => handleClick(e)}>
 				<FontAwesomeIcon icon="user-minus" className="user-minus-icon" />
 			</Button>
