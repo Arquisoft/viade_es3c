@@ -44,11 +44,7 @@ export const RouteCard = styled.div`
 		}
 		display: inline;
 	}
-	p {
-		font-size: 25px;
-		justify-content: center;
-		font-weight: bold;
-	}
+
 	h3 {
 		font-weight: bold;
 		font-size: 15px;
