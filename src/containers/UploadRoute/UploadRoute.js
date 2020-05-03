@@ -25,12 +25,10 @@ const UploadRoute = ({ webId }: Props) => {
 
 	function chooseParser(file) {
 		let type = routeFile.name.split(".").pop();
-		console.log(type);
 		if (type === "geojson") {
 			try {
 				points = parser.parserGeoJSON(file);
 			} catch {
-				console.log("Error en geojson");
 			}
 
 		} else if (type === "gpx") {
@@ -38,7 +36,6 @@ const UploadRoute = ({ webId }: Props) => {
 				points = parser.parserGPX(file);
 			}
 			catch {
-				console.log("Error en gpx");
 			}
 
 		} else {
