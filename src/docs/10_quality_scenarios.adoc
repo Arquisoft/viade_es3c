@@ -4,14 +4,14 @@
 
 [role="arc42help"]
 
-
+image::QualityScenarios.png[]
 
 
 === Quality Scenarios
 
 [role="arc42help"]
 
-image::QualityScenarios.png[]
+
 
 .Usability
 We try to carry out a usable application design. This is reduced to following the principles of web usability, maintaining constant navigation and not forcing users to learn new ways for navigation in the different parts of the application. We also try not to abuse the animation as this could tire your eyes and become overwhelming. 

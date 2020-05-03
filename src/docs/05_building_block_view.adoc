@@ -18,11 +18,13 @@ image::05-builidng-block-view_1.jpeg[]
 
 
 
-image::05-building-block-view_2.jpg[]
+
 
 *Level 1*
 
 In this level there is the main view, whiche the user will interact
+
+image::FirstLevel.png[]
 
 *_Contained building blocks_*
 
@@ -36,7 +38,7 @@ In this level there is the main view, whiche the user will interact
 
 *Level 2*
 
-
+image::SecondLevel.png[]
 This level contains all the functionality of the script index.js.
 
 *_Contained building blocks_*
