@@ -13,6 +13,7 @@ body,
 
 * {
   box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
 body {
@@ -66,6 +67,7 @@ input[type="checkbox"] {
 input[type="checkbox"]::before {
   content: none;
 }
+
 /**
 Ends temporary react/fontawesome fix
  */
@@ -90,9 +92,7 @@ Ends temporary react/fontawesome fix
   text-decoration: none;
 }
 
-* {
-  font-family: "Raleway", sans-serif;
-}
+
 
 .form-group {
   text-align: left;
@@ -129,7 +129,7 @@ Ends temporary react/fontawesome fix
   box-sizing: border-box;
 }
 
-form-group .select-role {
+.form-group .select-role {
   margin: 10px 0;
 }
 
@@ -199,8 +199,8 @@ div.fade.in.modal {
 #mapa-modal {
   width: 999px;
   height: 350px;
-  padding: 0px;
 }
+
 #floating-panel {
   position: absolute;
   top: 10px;
@@ -219,54 +219,54 @@ div.fade.in.modal {
 }
 
 @media only screen and (max-width: 1605px) {
-	#modalCovid {
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		color: rgb(0, 77, 134);
-		top: 10%;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		margin: auto;
+  #modalCovid {
+    position: fixed;
+	width: 100%;
+	height: 100%;
+	color: rgb(0, 77, 134);
+	top: 10%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
 	}
 
-	#floating-panel {
-		top: 50px;
-		left: 0px;
+  #floating-panel {
+	top: 50px;
+	left: 0px;
 	}
 
-	#imgCovid {
-		display: block;
-		margin: auto;
-		max-width: 300px;
-		max-height: 200px;
-		align-items: center;
+  #imgCovid {
+	display: block;
+	margin: auto;
+	max-width: 300px;
+	max-height: 200px;
+	align-items: center;
 	}
 
-	body {
-		color: #666;
-		font-size: 30%;
-		background: rgb(0, 77, 134);
-		background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+  body {
+	color: #666;
+	font-size: 30%;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+  }
+
+  p,
+  a,
+  div {
+	font-size: 12px;
 	}
 
-	p,
-	a,
-	div {
-		font-size: 12px;
-	}
-
-	.link,
-	.link-button {
-		color: #449df5;
-		font-family: Raleway;
-		font-size: 10px;
-		font-weight: 600;
-		letter-spacing: 0.75px;
-		line-height: 10px;
-		text-align: center;
-		text-decoration: none;
-		padding: 0;
+  .link,
+  .link-button {
+	color: #449df5;
+	font-family: Raleway;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.75px;
+	line-height: 10px;
+	text-align: center;
+	text-decoration: none;
+	padding: 0;
 	}
 }
