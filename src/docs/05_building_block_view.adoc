@@ -12,19 +12,15 @@ The system will have three main elements which communicate each others:
     * PODS: they will storage information's users.
     * Viade: the app will communicate with users and pods.
 
-image::05-builidng-block-view_1.jpeg[]
+image::05-builidng-block-view_0.jpeg[Level 0]
 
 === Whitebox Overall System
-
-
-
-
 
 *Level 1*
 
 At a first place, there are two main modules, Viade and Solid Server. All Viade's components communicate with Solid Sever.
 
-image::FirstLevel.png[]
+image::05-builidng-block-view_1.jpeg[Level 1]
 
 *_Contained building blocks_*
 
@@ -39,6 +35,8 @@ image::FirstLevel.png[]
 
 In this level there is the main view,
 In this level you will find all the containers which the user will interact.
+
+image::05-builidng-block-view_2.jpeg[Level 2]
 
 *_Contained building blocks_*
 
@@ -57,7 +55,10 @@ In this level you will find all the containers which the user will interact.
 
 *Level 3*
 
-This is the lowest level. It provides us the necessary logic to communicate with user's pod
+This is the lowest level. It provides us the necessary logic to communicate with user's pod.
+
+image::05-builidng-block-view_3.jpeg[Level 3]
+
 *_Contained building blocks_*
 
 [cols="1,2" options="header"]
