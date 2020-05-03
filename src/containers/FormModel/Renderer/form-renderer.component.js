@@ -102,8 +102,12 @@ const FormModelRenderer = () => {
 		ldflex.clearCache();
 		await setSubmitted(null);
 		let obj = {};
-		if (schemaUrl !== "") obj = { ...obj, schemaUrl };
-		if (source !== "") obj = { ...obj, source };
+		if (schemaUrl !== "") {
+			obj = { ...obj, schemaUrl };
+		}
+		if (source !== "") {
+			obj = { ...obj, source };
+		}
 		setSubmitted(obj);
 	}
 

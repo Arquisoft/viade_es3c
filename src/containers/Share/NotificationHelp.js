@@ -20,7 +20,6 @@ const Notifications = ({ ruta, show, setshow }) => {
 
 	const handleChange = (event) => {
 		setCheckedItems((checkedItems) => checkedItems.set(event.target.value, event.target.checked));
-		console.log("checkedItems: ", checkedItems);
 	};
 
 	useEffect(() => {
@@ -64,7 +63,9 @@ const Notifications = ({ ruta, show, setshow }) => {
 			const license = "https://creativecommons.org/licenses/by-sa/4.0/";
 
 			const inboxes = await notification.findUserInboxes([ { path: webId, name: "Global" } ]);
-			if (inboxes.length === 0) return false;
+			if (inboxes.length === 0) {
+				return false;
+			}
 			const to = notification.getDefaultInbox(inboxes, "Global");
 			if (to) {
 				await createNotification(
@@ -88,7 +89,6 @@ const Notifications = ({ ruta, show, setshow }) => {
 
 	function shareWithFriends(e) {
 		e.preventDefault();
-		console.log("Friends selected " + checkedItems);
 		for (var [ key ] of checkedItems) {
 			showNotifications(key, e);
 		}

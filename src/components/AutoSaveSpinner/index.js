@@ -13,7 +13,9 @@ const AutoSaveSpinner = memo(({ inProgress, result, setResult, setSavingProcess 
 	useEffect(
 		() => {
 			if (result) {
-				if (timer) clearTimeout(timer);
+				if (timer) {
+					clearTimeout(timer);
+				}
 				if (result.toLowerCase() === "success") {
 					setTimer(
 						setTimeout(() => {

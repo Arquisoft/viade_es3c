@@ -72,7 +72,9 @@ const FormModelConverter = () => {
 				let elt = null;
 				const quads = layout.getQuads(t.object, TERM_LayoutRef, null);
 				if (quads.length) {
-					if (!index) index = Util.index(newSchema);
+					if (!index) {
+						index = Util.index(newSchema);
+					}
 					let lookFor = quads[0].object.value;
 					elt = index.shapeExprs[lookFor] || index.tripleExprs[lookFor];
 				} else {

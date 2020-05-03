@@ -86,8 +86,11 @@ export class WelcomeComponent extends Component<Props> {
 		const { hasImage } = this.state;
 		try {
 			const { user } = data;
-			if (hasImage) await user.vcard_hasPhoto.set(namedNode(uri));
-			else await user.vcard_hasPhoto.add(namedNode(uri));
+			if (hasImage) {
+				await user.vcard_hasPhoto.set(namedNode(uri));
+			} else {
+				await user.vcard_hasPhoto.add(namedNode(uri));
+			}
 			successToaster(message, title);
 		} catch (error) {
 			errorToaster(error.message, "Error");

@@ -3,18 +3,18 @@ import { Button } from "./myroutes.style";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { blueGrey } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
-import {PlayerDiv} from "./myroutes.style"
+import {PlayerDiv} from "./myroutes.style";
 // eslint-disable-next-line
 import i18n from "i18n";
 
 const getMediaComponent = (url) => {
-  if (url.includes('.mp4')) {
-    return (<PlayerDiv><video autoplay controls src={url} width="640" height="380"></video></PlayerDiv>)
+  if (url.includes(".mp4")) {
+    return (<PlayerDiv><video autoplay controls src={url} width="640" height="380"></video></PlayerDiv>);
   } else {
-    return <img id="img" src={url} width={640}
-    height={360} alt={"Media for the route"}/>
+    return (<img id="img" src={url} width={640}
+    height={360} alt={"Media for the route"}/>);
   }
-}
+};
 
 const AutoRotatingCarouselModal = ({
   handleOpen,
@@ -35,7 +35,7 @@ const AutoRotatingCarouselModal = ({
           style={{ backgroundColor: blueGrey[600] }}
           title={i18n.t("myRoutes.noMultTitle")}
           subtitle={i18n.t("myRoutes.noMult")}
-        />)
+        />);
          arr.push(j);
     }
 
@@ -47,7 +47,7 @@ const AutoRotatingCarouselModal = ({
            title={media.name}
             key={media.mult[parseInt(i)].date}
           subtitle={media.mult[parseInt(i)].date}
-        />)
+        />);
       arr.push(j);
     }
     return arr;

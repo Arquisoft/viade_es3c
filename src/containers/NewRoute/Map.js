@@ -204,7 +204,6 @@ export class MapContainer extends React.Component {
 		this.setState({
 			currentZoom: map.zoom
 		});
-		console.log(this.state.currentZoom);
 	};
 
 	close = () => {

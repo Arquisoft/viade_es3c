@@ -115,7 +115,6 @@ export const getUserName = (name) => {
 
 export const getPathShareRoutes = (name) => {
 	let author = name.replace("profile/card#me", "private/viade/shared/");
-	console.log(author);
 	return author;
 };
 

@@ -40,7 +40,9 @@ const PrintButton = ({ id, label, route, hid }) => (
 									pdf.setFontSize(10);
 									pdf.text(10, 200, `by: ${r.author}`);
 									pdf.text(10, 210, `at: ${r.date}`);
-									if (pdf.getNumberOfPages() < route.multimedia.length + 1) pdf.addPage();
+									if (pdf.getNumberOfPages() < route.multimedia.length + 1) {
+										pdf.addPage();
+									}
 								})
 							);
 						}
