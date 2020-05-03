@@ -4,10 +4,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Input = ({ icon, ...rest }) => (
-  <div className="input wrap input-wrap--inline">
-    <label>
-      <FontAwesomeIcon icon={icon} className="icon" />
-    </label>
-    <input {...rest} />
-  </div>
+	<div className="input wrap input-wrap--inline">
+		<label>
+			<FontAwesomeIcon icon={icon} className="icon" />
+		</label>
+		<input {...rest} />
+	</div>
 );

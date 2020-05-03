@@ -5,9 +5,9 @@ import React from "react";
 afterAll(cleanup);
 
 describe.only("Labeled", () => {
-  const { container } = render(<Labeled />);
+	const { container } = render(<Labeled />);
 
-  it("renders without crashing", () => {
-    expect(container).toBeTruthy();
-  });
+	it("renders without crashing", () => {
+		expect(container).toBeTruthy();
+	});
 });

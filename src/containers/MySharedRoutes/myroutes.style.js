@@ -141,7 +141,6 @@ export const MyRouteContainer = styled.div`
 	@media only screen and (max-width: 365px) {
 		max-width: 280px;
 	}
-
 `;
 export const FormRenderContainer = styled.div`
   border: 1px solid #dae0e6;

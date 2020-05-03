@@ -8,19 +8,19 @@ import InfoFriends from "./InfoFriends";
 library.add(fas);
 
 const props = {
-  name: "elmer",
-  url: "https://elmer.solid.community/"
+	name: "elmer",
+	url: "https://elmer.solid.community/"
 };
 
 describe.only("MyFriends", () => {
-  afterAll(cleanup);
-  const { container } = render(
-    <Router>
-      <InfoFriends {...{ ...props }} />
-    </Router>
-  );
+	afterAll(cleanup);
+	const { container } = render(
+		<Router>
+			<InfoFriends {...{ ...props }} />
+		</Router>
+	);
 
-  test("renders without crashing", () => {
-    expect(container).toBeTruthy();
-  });
+	test("renders without crashing", () => {
+		expect(container).toBeTruthy();
+	});
 });

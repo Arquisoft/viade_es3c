@@ -7,14 +7,14 @@ import Share from "./Share";
 library.add(fas);
 
 const Props = {
-  webId: "https://saragarcia.solid.community/"
+	webId: "https://saragarcia.solid.community/"
 };
 
 describe.only("Share", () => {
-  afterAll(cleanup);
+	afterAll(cleanup);
 
-  test("class share", () => {
-    const share = new Share(Props);
-    share.permit("friend", "prueba", "sara");
-  });
+	test("class share", () => {
+		const share = new Share(Props);
+		share.permit("friend", "prueba", "sara");
+	});
 });

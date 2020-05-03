@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Labeled = ({
-  label,
-  children,
-  component: Component = "button",
-  ...rest
-}) => {
-  const [hover, setHover] = useState(false);
+const Labeled = ({ label, children, component: Component = "button", ...rest }) => {
+	const [ hover, setHover ] = useState(false);
 
-  const LComponent = styled(Component)`
+	const LComponent = styled(Component)`
     position: relative;
     & > span.label {
       position: absolute;
@@ -21,16 +16,12 @@ const Labeled = ({
     }
   `;
 
-  return (
-    <LComponent
-      {...rest}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
-      {children}
-      <span className="label">{hover && label ? label : ""}</span>
-    </LComponent>
-  );
+	return (
+		<LComponent {...rest} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+			{children}
+			<span className="label">{hover && label ? label : ""}</span>
+		</LComponent>
+	);
 };
 
 export default Labeled;

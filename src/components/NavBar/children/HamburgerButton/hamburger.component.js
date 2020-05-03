@@ -1,17 +1,17 @@
 import React from "react";
 
 type Props = {
-  toggleMobileMenu: Function
+	toggleMobileMenu: Function
 };
 
 const HamburgerButton = ({ toggleMobileMenu }: Props) => (
-  <div className="mobile-navigation__toggle">
-    <button onClick={toggleMobileMenu} type="button" id="mobile">
-      <span className="icon">
-        <img src="img/bars-nav.svg" alt="Icon Menu" />
-      </span>
-    </button>
-  </div>
+	<div className="mobile-navigation__toggle">
+		<button onClick={toggleMobileMenu} type="button" id="mobile">
+			<span className="icon">
+				<img src="img/bars-nav.svg" alt="Icon Menu" />
+			</span>
+		</button>
+	</div>
 );
 
 export default HamburgerButton;
