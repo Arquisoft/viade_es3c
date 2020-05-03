@@ -4,7 +4,7 @@ import { removeFriend } from "./MyFriends";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const InfoFriends = (props) => {
-	const { name, url, webidUser, webidFriend } = props;
+	const { name, webidUser, webidFriend } = props;
 
 	async function handleClick(e) {
 		e.preventDefault();
