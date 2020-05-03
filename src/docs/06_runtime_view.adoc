@@ -55,8 +55,5 @@ Our application allow us to share a route with some friends. When you visualize 
 image::06_runtime_view_Share_Routes.png[Share routes diagram]
 
 === See shared routes with me
-We can see the routes that users shared with us by clicking on the shared routes option in the navigation menu. 
-
-image::06_runtime_view_See_Shared_Routes.png[View shared routes with me diagram]
-
+We can see the routes that users shared with us by clicking on the shared routes option in the navigation menu. The procedure is the same as loading my routes. 
 

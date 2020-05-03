@@ -18,7 +18,7 @@
 [width="100%",options="header"]
 |====================
 | Code | Constraint | Explanation 
-| OC01 | Time limit | The project must be completed by dd/MM/yyyy 
+| OC01 | Time limit | The project must be completed by 04/05/2020 
 | OC02 | Project budget | In the absence of a budget, resources are limited
 | OC03 | Testing | The application will be tested during its development to ensure its correct operation 
 | OC04 | Team organization| The project will be developed in teams of 5-6 people
