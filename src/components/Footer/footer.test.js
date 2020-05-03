@@ -6,13 +6,13 @@ import Footer from "./footer.component";
 afterAll(cleanup);
 
 describe.only("Nav Bar", () => {
-  const { container } = render(
-    <Router>
-      <Footer />
-    </Router>
-  );
+	const { container } = render(
+		<Router>
+			<Footer />
+		</Router>
+	);
 
-  it("renders without crashing", () => {
-    expect(container).toBeTruthy();
-  });
+	it("renders without crashing", () => {
+		expect(container).toBeTruthy();
+	});
 });

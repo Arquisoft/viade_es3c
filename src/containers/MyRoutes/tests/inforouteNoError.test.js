@@ -9,6 +9,7 @@ import {
 import MultsButton from "../ViewMult";
 import { act } from "react-dom/test-utils";
 import { getByTestId } from "@testing-library/dom";
+import { DropdownButton } from "react-bootstrap";
 
 const multi = [{ url: ".mp3" }, { url: ".mp4" }, { url: ".ext" }];
 
@@ -33,6 +34,7 @@ describe.only("InfoRoutes", () => {
   const { container } = render(
     <Router>
       <InfoRoutes {...props}>
+        <DropdownButton aria-expanded="true"/>
         <MultsButton {...props} />
       </InfoRoutes>
     </Router>
@@ -46,22 +48,16 @@ describe.only("InfoRoutes", () => {
 
   test("click button", async () => {
 
-    const drop = getByTestId(container, "operationmenu");
-    fireEvent.click(drop);
-
-    /*const btModify = getByTestId(container, "btnModify");
+    const btModify = getByTestId(container, "btnModify");
     fireEvent.click(btModify);
 
     const btDownload = getByTestId(container, "btnDownload");
     fireEvent.click(btDownload);
 
     const btDelete = getByTestId(container, "btnDelete");
-    fireEvent.click(btDelete);*/
+    fireEvent.click(btDelete);
 
     const btFriends = getByTestId(container, "viewFriends");
-    fireEvent.click(btFriends);
-
-    const btMult = getByTestId(container, "mult");
     fireEvent.click(btFriends);
   });
 });

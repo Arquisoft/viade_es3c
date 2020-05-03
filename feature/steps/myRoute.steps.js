@@ -70,15 +70,16 @@ defineFeature(feature, test => {
       await page.waitForSelector("#mapa");
     });
 
-    when("Pressing multimedia button", async () => {
-      await page.waitForSelector("#mult");
-      await page.click("#mult");
+    when('Pressing multimedia button', async () => {
+      await page.waitFor(500);
+      await page.waitForSelector('#mult');
+      await page.click('#mult');
     });
 
     then("It shows the photo I had uploaded", async () => {
       await page.waitForSelector("#img");
       await page.waitForFunction(
-        'document.querySelector("body").innerText.includes("azul")'
+        'document.querySelector("body").innerText.includes("parisina")'
       );
       await browser.close();
     });

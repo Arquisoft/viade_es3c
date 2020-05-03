@@ -9,30 +9,30 @@ import Uploader from "./uploader.component";
 library.add(fas);
 
 class File extends React.Component {
-  name = "pruebafile";
-  type = "png";
+	name = "pruebafile";
+	type = "png";
 }
 
 const props = {
-  webId: "https://saragr.inrupt.net/"
+	webId: "https://saragr.inrupt.net/"
 };
 
 describe.only("Multimedia", () => {
-  afterAll(cleanup);
-  const { container } = render(
-    <Router>
-      <MultimediaPageContent {...{ ...props }} />
-    </Router>
-  );
+	afterAll(cleanup);
+	const { container } = render(
+		<Router>
+			<MultimediaPageContent {...{ ...props }} />
+		</Router>
+	);
 
-  test("renders without crashing", () => {
-    expect(container).toBeTruthy();
-  });
+	test("renders without crashing", () => {
+		expect(container).toBeTruthy();
+	});
 
-  test("uploader", () => {
-    const upload = new Uploader();
-    const file = new File();
-    const randomSuffix = Date.parse(new Date());
-    expect(upload.renameFile(file, "jpg")).toBe("_" + randomSuffix + "_.jpg");
-  });
+	test("uploader", () => {
+		const upload = new Uploader();
+		const file = new File();
+		const randomSuffix = Date.parse(new Date());
+		expect(upload.renameFile(file, "jpg")).toBe("_" + randomSuffix + "_.jpg");
+	});
 });

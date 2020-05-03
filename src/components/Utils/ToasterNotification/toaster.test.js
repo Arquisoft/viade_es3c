@@ -10,20 +10,18 @@ const defaultTitle = "error";
 
 const defaultContent = "Something happened";
 
-const { container, getByText } = render(
-  <Toaster title={defaultTitle} content={defaultContent} />
-);
+const { container, getByText } = render(<Toaster title={defaultTitle} content={defaultContent} />);
 
 describe("Toaster Notification Component", () => {
-  it("Toaster Notification renders without crashing", () => {
-    expect(container).toBeTruthy();
-  });
+	it("Toaster Notification renders without crashing", () => {
+		expect(container).toBeTruthy();
+	});
 
-  it("render title", () => {
-    expect(getByText(defaultTitle).textContent).toBe(defaultTitle);
-  });
+	it("render title", () => {
+		expect(getByText(defaultTitle).textContent).toBe(defaultTitle);
+	});
 
-  it("render content", () => {
-    expect(getByText(defaultContent).textContent).toBe(defaultContent);
-  });
+	it("render content", () => {
+		expect(getByText(defaultContent).textContent).toBe(defaultContent);
+	});
 });

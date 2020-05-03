@@ -74,7 +74,8 @@ defineFeature(feature, test => {
       await page.waitFor(6000);
     });
 
-    then("I will see the route shared at pod", async () => {
+    then("I will see the route at my shared routes view", async () => {
+      await page.waitFor(5000);
       await page.waitForSelector(".sc-hrWEMg.glJa");
       await page.evaluate(() => {
         let btns = [
@@ -87,7 +88,7 @@ defineFeature(feature, test => {
         });
       });
       await page.waitFor(5000);
-      await page.evaluate(() => window.find("latitude"));
+      await page.waitForSelector('#mapa');
       await browser.close();
     });
   });
