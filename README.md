@@ -55,7 +55,6 @@ npm start
 ```
 
 ## Acknowledgments
-* [Bing COVID-19 Tracker](https://github.com/microsoft/Bing-COVID-19-Data)
 * [html2canvas](https://github.com/niklasvh/html2canvas)
 * [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
 * [jspfd](https://github.com/MrRio/jsPDF)
