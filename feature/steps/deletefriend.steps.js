@@ -51,7 +51,9 @@ defineFeature(feature, (test) => {
 			await page.evaluate(() => {
 				let btns = [ ...document.querySelector(".form-horizontal.login-up-form").querySelectorAll("button") ];
 				btns.forEach(function(btn) {
-					if (btn.innerText === "Log In") btn.click();
+					if (btn.innerText === "Log In") {
+						btn.click();
+					}
 				});
 			});
 			await page.waitForNavigation({

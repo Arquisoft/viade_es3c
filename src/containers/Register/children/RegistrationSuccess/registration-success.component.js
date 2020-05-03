@@ -33,7 +33,9 @@ class RegistrationSuccess extends Component<Props, State> {
 
 	countDown = () => {
 		const { timeLeft } = this.state;
-		if (timeLeft === 0) this.redirect();
+		if (timeLeft === 0) {
+			this.redirect();
+		}
 		this.setState((prevState) => ({ timeLeft: prevState.timeLeft - 1 }));
 	};
 

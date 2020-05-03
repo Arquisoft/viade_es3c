@@ -12,7 +12,9 @@ type Props = {
 /**
  * Check if we are running test to avoid issue with React Modal
  */
-if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
+if (process.env.NODE_ENV !== "test") {
+	ReactModal.setAppElement("#root");
+}
 
 const ConfirmationDialog = ({ onAccept, onDecline, options, parentSelector }: Props) => {
 	const [ isOpen, setIsOpen ] = useState(false);

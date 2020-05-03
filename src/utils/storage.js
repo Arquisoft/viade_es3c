@@ -148,7 +148,9 @@ export const getPredicate = (field, routeShape) => {
  * @returns {*}
  */
 export const buildPathFromWebId = (webId, path) => {
-	if (!webId) return false;
+	if (!webId) {
+		return false;
+	}
 	const domain = new URL(typeof webId === "object" ? webId.webId : webId).origin;
 	return `${domain}/${path}`;
 };
@@ -167,7 +169,9 @@ export const addRoute = async (webId, route) => {
 		);
 
 		// If we do not have Write permission, there's nothing we can do here
-		if (!hasWritePermission) return;
+		if (!hasWritePermission) {
+			return;
+		}
 
 		// Get the default app storage location from the user's pod and append our path to it
 		const viadeUrl = await getAppStorage(webId, routePath);
@@ -204,7 +208,9 @@ export const addMedia = async (webId, media) => {
 			AccessControlList.MODES.WRITE
 		);
 		// If we do not have Write permission, there's nothing we can do here
-		if (!hasWritePermission) return;
+		if (!hasWritePermission) {
+			return;
+		}
 
 		// Get the default app storage location from the user's pod and append our path to it
 		const viadeUrl = await getAppStorage(webId, mediaPath);
@@ -246,7 +252,9 @@ export const createInitialFiles = async (webId) => {
 		);
 
 		// If we do not have Write permission, there's nothing we can do here
-		if (!hasWritePermission) return;
+		if (!hasWritePermission) {
+			return;
+		}
 
 		// Get the default app storage location from the user's pod and append our path to it
 		const routesUrl = await getAppStorage(webId, routePath);

@@ -21,7 +21,9 @@ class Dropdown extends Component<Props, State> {
 
 	toggleOpen = () => {
 		const { open } = this.props;
-		if (!open) this.setState((prevProps) => ({ open: !prevProps.open }));
+		if (!open) {
+			this.setState((prevProps) => ({ open: !prevProps.open }));
+		}
 	};
 
 	handleClickOutside() {
