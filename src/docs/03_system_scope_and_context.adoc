@@ -1,9 +1,6 @@
 [[section-system-scope-and-context]]
 == System Scope and Context
 
-
-[role="arc42help"]
-
 .What are the goals of the system?
 The main idea of this project is to create a decentralised application to make routes for either running or whatever you wish
 plus being able to share this routes that you make with your friends and being able to use theirs aswell, in other words
@@ -21,7 +18,6 @@ their friends are sharing with them.
 
 === Business Context
 
-[role="arc42help"]
 
 This section shows a representation of the communication partners and stakeholders of our system,
 offering a more easy to understand graphical view of the business, and later explain more indepth
@@ -66,7 +62,6 @@ in the technical context.
 
 === Technical Context
 
-[role="arc42help"]
 
 For this applicacion we are using a couple of technologies, like SOLID, REACT, etc...
 the main idea is building an applicacion working with the technologies we mentioned earlier

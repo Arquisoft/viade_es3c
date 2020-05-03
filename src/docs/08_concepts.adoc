@@ -1,6 +1,6 @@
 [[section-concepts]]
 == Cross-cutting Concepts
-
+image::08-Crosscutting-Concepts-Structure-EN.png[]
 === User Experience concepts (UX)
 ==== User interface:
 We don't use the Bootstrap library we thought it would be better to give it our own style. In this way, we decided to make a js file for each component named ComponentName.style.js. 
