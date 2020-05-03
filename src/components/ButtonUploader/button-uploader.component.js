@@ -43,7 +43,8 @@ export const ButtonUploader = (props: Props) => {
 			}}
 		>
 			<ButtonStyled multiple onClick={onClickFile} className="button-upload">
-				{text}
+				<FontAwesomeIcon icon="file-upload" className="file-upload-icon" title={text} />
+				{"	" + text}
 			</ButtonStyled>
 			{inProgress && (
 				<ImageProfileLoader className="image-profile-loader">

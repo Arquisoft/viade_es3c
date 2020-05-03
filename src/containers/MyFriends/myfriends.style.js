@@ -18,7 +18,7 @@ export const RouteCard = styled.div`
 			text-align: center;
 			margin: auto;
 			background: none;
-			font-family: 'Work Sans', sans-serif;
+			font-family: "Work Sans", sans-serif;
 			font-size: 10px;
 		}
 
@@ -96,7 +96,7 @@ export const FormAddFriends = styled.div`
 			color: grey;
 			text-align: center;
 			margin: auto;
-			font-family: 'Work Sans', sans-serif;
+			font-family: "Work Sans", sans-serif;
 			font-size: 10px;
 		}
 
@@ -155,7 +155,7 @@ export const RouteWrapper = styled.section`
 			color: grey;
 			text-align: center;
 			margin: auto;
-			font-family: 'Work Sans', sans-serif;
+			font-family: "Work Sans", sans-serif;
 			font-size: 10px;
 		}
 	}
@@ -180,47 +180,14 @@ export const MyRouteContainer = styled.div`
 			color: grey;
 			text-align: center;
 			margin: 0px;
-			font-family: 'Work Sans', sans-serif;
+			font-family: "Work Sans", sans-serif;
 			font-size: 10px;
 		}
 	}
 `;
 export const FormRenderContainer = styled.div`
-	min-height: 40px;
-	padding: 5px;
-	margin: 15px 20px;
-	padding: 30px 20px;
-	.inrupt-form-group {
-		border: 1px solid #c0c0c0;
-		background-color: #f9f9f9;
-		margin: 15px 0;
-	}
-
-	.input-wrap {
-		margin: 0;
-		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-	}
-
-	input {
-		margin-left: 0;
-		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-	}
-	color: white;
-
-	@media only screen and (max-width: 900px) {
-		margin-top: 5px;
-		margin: auto;
-		padding: auto;
-		h5,
-		h6,
-		ul li {
-			color: grey;
-			text-align: center;
-			margin: auto;
-			font-family: 'Work Sans', sans-serif;
-			font-size: 10px;
-		}
-	}
+	margin-left: 8%;
+	text-align: center;
 `;
 
 export const FormRenderContainerMult = styled.div`
@@ -299,7 +266,7 @@ export const Header = styled.div`
 			color: grey;
 			text-align: center;
 			margin: auto;
-			font-family: 'Work Sans', sans-serif;
+			font-family: "Work Sans", sans-serif;
 			font-size: 10px;
 		}
 	}

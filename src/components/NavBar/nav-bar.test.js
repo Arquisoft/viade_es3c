@@ -6,31 +6,31 @@ import NavBar from "./nav-bar.component";
 afterAll(cleanup);
 
 describe.only("Nav Bar", () => {
-  const { container, rerender } = render(
-    <Router>
-      <NavBar />
-    </Router>
-  );
+	const { container, rerender } = render(
+		<Router>
+			<NavBar />
+		</Router>
+	);
 
-  it("renders without crashing", () => {
-    expect(container).toBeTruthy();
-  });
+	it("renders without crashing", () => {
+		expect(container).toBeTruthy();
+	});
 
-  it("renders with Navigation", () => {
-    rerender(
-      <Router>
-        <NavBar navigation={[]} />
-      </Router>
-    );
-    expect(document.querySelector(".nav__primary")).toBeTruthy();
-  });
+	it("renders with Navigation", () => {
+		rerender(
+			<Router>
+				<NavBar navigation={[]} />
+			</Router>
+		);
+		expect(document.querySelector(".nav__primary")).toBeTruthy();
+	});
 
-  it("renders with Toolbar", () => {
-    rerender(
-      <Router>
-        <NavBar toolbar={[]} />
-      </Router>
-    );
-    expect(document.querySelector(".nav__toolbar")).toBeTruthy();
-  });
+	it("renders with Toolbar", () => {
+		rerender(
+			<Router>
+				<NavBar toolbar={[]} />
+			</Router>
+		);
+		expect(document.querySelector(".nav__toolbar")).toBeTruthy();
+	});
 });

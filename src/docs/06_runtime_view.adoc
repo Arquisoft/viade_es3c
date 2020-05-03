@@ -11,17 +11,46 @@ Users must log in with their credentials in order to access the application and 
 4. The server deny the authentication.
 5. The server approve the authentication.
 
-image::.\images\06_runtime_view_Log_in.png[Log in diagram]
+image::06_runtime_view_Log_in.png[Log in diagram]
 
 Once logged in correctly, the user has 2 main options: to create a new route or to view his saved routes.
 
 === New Route
 To create a new route, the user must access the corresponding view of the application where a map is shown on which he must draw his route using points. Once drawn, the user must enter a name, a description, and if desired, photos and/or videos to save along with his route.
 
-image::.\images\06_runtime_view_New_Route.png[New Route diagram]
+image::06_runtime_view_New_Route.png[New Route diagram]
 
 === My Routes
 In the application, there is a view that shows all the routes that the user has saved so far.
 For each route you can see: name, author, description, the points of the route on the map and you can also share the route with your friends.
 
-image::.\images\06_runtime_view_My_Routes.png[My Routes diagram]
+image::06_runtime_view_My_Routes.png[My Routes diagram]
+
+=== Upload Route
+You can also create a route through a geojson or gpx file. The user enters the name and description of the route, he can also upload multimedia. Once you press the save button, you will be redirected to my routes, where the new route will appear.
+
+image::06_runtime_view_Upload_Route.png[Upload Route diagram]
+=== My Friends
+This part of the application allows you to view the list of the user's friends in session. It is also possible to add and remove friends. After these two actions, the page where the friends are seen will be reloaded, allowing us to see the update of the list of our friends. 
+
+image::06_runtime_view_My_Friends.png[My Friends diagram]
+
+=== Adding new friends
+You can adding new friends to our list entering their webid and pressing the add button. 
+
+image::06_runtime_view_Adding_Friends.png[Adding Friends diagram]
+
+=== Deleting friends
+If you want to delete a friend from the list, it is also possible by clicking on the delete button.
+
+image::06_runtime_view_Deleting_Friends.png[Deleting Friends diagram]
+
+
+=== Share routes
+Our application allow us to share a route with some friends. When you visualize the routes, each route has a button where you can select the friends who you want to share the route with.
+
+image::06_runtime_view_Share_Routes.png[Share routes diagram]
+
+=== See shared routes with me
+We can see the routes that users shared with us by clicking on the shared routes option in the navigation menu. The procedure is the same as loading my routes. 
+

@@ -18,7 +18,7 @@ export const PageNotFoundWrapper = styled.section`
  * A styled-component for the 404 Page content section
  */
 export const PageNotFoundContent = styled.div`
-	background: url("img/404.png")center center no-repeat;
+	background: url("img/404.png") center center no-repeat;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;

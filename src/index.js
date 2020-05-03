@@ -6,14 +6,12 @@ import { ErrorBoundary, GlobalError } from "./components";
 import * as serviceWorker from "./serviceWorker";
 
 const renderToDOM = () => {
-  ReactDOM.render(
-    <ErrorBoundary
-      component={(error, info) => <GlobalError error={error} info={info} />}
-    >
-      <App />
-    </ErrorBoundary>,
-    document.getElementById("root") || document.createElement("div")
-  );
+	ReactDOM.render(
+		<ErrorBoundary component={(error, info) => <GlobalError error={error} info={info} />}>
+			<App />
+		</ErrorBoundary>,
+		document.getElementById("root") || document.createElement("div")
+	);
 };
 
 renderToDOM();

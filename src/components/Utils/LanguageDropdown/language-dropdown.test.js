@@ -1,13 +1,13 @@
 import React from "react";
-import { render, cleanup } from "react-testing-library";
+import { render, cleanup, fireEvent, queryByAttribute } from "react-testing-library";
 import Language from "./language-dropdown.component";
 
 afterAll(cleanup);
 
-const { container } = render(<Language t={key => key} />);
+const { container } = render(<Language t={(key) => key} />);
 
 describe("Language", () => {
-  it("renders without crashing", () => {
-    expect(container).toBeTruthy();
-  });
+	it("renders without crashing", () => {
+		expect(container).toBeTruthy();
+	});
 });

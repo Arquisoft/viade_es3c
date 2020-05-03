@@ -3,6 +3,7 @@
 
 
 [role="arc42help"]
+
 .What are the goals of the system?
 The main idea of this project is to create a decentralised application to make routes for either running or whatever you wish
 plus being able to share this routes that you make with your friends and being able to use theirs aswell, in other words
@@ -12,7 +13,7 @@ allowing them to send it to the SOLID application.
 
 
 .Use case
-image::.\images\use_case.png[]
+image::use_case.png[]
 The communication is done throught the user´s pods. Anytime a user wants to store a route, or access to one
 his petition is communicated to their pod, and then he is able to access one of their routes, or the one
 their friends are sharing with them.
@@ -21,11 +22,12 @@ their friends are sharing with them.
 === Business Context
 
 [role="arc42help"]
+
 This section shows a representation of the communication partners and stakeholders of our system,
 offering a more easy to understand graphical view of the business, and later explain more indepth
 in the technical context.
 
-image::.\images\bussines_context.png[]
+
 
 [cols="^.^2,^.^3,^.^3"] [cols=3*,options="header"]
 .Application context
@@ -58,30 +60,19 @@ image::.\images\bussines_context.png[]
 
 
 
-=== Business Context
 
-[role="arc42help"]
-****
-This section shows a representation of the communication partners and stakeholders of our system,
-offering a more easy to understand graphical view of the business, and later explain more indepth
-in the technical context.
-
-.Use case
-image::.\images\use_case.png[]
-The communication is done throught the user´s pods. Anytime a user wants to store a route, or access to one
-his petition is communicated to their pod, and then he is able to access one of their routes, or the one
-their friends are sharing with them.
-****
 
 
 
 === Technical Context
 
 [role="arc42help"]
-****
+
 For this applicacion we are using a couple of technologies, like SOLID, REACT, etc...
 the main idea is building an applicacion working with the technologies we mentioned earlier
 capable of working with SOLID and allowing SOLID users to save their routes and sharing them
 with friends in a safe way, the base part of the applicacion is gonna be done using REACT, while
 the communication is done using SOLID and its pods.
-****
+
+image::bussines_context.png[]
+

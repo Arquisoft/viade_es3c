@@ -1,16 +1,9 @@
 import React from "react";
 import Map from "./Map";
 import { errorToaster, successToaster } from "@utils";
-import {
-	Header,
-	RouteWrapper,
-	TextArea,
-	DivForms,
-	InputSubmit,
-	LabelInput,
-	TitleRoute,
-	RouteForm
-} from "./route.style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { Header, RouteWrapper, TextArea, DivForms, LabelInput, TitleRoute, Button, RouteForm } from "./route.style";
 import { Route, Point, Multimedia } from "../../domain";
 import { MultimediaComponent } from "../UploadMultimedia/multimedia.container";
 import i18n from "i18n";
@@ -131,16 +124,12 @@ class NewRoute extends React.Component {
 						</DivForms>
 					</RouteForm>
 					<DivForms>
-						<MultimediaComponent id={"input-img"} webId={`[${this.webId}]`} image="" />
-					</DivForms>
-					<DivForms>
-						<InputSubmit
-							type="submit"
-							id="save_route"
-							value={i18n.t("newRoute.btnSave")}
-							form="routef"
-							onClick={this.handleSubmit}
-						/>
+						<MultimediaComponent id="input-img" webId={`[${this.webId}]`} image="" />
+						<hr />
+						<Button id="save_route" form="routef" type="submit" onClick={(e) => this.handleSubmit(e)}>
+							<FontAwesomeIcon icon="save" className="save-icon" title={i18n.t("newRoute.btnSave")} />
+							{"	" + i18n.t("newRoute.btnSave")}
+						</Button>
 					</DivForms>
 				</Header>
 

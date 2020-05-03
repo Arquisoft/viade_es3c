@@ -13,8 +13,8 @@ const LoginComponent = () => {
 	return (
 		<LoginWrapper data-testid="login-wrapper">
 			<CenterContainer>
-				<h1 data-testid="title">{t("login.title")}</h1>
 				<LoginPanel className="login-panel">
+					<h1 data-testid="title">{t("login.title")}</h1>
 					<PanelBody className="panel-body">
 						<Link className="ids-link-filled ids-link-filled--primary" to="/register">
 							{t("login.register")}

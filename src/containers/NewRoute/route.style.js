@@ -4,6 +4,9 @@ export const RouteWrapper = styled.section`
 	display: flex;
 	flex: 1 0 auto;
 	flex-direction: row;
+	#save_route{
+		margin-left:110px;
+	}
 	@media only screen and (max-width: 900px) {
 		padding: auto;
 		
@@ -25,8 +28,7 @@ export const RouteWrapper = styled.section`
 
 		input {
 			max-width: 100%;
-		}
-		
+		}	
 `;
 
 export const Header = styled.div`
@@ -52,7 +54,12 @@ export const Button = styled.button`
 	}
 `;
 
-export const TextArea = styled.textarea`resize: none;`;
+export const TextArea = styled.textarea`
+	resize: none;
+	@media only screen and (max-width: 900px) {
+		width: 100%;
+	}
+`;
 
 export const DivForms = styled.div`margin: 1em;@media only screen and (max-width: 900px) {
 		align-text:center;		
@@ -74,7 +81,12 @@ export const DivForms = styled.div`margin: 1em;@media only screen and (max-width
 
 export const InputSubmit = styled.input`float: right;`;
 
-export const LabelInput = styled.label`color: white;`;
+export const LabelInput = styled.label`
+	color: white;
+	@media only screen and (max-width: 900px) {
+		width: 100%;
+	}
+`;
 
 export const TitleRoute = styled.h3`
 	text-align: center;

@@ -1,18 +1,19 @@
 import React from "react";
 
-import { render, cleanup } from "react-testing-library";
+import { render, cleanup, queryByAttribute, fireEvent } from "react-testing-library";
 import PrintButton from "./PrintButton";
 
 afterAll(cleanup);
+const getById = queryByAttribute.bind(null, "id");
 
 const { container, getByText } = render(
-  <PrintButton>
-    <div className="tc mb4 mt2"/>
-  </PrintButton>
+	<PrintButton>
+		<div className="tc mb4 mt2" />
+	</PrintButton>
 );
 
-describe("Toaster Notification Component", () => {
-  it("PrintButton", () => {
-    expect(container).toBeTruthy();
-  });
+describe("Print Button Component", () => {
+	it("PrintButton", () => {
+		expect(container).toBeTruthy();
+	});
 });

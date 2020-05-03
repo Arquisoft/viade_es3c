@@ -11,6 +11,8 @@
 * We had to decide which libraries we would use to develop the application more easier.
 * We have had to learn new technology for develop our application.
 * We had to agree to choose a programming language to develop our application, taking into account the advantages and disadvantages of the language.
+* We have to decide between sharing routes giving permissions to the user´s friend or copying the route directly into his friend´s pod.
+
 
 .*Consequences*
 * We face new technologies that most of us either ignored or were not that familiar with, but we didn't know how to use this technology, so we had to learn how to use it.
@@ -22,8 +24,14 @@
 * Use scss, we discard using sccs "saas" because although it is a good technology for style sheets, it is a lot of learning load in two months.
 
 .*Decisions*
+
 * Using JavaScript because it supports solid and is a language that is not entirely new to us since we have a small idea of ​​how to use it.
 * Using React is not only because it is a condition to develop the application, but also because it is a very powerful JavaScript library that makes our lives much easier and makes the code cleaner.
 * Using the api of google maps for the routes.
-* Using Solid Pod funcionalities to add, remove friends and share routes with them.
-* Using Solid Pod funcionalities to make notifications when sharing routes and sending them to the user´s inbox.
+* Using LDflex to add, remove and list friends because its easier.
+* Using a the solid-acl-utils  librarie to  share routes with friends.
+* Using solid-file-client to manage SOLID files, folders in SOLID datastores.
+* Using solid-auth-client for perfoming autenticate requests to SOLID pods.
+* Using solid-auth-client and ledflex libraries to make notifications when sharing routes and sending them to the user´s inbox.
+* Using bootstrap to make style sheets and give the app and good visual design.
+* Using the microsoft Bing-COVID-19-Data repository excel we parse it using the Papa Parser library and converted to json, we filter it for date and we show the latest release.

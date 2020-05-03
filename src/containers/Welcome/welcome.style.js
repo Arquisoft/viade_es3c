@@ -38,7 +38,7 @@ export const WelcomeCard = styled.div`
 	opacity: 0.9;
 	h5 {
 		font-size: 25px;
-		font-family: 'Work Sans', sans-serif;
+		font-family: "Work Sans", sans-serif;
 	}
 
 	h5,
@@ -47,7 +47,7 @@ export const WelcomeCard = styled.div`
 		color: grey;
 		text-align: center;
 		margin: 10px;
-		font-family: 'Work Sans', sans-serif;
+		font-family: "Work Sans", sans-serif;
 		font-size: 20px;
 	}
 	@media only screen and (max-width: 900px) {
@@ -61,7 +61,7 @@ export const WelcomeCard = styled.div`
 			color: grey;
 			text-align: center;
 			margin: auto;
-			font-family: 'Work Sans', sans-serif;
+			font-family: "Work Sans", sans-serif;
 			font-size: 10px;
 		}
 

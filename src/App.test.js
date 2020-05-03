@@ -5,7 +5,7 @@ import App from "./App";
 afterAll(cleanup);
 
 describe("App", () => {
-  it("renders without crashing", () => {
-    expect(<App />).toBeTruthy();
-  });
+	it("renders without crashing", () => {
+		expect(<App />).toBeTruthy();
+	});
 });

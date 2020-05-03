@@ -2,13 +2,28 @@ import styled from "styled-components";
 import { GradientBackground, Panel } from "@util-components";
 
 export const LoginWrapper = styled(GradientBackground)`
+ width: 100%;
+  background: url("img/welcome_image.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   h1 {
-    color: #ffffff;
+    font-size: 25px;
+    font-family: "Work Sans", sans-serif;
   }
   margin-top: 60px;
 `;
 
-export const LoginPanel = styled(Panel)``;
+export const LoginPanel = styled(Panel)`
+margin-top:50%;
+margin-bottom:50%;
+h1 {
+    font-size: 25px;
+    font-family: "Work Sans", sans-serif;
+    margin-bottom:40px;
+  }
+
+`;
 
 export const PanelBody = styled.div`
 	display: grid;

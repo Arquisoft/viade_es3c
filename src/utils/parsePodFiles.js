@@ -5,6 +5,8 @@ import auth from "solid-auth-client";
 import * as ldflexHelper from "./ldflex-helper";
 import * as storageHelper from "./storage";
 const routePath = process.env.REACT_APP_VIADE_ES3C_ROUTES_PATH;
+const sharedPath = process.env.REACT_APP_VIADE_ES3C_SHARED_PATH;
+
 const FC = require("solid-file-client");
 const fc = new FC(auth);
 const N3 = require("n3");
@@ -85,6 +87,21 @@ export const createRouteFromData = async (folder) => {
 
 export const getRoutesFromPod = async (webId) => {
 	var path = await storageHelper.getAppStorage(webId, routePath);
+	const routesFolderExists = await ldflexHelper.resourceExists(path);
+	if (!routesFolderExists) {
+		return "EMPTY";
+	} else {
+		var folder = await fc.readFolder(path);
+		if (folder.files.length <= 0) {
+			return "EMPTY";
+		} else {
+			return await createRouteFromData(folder.files);
+		}
+	}
+};
+
+export const getRoutesSharedFromPod = async (webId) => {
+	var path = await storageHelper.getAppStorage(webId, sharedPath);
 	const routesFolderExists = await ldflexHelper.resourceExists(path);
 	if (!routesFolderExists) {
 		return "EMPTY";

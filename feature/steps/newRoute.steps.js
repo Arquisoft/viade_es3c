@@ -58,7 +58,7 @@ defineFeature(feature, test => {
       });
       expect(page.url()).toBe("http://localhost:3000/#/welcome");
 
-      await page.goto("http://localhost:3000/#/route", {
+      await page.goto("http://localhost:3000/#/newRoute", {
         waitUntil: "networkidle2"
       });
     });

@@ -10,14 +10,14 @@ import Select from "./Select";
 import ConfirmationDialog from "./ConfirmationDialog";
 
 export {
-  GradientBackground,
-  CenterContainer,
-  ConfirmationDialog,
-  Panel,
-  Dropdown,
-  Badge,
-  Loader,
-  Input,
-  Toaster,
-  Select,
+	GradientBackground,
+	CenterContainer,
+	ConfirmationDialog,
+	Panel,
+	Dropdown,
+	Badge,
+	Loader,
+	Input,
+	Toaster,
+	Select
 };

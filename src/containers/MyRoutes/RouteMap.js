@@ -4,14 +4,18 @@ import update from "react-addons-update";
 import { Point } from "domain";
 
 const mapStyle = {
-	width: "570px",
-	height: "350px"
+	width: "500px",
+	height: "300px"
 };
 
 export class MapContainer extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { markers: props.markers, center: props.center, action: props.action };
+		this.state = {
+			markers: props.markers,
+			center: props.center,
+			action: props.action
+		};
 	}
 
 	sendData = () => {
@@ -64,7 +68,10 @@ export class MapContainer extends React.Component {
 				initialCenter={{ lat: this.state.center[0], lng: this.state.center[1] }}
 				styles={[
 					{ elementType: "geometry", stylers: [ { color: "#242f3e" } ] },
-					{ elementType: "labels.text.stroke", stylers: [ { color: "#242f3e" } ] },
+					{
+						elementType: "labels.text.stroke",
+						stylers: [ { color: "#242f3e" } ]
+					},
 					{ elementType: "labels.text.fill", stylers: [ { color: "#746855" } ] },
 					{
 						featureType: "administrative.locality",

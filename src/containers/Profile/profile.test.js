@@ -8,18 +8,18 @@ import Profile from "./profile.container";
 library.add(fas);
 
 const props = {
-  webId: "https://saragr.inrupt.net/"
+	webId: "https://saragr.inrupt.net/"
 };
 
 describe.only("Profile", () => {
-  afterAll(cleanup);
-  const { container } = render(
-    <Router>
-      <Profile {...{ ...props }} />
-    </Router>
-  );
+	afterAll(cleanup);
+	const { container } = render(
+		<Router>
+			<Profile {...{ ...props }} />
+		</Router>
+	);
 
-  test("renders without crashing", () => {
-    expect(container).toBeTruthy();
-  });
+	test("renders without crashing", () => {
+		expect(container).toBeTruthy();
+	});
 });

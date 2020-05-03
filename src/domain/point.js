@@ -1,16 +1,16 @@
 export default class Point {
-  webId = "";
+	webId = "";
 
-  /**
+	/**
    * Constructor class point
    *
    */
-  constructor(latitude, longitude, altitude) {
-    this.longitude = longitude;
-    this.latitude = latitude;
-  }
+	constructor(latitude, longitude, altitude) {
+		this.longitude = longitude;
+		this.latitude = latitude;
+	}
 
-  getIdPoint() {
-    return `${this.longitude}_${this.latitude}`;
-  }
+	getIdPoint() {
+		return `${this.longitude}_${this.latitude}`;
+	}
 }

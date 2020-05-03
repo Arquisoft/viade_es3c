@@ -18,7 +18,9 @@
 		"errorGrantingAccess": "There was an error giving access to your file, please try again.",
 		"saved": "Your file was saved successfully.",
 		"notEditable": "(not editable)",
-		"notSharable": "(log in and load a doc on your own pod to give others access)"
+		"notSharable": "(log in and load a doc on your own pod to give others access)",
+		"noNotifications": "You have no notifications",
+		"title": "NOTIFICATIONS"
 	},
 	"login": {
 		"title": "Hi! Welcome to Solid.",
@@ -54,7 +56,9 @@
 		"text-editor": "Text Editor",
 		"newRoute": "New Route",
 		"myRoutes": "My routes",
+		"mySharedRoutes": "My shared routes",
 		"myFriends": "My friends",
+		"uploadRoute": "Upload route",
 		"changeLanguage": "Change Language",
 		"languages": {
 			"en": "English (English)",
@@ -190,6 +194,22 @@
 		"addingList": "to your friends list",
 		"btnAdd": "Add",
 		"webId": "Enter the webID of the user you want to add to your friends list"
+	},
+	"uploadRoute": {
+		"title": "Upload route",
+		"name": "Name of the route:",
+		"description": "Description of the route:",
+		"btnSave": "Save",
+		"errorTitle": "The route must have a title",
+		"errorDescription": "The route must have a description",
+		"successRoute": "The route has been saved successfully",
+		"savedFiles": "Los archivos se han guardado correctamente",
+		"success": "SUCCESS",
+		"btnMedia": "Upload photo/video",
+		"uploadFile": "Upload a file:",
+		"errorFile": "The file is not valid",
+		"noFile": "You must upload a file GeoJSON or GPX",
+		"files": "GeoJSON or GPX"
 	},
 	"viade": {
 		"title": "Viade routes manager",

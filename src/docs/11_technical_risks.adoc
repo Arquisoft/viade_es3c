@@ -15,3 +15,8 @@ The main problem in the development of the application is working with a new tec
 | 3     | Team organization | Working with other people in a team always leads to some problems | Productive meetings, establishing the task of each member and writting them in reports
 |===
 
+=== Technical Debts
+There are some aspects of our application that could be improved:
+
+* Don't support altitude: We create routes with latitude and longitude, but not with altitude.
+* Group of friends: We don't have groups of friends to share routes. As an alternative, when you're going to share a route you can choose more than one friend thanks to a checkbox.
