@@ -113,11 +113,10 @@ class MyRoute extends React.Component {
 						<MyRouteContainer data-testid="myroute-container">
 							<FormRenderContainer id="empty">
 								<Header data-testid="myroute-header">
-									<h1 id="h1-empty">{i18n.t("myRoutes.title")}</h1>{" "}
+									<h1 id="h1-empty">{i18n.t("myRoutes.titleShared")}</h1>{" "}
 								</Header>
 								<h5 align="center">
-									{i18n.t("myRoutes.noRoutes")}
-									<a href={"#/route"}> {i18n.t("myRoutes.here")}</a>
+									{i18n.t("myRoutes.noSharedRoutes")}
 								</h5>
 							</FormRenderContainer>
 						</MyRouteContainer>

@@ -180,7 +180,9 @@
 		"downloadBtnTLL": "Descargar archivo tll",
 		"downloadBtnPDF": "Descargar archivo pdf",
 		"textCovid": "Debido a la crisis de salud de Covid-19 no recomendamos visitar o viajar a zonas de alto riesgo de contagio. Desde Viade Es3c queremos facilitar la localización de estas zonas. Para ello hemos implementado en nuestros mapas una opción para mostrar el número real de casos por zona y así facilitar la planificación de las rutas.",
-		"covidWarning": "¡Atención! Covid-19"
+		"covidWarning": "¡Atención! Covid-19",
+		"noSharedRoutes": "Ningún amigo ha compartido una contigo",
+		"titleShared":"Mis rutas compartidas"
 	},
 	"myFriends": {
 		"title": "Añade nuevos amigos",
