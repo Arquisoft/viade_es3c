@@ -11,6 +11,8 @@ image::QualityScenarios.png[]
 
 [role="arc42help"]
 
+
+
 .Usability
 We try to carry out a usable application design. This is reduced to following the principles of web usability, maintaining constant navigation and not forcing users to learn new ways for navigation in the different parts of the application. We also try not to abuse the animation as this could tire your eyes and become overwhelming. 
 In addition to find out if it is also usable we resorted to the completion of a questionnaire that we sent to different people to test the app and tell us what their opinion was.

@@ -18,11 +18,13 @@ image::05-builidng-block-view_1.jpeg[]
 
 
 
-image::05-building-block-view_2.jpg[]
+
 
 *Level 1*
 
 At a first place, there are two main modules, Viade and Solid Server. All Viade's components communicate with Solid Sever.
+
+image::FirstLevel.png[]
 
 *_Contained building blocks_*
 
