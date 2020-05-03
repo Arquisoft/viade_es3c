@@ -48,7 +48,7 @@ const privateRoutes = [
 		component: MyFriends
 	},
 	{
-		id:"uploadRoute",
+		id: "uploadRoute",
 		path: "/uploadRoute",
 		component: UploadRoute
 	},

@@ -38,7 +38,6 @@ export const NavigationItems = [
 		label: "navBar.uploadRoute",
 		to: "/uploadRoute"
 	}
-
 ];
 
 export const ProfileOptions = [

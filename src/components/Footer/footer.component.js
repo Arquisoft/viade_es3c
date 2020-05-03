@@ -6,49 +6,46 @@ import React from "react";
 import { withTranslation } from "react-i18next";
 
 function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary">
-      {"Copyright © "}
-      <Link color="inherit" href="https://github.com/Arquisoft/viade_es3c">
-        ViadeEs3c{" "}
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
+	return (
+		<Typography variant="body2" color="textSecondary">
+			{"Copyright © "}
+			<Link color="inherit" href="https://github.com/Arquisoft/viade_es3c">
+				ViadeEs3c{" "}
+			</Link>{" "}
+			{new Date().getFullYear()}
+			{"."}
+		</Typography>
+	);
 }
 
-const useStyles = makeStyles(theme => ({
-  footer: {
-    padding: "10px",
-    textAlign: "center",
-    marginTop: "auto",
-    position: "fixed",
-    left: 0,
-    bottom: 0,
-    opacity: "0.9",
-    right: 0,
-    height: "60px",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[200]
-        : theme.palette.grey[800]
-  }
+const useStyles = makeStyles((theme) => ({
+	footer: {
+		padding: "10px",
+		textAlign: "center",
+		marginTop: "auto",
+		position: "fixed",
+		left: 0,
+		bottom: 0,
+		opacity: "0.9",
+		right: 0,
+		height: "60px",
+		backgroundColor: theme.palette.type === "light" ? theme.palette.grey[200] : theme.palette.grey[800]
+	}
 }));
 
 const Footer = (props: Props) => {
-  const classes = useStyles();
+	const classes = useStyles();
 
-  return (
-    <div className={classes.root} id="footerViade">
-      <footer className={classes.footer} id="footerViade">
-        <Container maxWidth="sm">
-          <Typography variant="body1">ViadeEs3c</Typography>
-          <Copyright />
-        </Container>
-      </footer>
-    </div>
-  );
+	return (
+		<div className={classes.root} id="footerViade">
+			<footer className={classes.footer} id="footerViade">
+				<Container maxWidth="sm">
+					<Typography variant="body1">ViadeEs3c</Typography>
+					<Copyright />
+				</Container>
+			</footer>
+		</div>
+	);
 };
 
 export default withTranslation()(Footer);

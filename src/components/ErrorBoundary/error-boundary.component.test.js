@@ -6,32 +6,32 @@ import ErrorBoundary from "./error-boundary.component";
 import "jest-dom/extend-expect";
 
 const ErrorComponent = () => {
-  throw Error("Error");
+	throw Error("Error");
 };
 
 // This a hack to avoid error console when we run test
-const shallowErrors = codeRun => {
-  const { error } = console;
+const shallowErrors = (codeRun) => {
+	const { error } = console;
 
-  console.error = () => {};
+	console.error = () => {};
 
-  codeRun();
+	codeRun();
 
-  console.error = error;
+	console.error = error;
 };
 
 afterAll(cleanup);
 
 describe("ErrorBoundary Component", () => {
-  test("caches error and display messages", () => {
-    shallowErrors(() => {
-      const { container } = render(
-        <ErrorBoundary component={() => <h2>Error Message</h2>}>
-          <ErrorComponent />
-        </ErrorBoundary>
-      );
+	test("caches error and display messages", () => {
+		shallowErrors(() => {
+			const { container } = render(
+				<ErrorBoundary component={() => <h2>Error Message</h2>}>
+					<ErrorComponent />
+				</ErrorBoundary>
+			);
 
-      expect(container).toHaveTextContent("Error Message");
-    });
-  });
+			expect(container).toHaveTextContent("Error Message");
+		});
+	});
 });

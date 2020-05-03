@@ -5,17 +5,17 @@ import { Tabs } from "./tabs.component";
 import { act } from "react-dom/test-utils";
 
 describe.only("Register", () => {
-  afterAll(cleanup);
+	afterAll(cleanup);
 
-  const {container} = render(
-    <Router>
-      <Tabs {...{}}/>
-    </Router>
-  );
+	const { container } = render(
+		<Router>
+			<Tabs {...{}} />
+		</Router>
+	);
 
-  test("renders without crashing", async() => {
-    act(() => {
-      expect(container).toBeTruthy();
-    })
-  });
+	test("renders without crashing", async () => {
+		act(() => {
+			expect(container).toBeTruthy();
+		});
+	});
 });
