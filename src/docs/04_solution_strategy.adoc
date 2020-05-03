@@ -11,6 +11,10 @@ However we want that our application communicate with the POD's, removing any un
 
 We use Node.js, the main idea of ​​Node.js is to use the non-blocking and event-controlled input and output model to remain lightweight and efficient against real-time data usage applications that run on devices.
 
+The path format is ".ttl" saving the paths in one folder and the multimedia in another. The ".ttl" file contains some links that refer to the multimedia, apart from this it stores the author's name, name and description of the route, as well as the points on the map, which are stored in doublets (altitude and latitude). The repository used was github, which is very useful, since it has a section for assigning tasks as well as issues which are very useful for reporting bugs. Github version control is one of the best options it offers since it allows you to make changes and undo them.
+
+To show the map we use the google maps api, which depending on the visits your application has is paid or not.
+
 .*Considerations*
 * All decisions were chosen to make the project in the best possible way following the principles of SOLID.
 * There are technologies that we have had to learn practically from scratch but they seem very powerful tools for web development.
