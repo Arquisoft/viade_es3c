@@ -33,7 +33,7 @@ defineFeature(feature, (test) => {
 			await page.evaluate(() => {
 				let btns = [ ...document.querySelectorAll("button") ];
 				btns.forEach(function(btn) {
-					if (btn.innerText == "Iniciar sesión") {
+					if (btn.innerText === "Iniciar sesión") {
 						btn.click();
 					}
 				});
