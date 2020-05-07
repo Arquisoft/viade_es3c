@@ -18,6 +18,13 @@ export class MapContainer extends React.Component {
 		};
 	}
 
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.markers !== this.props.markers) {
+			//Perform some operation
+			this.setState({ markers: nextProps.markers, center: nextProps.center, action: nextProps.action });
+		}
+	}
+
 	sendData = () => {
 		this.props.parentCallBack(this.state.markers);
 	};
@@ -62,10 +69,11 @@ export class MapContainer extends React.Component {
 		return (
 			<Map
 				google={this.props.google}
-				zoom={11}
+				zoom={15}
 				onClick={this.clickPoint}
 				style={mapStyle}
 				initialCenter={{ lat: this.state.center[0], lng: this.state.center[1] }}
+				center={{ lat: this.state.center[0], lng: this.state.center[1] }}
 				styles={[
 					{ elementType: "geometry", stylers: [ { color: "#242f3e" } ] },
 					{
