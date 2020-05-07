@@ -2,7 +2,7 @@
 == Design Decisions
 
 
-[role="arc42help"]
+
 .*Constraints*
 * Use SOLID, a web descentralization project. Supports the librarie React.
 * Use React to desing the user interface.
