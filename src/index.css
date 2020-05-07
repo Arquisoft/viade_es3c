@@ -1,341 +1,322 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
 
-html,
-body,
-#root {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background: rgb(0, 77, 134);
-  background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+html, body, #root {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 }
 
 * {
-  box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+	box-sizing: border-box;
+	font-family: "Raleway", sans-serif;
 }
 
 body {
-  color: #666;
-  font-size: 62.5%;
-  background: rgb(0, 77, 134);
-  background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+	color: #666;
+	font-size: 62.5%;
+	background: rgb(0, 77, 134);
+	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
 }
 
-p,
-a,
-div {
-  font-size: 16px;
+p, a, div {
+	font-size: 16px;
 }
 
 a {
-  color: #666;
-  text-decoration: none;
+	color: #666;
+	text-decoration: none;
 }
 
 ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 
 ul li {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 input[type="text"] {
-  box-sizing: border-box;
-  border: 1px solid hsl(0, 0%, 80%);
-  border-radius: 4px;
-  width: 100%;
-  padding: 7px 10px;
+	box-sizing: border-box;
+	border: 1px solid hsl(0, 0%, 80%);
+	border-radius: 4px;
+	width: 100%;
+	padding: 7px 10px;
 }
 
-/**
-Temporary fix to overwrite and display the default style of the checkbox
-to prevent issues with the custom component and react/fontawesome missing icons
- */
+/** Temporary fix to overwrite and display the default style of the checkbox to prevent issues with the custom component and react/fontawesome missing icons */
 input[type="checkbox"] {
-  appearance: checkbox;
-  -webkit-appearance: checkbox;
-  -moz-appearance: checkbox;
-  margin: 0 0 0 16px;
+	appearance: checkbox;
+	-webkit-appearance: checkbox;
+	-moz-appearance: checkbox;
+	margin: 0 0 0 16px;
 }
 
 input[type="checkbox"]::before {
-  content: none;
+	content: none;
 }
 
-/**
-Ends temporary react/fontawesome fix
- */
-
-.link,
-.link-button {
-  color: #449df5;
-  font-family: Raleway;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.75px;
-  line-height: 14px;
-  text-align: center;
-  text-decoration: none;
-  padding: 0;
+/** Ends temporary react/fontawesome fix */
+.link, .link-button {
+	color: #449df5;
+	font-family: Raleway;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.75px;
+	line-height: 14px;
+	text-align: center;
+	text-decoration: none;
+	padding: 0;
 }
 
-.link:active,
-.link-button:active,
-.link:hover,
-.link-button:hover {
-  text-decoration: none;
+.link:active, .link-button:active, .link:hover, .link-button:hover {
+	text-decoration: none;
 }
 
 .form-group {
-  text-align: left;
-  margin: 12px 0;
+	text-align: left;
+	margin: 12px 0;
 }
 
 .form-group:first-child {
-  margin-top: 0;
+	margin-top: 0;
 }
 
-.form-group > label {
-  color: #5361fd;
-  font-family: Raleway;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 0.75px;
-  line-height: 14px;
-  text-transform: uppercase;
-  display: block;
+.form-group>label {
+	color: #5361fd;
+	font-family: Raleway;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 0.75px;
+	line-height: 14px;
+	text-transform: uppercase;
+	display: block;
 }
 
 #searchIcon {
-  color: white;
-  margin-left: 10px;
+	color: white;
+	margin-left: 10px;
 }
 
-.form-group > input {
-  height: 38px;
-  width: 100%;
-  margin: 10px 0;
-  border-radius: 4px;
-  border: solid 1px #ccc;
-  border: solid 1px #666;
-  box-sizing: border-box;
+.form-group>input {
+	height: 38px;
+	width: 100%;
+	margin: 10px 0;
+	border-radius: 4px;
+	border: solid 1px #ccc;
+	border: solid 1px #666;
+	box-sizing: border-box;
 }
 
 .form-group .select-role {
-  margin: 10px 0;
+	margin: 10px 0;
 }
 
 /* Overriding the center-align property from the styleguide */
 .solid-provider-select {
-  text-align: left;
+	text-align: left;
 }
 
 .solid-provider-select .option {
-  padding-left: 10px;
+	padding-left: 10px;
 }
 
 div.fade.in.modal {
-  display: flex;
+	display: flex;
 }
 
 .modal-dialog {
-  margin: auto;
-  color: rgb(0, 77, 134);
+	margin: auto;
+	color: rgb(0, 77, 134);
 }
 
 .modal-dialog h4 {
-  color: rgb(0, 77, 134);
+	color: rgb(0, 77, 134);
 }
 
 #imgCovid {
-  max-width: 500px;
-  max-height: 400px;
-  margin-left: 15%;
-  align-items: center;
+	max-width: 500px;
+	max-height: 400px;
+	margin-left: 15%;
+	align-items: center;
 }
 
 #labelMod {
-  color: rgb(0, 77, 134);
+	color: rgb(0, 77, 134);
 }
 
 #modalMod {
-  color: rgb(0, 77, 134);
-  width: 990px;
-  height: 500px;
+	color: rgb(0, 77, 134);
+	width: 990px;
+	height: 500px;
 }
 
 #modalCovid {
-  position: fixed;
-  width: 1000%;
-  height: 1000%;
-  color: rgb(0, 77, 134);
-  top: 10%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-}
-
-#operationmenu {
-  width: 50px;
-  margin-right: 550px;
-  background-color: rgb(0, 77, 134);
-  border: none !important;
-  margin-top: 10px;
-}
-
-#drop {
-  margin: 10px;
-}
-
-#mapa-modal {
-  width: 999px;
-  height: 350px;
-}
-
-#floating-panel {
-  position: absolute;
-  top: 10px;
-  left: 35%;
-  z-index: 5;
-  background-color: transparent;
-  padding: 5px;
-  border: none;
-  text-align: center;
-  font-family: 'Roboto', 'sans-serif';
-  line-height: 30px;
-}
-
-#buttonCovid {
-  margin-left: 5px;
-}
-
-#pagination{
-  max-width: 350px !important;
-}
-
-
-
-.pagination{
-  margin-top:20px !important;
-  margin-left:50%;
-  margin-right:50%;
-}
-
-ul.pagination {
-  margin-top: 0;
-  margin-bottom: 0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-ul.pagination li.page-item.active a.page-link {
-  color: #445565 !important;
-  background-color: #e3e7eb !important;
-  border-color: #ced4da !important;
-}
-
-ul.pagination a.page-link {
-  padding: 0.75rem 1rem;
-  min-width: 3.5rem;
-  text-align: center;
-  box-shadow: none !important;
-  border-color: #ced4da !important;
-  color: #6b88a4;
-  font-weight: 900;
-  font-size: 1rem;
-}
-
-ul.pagination a.page-link:hover {
-  background-color: #f4f4f4;
-}
-
-@media only screen and (max-width: 1605px) {
-  #modalCovid {
-    position: fixed;
-	width: 100%;
-	height: 100%;
+	position: fixed;
+	width: 1000%;
+	height: 1000%;
 	color: rgb(0, 77, 134);
 	top: 10%;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	margin: auto;
-  }
+}
 
-  .pagination{
-    margin-top:20px !important;
-    margin-left:50%;
-    margin-right:50%;
-  }
+#operationmenu {
+	width: 50px;
+	margin-right: 550px;
+	background-color: rgb(0, 77, 134);
+	border: none !important;
+	margin-top: 10px;
+}
 
-  ul.pagination {
-    margin-top: 0;
-    margin-bottom: 0;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
+#drop {
+	margin: 10px;
+}
 
-  ul.pagination li.page-item.active a.page-link {
-    color: #445565 !important;
-    background-color: #e3e7eb !important;
-    border-color: #ced4da !important;
-  }
+#mapa-modal {
+	width: 999px;
+	height: 350px;
+}
 
-  ul.pagination a.page-link {
-    padding: 0.75rem 1rem;
-    min-width: 3.5rem;
-    text-align: center;
-    box-shadow: none !important;
-    border-color: #ced4da !important;
-    color: #6b88a4;
-    font-weight: 900;
-    font-size: 1rem;
-  }
+#floating-panel {
+	position: absolute;
+	top: 10px;
+	left: 35%;
+	z-index: 5;
+	background-color: transparent;
+	padding: 5px;
+	border: none;
+	text-align: center;
+	font-family: 'Roboto', 'sans-serif';
+	line-height: 30px;
+}
 
-  ul.pagination a.page-link:hover {
-    background-color: #f4f4f4;
-  }
+#buttonCovid {
+	margin-left: 5px;
+}
 
-  #floating-panel {
-	top: 50px;
-	left: 0px;
-  }
+#pagination {
+	max-width: 350px !important;
+}
 
-  #imgCovid {
-	display: block;
-	margin: auto;
-	max-width: 300px;
-	max-height: 200px;
-	align-items: center;
-  }
+.pagination {
+	margin-top: 20px !important;
+	margin-left: 50%;
+	margin-right: 50%;
+}
+
+ul.pagination {
+	margin-top: 0;
+	margin-bottom: 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+ul.pagination li.page-item.active a.page-link {
+	color: #445565 !important;
+	background-color: #e3e7eb !important;
+	border-color: #ced4da !important;
+}
+
+ul.pagination a.page-link {
+	padding: 0.75rem 1rem;
+	min-width: 3.5rem;
+	text-align: center;
+	box-shadow: none !important;
+	border-color: #ced4da !important;
+	color: #6b88a4;
+	font-weight: 900;
+	font-size: 1rem;
+}
+
+ul.pagination a.page-link:hover {
+	background-color: #f4f4f4;
+}
+
+@media only screen and (max-width: 1605px) {
+	#modalCovid {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		color: rgb(0, 77, 134);
+		top: 10%;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+	}
+
+	.pagination {
+		margin-top: 20px !important;
+		margin-left: 50%;
+		margin-right: 50%;
+	}
+
+	ul.pagination {
+		margin-top: 0;
+		margin-bottom: 0;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+	}
+
+	ul.pagination li.page-item.active a.page-link {
+		color: #445565 !important;
+		background-color: #e3e7eb !important;
+		border-color: #ced4da !important;
+	}
+
+	ul.pagination a.page-link {
+		padding: 0.75rem 1rem;
+		min-width: 3.5rem;
+		text-align: center;
+		box-shadow: none !important;
+		border-color: #ced4da !important;
+		color: #6b88a4;
+		font-weight: 900;
+		font-size: 1rem;
+	}
+
+	ul.pagination a.page-link:hover {
+		background-color: #f4f4f4;
+	}
+
+	#floating-panel {
+		top: 50px;
+		left: 0px;
+	}
+
+	#imgCovid {
+		display: block;
+		margin: auto;
+		max-width: 300px;
+		max-height: 200px;
+		align-items: center;
+	}
 
   body {
-	color: #666;
-	font-size: 30%;
-	background: rgb(0, 77, 134);
-	background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
-  }
+		color: #666;
+		font-size: 30%;
+		background: rgb(0, 77, 134);
+		background: linear-gradient(180deg, rgba(0, 77, 134, 1) 0%, rgba(227, 222, 222, 1) 92%);
+	}
 
-  p,
-  a,
-  div {
-	font-size: 12px;
-  }
+	p, a, div {
+		font-size: 12px;
+	}
 
-  .link,
-  .link-button {
-	color: #449df5;
-	font-family: Raleway;
-	font-size: 10px;
-	font-weight: 600;
-	letter-spacing: 0.75px;
-	line-height: 10px;
-	text-align: center;
-	text-decoration: none;
-  }
+	.link, .link-button {
+		color: #449df5;
+		font-family: Raleway;
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.75px;
+		line-height: 10px;
+		text-align: center;
+		text-decoration: none;
+	}
 }
