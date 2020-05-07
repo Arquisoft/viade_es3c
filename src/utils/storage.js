@@ -37,55 +37,6 @@ export const getAppStorage = async (webId, appPath) => {
 
 	return `${podStoragePathValue}${appPath}`;
 };
-/**
- * Returns the content of the rdf file in Turtle format
- * @param path
- * @param route
- * @param routeShape
- * @returns {*}
- */
-export const createRoute = (subject, mediaurl, route, routeShape) => {
-	if (createInitialFiles) {
-		const writer = new N3.Writer();
-		const quads = [];
-		quads.push(createQuadWithLiteral(subject, routeShape, 1, route.name));
-		quads.push(createQuadWithLiteral(subject, routeShape, 2, route.description));
-		quads.push(createQuadWithLiteral(subject, routeShape, 3, route.author));
-
-		for (let i = 0; i < route.points.length; i++) {
-			const point = quad(
-				namedNode(subject),
-				namedNode(getPredicate(routeShape.shape[4], routeShape)),
-				writer.blank([
-					{
-						predicate: namedNode(getPredicate(routeShape.shape[5], routeShape)),
-						object: literal(route.points[parseInt(i)].longitude)
-					},
-					{
-						predicate: namedNode(getPredicate(routeShape.shape[6], routeShape)),
-						object: literal(route.points[parseInt(i)].latitude)
-					}
-				])
-			);
-			quads.push(point);
-		}
-
-		if (route.multimedia.length > 0) {
-			for (let j = 0; j < route.multimedia.length; j++) {
-				quads.push(
-					createQuadWithOutLiteral(
-						subject,
-						routeShape,
-						7,
-						mediaurl + route.multimedia[parseInt(j)].getIdMedia() + ".ttl"
-					)
-				);
-			}
-		}
-
-		return writer.quadsToString(quads);
-	}
-};
 
 export const createMedia = (subject, media, mediaShape) => {
 	const writer = new N3.Writer();
@@ -153,6 +104,55 @@ export const buildPathFromWebId = (webId, path) => {
 	}
 	const domain = new URL(typeof webId === "object" ? webId.webId : webId).origin;
 	return `${domain}/${path}`;
+};
+/**
+ * Returns the content of the rdf file in Turtle format
+ * @param path
+ * @param route
+ * @param routeShape
+ * @returns {*}
+ */
+export const createRoute = (subject, mediaurl, route, routeShape) => {
+	if (createInitialFiles) {
+		const writer = new N3.Writer();
+		const quads = [];
+		quads.push(createQuadWithLiteral(subject, routeShape, 1, route.name));
+		quads.push(createQuadWithLiteral(subject, routeShape, 2, route.description));
+		quads.push(createQuadWithLiteral(subject, routeShape, 3, route.author));
+
+		for (let i = 0; i < route.points.length; i++) {
+			const point = quad(
+				namedNode(subject),
+				namedNode(getPredicate(routeShape.shape[4], routeShape)),
+				writer.blank([
+					{
+						predicate: namedNode(getPredicate(routeShape.shape[5], routeShape)),
+						object: literal(route.points[parseInt(i)].longitude)
+					},
+					{
+						predicate: namedNode(getPredicate(routeShape.shape[6], routeShape)),
+						object: literal(route.points[parseInt(i)].latitude)
+					}
+				])
+			);
+			quads.push(point);
+		}
+
+		if (route.multimedia.length > 0) {
+			for (let j = 0; j < route.multimedia.length; j++) {
+				quads.push(
+					createQuadWithOutLiteral(
+						subject,
+						routeShape,
+						7,
+						mediaurl + route.multimedia[parseInt(j)].getIdMedia() + ".ttl"
+					)
+				);
+			}
+		}
+
+		return writer.quadsToString(quads);
+	}
 };
 
 /**

@@ -28,16 +28,15 @@ const UploadRoute = ({ webId }: Props) => {
 		if (type === "geojson") {
 			try {
 				points = parser.parserGeoJSON(file);
-			} catch {
+			} catch (error) {
+				errorToaster(error.message, "ERROR");
 			}
-
 		} else if (type === "gpx") {
-			try{
+			try {
 				points = parser.parserGPX(file);
+			} catch (error) {
+				errorToaster(error.message, "ERROR");
 			}
-			catch {
-			}
-
 		} else {
 			errorToaster(i18n.t("uploadRoute.typeFile"), "ERROR");
 		}

@@ -143,7 +143,6 @@ export class MapContainer extends React.Component {
 			};
 			this.setState({ mapCovid });
 			count = 1;
-
 			this.sendData();
 		}
 	}
@@ -230,7 +229,7 @@ export class MapContainer extends React.Component {
 		return (
 			<Map
 				google={this.props.google}
-				zoom={5}
+				zoom={13}
 				minZoom={3}
 				onZoomChanged={this.handleZoom}
 				style={mapStyle}

@@ -22,6 +22,7 @@ export class ParserFile {
 		var parser = new DOMParser();
 		var gpx = parser.parseFromString(file, "text/xml");
 		var trkpts = gpx.getElementsByTagName("trkpt");
+		trkpts = gpx.getElementsByTagName("rtept");
 		for (var i = 0; i < trkpts.length; i++) {
 			let lat = parseFloat(trkpts[i].getAttribute("lat"));
 			let lng = parseFloat(trkpts[i].getAttribute("lon"));
