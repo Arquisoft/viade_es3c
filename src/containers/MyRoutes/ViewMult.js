@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "./myroutes.style";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { blueGrey } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
 import { PlayerDiv } from "./myroutes.style";
@@ -19,8 +18,7 @@ const getMediaComponent = url => {
       <img
         id="img"
         src={url}
-        width={640}
-        height={360}
+       
         alt={"Media for the route"}
       />
     );
@@ -51,12 +49,13 @@ const AutoRotatingCarouselModal = ({
           }
           mediaBackgroundStyle={{ backgroundColor: blueGrey[50] }}
           key={Date.now()}
+          landscape={true}
           style={{ backgroundColor: blueGrey[600] }}
           title={i18n.t("myRoutes.noMultTitle")}
           subtitle={i18n.t("myRoutes.noMult")}
         />
       );
-      arr.push(j);
+     return j;
     }
 
     for (var i = 0; i < media.mult.length; i++) {
@@ -66,12 +65,16 @@ const AutoRotatingCarouselModal = ({
           mediaBackgroundStyle={{ backgroundColor: blueGrey[50] }}
           style={{ backgroundColor: blueGrey[600] }}
           title={media.name}
+           landscape={true}
           key={media.mult[parseInt(i)].date}
           subtitle={media.mult[parseInt(i)].date}
         />
       );
+      if(media.mult.length===1){
+        return j;
+      } else{
       arr.push(j);
-    }
+    }}
     return arr;
   }
   return (
@@ -82,9 +85,10 @@ const AutoRotatingCarouselModal = ({
         onClose={() => setHandleOpen({ open: false })}
         onStart={() => setHandleOpen({ open: false })}
         autoplay={false}
-        mobile={isMobile}
+        mobile={false}
         style={{ position: "absolute" }}
         media={media}
+      
       >
         {createSlides(media)}
       </AutoRotatingCarousel>
@@ -97,14 +101,13 @@ function MultsButton(params, name) {
   const handleClick = () => {
     setHandleOpen({ open: true });
   };
-  const matches = useMediaQuery("(max-width:600px)");
   return (
     <>
       <Button data-testid="mult" id="mult" onClick={handleClick}>
         {i18n.t("myRoutes.viewMult")}
       </Button>
       <AutoRotatingCarouselModal
-        isMobile={matches}
+        isMobile={false}
         handleOpen={handleOpen}
         setHandleOpen={setHandleOpen}
         media={params}

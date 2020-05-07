@@ -60,13 +60,16 @@ class MyRoute extends React.Component {
 			});
 		} else {
 			newList = this.state.original;
+			// eslint-disable-next-line
 			this.state.totalPages = newList.length;
 			this.onPageChanged(this.state);
 		}
 		this.setState({
 			data: newList
 		});
+		// eslint-disable-next-line
 		this.state.totalPages = this.state.data.length;
+		// eslint-disable-next-line
 		this.state.currentPage = 1;
 		this.onPageChanged(this.state);
 	}
@@ -76,6 +79,7 @@ class MyRoute extends React.Component {
 		let baseUrl = webId.split("/", 3) + "/";
 		baseUrl = baseUrl.replace(",,", "//");
 		if (this.state.data !== null && this.state.data !== "EMPTY") {
+			// eslint-disable-next-line
 			const { data, original, currentData, currentPage, totalPages } = this.state;
 			const totalRutas = data.length;
 			console.log(this.state.totalPages);

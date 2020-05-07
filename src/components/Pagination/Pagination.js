@@ -117,7 +117,7 @@ class Pagination extends Component {
 
 		const { currentPage } = this.state;
 		const pages = this.fetchPageNumbers();
-
+		// eslint-disable-next-line
 		return (
 			<Fragment>
 				<nav aria-label="Countries Pagination" id="pagination">
@@ -128,7 +128,7 @@ class Pagination extends Component {
 									<li key={index} className="page-item">
 										<a
 											className="page-link"
-											href="#"
+											href="/#"
 											aria-label="Previous"
 											onClick={this.handleMoveLeft}
 										>
@@ -143,7 +143,7 @@ class Pagination extends Component {
 									<li key={index} className="page-item">
 										<a
 											className="page-link"
-											href="#"
+											href="/#"
 											aria-label="Next"
 											onClick={this.handleMoveRight}
 										>
@@ -155,7 +155,7 @@ class Pagination extends Component {
 
 							return (
 								<li key={index} className={`page-item${currentPage === page ? " active" : ""}`}>
-									<a className="page-link" href="#" onClick={(e) => this.handleClick(page, e)}>
+									<a className="page-link" href="/#" onClick={(e) => this.handleClick(page, e)}>
 										{page}
 									</a>
 								</li>
