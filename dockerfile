@@ -8,7 +8,6 @@ RUN npm install
 
 ADD src /usr/src/app/src
 ADD public /usr/src/app/public
-RUN npm build
 
 COPY . /usr/src/app
 
