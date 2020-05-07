@@ -1,6 +1,7 @@
 import React from "react";
 import { Loader } from "@util-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Pagination from "../../components/Pagination";
 
 import { Header, RouteWrapper, MyRouteContainer, FormRenderContainer } from "./myroutes.style";
 import InfoRoute from "./InfoRoute";
@@ -15,10 +16,23 @@ class MyRoute extends React.Component {
 		super();
 		this.state = {
 			data: null,
-			original: null
+			original: null,
+			currentData: [],
+			currentPage: null,
+			pageLimit: 2,
+			totalPages: null
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}
+	onPageChanged = (data) => {
+		if (this.state.data !== null && this.state.data !== "EMPTY") {
+			const allRutas = this.state.data;
+			const { currentPage, totalPages, pageLimit } = data;
+			const offset = (currentPage - 1) * pageLimit;
+			const currentData = allRutas.slice(offset, offset + pageLimit);
+			this.setState({ currentPage, currentData, totalPages });
+		}
+	};
 	componentDidMount() {
 		const { webId } = this.props;
 		this._asyncRequest = viadeManager.readRoutesFromPod(webId).then((data) => {
@@ -46,10 +60,15 @@ class MyRoute extends React.Component {
 			});
 		} else {
 			newList = this.state.original;
+			this.state.totalPages = newList.length;
+			this.onPageChanged(this.state);
 		}
 		this.setState({
 			data: newList
 		});
+		this.state.totalPages = this.state.data.length;
+		this.state.currentPage = 1;
+		this.onPageChanged(this.state);
 	}
 
 	render(): React.ReactNode {
@@ -57,6 +76,9 @@ class MyRoute extends React.Component {
 		let baseUrl = webId.split("/", 3) + "/";
 		baseUrl = baseUrl.replace(",,", "//");
 		if (this.state.data !== null && this.state.data !== "EMPTY") {
+			const { data, original, currentData, currentPage, totalPages } = this.state;
+			const totalRutas = data.length;
+			console.log(this.state.totalPages);
 			return (
 				<RouteWrapper data-testid="route-component">
 					<MyRouteContainer data-testid="myroute-container">
@@ -70,8 +92,16 @@ class MyRoute extends React.Component {
 									placeholder="Search..."
 								/>
 								<FontAwesomeIcon icon="search" className="search-icon" id="searchIcon" />
+								<div className="d-flex flex-row py-4 align-items-center" id="pagination">
+									<Pagination
+										totalRecords={totalRutas}
+										pageLimit={1}
+										pageNeighbours={2}
+										onPageChanged={this.onPageChanged}
+									/>
+								</div>
 							</Header>
-							{this.state.data.map((ruta, index) => {
+							{this.state.currentData.map((ruta, index) => {
 								if (ruta.points.length > 0) {
 									return (
 										<InfoRoute
