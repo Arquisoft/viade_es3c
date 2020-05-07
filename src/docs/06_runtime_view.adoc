@@ -16,6 +16,7 @@ image::06_runtime_view_Log_in.png[Log in diagram]
 Once logged in correctly, the user has 2 main options: to create a new route or to view his saved routes.
 
 === New Route
+
 image::06_runtime_view_New_Route_Explain.png[New Route diagram]
 
 To create a new route, the user must access the corresponding view of the application where a map is shown on which he must draw his route using points. Once drawn, the user must enter a name, a description, and if desired, photos and/or videos to save along with his route.
@@ -23,6 +24,7 @@ To create a new route, the user must access the corresponding view of the applic
 image::06_runtime_view_New_Route.png[New Route diagram]
 
 === My Routes
+
 image::06_runtime_view_My_Routes_Explain.png[My Routes diagram]
 
 In the application, there is a view that shows all the routes that the user has saved so far.
@@ -31,6 +33,7 @@ For each route you can see: name, author, description, the points of the route o
 image::06_runtime_view_My_Routes.png[My Routes diagram]
 
 === Upload Route
+
 image::06_runtime_view_Upload_Route_Explain.png[My Routes diagram]
 
 You can also create a route through a geojson or gpx file. The user enters the name and description of the route, he can also upload multimedia. Once you press the save button, you will be redirected to my routes, where the new route will appear.
@@ -38,6 +41,7 @@ You can also create a route through a geojson or gpx file. The user enters the n
 image::06_runtime_view_Upload_Route.png[Upload Route diagram]
 
 === My Friends
+
 image::06_runtime_view_Adding_Deleting_Friends_Explain.png[My Friends diagram]
 
 This part of the application allows you to view the list of the user's friends in session. It is also possible to add and remove friends. After these two actions, the page where the friends are seen will be reloaded, allowing us to see the update of the list of our friends. 
@@ -56,6 +60,7 @@ image::06_runtime_view_Deleting_Friends.png[Deleting Friends diagram]
 
 
 === Share routes
+
 image::06_runtime_view_Share_Routes_Explain.png[Share routes diagram]
 
 Our application allow us to share a route with some friends. When you visualize the routes, each route has a button where you can select the friends who you want to share the route with.
@@ -67,6 +72,7 @@ We can see the routes that users shared with us by clicking on the shared routes
 
 === Notifications 
 When a route is shared with that friend, this friend receives a notification that follows this procedure:
+
 image::06_runtime_view_Notifications.png[Notification when share a route diagram]
 
 === Some extra features
@@ -74,13 +80,17 @@ Although it was not requested we made some functionalities that are detailed bel
 
 ==== Download routes
 We allow a route to be downloaded in two formats: in ttl format and in pdf
+
 image::06_runtime_view_Download_Route_Explain.png[Download route in ttl format]
+
 image::06_runtime_view_Download_Route_Explain_I.png[Download route in PDF format]
 
 ==== Modify routes
 After creating a route we allow the name, description ... to be modified.
-image::06_runtime_view_Modify_Route_Explain.PNG[Modify a route]
+
+image::06_runtime_view_Modify_Route_Explain.png[Modify a route]
 
 ==== Delete routes 
 We also allow a route to be removed. 
+
 image::06_runtime_view_Delete_Routes_Explain.png[Delete a route]
