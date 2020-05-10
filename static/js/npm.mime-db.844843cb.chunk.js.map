@@ -1,0 +1,1 @@
+{"version":3,"sources":["../node_modules/mime-db/index.js"],"names":["module","exports"],"mappings":";8EASAA,EAAOC,QAAU,EAAQ,M","file":"static/js/npm.mime-db.844843cb.chunk.js","sourcesContent":["/*!\n * mime-db\n * Copyright(c) 2014 Jonathan Ong\n * MIT Licensed\n */\n\n/**\n * Module exports.\n */\nmodule.exports = require('./db.json');"],"sourceRoot":""}
