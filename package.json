@@ -60,7 +60,7 @@
 		"react-awesome-slider": "^4.1.0",
 		"react-bootstrap": "^1.0.1",
 		"react-click-outside": "^3.0.1",
-		"react-dev-utils": "^7.0.1",
+		"react-dev-utils": "^11.0.4",
 		"react-dom": "^16.13.1",
 		"react-google-maps": "^9.4.5",
 		"react-i18next": "^10.1.2",
